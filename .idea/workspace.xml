@@ -190,53 +190,6 @@
               <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
               <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
-              <item name="accounts" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="account" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
-              <item name="localManagement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
-              <item name="localManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
-              <item name="localManagement" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="localManagement" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
-              <item name="order" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -326,19 +279,18 @@
       <workItem from="1543479728910" duration="47362000" />
       <workItem from="1543764410865" duration="25165000" />
       <workItem from="1543916688329" duration="20893000" />
-      <workItem from="1543998658989" duration="8281000" />
+      <workItem from="1543998658989" duration="8712000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="184867000" />
+    <option name="totallyTimeSpent" value="185298000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" sideWeight="0.50528544" side_tool="true" weight="0.34039333" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4947146" visible="true" weight="0.20045386" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4947146" visible="true" weight="0.20045386" />
       <window_info id="Structure" order="2" sideWeight="0.50292397" side_tool="true" weight="0.2677761" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32565284" />
@@ -349,7 +301,7 @@
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="7" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32872504" />
-      <window_info active="true" anchor="bottom" id="Run" order="9" sideWeight="0.49848714" visible="true" weight="0.2764977" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49848714" visible="true" weight="0.2764977" />
       <window_info anchor="bottom" id="Debug" order="10" weight="0.38307694" />
       <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
