@@ -1,0 +1,3048 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="trusteat_db@localhost">
+  <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.14">
+    <root id="1">
+      <ServerVersion>10.5</ServerVersion>
+    </root>
+    <database id="2" parent="1" name="Basi">
+      <ObjectId>41303</ObjectId>
+      <StateNumber>6053</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="3" parent="1" name="postgres">
+      <ObjectId>12938</ObjectId>
+      <Comment>default administrative connection database</Comment>
+      <StateNumber>554</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="4" parent="1" name="prova">
+      <ObjectId>49595</ObjectId>
+      <StateNumber>6123</StateNumber>
+      <Owner>postgres</Owner>
+    </database>
+    <database id="5" parent="1" name="trusteat_db">
+      <ObjectId>16393</ObjectId>
+      <StateNumber>557</StateNumber>
+      <Owner>postgres</Owner>
+      <IntrospectionStateNumber>506</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+      <Relations>sequence|table|40640|40642|1
+sequence|table|40651|40653|1
+sequence|table|40695|40697|1
+sequence|table|40703|40705|1
+sequence|table|40711|40713|1
+sequence|table|40719|40721|1
+sequence|table|40739|40741|1
+sequence|table|40747|40749|1
+sequence|table|40783|40785|1
+sequence|table|40791|40793|1
+sequence|table|40801|40803|1
+sequence|table|40832|40834|1
+sequence|table|40861|40863|1
+sequence|table|40869|40871|1
+sequence|table|40919|40921|1
+sequence|table|40927|40929|1
+sequence|table|40963|40965|1
+sequence|table|40999|41001|1
+sequence|table|41023|41025|1
+sequence|table|41031|41033|1
+sequence|table|41039|41041|1
+sequence|table|41121|41123|1
+sequence|table|41207|41209|1
+sequence|table|41218|41220|1
+sequence|table|41226|41228|1
+sequence|table|41234|41236|1
+sequence|table|41268|41270|1
+sequence|table|50324|50326|1
+</Relations>
+    </database>
+    <role id="6" parent="1" name="pg_monitor">
+      <ObjectId>3373</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="7" parent="1" name="pg_read_all_settings">
+      <ObjectId>3374</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="8" parent="1" name="pg_read_all_stats">
+      <ObjectId>3375</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="9" parent="1" name="pg_signal_backend">
+      <ObjectId>4200</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="10" parent="1" name="pg_stat_scan_tables">
+      <ObjectId>3377</ObjectId>
+      <Inherit>1</Inherit>
+      <ConnectionLimit>-1</ConnectionLimit>
+    </role>
+    <role id="11" parent="1" name="postgres">
+      <ObjectId>10</ObjectId>
+      <SuperRole>1</SuperRole>
+      <Inherit>1</Inherit>
+      <CreateRole>1</CreateRole>
+      <CreateDb>1</CreateDb>
+      <CanLogin>1</CanLogin>
+      <Replication>1</Replication>
+      <ConnectionLimit>-1</ConnectionLimit>
+      <BypassRls>1</BypassRls>
+    </role>
+    <schema id="12" parent="5" name="information_schema">
+      <ObjectId>12648</ObjectId>
+      <StateNumber>354</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="13" parent="5" name="pg_catalog">
+      <ObjectId>11</ObjectId>
+      <Comment>system catalog schema</Comment>
+      <StateNumber>351</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="14" parent="5" name="pg_temp_1">
+      <ObjectId>11736</ObjectId>
+      <StateNumber>114</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="15" parent="5" name="pg_toast">
+      <ObjectId>99</ObjectId>
+      <Comment>reserved schema for TOAST tables</Comment>
+      <StateNumber>1</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="16" parent="5" name="pg_toast_temp_1">
+      <ObjectId>11737</ObjectId>
+      <StateNumber>114</StateNumber>
+      <Owner>postgres</Owner>
+    </schema>
+    <schema id="17" parent="5" name="public">
+      <ObjectId>2200</ObjectId>
+      <Comment>standard public schema</Comment>
+      <StateNumber>352</StateNumber>
+      <Owner>postgres</Owner>
+      <IntrospectionTimestamp>2018-12-04.10:48:32.601</IntrospectionTimestamp>
+      <IntrospectionStateNumber>6604</IntrospectionStateNumber>
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <access-method id="18" parent="5" name="btree">
+      <ObjectId>403</ObjectId>
+      <Comment>b-tree index access method</Comment>
+      <Handler>pg_catalog.bthandler</Handler>
+      <HandlerId>330</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="19" parent="5" name="hash">
+      <ObjectId>405</ObjectId>
+      <Comment>hash index access method</Comment>
+      <Handler>pg_catalog.hashhandler</Handler>
+      <HandlerId>331</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="20" parent="5" name="gist">
+      <ObjectId>783</ObjectId>
+      <Comment>GiST index access method</Comment>
+      <Handler>pg_catalog.gisthandler</Handler>
+      <HandlerId>332</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="21" parent="5" name="gin">
+      <ObjectId>2742</ObjectId>
+      <Comment>GIN index access method</Comment>
+      <Handler>pg_catalog.ginhandler</Handler>
+      <HandlerId>333</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="22" parent="5" name="spgist">
+      <ObjectId>4000</ObjectId>
+      <Comment>SP-GiST index access method</Comment>
+      <Handler>pg_catalog.spghandler</Handler>
+      <HandlerId>334</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <access-method id="23" parent="5" name="brin">
+      <ObjectId>3580</ObjectId>
+      <Comment>block range index (BRIN) access method</Comment>
+      <Handler>pg_catalog.brinhandler</Handler>
+      <HandlerId>335</HandlerId>
+      <Type>index</Type>
+    </access-method>
+    <extension id="24" parent="5" name="plpgsql">
+      <ObjectId>12924</ObjectId>
+      <Comment>PL/pgSQL procedural language</Comment>
+      <StateNumber>506</StateNumber>
+      <Version>1.0</Version>
+      <SchemaName>pg_catalog</SchemaName>
+      <SchemaId>11</SchemaId>
+    </extension>
+    <sequence id="25" parent="17" name="accounts_commerciante_possiede_locale_id_seq">
+      <ObjectId>40963</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5895</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="26" parent="17" name="accounts_user_groups_id_seq">
+      <ObjectId>40861</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5891</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="27" parent="17" name="accounts_user_id_seq">
+      <ObjectId>40832</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5891</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="28" parent="17" name="accounts_user_user_permissions_id_seq">
+      <ObjectId>40869</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5891</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="29" parent="17" name="auth_group_id_seq">
+      <ObjectId>40791</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5880</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="30" parent="17" name="auth_group_permissions_id_seq">
+      <ObjectId>40801</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5880</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="31" parent="17" name="auth_permission_id_seq">
+      <ObjectId>40783</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5880</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="32" parent="17" name="django_admin_log_id_seq">
+      <ObjectId>40999</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5897</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="33" parent="17" name="django_content_type_id_seq">
+      <ObjectId>40651</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5871</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="34" parent="17" name="django_migrations_id_seq">
+      <ObjectId>40640</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5870</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="35" parent="17" name="localManagement_chiusura_id_seq">
+      <ObjectId>40695</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5876</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="36" parent="17" name="localManagement_compostoda_id_seq">
+      <ObjectId>40703</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5876</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="37" parent="17" name="localManagement_fotolocale_id_seq">
+      <ObjectId>40711</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5876</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="38" parent="17" name="localManagement_locale_cod_locale_seq">
+      <ObjectId>40719</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5876</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="39" parent="17" name="localManagement_locale_tag_id_seq">
+      <ObjectId>41121</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5903</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="40" parent="17" name="localManagement_menu_id_seq">
+      <ObjectId>40739</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5876</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="41" parent="17" name="localManagement_prodotto_id_seq">
+      <ObjectId>40747</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5876</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="42" parent="17" name="order_ordineinattesa_cod_ordine_seq">
+      <ObjectId>41023</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5901</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="43" parent="17" name="order_richiedem_id_seq">
+      <ObjectId>41031</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5901</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="44" parent="17" name="order_richiedep_id_seq">
+      <ObjectId>41039</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5901</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="45" parent="17" name="social_auth_association_id_seq">
+      <ObjectId>41207</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5907</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="46" parent="17" name="social_auth_code_id_seq">
+      <ObjectId>41218</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5907</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="47" parent="17" name="social_auth_nonce_id_seq">
+      <ObjectId>41226</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5907</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="48" parent="17" name="social_auth_partial_id_seq">
+      <ObjectId>41268</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5920</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="49" parent="17" name="social_auth_usersocialauth_id_seq">
+      <ObjectId>41234</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5907</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="50" parent="17" name="user_cartadicredito_cod_carta_seq">
+      <ObjectId>40919</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5893</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="51" parent="17" name="user_cartadicredito_utente_id_seq">
+      <ObjectId>50324</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>6389</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <sequence id="52" parent="17" name="user_recensione_cod_recensione_seq">
+      <ObjectId>40927</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5893</StateNumber>
+      <SequenceIdentity>1..2147483647</SequenceIdentity>
+      <CacheSize>1</CacheSize>
+      <DataType>integer</DataType>
+    </sequence>
+    <table id="53" parent="17" name="accounts_commerciante">
+      <ObjectId>40849</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5895</StateNumber>
+    </table>
+    <table id="54" parent="17" name="accounts_commerciante_possiede_locale">
+      <ObjectId>40965</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5895</StateNumber>
+    </table>
+    <table id="55" parent="17" name="accounts_user">
+      <ObjectId>40834</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5910</StateNumber>
+    </table>
+    <table id="56" parent="17" name="accounts_user_groups">
+      <ObjectId>40863</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5891</StateNumber>
+    </table>
+    <table id="57" parent="17" name="accounts_user_user_permissions">
+      <ObjectId>40871</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5891</StateNumber>
+    </table>
+    <table id="58" parent="17" name="accounts_utente">
+      <ObjectId>40856</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>6389</StateNumber>
+    </table>
+    <table id="59" parent="17" name="auth_group">
+      <ObjectId>40793</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5891</StateNumber>
+    </table>
+    <table id="60" parent="17" name="auth_group_permissions">
+      <ObjectId>40803</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5880</StateNumber>
+    </table>
+    <table id="61" parent="17" name="auth_permission">
+      <ObjectId>40785</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5891</StateNumber>
+    </table>
+    <table id="62" parent="17" name="django_admin_log">
+      <ObjectId>41001</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5897</StateNumber>
+    </table>
+    <table id="63" parent="17" name="django_content_type">
+      <ObjectId>40653</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5897</StateNumber>
+    </table>
+    <table id="64" parent="17" name="django_migrations">
+      <ObjectId>40642</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5870</StateNumber>
+    </table>
+    <table id="65" parent="17" name="django_session">
+      <ObjectId>41197</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5905</StateNumber>
+    </table>
+    <table id="66" parent="17" name="localManagement_chiusura">
+      <ObjectId>40697</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5903</StateNumber>
+    </table>
+    <table id="67" parent="17" name="localManagement_compostoda">
+      <ObjectId>40705</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5903</StateNumber>
+    </table>
+    <table id="68" parent="17" name="localManagement_fotolocale">
+      <ObjectId>40713</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5903</StateNumber>
+    </table>
+    <table id="69" parent="17" name="localManagement_locale">
+      <ObjectId>40721</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>6282</StateNumber>
+    </table>
+    <table id="70" parent="17" name="localManagement_locale_tag">
+      <ObjectId>41123</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5903</StateNumber>
+    </table>
+    <table id="71" parent="17" name="localManagement_localita">
+      <ObjectId>40732</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5903</StateNumber>
+    </table>
+    <table id="72" parent="17" name="localManagement_menu">
+      <ObjectId>40741</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5903</StateNumber>
+    </table>
+    <table id="73" parent="17" name="localManagement_prodotto">
+      <ObjectId>40749</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5903</StateNumber>
+    </table>
+    <table id="74" parent="17" name="localManagement_tag">
+      <ObjectId>40755</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5903</StateNumber>
+    </table>
+    <table id="75" parent="17" name="localManagement_tipo">
+      <ObjectId>40760</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5876</StateNumber>
+    </table>
+    <table id="76" parent="17" name="order_ordineinattesa">
+      <ObjectId>41025</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>6604</StateNumber>
+    </table>
+    <table id="77" parent="17" name="order_richiedem">
+      <ObjectId>41033</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5901</StateNumber>
+    </table>
+    <table id="78" parent="17" name="order_richiedep">
+      <ObjectId>41041</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5901</StateNumber>
+    </table>
+    <table id="79" parent="17" name="social_auth_association">
+      <ObjectId>41209</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5907</StateNumber>
+    </table>
+    <table id="80" parent="17" name="social_auth_code">
+      <ObjectId>41220</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5922</StateNumber>
+    </table>
+    <table id="81" parent="17" name="social_auth_nonce">
+      <ObjectId>41228</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5907</StateNumber>
+    </table>
+    <table id="82" parent="17" name="social_auth_partial">
+      <ObjectId>41270</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5924</StateNumber>
+    </table>
+    <table id="83" parent="17" name="social_auth_usersocialauth">
+      <ObjectId>41236</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5910</StateNumber>
+    </table>
+    <table id="84" parent="17" name="user_cartadicredito">
+      <ObjectId>40921</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>6389</StateNumber>
+    </table>
+    <table id="85" parent="17" name="user_cartadicredito_utente">
+      <ObjectId>50326</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>6389</StateNumber>
+    </table>
+    <table id="86" parent="17" name="user_recensione">
+      <ObjectId>40929</ObjectId>
+      <Owner>postgres</Owner>
+      <StateNumber>5893</StateNumber>
+    </table>
+    <column id="87" parent="53" name="user_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="88" parent="53" name="p_iva">
+      <Position>2</Position>
+      <DataType>varchar(11)|0s</DataType>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="89" parent="53" name="accounts_commerciante_pkey">
+      <ObjectId>40852</ObjectId>
+      <ColNames>user_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="90" parent="53" name="accounts_commerciante_p_iva_key">
+      <ObjectId>40854</ObjectId>
+      <ColNames>p_iva</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="91" parent="53" name="accounts_commerciante_p_iva_e03c46df_like">
+      <ObjectId>40885</ObjectId>
+      <ColNames>p_iva</ColNames>
+    </index>
+    <key id="92" parent="53" name="accounts_commerciante_pkey">
+      <ObjectId>40853</ObjectId>
+      <ColNames>user_id</ColNames>
+      <UnderlyingIndexName>accounts_commerciante_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="93" parent="53" name="accounts_commerciante_p_iva_key">
+      <ObjectId>40855</ObjectId>
+      <ColNames>p_iva</ColNames>
+      <UnderlyingIndexName>accounts_commerciante_p_iva_key</UnderlyingIndexName>
+    </key>
+    <foreign-key id="94" parent="53" name="accounts_commerciante_user_id_1816ee7c_fk_accounts_user_id">
+      <ObjectId>40880</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>user_id</ColNames>
+      <RefTableId>40834</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>accounts_user</RefTableName>
+      <RefKeyName>accounts_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="95" parent="54" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5895</StateNumber>
+      <DefaultExpression>nextval(&apos;accounts_commerciante_possiede_locale_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="96" parent="54" name="commerciante_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5895</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="97" parent="54" name="locale_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5895</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="98" parent="54" name="accounts_commerciante_possiede_locale_pkey">
+      <ObjectId>40969</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="99" parent="54" name="accounts_commerciante_po_commerciante_id_locale_i_29efcfc2_uniq">
+      <ObjectId>40995</ObjectId>
+      <ColNames>commerciante_id
+locale_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="100" parent="54" name="accounts_commerciante_possiede_locale_commerciante_id_095a1f45">
+      <ObjectId>40997</ObjectId>
+      <ColNames>commerciante_id</ColNames>
+    </index>
+    <index id="101" parent="54" name="accounts_commerciante_possiede_locale_locale_id_693f9cef">
+      <ObjectId>40998</ObjectId>
+      <ColNames>locale_id</ColNames>
+    </index>
+    <key id="102" parent="54" name="accounts_commerciante_possiede_locale_pkey">
+      <ObjectId>40970</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>accounts_commerciante_possiede_locale_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="103" parent="54" name="accounts_commerciante_po_commerciante_id_locale_i_29efcfc2_uniq">
+      <ObjectId>40996</ObjectId>
+      <ColNames>commerciante_id
+locale_id</ColNames>
+      <UnderlyingIndexName>accounts_commerciante_po_commerciante_id_locale_i_29efcfc2_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="104" parent="54" name="accounts_commerciant_commerciante_id_095a1f45_fk_accounts_">
+      <ObjectId>40985</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>commerciante_id</ColNames>
+      <RefTableId>40849</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>accounts_commerciante</RefTableName>
+      <RefKeyName>accounts_commerciante_pkey</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="105" parent="54" name="accounts_commerciant_locale_id_693f9cef_fk_localMana">
+      <ObjectId>40990</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>locale_id</ColNames>
+      <RefTableId>40721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_locale</RefTableName>
+      <RefKeyName>localManagement_locale_pkey</RefKeyName>
+      <RefColNames>cod_locale</RefColNames>
+    </foreign-key>
+    <column id="106" parent="55" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <DefaultExpression>nextval(&apos;accounts_user_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="107" parent="55" name="password">
+      <Position>2</Position>
+      <DataType>varchar(128)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="108" parent="55" name="last_login">
+      <Position>3</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="109" parent="55" name="is_superuser">
+      <Position>4</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="110" parent="55" name="username">
+      <Position>5</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="111" parent="55" name="first_name">
+      <Position>6</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="112" parent="55" name="last_name">
+      <Position>7</Position>
+      <DataType>varchar(150)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="113" parent="55" name="is_staff">
+      <Position>8</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="114" parent="55" name="is_active">
+      <Position>9</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="115" parent="55" name="date_joined">
+      <Position>10</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="116" parent="55" name="is_utente">
+      <Position>11</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="117" parent="55" name="is_commerciante">
+      <Position>12</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="118" parent="55" name="email">
+      <Position>13</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="119" parent="55" name="via">
+      <Position>14</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="120" parent="55" name="civico">
+      <Position>15</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="121" parent="55" name="cap">
+      <Position>16</Position>
+      <DataType>varchar(6)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="122" parent="55" name="telefono">
+      <Position>17</Position>
+      <DataType>varchar(15)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="123" parent="55" name="accounts_user_pkey">
+      <ObjectId>40841</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="124" parent="55" name="accounts_user_username_key">
+      <ObjectId>40843</ObjectId>
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="125" parent="55" name="accounts_user_email_key">
+      <ObjectId>40845</ObjectId>
+      <ColNames>email</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="126" parent="55" name="accounts_user_username_6088629e_like">
+      <ObjectId>40877</ObjectId>
+      <ColNames>username</ColNames>
+    </index>
+    <index id="127" parent="55" name="accounts_user_email_b2644a56_like">
+      <ObjectId>40878</ObjectId>
+      <ColNames>email</ColNames>
+    </index>
+    <key id="128" parent="55" name="accounts_user_pkey">
+      <ObjectId>40842</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>accounts_user_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="129" parent="55" name="accounts_user_username_key">
+      <ObjectId>40844</ObjectId>
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>accounts_user_username_key</UnderlyingIndexName>
+    </key>
+    <key id="130" parent="55" name="accounts_user_email_key">
+      <ObjectId>40846</ObjectId>
+      <ColNames>email</ColNames>
+      <UnderlyingIndexName>accounts_user_email_key</UnderlyingIndexName>
+    </key>
+    <column id="131" parent="56" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <DefaultExpression>nextval(&apos;accounts_user_groups_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="132" parent="56" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="133" parent="56" name="group_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="134" parent="56" name="accounts_user_groups_pkey">
+      <ObjectId>40867</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="135" parent="56" name="accounts_user_groups_user_id_group_id_59c0b32f_uniq">
+      <ObjectId>40901</ObjectId>
+      <ColNames>user_id
+group_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="136" parent="56" name="accounts_user_groups_user_id_52b62117">
+      <ObjectId>40903</ObjectId>
+      <ColNames>user_id</ColNames>
+    </index>
+    <index id="137" parent="56" name="accounts_user_groups_group_id_bd11a704">
+      <ObjectId>40904</ObjectId>
+      <ColNames>group_id</ColNames>
+    </index>
+    <key id="138" parent="56" name="accounts_user_groups_pkey">
+      <ObjectId>40868</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>accounts_user_groups_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="139" parent="56" name="accounts_user_groups_user_id_group_id_59c0b32f_uniq">
+      <ObjectId>40902</ObjectId>
+      <ColNames>user_id
+group_id</ColNames>
+      <UnderlyingIndexName>accounts_user_groups_user_id_group_id_59c0b32f_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="140" parent="56" name="accounts_user_groups_user_id_52b62117_fk_accounts_user_id">
+      <ObjectId>40891</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>user_id</ColNames>
+      <RefTableId>40834</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>accounts_user</RefTableName>
+      <RefKeyName>accounts_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="141" parent="56" name="accounts_user_groups_group_id_bd11a704_fk_auth_group_id">
+      <ObjectId>40896</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>group_id</ColNames>
+      <RefTableId>40793</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_group</RefTableName>
+      <RefKeyName>auth_group_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="142" parent="57" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <DefaultExpression>nextval(&apos;accounts_user_user_permissions_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="143" parent="57" name="user_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="144" parent="57" name="permission_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="145" parent="57" name="accounts_user_user_permissions_pkey">
+      <ObjectId>40875</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="146" parent="57" name="accounts_user_user_permi_user_id_permission_id_2ab516c2_uniq">
+      <ObjectId>40915</ObjectId>
+      <ColNames>user_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="147" parent="57" name="accounts_user_user_permissions_user_id_e4f0a161">
+      <ObjectId>40917</ObjectId>
+      <ColNames>user_id</ColNames>
+    </index>
+    <index id="148" parent="57" name="accounts_user_user_permissions_permission_id_113bb443">
+      <ObjectId>40918</ObjectId>
+      <ColNames>permission_id</ColNames>
+    </index>
+    <key id="149" parent="57" name="accounts_user_user_permissions_pkey">
+      <ObjectId>40876</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>accounts_user_user_permissions_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="150" parent="57" name="accounts_user_user_permi_user_id_permission_id_2ab516c2_uniq">
+      <ObjectId>40916</ObjectId>
+      <ColNames>user_id
+permission_id</ColNames>
+      <UnderlyingIndexName>accounts_user_user_permi_user_id_permission_id_2ab516c2_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="151" parent="57" name="accounts_user_user_p_user_id_e4f0a161_fk_accounts_">
+      <ObjectId>40905</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>user_id</ColNames>
+      <RefTableId>40834</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>accounts_user</RefTableName>
+      <RefKeyName>accounts_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="152" parent="57" name="accounts_user_user_p_permission_id_113bb443_fk_auth_perm">
+      <ObjectId>40910</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>permission_id</ColNames>
+      <RefTableId>40785</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_permission</RefTableName>
+      <RefKeyName>auth_permission_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="153" parent="58" name="user_id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5891</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="154" parent="58" name="accounts_utente_pkey">
+      <ObjectId>40859</ObjectId>
+      <ColNames>user_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="155" parent="58" name="accounts_utente_pkey">
+      <ObjectId>40860</ObjectId>
+      <StateNumber>5891</StateNumber>
+      <ColNames>user_id</ColNames>
+      <UnderlyingIndexName>accounts_utente_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="156" parent="58" name="accounts_utente_user_id_fa864d81_fk_accounts_user_id">
+      <ObjectId>40886</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>5891</StateNumber>
+      <ColNames>user_id</ColNames>
+      <RefTableId>40834</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>accounts_user</RefTableName>
+      <RefKeyName>accounts_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="157" parent="59" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5880</StateNumber>
+      <DefaultExpression>nextval(&apos;auth_group_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="158" parent="59" name="name">
+      <Position>2</Position>
+      <DataType>varchar(80)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5880</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="159" parent="59" name="auth_group_pkey">
+      <ObjectId>40797</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="160" parent="59" name="auth_group_name_key">
+      <ObjectId>40799</ObjectId>
+      <ColNames>name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="161" parent="59" name="auth_group_name_a6ea08ec_like">
+      <ObjectId>40817</ObjectId>
+      <ColNames>name</ColNames>
+    </index>
+    <key id="162" parent="59" name="auth_group_pkey">
+      <ObjectId>40798</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>auth_group_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="163" parent="59" name="auth_group_name_key">
+      <ObjectId>40800</ObjectId>
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>auth_group_name_key</UnderlyingIndexName>
+    </key>
+    <column id="164" parent="60" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5880</StateNumber>
+      <DefaultExpression>nextval(&apos;auth_group_permissions_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="165" parent="60" name="group_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5880</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="166" parent="60" name="permission_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5880</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="167" parent="60" name="auth_group_permissions_pkey">
+      <ObjectId>40807</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="168" parent="60" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
+      <ObjectId>40828</ObjectId>
+      <ColNames>group_id
+permission_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="169" parent="60" name="auth_group_permissions_group_id_b120cbf9">
+      <ObjectId>40830</ObjectId>
+      <ColNames>group_id</ColNames>
+    </index>
+    <index id="170" parent="60" name="auth_group_permissions_permission_id_84c5c92e">
+      <ObjectId>40831</ObjectId>
+      <ColNames>permission_id</ColNames>
+    </index>
+    <key id="171" parent="60" name="auth_group_permissions_pkey">
+      <ObjectId>40808</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>auth_group_permissions_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="172" parent="60" name="auth_group_permissions_group_id_permission_id_0cd325b0_uniq">
+      <ObjectId>40829</ObjectId>
+      <ColNames>group_id
+permission_id</ColNames>
+      <UnderlyingIndexName>auth_group_permissions_group_id_permission_id_0cd325b0_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="173" parent="60" name="auth_group_permissions_group_id_b120cbf9_fk_auth_group_id">
+      <ObjectId>40818</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>group_id</ColNames>
+      <RefTableId>40793</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_group</RefTableName>
+      <RefKeyName>auth_group_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="174" parent="60" name="auth_group_permissio_permission_id_84c5c92e_fk_auth_perm">
+      <ObjectId>40823</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>permission_id</ColNames>
+      <RefTableId>40785</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>auth_permission</RefTableName>
+      <RefKeyName>auth_permission_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="175" parent="61" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5880</StateNumber>
+      <DefaultExpression>nextval(&apos;auth_permission_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="176" parent="61" name="name">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5882</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="177" parent="61" name="content_type_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5880</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="178" parent="61" name="codename">
+      <Position>4</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5880</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="179" parent="61" name="auth_permission_pkey">
+      <ObjectId>40789</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="180" parent="61" name="auth_permission_content_type_id_codename_01ab375a_uniq">
+      <ObjectId>40814</ObjectId>
+      <ColNames>content_type_id
+codename</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="181" parent="61" name="auth_permission_content_type_id_2f476e4b">
+      <ObjectId>40816</ObjectId>
+      <ColNames>content_type_id</ColNames>
+    </index>
+    <key id="182" parent="61" name="auth_permission_pkey">
+      <ObjectId>40790</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>auth_permission_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="183" parent="61" name="auth_permission_content_type_id_codename_01ab375a_uniq">
+      <ObjectId>40815</ObjectId>
+      <ColNames>content_type_id
+codename</ColNames>
+      <UnderlyingIndexName>auth_permission_content_type_id_codename_01ab375a_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="184" parent="61" name="auth_permission_content_type_id_2f476e4b_fk_django_co">
+      <ObjectId>40809</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>content_type_id</ColNames>
+      <RefTableId>40653</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>django_content_type</RefTableName>
+      <RefKeyName>django_content_type_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="185" parent="62" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5897</StateNumber>
+      <DefaultExpression>nextval(&apos;django_admin_log_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="186" parent="62" name="action_time">
+      <Position>2</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5897</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="187" parent="62" name="object_id">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+      <StateNumber>5897</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="188" parent="62" name="object_repr">
+      <Position>4</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5897</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="189" parent="62" name="action_flag">
+      <Position>5</Position>
+      <DataType>smallint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5897</StateNumber>
+      <TypeId>21</TypeId>
+    </column>
+    <column id="190" parent="62" name="change_message">
+      <Position>6</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5897</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="191" parent="62" name="content_type_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>5897</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="192" parent="62" name="user_id">
+      <Position>8</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5897</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="193" parent="62" name="django_admin_log_pkey">
+      <ObjectId>41009</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="194" parent="62" name="django_admin_log_content_type_id_c4bce8eb">
+      <ObjectId>41021</ObjectId>
+      <ColNames>content_type_id</ColNames>
+    </index>
+    <index id="195" parent="62" name="django_admin_log_user_id_c564eba6">
+      <ObjectId>41022</ObjectId>
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="196" parent="62" name="django_admin_log_pkey">
+      <ObjectId>41010</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>django_admin_log_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="197" parent="62" name="django_admin_log_content_type_id_c4bce8eb_fk_django_co">
+      <ObjectId>41011</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>content_type_id</ColNames>
+      <RefTableId>40653</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>django_content_type</RefTableName>
+      <RefKeyName>django_content_type_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="198" parent="62" name="django_admin_log_user_id_c564eba6_fk_accounts_user_id">
+      <ObjectId>41016</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>user_id</ColNames>
+      <RefTableId>40834</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>accounts_user</RefTableName>
+      <RefKeyName>accounts_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <check id="199" parent="62" name="django_admin_log_action_flag_check">
+      <ObjectId>41005</ObjectId>
+      <ColNames>action_flag</ColNames>
+      <Predicate>action_flag &gt;= 0</Predicate>
+    </check>
+    <column id="200" parent="63" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5871</StateNumber>
+      <DefaultExpression>nextval(&apos;django_content_type_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="201" parent="63" name="app_label">
+      <Position>3</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5871</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="202" parent="63" name="model">
+      <Position>4</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5871</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="203" parent="63" name="django_content_type_pkey">
+      <ObjectId>40657</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="204" parent="63" name="django_content_type_app_label_model_76bd3d3b_uniq">
+      <ObjectId>40659</ObjectId>
+      <ColNames>app_label
+model</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="205" parent="63" name="django_content_type_pkey">
+      <ObjectId>40658</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>django_content_type_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="206" parent="63" name="django_content_type_app_label_model_76bd3d3b_uniq">
+      <ObjectId>40660</ObjectId>
+      <ColNames>app_label
+model</ColNames>
+      <UnderlyingIndexName>django_content_type_app_label_model_76bd3d3b_uniq</UnderlyingIndexName>
+    </key>
+    <column id="207" parent="64" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5870</StateNumber>
+      <DefaultExpression>nextval(&apos;django_migrations_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="208" parent="64" name="app">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5870</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="209" parent="64" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5870</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="210" parent="64" name="applied">
+      <Position>4</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5870</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <index id="211" parent="64" name="django_migrations_pkey">
+      <ObjectId>40649</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="212" parent="64" name="django_migrations_pkey">
+      <ObjectId>40650</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>django_migrations_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="213" parent="65" name="session_key">
+      <Position>1</Position>
+      <DataType>varchar(40)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5905</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="214" parent="65" name="session_data">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5905</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="215" parent="65" name="expire_date">
+      <Position>3</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5905</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <index id="216" parent="65" name="django_session_pkey">
+      <ObjectId>41203</ObjectId>
+      <ColNames>session_key</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="217" parent="65" name="django_session_session_key_c0390e0f_like">
+      <ObjectId>41205</ObjectId>
+      <ColNames>session_key</ColNames>
+    </index>
+    <index id="218" parent="65" name="django_session_expire_date_a5c62663">
+      <ObjectId>41206</ObjectId>
+      <ColNames>expire_date</ColNames>
+    </index>
+    <key id="219" parent="65" name="django_session_pkey">
+      <ObjectId>41204</ObjectId>
+      <ColNames>session_key</ColNames>
+      <UnderlyingIndexName>django_session_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="220" parent="66" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <DefaultExpression>nextval(&apos;&quot;localManagement_chiusura_id_seq&quot;&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="221" parent="66" name="giorno_chiusura">
+      <Position>2</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="222" parent="66" name="cod_locale_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5903</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="223" parent="66" name="localManagement_chiusura_pkey">
+      <ObjectId>40701</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="224" parent="66" name="localManagement_chiusura_cod_locale_id_giorno_chi_5f4636f6_uniq">
+      <ObjectId>41137</ObjectId>
+      <ColNames>cod_locale_id
+giorno_chiusura</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="225" parent="66" name="localManagement_chiusura_cod_locale_id_a7330dd7">
+      <ObjectId>41191</ObjectId>
+      <ColNames>cod_locale_id</ColNames>
+    </index>
+    <key id="226" parent="66" name="localManagement_chiusura_pkey">
+      <ObjectId>40702</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>localManagement_chiusura_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="227" parent="66" name="localManagement_chiusura_cod_locale_id_giorno_chi_5f4636f6_uniq">
+      <ObjectId>41138</ObjectId>
+      <ColNames>cod_locale_id
+giorno_chiusura</ColNames>
+      <UnderlyingIndexName>localManagement_chiusura_cod_locale_id_giorno_chi_5f4636f6_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="228" parent="66" name="localManagement_chiu_cod_locale_id_a7330dd7_fk_localMana">
+      <ObjectId>41192</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>cod_locale_id</ColNames>
+      <RefTableId>40721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_locale</RefTableName>
+      <RefKeyName>localManagement_locale_pkey</RefKeyName>
+      <RefColNames>cod_locale</RefColNames>
+    </foreign-key>
+    <column id="229" parent="67" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <DefaultExpression>nextval(&apos;&quot;localManagement_compostoda_id_seq&quot;&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="230" parent="67" name="cod_locale_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5903</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="231" parent="67" name="nome_menu_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5903</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="232" parent="67" name="nome_prodotto_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5903</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="233" parent="67" name="localManagement_compostoda_pkey">
+      <ObjectId>40709</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="234" parent="67" name="localManagement_composto_cod_locale_id_nome_menu__2adf1473_uniq">
+      <ObjectId>41135</ObjectId>
+      <ColNames>cod_locale_id
+nome_menu_id
+nome_prodotto_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="235" parent="67" name="localManagement_compostoda_cod_locale_id_901520e9">
+      <ObjectId>41173</ObjectId>
+      <ColNames>cod_locale_id</ColNames>
+    </index>
+    <index id="236" parent="67" name="localManagement_compostoda_nome_menu_id_fbf1ce67">
+      <ObjectId>41179</ObjectId>
+      <ColNames>nome_menu_id</ColNames>
+    </index>
+    <index id="237" parent="67" name="localManagement_compostoda_nome_prodotto_id_c53a25d8">
+      <ObjectId>41185</ObjectId>
+      <ColNames>nome_prodotto_id</ColNames>
+    </index>
+    <key id="238" parent="67" name="localManagement_compostoda_pkey">
+      <ObjectId>40710</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>localManagement_compostoda_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="239" parent="67" name="localManagement_composto_cod_locale_id_nome_menu__2adf1473_uniq">
+      <ObjectId>41136</ObjectId>
+      <ColNames>cod_locale_id
+nome_menu_id
+nome_prodotto_id</ColNames>
+      <UnderlyingIndexName>localManagement_composto_cod_locale_id_nome_menu__2adf1473_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="240" parent="67" name="localManagement_comp_cod_locale_id_901520e9_fk_localMana">
+      <ObjectId>41174</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>cod_locale_id</ColNames>
+      <RefTableId>40721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_locale</RefTableName>
+      <RefKeyName>localManagement_locale_pkey</RefKeyName>
+      <RefColNames>cod_locale</RefColNames>
+    </foreign-key>
+    <foreign-key id="241" parent="67" name="localManagement_comp_nome_menu_id_fbf1ce67_fk_localMana">
+      <ObjectId>41180</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>nome_menu_id</ColNames>
+      <RefTableId>40741</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_menu</RefTableName>
+      <RefKeyName>localManagement_menu_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="242" parent="67" name="localManagement_comp_nome_prodotto_id_c53a25d8_fk_localMana">
+      <ObjectId>41186</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>nome_prodotto_id</ColNames>
+      <RefTableId>40749</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_prodotto</RefTableName>
+      <RefKeyName>localManagement_prodotto_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="243" parent="68" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <DefaultExpression>nextval(&apos;&quot;localManagement_fotolocale_id_seq&quot;&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="244" parent="68" name="foto_locale">
+      <Position>2</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="245" parent="68" name="cod_locale_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5903</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="246" parent="68" name="localManagement_fotolocale_pkey">
+      <ObjectId>40717</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="247" parent="68" name="localManagement_fotolocale_cod_locale_id_8b7d3141">
+      <ObjectId>41167</ObjectId>
+      <ColNames>cod_locale_id</ColNames>
+    </index>
+    <key id="248" parent="68" name="localManagement_fotolocale_pkey">
+      <ObjectId>40718</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>localManagement_fotolocale_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="249" parent="68" name="localManagement_foto_cod_locale_id_8b7d3141_fk_localMana">
+      <ObjectId>41168</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>cod_locale_id</ColNames>
+      <RefTableId>40721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_locale</RefTableName>
+      <RefKeyName>localManagement_locale_pkey</RefKeyName>
+      <RefColNames>cod_locale</RefColNames>
+    </foreign-key>
+    <column id="250" parent="69" name="cod_locale">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <DefaultExpression>nextval(&apos;&quot;localManagement_locale_cod_locale_seq&quot;&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="251" parent="69" name="nome_locale">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="252" parent="69" name="orario_apertura">
+      <Position>3</Position>
+      <DataType>time|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1083</TypeId>
+    </column>
+    <column id="253" parent="69" name="orario_chiusura">
+      <Position>4</Position>
+      <DataType>time|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1083</TypeId>
+    </column>
+    <column id="254" parent="69" name="num_civico">
+      <Position>5</Position>
+      <DataType>varchar(10)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="255" parent="69" name="via">
+      <Position>6</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="256" parent="69" name="descrizione">
+      <Position>7</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="257" parent="69" name="telefono">
+      <Position>8</Position>
+      <DataType>varchar(15)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="258" parent="69" name="sito_web">
+      <Position>9</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="259" parent="69" name="email">
+      <Position>10</Position>
+      <DataType>varchar(254)|0s</DataType>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="260" parent="69" name="cap_id">
+      <Position>11</Position>
+      <DataType>varchar(5)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5903</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="261" parent="69" name="prezzo_di_spedizione">
+      <Position>12</Position>
+      <DataType>double precision|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6282</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <index id="262" parent="69" name="localManagement_locale_pkey">
+      <ObjectId>40728</ObjectId>
+      <StateNumber>6282</StateNumber>
+      <ColNames>cod_locale</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="263" parent="69" name="localManagement_locale_nome_locale_cap_id_681bd480_uniq">
+      <ObjectId>41133</ObjectId>
+      <StateNumber>6282</StateNumber>
+      <ColNames>nome_locale
+cap_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="264" parent="69" name="localManagement_locale_cap_id_a749c588">
+      <ObjectId>41145</ObjectId>
+      <StateNumber>6282</StateNumber>
+      <ColNames>cap_id</ColNames>
+    </index>
+    <index id="265" parent="69" name="localManagement_locale_cap_id_a749c588_like">
+      <ObjectId>41146</ObjectId>
+      <StateNumber>6282</StateNumber>
+      <ColNames>cap_id</ColNames>
+    </index>
+    <key id="266" parent="69" name="localManagement_locale_pkey">
+      <ObjectId>40729</ObjectId>
+      <StateNumber>5876</StateNumber>
+      <ColNames>cod_locale</ColNames>
+      <UnderlyingIndexName>localManagement_locale_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="267" parent="69" name="localManagement_locale_nome_locale_cap_id_681bd480_uniq">
+      <ObjectId>41134</ObjectId>
+      <StateNumber>5903</StateNumber>
+      <ColNames>nome_locale
+cap_id</ColNames>
+      <UnderlyingIndexName>localManagement_locale_nome_locale_cap_id_681bd480_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="268" parent="69" name="localManagement_loca_cap_id_a749c588_fk_localMana">
+      <ObjectId>41147</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>5903</StateNumber>
+      <ColNames>cap_id</ColNames>
+      <RefTableId>40732</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_localita</RefTableName>
+      <RefKeyName>localManagement_localita_pkey</RefKeyName>
+      <RefColNames>cap</RefColNames>
+    </foreign-key>
+    <column id="269" parent="70" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5903</StateNumber>
+      <DefaultExpression>nextval(&apos;&quot;localManagement_locale_tag_id_seq&quot;&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="270" parent="70" name="locale_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5903</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="271" parent="70" name="tag_id">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5903</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="272" parent="70" name="localManagement_locale_tag_pkey">
+      <ObjectId>41127</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="273" parent="70" name="localManagement_locale_tag_locale_id_tag_id_85323664_uniq">
+      <ObjectId>41162</ObjectId>
+      <ColNames>locale_id
+tag_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="274" parent="70" name="localManagement_locale_tag_locale_id_53b28b69">
+      <ObjectId>41164</ObjectId>
+      <ColNames>locale_id</ColNames>
+    </index>
+    <index id="275" parent="70" name="localManagement_locale_tag_tag_id_a4c2f7ef">
+      <ObjectId>41165</ObjectId>
+      <ColNames>tag_id</ColNames>
+    </index>
+    <index id="276" parent="70" name="localManagement_locale_tag_tag_id_a4c2f7ef_like">
+      <ObjectId>41166</ObjectId>
+      <ColNames>tag_id</ColNames>
+    </index>
+    <key id="277" parent="70" name="localManagement_locale_tag_pkey">
+      <ObjectId>41128</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>localManagement_locale_tag_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="278" parent="70" name="localManagement_locale_tag_locale_id_tag_id_85323664_uniq">
+      <ObjectId>41163</ObjectId>
+      <ColNames>locale_id
+tag_id</ColNames>
+      <UnderlyingIndexName>localManagement_locale_tag_locale_id_tag_id_85323664_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="279" parent="70" name="localManagement_loca_locale_id_53b28b69_fk_localMana">
+      <ObjectId>41152</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>locale_id</ColNames>
+      <RefTableId>40721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_locale</RefTableName>
+      <RefKeyName>localManagement_locale_pkey</RefKeyName>
+      <RefColNames>cod_locale</RefColNames>
+    </foreign-key>
+    <foreign-key id="280" parent="70" name="localManagement_loca_tag_id_a4c2f7ef_fk_localMana">
+      <ObjectId>41157</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>tag_id</ColNames>
+      <RefTableId>40755</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_tag</RefTableName>
+      <RefKeyName>localManagement_tag_pkey</RefKeyName>
+      <RefColNames>nome_tag</RefColNames>
+    </foreign-key>
+    <column id="281" parent="71" name="cap">
+      <Position>1</Position>
+      <DataType>varchar(5)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="282" parent="71" name="nome_localita">
+      <Position>2</Position>
+      <DataType>varchar(50)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="283" parent="71" name="localManagement_localita_pkey">
+      <ObjectId>40735</ObjectId>
+      <ColNames>cap</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="284" parent="71" name="localManagement_localita_nome_localita_key">
+      <ObjectId>40737</ObjectId>
+      <ColNames>nome_localita</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="285" parent="71" name="localManagement_localita_cap_59e33c0b_like">
+      <ObjectId>40766</ObjectId>
+      <ColNames>cap</ColNames>
+    </index>
+    <index id="286" parent="71" name="localManagement_localita_nome_localita_2382a0bd_like">
+      <ObjectId>40767</ObjectId>
+      <ColNames>nome_localita</ColNames>
+    </index>
+    <key id="287" parent="71" name="localManagement_localita_pkey">
+      <ObjectId>40736</ObjectId>
+      <ColNames>cap</ColNames>
+      <UnderlyingIndexName>localManagement_localita_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="288" parent="71" name="localManagement_localita_nome_localita_key">
+      <ObjectId>40738</ObjectId>
+      <ColNames>nome_localita</ColNames>
+      <UnderlyingIndexName>localManagement_localita_nome_localita_key</UnderlyingIndexName>
+    </key>
+    <column id="289" parent="72" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <DefaultExpression>nextval(&apos;&quot;localManagement_menu_id_seq&quot;&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="290" parent="72" name="nome_menu">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="291" parent="72" name="descrizione_menu">
+      <Position>3</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="292" parent="72" name="prezzo">
+      <Position>4</Position>
+      <DataType>numeric(4,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="293" parent="72" name="cod_locale_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5903</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="294" parent="72" name="localManagement_menu_pkey">
+      <ObjectId>40745</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="295" parent="72" name="localManagement_menu_cod_locale_id_nome_menu_e03601a4_uniq">
+      <ObjectId>41131</ObjectId>
+      <ColNames>cod_locale_id
+nome_menu</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="296" parent="72" name="localManagement_menu_cod_locale_id_370eec08">
+      <ObjectId>41139</ObjectId>
+      <ColNames>cod_locale_id</ColNames>
+    </index>
+    <key id="297" parent="72" name="localManagement_menu_pkey">
+      <ObjectId>40746</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>localManagement_menu_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="298" parent="72" name="localManagement_menu_cod_locale_id_nome_menu_e03601a4_uniq">
+      <ObjectId>41132</ObjectId>
+      <ColNames>cod_locale_id
+nome_menu</ColNames>
+      <UnderlyingIndexName>localManagement_menu_cod_locale_id_nome_menu_e03601a4_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="299" parent="72" name="localManagement_menu_cod_locale_id_370eec08_fk_localMana">
+      <ObjectId>41140</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>cod_locale_id</ColNames>
+      <RefTableId>40721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_locale</RefTableName>
+      <RefKeyName>localManagement_locale_pkey</RefKeyName>
+      <RefColNames>cod_locale</RefColNames>
+    </foreign-key>
+    <column id="300" parent="73" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <DefaultExpression>nextval(&apos;&quot;localManagement_prodotto_id_seq&quot;&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="301" parent="73" name="nome_prodotto">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="302" parent="73" name="descrizione_prodotto">
+      <Position>3</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="303" parent="73" name="prezzo">
+      <Position>4</Position>
+      <DataType>numeric(4,2 digit)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1700</TypeId>
+    </column>
+    <column id="304" parent="73" name="foto_prodotto">
+      <Position>5</Position>
+      <DataType>varchar(100)|0s</DataType>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="305" parent="73" name="cod_locale_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="306" parent="73" name="nome_tipo_id">
+      <Position>7</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="307" parent="73" name="localManagement_prodotto_pkey">
+      <ObjectId>40753</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="308" parent="73" name="localManagement_prodotto_cod_locale_id_nome_prodo_3bafb40b_uniq">
+      <ObjectId>41129</ObjectId>
+      <ColNames>cod_locale_id
+nome_prodotto</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="309" parent="73" name="localManagement_prodotto_cod_locale_id_e78c6a0a">
+      <ObjectId>40773</ObjectId>
+      <ColNames>cod_locale_id</ColNames>
+    </index>
+    <index id="310" parent="73" name="localManagement_prodotto_nome_tipo_id_7fbbd362">
+      <ObjectId>40776</ObjectId>
+      <ColNames>nome_tipo_id</ColNames>
+    </index>
+    <index id="311" parent="73" name="localManagement_prodotto_nome_tipo_id_7fbbd362_like">
+      <ObjectId>40777</ObjectId>
+      <ColNames>nome_tipo_id</ColNames>
+    </index>
+    <key id="312" parent="73" name="localManagement_prodotto_pkey">
+      <ObjectId>40754</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>localManagement_prodotto_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="313" parent="73" name="localManagement_prodotto_cod_locale_id_nome_prodo_3bafb40b_uniq">
+      <ObjectId>41130</ObjectId>
+      <ColNames>cod_locale_id
+nome_prodotto</ColNames>
+      <UnderlyingIndexName>localManagement_prodotto_cod_locale_id_nome_prodo_3bafb40b_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="314" parent="73" name="localManagement_prod_cod_locale_id_e78c6a0a_fk_localMana">
+      <ObjectId>40768</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>cod_locale_id</ColNames>
+      <RefTableId>40721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_locale</RefTableName>
+      <RefKeyName>localManagement_locale_pkey</RefKeyName>
+      <RefColNames>cod_locale</RefColNames>
+    </foreign-key>
+    <foreign-key id="315" parent="73" name="localManagement_prod_nome_tipo_id_7fbbd362_fk_localMana">
+      <ObjectId>40778</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>nome_tipo_id</ColNames>
+      <RefTableId>40760</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_tipo</RefTableName>
+      <RefKeyName>localManagement_tipo_pkey</RefKeyName>
+      <RefColNames>nome_tipo</RefColNames>
+    </foreign-key>
+    <column id="316" parent="74" name="nome_tag">
+      <Position>1</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="317" parent="74" name="localManagement_tag_pkey">
+      <ObjectId>40758</ObjectId>
+      <ColNames>nome_tag</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="318" parent="74" name="localManagement_tag_nome_tag_8f99bae2_like">
+      <ObjectId>40774</ObjectId>
+      <ColNames>nome_tag</ColNames>
+    </index>
+    <key id="319" parent="74" name="localManagement_tag_pkey">
+      <ObjectId>40759</ObjectId>
+      <ColNames>nome_tag</ColNames>
+      <UnderlyingIndexName>localManagement_tag_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="320" parent="75" name="nome_tipo">
+      <Position>1</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5876</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="321" parent="75" name="localManagement_tipo_pkey">
+      <ObjectId>40763</ObjectId>
+      <ColNames>nome_tipo</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="322" parent="75" name="localManagement_tipo_nome_tipo_d4eb93a4_like">
+      <ObjectId>40775</ObjectId>
+      <ColNames>nome_tipo</ColNames>
+    </index>
+    <key id="323" parent="75" name="localManagement_tipo_pkey">
+      <ObjectId>40764</ObjectId>
+      <ColNames>nome_tipo</ColNames>
+      <UnderlyingIndexName>localManagement_tipo_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="324" parent="76" name="cod_ordine">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <DefaultExpression>nextval(&apos;order_ordineinattesa_cod_ordine_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="325" parent="76" name="data">
+      <Position>2</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <column id="326" parent="76" name="orario_richiesto">
+      <Position>3</Position>
+      <DataType>time|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>1083</TypeId>
+    </column>
+    <column id="327" parent="76" name="metodo_pagamento">
+      <Position>4</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="328" parent="76" name="cod_carta_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>5901</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="329" parent="76" name="email_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="330" parent="76" name="accettato">
+      <Position>8</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>6604</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="331" parent="76" name="consegnato">
+      <Position>9</Position>
+      <DataType>boolean|0s</DataType>
+      <StateNumber>6604</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="332" parent="76" name="descrizione">
+      <Position>10</Position>
+      <DataType>varchar(200)|0s</DataType>
+      <StateNumber>6604</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="333" parent="76" name="order_ordineinattesa_pkey">
+      <ObjectId>41029</ObjectId>
+      <StateNumber>6604</StateNumber>
+      <ColNames>cod_ordine</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="334" parent="76" name="order_ordineinattesa_email_id_data_d1c1e874_uniq">
+      <ObjectId>41061</ObjectId>
+      <StateNumber>6604</StateNumber>
+      <ColNames>email_id
+data</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="335" parent="76" name="order_ordineinattesa_cod_carta_id_84fcc10e">
+      <ObjectId>41109</ObjectId>
+      <StateNumber>6604</StateNumber>
+      <ColNames>cod_carta_id</ColNames>
+    </index>
+    <index id="336" parent="76" name="order_ordineinattesa_email_id_de8ff787">
+      <ObjectId>41115</ObjectId>
+      <StateNumber>6604</StateNumber>
+      <ColNames>email_id</ColNames>
+    </index>
+    <key id="337" parent="76" name="order_ordineinattesa_pkey">
+      <ObjectId>41030</ObjectId>
+      <StateNumber>5901</StateNumber>
+      <ColNames>cod_ordine</ColNames>
+      <UnderlyingIndexName>order_ordineinattesa_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="338" parent="76" name="order_ordineinattesa_email_id_data_d1c1e874_uniq">
+      <ObjectId>41062</ObjectId>
+      <StateNumber>5901</StateNumber>
+      <ColNames>email_id
+data</ColNames>
+      <UnderlyingIndexName>order_ordineinattesa_email_id_data_d1c1e874_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="339" parent="76" name="order_ordineinattesa_cod_carta_id_84fcc10e_fk_user_cart">
+      <ObjectId>41110</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>5901</StateNumber>
+      <ColNames>cod_carta_id</ColNames>
+      <RefTableId>40921</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>user_cartadicredito</RefTableName>
+      <RefKeyName>user_cartadicredito_pkey</RefKeyName>
+      <RefColNames>cod_carta</RefColNames>
+    </foreign-key>
+    <foreign-key id="340" parent="76" name="order_ordineinattesa_email_id_de8ff787_fk_accounts_">
+      <ObjectId>41116</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>5901</StateNumber>
+      <ColNames>email_id</ColNames>
+      <RefTableId>40856</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>accounts_utente</RefTableName>
+      <RefKeyName>accounts_utente_pkey</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <column id="341" parent="77" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <DefaultExpression>nextval(&apos;order_richiedem_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="342" parent="77" name="quantita">
+      <Position>2</Position>
+      <DataType>smallint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>21</TypeId>
+    </column>
+    <column id="343" parent="77" name="cod_locale_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="344" parent="77" name="cod_ordine_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="345" parent="77" name="nome_menu_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="346" parent="77" name="order_richiedem_pkey">
+      <ObjectId>41037</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="347" parent="77" name="order_richiedem_cod_ordine_id_cod_locale_95241310_uniq">
+      <ObjectId>41059</ObjectId>
+      <ColNames>cod_ordine_id
+cod_locale_id
+nome_menu_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="348" parent="77" name="order_richiedem_cod_locale_id_62228c00">
+      <ObjectId>41068</ObjectId>
+      <ColNames>cod_locale_id</ColNames>
+    </index>
+    <index id="349" parent="77" name="order_richiedem_cod_ordine_id_3a4baf33">
+      <ObjectId>41097</ObjectId>
+      <ColNames>cod_ordine_id</ColNames>
+    </index>
+    <index id="350" parent="77" name="order_richiedem_nome_menu_id_9f656858">
+      <ObjectId>41103</ObjectId>
+      <ColNames>nome_menu_id</ColNames>
+    </index>
+    <key id="351" parent="77" name="order_richiedem_pkey">
+      <ObjectId>41038</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>order_richiedem_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="352" parent="77" name="order_richiedem_cod_ordine_id_cod_locale_95241310_uniq">
+      <ObjectId>41060</ObjectId>
+      <ColNames>cod_ordine_id
+cod_locale_id
+nome_menu_id</ColNames>
+      <UnderlyingIndexName>order_richiedem_cod_ordine_id_cod_locale_95241310_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="353" parent="77" name="order_richiedem_cod_locale_id_62228c00_fk_localMana">
+      <ObjectId>41063</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>cod_locale_id</ColNames>
+      <RefTableId>40721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_locale</RefTableName>
+      <RefKeyName>localManagement_locale_pkey</RefKeyName>
+      <RefColNames>cod_locale</RefColNames>
+    </foreign-key>
+    <foreign-key id="354" parent="77" name="order_richiedem_cod_ordine_id_3a4baf33_fk_order_ord">
+      <ObjectId>41098</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>cod_ordine_id</ColNames>
+      <RefTableId>41025</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>order_ordineinattesa</RefTableName>
+      <RefKeyName>order_ordineinattesa_pkey</RefKeyName>
+      <RefColNames>cod_ordine</RefColNames>
+    </foreign-key>
+    <foreign-key id="355" parent="77" name="order_richiedem_nome_menu_id_9f656858_fk_localMana">
+      <ObjectId>41104</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>nome_menu_id</ColNames>
+      <RefTableId>40741</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_menu</RefTableName>
+      <RefKeyName>localManagement_menu_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="356" parent="78" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <DefaultExpression>nextval(&apos;order_richiedep_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="357" parent="78" name="quantita">
+      <Position>2</Position>
+      <DataType>smallint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>21</TypeId>
+    </column>
+    <column id="358" parent="78" name="cod_locale_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="359" parent="78" name="cod_ordine_id">
+      <Position>4</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="360" parent="78" name="nome_prodotto_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5901</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="361" parent="78" name="order_richiedep_pkey">
+      <ObjectId>41045</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="362" parent="78" name="order_richiedep_cod_ordine_id_cod_locale_dd9a27dd_uniq">
+      <ObjectId>41057</ObjectId>
+      <ColNames>cod_ordine_id
+cod_locale_id
+nome_prodotto_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="363" parent="78" name="order_richiedep_cod_locale_id_cfcac061">
+      <ObjectId>41074</ObjectId>
+      <ColNames>cod_locale_id</ColNames>
+    </index>
+    <index id="364" parent="78" name="order_richiedep_cod_ordine_id_af3e212f">
+      <ObjectId>41085</ObjectId>
+      <ColNames>cod_ordine_id</ColNames>
+    </index>
+    <index id="365" parent="78" name="order_richiedep_nome_prodotto_id_b67d7798">
+      <ObjectId>41091</ObjectId>
+      <ColNames>nome_prodotto_id</ColNames>
+    </index>
+    <key id="366" parent="78" name="order_richiedep_pkey">
+      <ObjectId>41046</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>order_richiedep_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="367" parent="78" name="order_richiedep_cod_ordine_id_cod_locale_dd9a27dd_uniq">
+      <ObjectId>41058</ObjectId>
+      <ColNames>cod_ordine_id
+cod_locale_id
+nome_prodotto_id</ColNames>
+      <UnderlyingIndexName>order_richiedep_cod_ordine_id_cod_locale_dd9a27dd_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="368" parent="78" name="order_richiedep_cod_locale_id_cfcac061_fk_localMana">
+      <ObjectId>41069</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>cod_locale_id</ColNames>
+      <RefTableId>40721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_locale</RefTableName>
+      <RefKeyName>localManagement_locale_pkey</RefKeyName>
+      <RefColNames>cod_locale</RefColNames>
+    </foreign-key>
+    <foreign-key id="369" parent="78" name="order_richiedep_cod_ordine_id_af3e212f_fk_order_ord">
+      <ObjectId>41086</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>cod_ordine_id</ColNames>
+      <RefTableId>41025</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>order_ordineinattesa</RefTableName>
+      <RefKeyName>order_ordineinattesa_pkey</RefKeyName>
+      <RefColNames>cod_ordine</RefColNames>
+    </foreign-key>
+    <foreign-key id="370" parent="78" name="order_richiedep_nome_prodotto_id_b67d7798_fk_localMana">
+      <ObjectId>41092</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>nome_prodotto_id</ColNames>
+      <RefTableId>40749</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_prodotto</RefTableName>
+      <RefKeyName>localManagement_prodotto_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="371" parent="79" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <DefaultExpression>nextval(&apos;social_auth_association_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="372" parent="79" name="server_url">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="373" parent="79" name="handle">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="374" parent="79" name="secret">
+      <Position>4</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="375" parent="79" name="issued">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="376" parent="79" name="lifetime">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="377" parent="79" name="assoc_type">
+      <Position>7</Position>
+      <DataType>varchar(64)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="378" parent="79" name="social_auth_association_pkey">
+      <ObjectId>41216</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="379" parent="79" name="social_auth_association_server_url_handle_078befa2_uniq">
+      <ObjectId>41266</ObjectId>
+      <ColNames>server_url
+handle</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="380" parent="79" name="social_auth_association_pkey">
+      <ObjectId>41217</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>social_auth_association_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="381" parent="79" name="social_auth_association_server_url_handle_078befa2_uniq">
+      <ObjectId>41267</ObjectId>
+      <ColNames>server_url
+handle</ColNames>
+      <UnderlyingIndexName>social_auth_association_server_url_handle_078befa2_uniq</UnderlyingIndexName>
+    </key>
+    <column id="382" parent="80" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <DefaultExpression>nextval(&apos;social_auth_code_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="383" parent="80" name="email">
+      <Position>2</Position>
+      <DataType>varchar(254)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5913</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="384" parent="80" name="code">
+      <Position>3</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="385" parent="80" name="verified">
+      <Position>4</Position>
+      <DataType>boolean|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="386" parent="80" name="timestamp">
+      <Position>5</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5922</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <index id="387" parent="80" name="social_auth_code_pkey">
+      <ObjectId>41224</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="388" parent="80" name="social_auth_code_email_code_801b2d02_uniq">
+      <ObjectId>41264</ObjectId>
+      <ColNames>email
+code</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="389" parent="80" name="social_auth_code_code_a2393167">
+      <ObjectId>41251</ObjectId>
+      <ColNames>code</ColNames>
+    </index>
+    <index id="390" parent="80" name="social_auth_code_code_a2393167_like">
+      <ObjectId>41252</ObjectId>
+      <ColNames>code</ColNames>
+    </index>
+    <index id="391" parent="80" name="social_auth_code_timestamp_176b341f">
+      <ObjectId>41290</ObjectId>
+      <ColNames>timestamp</ColNames>
+    </index>
+    <key id="392" parent="80" name="social_auth_code_pkey">
+      <ObjectId>41225</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>social_auth_code_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="393" parent="80" name="social_auth_code_email_code_801b2d02_uniq">
+      <ObjectId>41265</ObjectId>
+      <ColNames>email
+code</ColNames>
+      <UnderlyingIndexName>social_auth_code_email_code_801b2d02_uniq</UnderlyingIndexName>
+    </key>
+    <column id="394" parent="81" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <DefaultExpression>nextval(&apos;social_auth_nonce_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="395" parent="81" name="server_url">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="396" parent="81" name="timestamp">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="397" parent="81" name="salt">
+      <Position>4</Position>
+      <DataType>varchar(65)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="398" parent="81" name="social_auth_nonce_pkey">
+      <ObjectId>41232</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="399" parent="81" name="social_auth_nonce_server_url_timestamp_salt_f6284463_uniq">
+      <ObjectId>41249</ObjectId>
+      <ColNames>server_url
+timestamp
+salt</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="400" parent="81" name="social_auth_nonce_pkey">
+      <ObjectId>41233</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>social_auth_nonce_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="401" parent="81" name="social_auth_nonce_server_url_timestamp_salt_f6284463_uniq">
+      <ObjectId>41250</ObjectId>
+      <ColNames>server_url
+timestamp
+salt</ColNames>
+      <UnderlyingIndexName>social_auth_nonce_server_url_timestamp_salt_f6284463_uniq</UnderlyingIndexName>
+    </key>
+    <column id="402" parent="82" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5920</StateNumber>
+      <DefaultExpression>nextval(&apos;social_auth_partial_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="403" parent="82" name="token">
+      <Position>2</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5920</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="404" parent="82" name="next_step">
+      <Position>3</Position>
+      <DataType>smallint|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5920</StateNumber>
+      <TypeId>21</TypeId>
+    </column>
+    <column id="405" parent="82" name="backend">
+      <Position>4</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5920</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="406" parent="82" name="data">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5920</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="407" parent="82" name="timestamp">
+      <Position>6</Position>
+      <DataType>timestamp with time zone|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5924</StateNumber>
+      <TypeId>1184</TypeId>
+    </column>
+    <index id="408" parent="82" name="social_auth_partial_pkey">
+      <ObjectId>41278</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="409" parent="82" name="social_auth_partial_token_3017fea3">
+      <ObjectId>41280</ObjectId>
+      <ColNames>token</ColNames>
+    </index>
+    <index id="410" parent="82" name="social_auth_partial_token_3017fea3_like">
+      <ObjectId>41281</ObjectId>
+      <ColNames>token</ColNames>
+    </index>
+    <index id="411" parent="82" name="social_auth_partial_timestamp_50f2119f">
+      <ObjectId>41301</ObjectId>
+      <ColNames>timestamp</ColNames>
+    </index>
+    <key id="412" parent="82" name="social_auth_partial_pkey">
+      <ObjectId>41279</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>social_auth_partial_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <check id="413" parent="82" name="social_auth_partial_next_step_check">
+      <ObjectId>41274</ObjectId>
+      <ColNames>next_step</ColNames>
+      <Predicate>next_step &gt;= 0</Predicate>
+    </check>
+    <column id="414" parent="83" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <DefaultExpression>nextval(&apos;social_auth_usersocialauth_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="415" parent="83" name="provider">
+      <Position>2</Position>
+      <DataType>varchar(32)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="416" parent="83" name="uid">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="417" parent="83" name="extra_data">
+      <Position>4</Position>
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>25</TypeId>
+    </column>
+    <column id="418" parent="83" name="user_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5907</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="419" parent="83" name="social_auth_usersocialauth_pkey">
+      <ObjectId>41243</ObjectId>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="420" parent="83" name="social_auth_usersocialauth_provider_uid_e6b5e668_uniq">
+      <ObjectId>41245</ObjectId>
+      <ColNames>provider
+uid</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="421" parent="83" name="social_auth_usersocialauth_user_id_17d28448">
+      <ObjectId>41258</ObjectId>
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="422" parent="83" name="social_auth_usersocialauth_pkey">
+      <ObjectId>41244</ObjectId>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>social_auth_usersocialauth_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="423" parent="83" name="social_auth_usersocialauth_provider_uid_e6b5e668_uniq">
+      <ObjectId>41246</ObjectId>
+      <ColNames>provider
+uid</ColNames>
+      <UnderlyingIndexName>social_auth_usersocialauth_provider_uid_e6b5e668_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="424" parent="83" name="social_auth_usersocialauth_user_id_17d28448_fk_accounts_user_id">
+      <ObjectId>41259</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>user_id</ColNames>
+      <RefTableId>40834</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>accounts_user</RefTableName>
+      <RefKeyName>accounts_user_pkey</RefKeyName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="425" parent="84" name="cod_carta">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5893</StateNumber>
+      <DefaultExpression>nextval(&apos;user_cartadicredito_cod_carta_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="426" parent="84" name="numero_carta">
+      <Position>2</Position>
+      <DataType>varchar(16)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5893</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="427" parent="84" name="intestatario">
+      <Position>3</Position>
+      <DataType>varchar(60)|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5893</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="428" parent="84" name="scadenza">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5893</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <index id="429" parent="84" name="user_cartadicredito_pkey">
+      <ObjectId>40925</ObjectId>
+      <ColNames>cod_carta</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="430" parent="84" name="user_cartadicredito_pkey">
+      <ObjectId>40926</ObjectId>
+      <StateNumber>5893</StateNumber>
+      <ColNames>cod_carta</ColNames>
+      <UnderlyingIndexName>user_cartadicredito_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <column id="431" parent="85" name="id">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6389</StateNumber>
+      <DefaultExpression>nextval(&apos;user_cartadicredito_utente_id_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="432" parent="85" name="cartadicredito_id">
+      <Position>2</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6389</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="433" parent="85" name="utente_id">
+      <Position>3</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>6389</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="434" parent="85" name="user_cartadicredito_utente_pkey">
+      <ObjectId>50330</ObjectId>
+      <StateNumber>6389</StateNumber>
+      <ColNames>id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="435" parent="85" name="user_cartadicredito_uten_cartadicredito_id_utente_d14a6f43_uniq">
+      <ObjectId>50342</ObjectId>
+      <StateNumber>6389</StateNumber>
+      <ColNames>cartadicredito_id
+utente_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="436" parent="85" name="user_cartadicredito_utente_cartadicredito_id_fdec129d">
+      <ObjectId>50344</ObjectId>
+      <StateNumber>6389</StateNumber>
+      <ColNames>cartadicredito_id</ColNames>
+    </index>
+    <index id="437" parent="85" name="user_cartadicredito_utente_utente_id_30d0dcb5">
+      <ObjectId>50345</ObjectId>
+      <StateNumber>6389</StateNumber>
+      <ColNames>utente_id</ColNames>
+    </index>
+    <key id="438" parent="85" name="user_cartadicredito_utente_pkey">
+      <ObjectId>50331</ObjectId>
+      <StateNumber>6389</StateNumber>
+      <ColNames>id</ColNames>
+      <UnderlyingIndexName>user_cartadicredito_utente_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="439" parent="85" name="user_cartadicredito_uten_cartadicredito_id_utente_d14a6f43_uniq">
+      <ObjectId>50343</ObjectId>
+      <StateNumber>6389</StateNumber>
+      <ColNames>cartadicredito_id
+utente_id</ColNames>
+      <UnderlyingIndexName>user_cartadicredito_uten_cartadicredito_id_utente_d14a6f43_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="440" parent="85" name="user_cartadicredito__cartadicredito_id_fdec129d_fk_user_cart">
+      <ObjectId>50332</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>6389</StateNumber>
+      <ColNames>cartadicredito_id</ColNames>
+      <RefTableId>40921</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>user_cartadicredito</RefTableName>
+      <RefKeyName>user_cartadicredito_pkey</RefKeyName>
+      <RefColNames>cod_carta</RefColNames>
+    </foreign-key>
+    <foreign-key id="441" parent="85" name="user_cartadicredito__utente_id_30d0dcb5_fk_accounts_">
+      <ObjectId>50337</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <StateNumber>6389</StateNumber>
+      <ColNames>utente_id</ColNames>
+      <RefTableId>40856</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>accounts_utente</RefTableName>
+      <RefKeyName>accounts_utente_pkey</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <column id="442" parent="86" name="cod_recensione">
+      <Position>1</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5893</StateNumber>
+      <DefaultExpression>nextval(&apos;user_recensione_cod_recensione_seq&apos;::regclass)</DefaultExpression>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="443" parent="86" name="voto">
+      <Position>2</Position>
+      <DataType>smallint|0s</DataType>
+      <StateNumber>5893</StateNumber>
+      <TypeId>21</TypeId>
+    </column>
+    <column id="444" parent="86" name="descrizione">
+      <Position>3</Position>
+      <DataType>varchar(130)|0s</DataType>
+      <StateNumber>5893</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="445" parent="86" name="date">
+      <Position>4</Position>
+      <DataType>date|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5893</StateNumber>
+      <TypeId>1082</TypeId>
+    </column>
+    <column id="446" parent="86" name="cod_locale_id">
+      <Position>5</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5893</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="447" parent="86" name="email_id">
+      <Position>6</Position>
+      <DataType>integer|0s</DataType>
+      <NotNull>1</NotNull>
+      <StateNumber>5893</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="448" parent="86" name="p_iva_id">
+      <Position>7</Position>
+      <DataType>integer|0s</DataType>
+      <StateNumber>5893</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="449" parent="86" name="user_recensione_pkey">
+      <ObjectId>40933</ObjectId>
+      <ColNames>cod_recensione</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="450" parent="86" name="user_recensione_email_id_cod_locale_id_p_iva_id_6742c7af_uniq">
+      <ObjectId>40935</ObjectId>
+      <ColNames>email_id
+cod_locale_id
+p_iva_id</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <index id="451" parent="86" name="user_recensione_cod_locale_id_26150d9e">
+      <ObjectId>40952</ObjectId>
+      <ColNames>cod_locale_id</ColNames>
+    </index>
+    <index id="452" parent="86" name="user_recensione_email_id_4dd53789">
+      <ObjectId>40953</ObjectId>
+      <ColNames>email_id</ColNames>
+    </index>
+    <index id="453" parent="86" name="user_recensione_p_iva_id_f488d5c8">
+      <ObjectId>40954</ObjectId>
+      <ColNames>p_iva_id</ColNames>
+    </index>
+    <key id="454" parent="86" name="user_recensione_pkey">
+      <ObjectId>40934</ObjectId>
+      <ColNames>cod_recensione</ColNames>
+      <UnderlyingIndexName>user_recensione_pkey</UnderlyingIndexName>
+      <Primary>1</Primary>
+    </key>
+    <key id="455" parent="86" name="user_recensione_email_id_cod_locale_id_p_iva_id_6742c7af_uniq">
+      <ObjectId>40936</ObjectId>
+      <ColNames>email_id
+cod_locale_id
+p_iva_id</ColNames>
+      <UnderlyingIndexName>user_recensione_email_id_cod_locale_id_p_iva_id_6742c7af_uniq</UnderlyingIndexName>
+    </key>
+    <foreign-key id="456" parent="86" name="user_recensione_cod_locale_id_26150d9e_fk_localMana">
+      <ObjectId>40937</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>cod_locale_id</ColNames>
+      <RefTableId>40721</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>localManagement_locale</RefTableName>
+      <RefKeyName>localManagement_locale_pkey</RefKeyName>
+      <RefColNames>cod_locale</RefColNames>
+    </foreign-key>
+    <foreign-key id="457" parent="86" name="user_recensione_email_id_4dd53789_fk_accounts_utente_user_id">
+      <ObjectId>40942</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>email_id</ColNames>
+      <RefTableId>40856</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>accounts_utente</RefTableName>
+      <RefKeyName>accounts_utente_pkey</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="458" parent="86" name="user_recensione_p_iva_id_f488d5c8_fk_accounts_">
+      <ObjectId>40947</ObjectId>
+      <Deferrable>1</Deferrable>
+      <InitiallyDeferred>1</InitiallyDeferred>
+      <ColNames>p_iva_id</ColNames>
+      <RefTableId>40849</RefTableId>
+      <RefColPositions>1</RefColPositions>
+      <RefTableName>accounts_commerciante</RefTableName>
+      <RefKeyName>accounts_commerciante_pkey</RefKeyName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

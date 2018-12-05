@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+<link rel="stylesheet" href="{% static 'css/localList.css' %}">
+
+<html>
+{% block head %}
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/localList.css' %}">
+    <title>{{ local.nome_locale }} | recensioni </title>
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-lg align-self-start ">
+            {# ------------------------ Start Nome Locale ------------------------------------------------------- #}
+            <a href="{% url 'localManagement:localLists' local.pk %}" style="color: #a01b2a">
+                <div class="container-fluid mt-0 text-warning rounded-bottom link-disabled"
+                     style="background-color: #a01b2a">
+                    <h1 align="center">{{ local_name }}</h1>
+                </div>
+            </a>
+            {# ------------------------ End Nome Locale --------------------------------------------------------- #}
+        </div>
+    </div>
+
+    {# ------------------------ Start recensioni --------------------------------------------------------- #}
+    <div class="card text-center mt-3 mb-4" style="background-color: #878787; max-height: 70%">
+        <div class="card-header text-light m-0 p-0">
+            <blockquote class="blockquote text-center">
+                <p class="m-0 p-0" style="font-size: 120%;">RECENSIONI</p>
+            </blockquote>
+        </div>
+        <div class="card-body m-0 p-0" style="background-color:#F0F0F0 ">
+            <div class="card-text" style=" height:200px ;overflow: scroll">
+                <table class="table-responsive p-0 m-0 align-content-center table-striped">
+                    {% for rec in vote %}
+                        {% if rec.voto is not None %}
+                            <tr style="border: darkgray solid 1px">
+                                <td style="width: 70px; font-size: 200%;color: darkgoldenrod"
+                                    class="px-2">
+                                    {{ rec.voto }}
+                                </td>
+                                <td style="min-width: 70%; max-width: 70%">
+                                    {% if rec.descrizione is not None %}
+                                        {{ rec.descrizione }}
+                                    {% endif %}
+                                </td>
+                                <td style="min-width: 10%; max-width: 70%">
+                                    {{ rec.email }} {# {{ rec.email.email.cognome }} #}
+                                </td>
+                                <td style="width: 200px">
+                                    {{ rec.date }} <br>
+                                </td>
+                            </tr>
+                        {% else %}
+                            <tr style=" background-color: #cccccc;">
+                                <td> &rarrhk;</td>
+                                <td> {{ rec.descrizione }} </td>
+                                <td></td>
+                                <td> {{ rec.date }} <br></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+
+    {# -------------Se non loggato ----------------------------------#}
+    <a href="{% url 'accounts:login' %}">
+        <button type="button" class="button btn-primary btn-outline-primary">
+        </button>
+    </a>
+
+
+{% endblock %}
+</html>

@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Logged out{% endblock %}
+{% block body %}
+    <h1>Disconnesso</h1>
+    <p>Uscita eseguita con successo. Se lo desideri puoi <a href="{% url "accounts:login" %}">loggarti nuovamente</a>.</p>
+{% endblock %}

@@ -1,0 +1,38 @@
+
+div.food {
+    /*font-size: 115%;*/
+    /*font-family: "High Tower Text", arial, sans-serif;*/
+}
+
+div.desc {
+    /*font-size: 85%;*/
+    color: GrayText;
+    /*font-family: "High Tower Text", arial, sans-serif;*/
+    /*position: relative;*/
+    left: 25px;
+}
+
+/*h4 {*/
+    /*left: 1600px;*/
+    /*alignment: center;*/
+/*}*/
+
+table {
+    /*font-family: "High Tower Text", arial, sans-serif;*/
+    /*font-size: 110%;*/
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+td, th {
+    text-align: left;
+    /*width: 100%;*/
+    /*padding: 8px;*/
+    /*border-bottom:maroon 2px solid;*/
+
+}
+
+/*tr:nth-child(even) {*/
+    /*background-color: #dddddd;*/
+/*}*/

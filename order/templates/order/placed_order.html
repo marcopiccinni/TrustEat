@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+{% load newtag %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <title>Riepilogo ordine #{{ ordine.cod_ordine }}</title>
+
+{% endblock head %}
+
+
+{% block body %}
+    <div class="container text-center">
+        <img style="max-height: 100px; object-fit: scale-down" src="{% static 'img/logo-trustEat/_logo1.png' %}">
+        <h2>
+            {#            <img style="max-height: 60px; object-fit: scale-down" src="{% static 'img/logo-trustEat/_logo1.png' %}">#}
+            Ordine #{{ ordine.cod_ordine }} effettuato a {{ locale.nome_locale }}
+        </h2>
+        Situato in {{ locale.via }}, {{ locale.num_civico }} a {{ locale.cap.nome_localita }} ({{ locale.cap.cap }})
+        <br><br>
+        <p>Effettuato per conto dell'utente {{ user.username }}, {{ user.first_name }} {{ user.last_name }}<br>
+            Presso {{ user.via }}, {{ user.civico }} a {{ user_location }} ({{ user.cap }}) </p>
+
+    </div>
+    <div style="margin-left: 40%">
+
+        {% if prodotti|length > 0 %}
+            <p>Elenco prodotti</p>
+            {% for p in prodotti %}
+                <li>{{ p.obj.nome_prodotto }} {{ p.obj.prezzo }} &euro;&nbsp;&nbsp;&nbsp; x {{ p.num_obj }}
+                    &rarr;&nbsp; {% multiply p.num_obj p.obj.prezzo %} &euro;
+                </li>
+            {% endfor %}
+            <br>
+        {% endif %}
+
+        {% if menues|length > 0 %}
+            <p>Elenco menu</p>
+            {% for m in menues %}
+                <li>{{ m.obj.nome_menu }}&nbsp;&nbsp; &nbsp;&nbsp;  {{ m.obj.prezzo }} &euro;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; x {{ m.num_obj }}
+                    &rarr;&nbsp; {% multiply m.num_obj m.obj.prezzo %} &euro;
+                </li>
+            {% endfor %}
+            <br>
+        {% endif %}
+    </div>
+
+    <div class="container text-center">
+        <p>Costo di consegna: {{ locale.prezzo_di_spedizione }} &euro; <br>
+            <label style="font-size:115%">Totale da pagare: {{ total }} &euro;</label>
+        </p>
+        <p>Metodo di pagamento: {{ ordine.metodo_pagamento }}
+            {% if ordine.cod_carta_id %}
+                <br>numero: {{ ordine.cod_carta.numero_carta }}, intestata a {{ ordine.cod_carta.intestatario }}
+            {% endif %}
+        </p>
+
+        <button type="button" class="btn btn-info" id="id_PrintButton" onclick="stampa()">
+            Stampa copia
+        </button>
+
+    </div>
+    <script>
+        function stampa() {
+            var but = document.getElementById('id_PrintButton');
+            but.hidden = true;
+            print();
+            but.hidden = false;
+        }
+    </script>
+{% endblock body %}

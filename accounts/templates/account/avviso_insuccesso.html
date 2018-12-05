@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block head %}
+    <title>Profile</title>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>ERRORE</h1>
+        <form method="post">
+            {% csrf_token %}
+            <h2>{{ messaggio1 }}</h2>
+            <br>
+            <h2>{{ messaggio2 }}</h2>
+
+            <script type="text/javascript" language="JavaScript">
+                <!--
+                function autoReload() {
+                    var timeID = setTimeout("location.href= '/'", 10000)
+                }
+
+                //-->
+            </script>
+
+            <div onload="autoReload()">
+            <br/><br/>
+            <div align="center">
+
+
+                Tra 10 secondi tornerai all'inserimento del locale
+                <a href=""> {{ url }} </a>
+
+
+            </div>
+            <br/><br/><br/><br/><br/><br/>
+            <a href="/"><img src="{% static 'img/logo-trustEat/logo.png' %}" height="300" width="600"/></a>
+            </div>
+        </form>
+    </div>
+{% endblock body %}

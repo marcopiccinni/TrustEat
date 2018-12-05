@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+
+
+
+{% block body %}
+    <br>
+
+    <div class="row">
+        <div class="pt-4 pl-3 ml-2">
+            <h5>Inserisci i seguenti dati per continuare la registrazione su: </h5>
+        </div>
+        <div class="col">
+            <img src="{% static 'img/logo-trustEat/_logo.png' %}" width="300">
+        </div>
+    </div>
+    {% block content1 %}
+
+    {% endblock %}
+
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br>
+        <button type="submit" class="btn btn-success">Crea un account</button>
+        <br><br><br>
+    </form>
+
+{% endblock %}

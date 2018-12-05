@@ -1,0 +1,161 @@
+﻿
+# ---------------------- NON MODIFICARE I CAMPI INIZIALI! ----------------------
+#   Il seguente file � lo scheletro per l'importazione di dati nel database.
+# - Per aggiungere nuovi elementi specificarli, evitando spazi tra i ';',
+#      sotto l'elenco dei campi della tabella su cui si vuole aggiungere i dati.
+# - LE DATE SONO NEL FORMATO YYYY-MM-DD
+
+
+# Local Management
+
+Localita
+cap;nome_localita
+41100;Modena
+00100;Roma
+
+Locale
+nome_locale;orario_apertura;orario_chiusura;cap;via;num_civico;descrizione;telefono;sito_web;email
+La chicca;12:00;13:00;41100;via Araldi;12;I piatti sono una vera chicca!;059123456789;www.lachicca.click;prenotazioni@lachicca.slowfood
+Romana;11:00;23:30;00100;via Italia;100;La vera pizza a Roma;001987654321;www.romanaderoma.rm;info@romana.rm
+
+Chiusura
+nome_locale;cap;giorno_chiusura
+La chicca;41100;Lunedì
+Romana;00100;Martedì
+
+Tag
+nome_tag
+italiano
+pizzeria
+gnocco
+tigelle
+ristorante
+asporto
+
+# IdentificatoDa
+# nome_locale;cap;nome_tag
+# La chicca;41100;italiano
+# La chicca;41100;gnocco
+# La chicca;41100;tigelle
+# La chicca;41100;ristorante
+# Romana;00100;pizzeria
+# Romana;00100;asporto
+# Romana;00100;italiano
+# Romana;00100;ristorante
+
+Tipo
+# nome_tipo
+# pizza
+# gnoccofritto
+# calzone
+
+Prodotto
+# nome_prodotto;descrizione_prodotto;prezzo;nome_locale;cap;nome_tipo
+# Margherita;mozzarella,pomodoro,olive.;4;Romana;00100;pizza
+# Tonno e cipolla;mozzarella,pomodoro,tonno,cipolla.;4.5;Romana;00100;pizza
+# Capricciosa;Si lagna e fa danni. Scontata.;2.34;Romana;00100;pizza
+# Gnocco fritto con affettato;Tradizione modenese. Crudo, cotto, ciccioli.;9.99;La chicca;41100;gnoccofritto
+# Gnocco fritto con formaggi;Tradizione modenese. Stracchino, rucola, grana.;8.5;La chicca;41100;gnoccofritto
+# 4 stagioni;pom., mozz., carciofi, funghi, salsiccia, olive.;6.34;Romana;00100;pizza
+# Diavola;pom., mozz., salame piccante;5.5;Romana;00100;pizza
+# Calzone;mozz., prosciutto cotto;5;Romana;00100;calzone
+
+Menu
+# nome_menu;descrizione_menu;prezzo;nome_locale;cap
+# Doppietta;Prendi due pizze e paghi meno;6.66;Romana;00100
+# Gnocco fritto misto;Affettati e formaggi;14.23;La chicca;41100
+# Calzone doppio;Due calzoni semplici;8.5;Romana;00100
+# Ogni riccio un capriccio;Due diavole;10;Romana;00100
+
+CompostoDa
+# nome_locale;cap;nome_menu;nome_prodotto
+# La chicca;41100;Gnocco fritto misto;Gnocco fritto con affettato
+# La chicca;41100;Gnocco fritto misto;Gnocco fritto con formaggi
+# Romana;00100;Doppietta;Tonno e cipolla
+# Romana;00100;Doppietta;Margherita
+# Romana;00100;Calzone doppio;Calzone
+# Romana;00100;Ogni riccio un capriccio;Diavola
+
+
+# DEALER
+
+# Persona
+# email;CF;nome;cognome;data_di_nascita;cap;via;num_civico;telefono;password
+# try.prova@e.mail;CNTZZR42E12F257Q;Azzurra;Canotta;1912-12-19;41100;via Vai;3-W;3333333333;what's the password?
+# unluck@san.patrick.day;DLLMSS06F06S001J;Massimo;della Sfiga;2006-06-06;00100;corso d'Opera;123456;+39059112233;Dea~Bendata!
+# fiocco@di.neve;DNVFCC99L55F257P;Fiocco;di Neve;1999-12-25;41100;via Gelata;5;123456789;Happy_Holidays+
+# san.daniele@prosciutto.di.parma;DNLSNA18F01F257Z;San;Daniele;2018-05-01;41100;via Prochetta;1;0027345543123;ColesteroloECarnazza
+# giovanni.michele@nome.cognome;GVNMCH12K11W345X;Michele;Giovanni;1985-4-15;41100;via dei molesti;1;098765432100;l'hoscordata
+# michele.giovanni@nome.cognome;MCHGVN13K34F654G;Giovanni;Michele;1988-7-30;00100;via degli sconosciuti;77;97531246801134;bibidibobidibu
+
+# Commerciante
+# email;p_iva
+# try.prova@e.mail;1234567890
+# unluck@san.patrick.day;qwertyuiop
+
+# Possiede
+# p_iva;nome_locale;cap
+# 1234567890;La chicca;41100
+# qwertyuiop;Romana;00100
+
+
+# USER
+
+# UtenteRegistrato
+# email
+# fiocco@di.neve
+# san.daniele@prosciutto.di.parma
+# giovanni.michele@nome.cognome
+# michele.giovanni@nome.cognome
+
+CartaDiCredito
+numero_carta;intestatario;scadenza
+1111222233334444;Marco Carta;2020-01-01
+1234123412341234;Jhon Bank;2031-05-01
+7890345643218765;Phill Credit;2019-02-01
+5454898934341212;Sophia Forte;2021-01-01
+9898989898989898;Sulle Candeline;2022-09-01
+
+# Utilizza
+# numero_carta;email
+# 1111222233334444;fiocco@di.neve
+# 7890345643218765;san.daniele@prosciutto.di.parma
+# 1234123412341234;san.daniele@prosciutto.di.parma
+# 5454898934341212;giovanni.michele@nome.cognome
+# 9898989898989898;michele.giovanni@nome.cognome
+
+Recensione
+email;data;nome_locale;cap;voto;descrizione;p_iva
+fiocco@di.neve;2018-10-10;Romana;00100;2;Fa pizze napoletane, non è veritiero il nome;
+fiocco@di.neve;2018-10-11;Romana;00100;;Romana è il nome del proprietario;1234567890
+michele.giovanni@nome.cognome;2018-09-09;Romana;00100;4;Molto saporita la pizza. Personale competente;
+giovanni.michele@nome.cognome;2018-11-11;Romana;00100;3;;
+
+# ORDER
+
+OrdineInAttesa
+email;data;orario_richiesto;metodo_pagamento;numero_carta
+fiocco@di.neve;2000-01-01;18:30;0;1111222233334444
+michele.giovanni@nome.cognome;2018-09-09;12:12;0;9898989898989898
+giovanni.michele@nome.cognome;2018-11-11;13:31;1
+
+Accettato
+email;data;consegnto;descrizione
+fiocco@di.neve;2000-01-01;0;Orario previsto confermato
+michele.giovanni@nome.cognome;2018-09-09;0;
+giovanni.michele@nome.cognome;2018-11-11;0;ok
+
+Rifiutato
+email;data;descrizione
+
+RichiedeM
+email;data;nome_locale;cap;nome_menu;quantita
+fiocco@di.neve;2000-01-01;Romana;00100;Doppietta;2
+michele.giovanni@nome.cognome;2018-09-09;Romana;00100;Doppietta;1
+
+RichiedeP
+email;data;nome_locale;cap;nome_prodotto;quantita
+fiocco@di.neve;2000-01-01;Margherita;1
+fiocco@di.neve;2000-01-01;Tonno e cipolla;2
+fiocco@di.neve;2000-01-01;Capricciosa;3
+giovanni.michele@nome.cognome;2018-11-11;Tonno e cipolla;1

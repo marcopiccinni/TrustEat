@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+    <div class="container ">
+        <div class="row">
+            <div class="col mt-1">
+
+                <div class="card text-center mb-1 shadow" style="background-color: #878787">
+                    <div class="card-header text-light m-0 p-0">
+                        <blockquote class="blockquote text-center">
+                            <p class="mb-0 p-0 pt-1">Ciao {{ request.user.username }}</p>
+                        </blockquote>
+                    </div>
+                    <div class="card-body rounded m-0 p-0 pt-1" style="background-color:#F0F0F0 ">
+                        <p class="card-text" style="color: #212529">
+
+                        <p>Email: <b>{{ request.user.email }}</b></p>
+                        <p> Nome e Cognome: <b>{{ request.user.first_name }} {{ request.user.last_name }}</b></p>
+                        <p>Città: <b>{{ location }} ({{ request.user.cap }})</b></p>
+                        {#                        <p>Cap: <b>{{ request.user.cap }}</b></p>#}
+                        <p>Indirizzo: <b>{{ request.user.via }}, {{ request.user.civico }}</b></p>
+                        <p>Telefono: <b>{{ request.user.telefono }}</b></p>
+                        {% if request.user.is_commerciante %}
+                            <p>Partita iva: <b>{{ commerciante.p_iva }}</b></p>
+                        {% endif %}
+                    </div>
+                    <div class="card-footer rounded-0 m-0 p-0">
+                        {% if request.user.is_utente %}
+                            <a style="text-decoration: none" href='{% url "accounts:uedit" %}'>
+                                <button type="button" class="btn btn-outline-light m-2 shadow">
+                                    Modifica info
+                                </button>
+                            </a>
+                        {% else %}
+                            <a style="text-decoration: none" href='{% url "accounts:cedit" %}'>
+                                <button type="button" class="btn btn-outline-light m-2 shadow">
+                                    Modifica info
+                                </button>
+                            </a>
+                            <a style="text-decoration: none" href='{% url "accounts:cedit" %}'>
+                                <button type="button" class="btn btn-outline-light m-2 shadow">
+                                    Aggiungi un locale
+                                </button>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+
+            </div>
+            <div class="col mt-1">
+                {% if request.user.is_utente %}
+                    <div class="card text-center mb-1 shadow" style="background-color: #878787">
+                        <div class="card-header text-light m-0 p-0">
+                            <blockquote class="blockquote text-center">
+                                <p> ORDINI RECENTI </p>
+                            </blockquote>
+                        </div>
+                        <div class="card-body rounded m-0 p-0 pt-1"
+                             style="background-color:#F0F0F0; max-height:500px; overflow-y: auto">
+                            {% for order in orders %}
+                                <div class="row container-fluid">
+                                    <div class="col-2">
+                                        {% if order.order.accettato is None %}
+                                            <form method="post">
+                                                {% csrf_token %}
+
+                                                <button type="submit" class="btn m-0 p-0"
+                                                        name="num_order" value="{{ order.order.cod_ordine }}">
+
+                                                    <img id="{{ order.order }}" src='{% static "img/remove.png" %}'
+                                                         alt="Elimina" style="height: 30px; object-fit: scale-down">
+                                                </button>
+                                            </form>
+                                        {% endif %}
+                                    </div>
+                                    <div class="col text-left">
+                                        <p> #{{ order.order.cod_ordine }} a <b> {{ order.local.nome_locale }}</b> &ensp;
+                                            {% if order.order.accettato %}
+                                                <span style="color: green">
+                                            {% if order.order.consegnato %}
+                                                Consegnato
+                                            {% else %}
+                                                Accettato
+                                                </span>
+                                            {% endif %}
+                                            {% elif order.order.accettato is False %}
+                                                <span style="color: red"> Rifiutato </span>
+                                            {% else %}
+                                                <span style="color: blue"> In attesa </span>
+                                            {% endif %}
+
+                                            {% if order.order.descrizione %}
+                                                <br>
+                                                <span style="color: gray"> {{ order.order.descrizione }}</span>
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="card-footer rounded-0 m-0 p-0">
+
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

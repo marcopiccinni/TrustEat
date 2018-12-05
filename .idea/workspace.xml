@@ -1,0 +1,1312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="47b1d101-6c59-4d36-80ee-367e5aee040e" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="trusteat_db@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="trusteat_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="trusteat_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="trusteat_db: database" type="162271b6:PgImplModel$Database" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="trusteat_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="trusteat_db: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="trusteat_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="trusteat_db: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="trusteat_db@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="databases" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="trusteat_db: database" type="162271b6:PgImplModel$Database" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="public: schema" type="983ebcf7:PgImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="TrustEat" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/order/templates/order/check.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2295">
+              <caret line="135" column="32" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/accounts/templates/account/dashboard.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1173">
+              <caret line="69" selection-start-line="69" selection-end-line="69" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/accounts/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="248" column="58" selection-start-line="248" selection-start-column="58" selection-end-line="248" selection-end-column="58" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="uml://DjangoModelDependency/#TrustEat">
+          <provider selected="true" editor-type-id="UmlEditorProvider">
+            <state>
+              <ID>DjangoModelDependency</ID>
+              <OriginalElement>#TrustEat</OriginalElement>
+              <nodes>
+                <node x="453.9170420420422" y="378.0">localManagement.models.Tag</node>
+                <node x="303.45495495495487" y="995.0">localManagement.models.FotoLocale</node>
+                <node x="0.0" y="655.0">localManagement.models.Tipo</node>
+                <node x="1421.7503753753754" y="1184.0">user.models.CartaDiCredito</node>
+                <node x="554.4549549549549" y="995.0">localManagement.models.Chiusura</node>
+                <node x="783.9549549549549" y="1406.0">order.models.OrdineInAttesa</node>
+                <node x="1222.5082582582586" y="589.0">accounts.models.User</node>
+                <node x="578.7049549549549" y="1184.0">localManagement.models.Menu</node>
+                <node x="1055.5833333333333" y="1173.0">user.models.Recensione</node>
+                <node x="1209.5082582582586" y="167.0">django.contrib.auth.models.Permission</node>
+                <node x="1063.7503753753754" y="973.0">accounts.models.Commerciante</node>
+                <node x="1160.7582582582586" y="356.0">django.contrib.auth.models.Group</node>
+                <node x="1181.5082582582586" y="0.0">django.contrib.contenttypes.models.ContentType</node>
+                <node x="666.9170420420421" y="367.0">localManagement.models.Localita</node>
+                <node x="62.454954954954815" y="940.0">localManagement.models.Prodotto</node>
+                <node x="553.6670420420421" y="523.0">localManagement.models.Locale</node>
+                <node x="850.75" y="1749.0">order.models.RichiedeM</node>
+                <node x="152.5" y="1505.0">localManagement.models.CompostoDa</node>
+                <node x="46.02252252252288" y="1749.0">order.models.RichiedeP</node>
+                <node x="1320.7503753753754" y="995.0">accounts.models.Utente</node>
+              </nodes>
+              <notes />
+              <edges>
+                <edge source="localManagement.models.Locale" target="localManagement.models.Localita">
+                  <point x="54.25" y="-168.5" />
+                  <point x="716.4170420420421" y="498.0" />
+                  <point x="773.9170420420421" y="498.0" />
+                  <point x="0.0" y="47.5" />
+                </edge>
+                <edge source="localManagement.models.Menu" target="localManagement.models.Locale">
+                  <point x="68.75" y="-80.5" />
+                  <point x="784.9549549549549" y="920.0" />
+                  <point x="686.2781531531532" y="920.0" />
+                  <point x="24.111111111111086" y="168.5" />
+                </edge>
+                <edge source="accounts.models.User" target="django.contrib.auth.models.Permission">
+                  <point x="53.5" y="-102.5" />
+                  <point x="1383.0082582582586" y="498.0" />
+                  <point x="1389.2582582582586" y="498.0" />
+                  <point x="60.0" y="69.5" />
+                </edge>
+                <edge source="django.contrib.auth.models.Permission" target="django.contrib.contenttypes.models.ContentType">
+                  <point x="0.0" y="-69.5" />
+                  <point x="0.0" y="58.5" />
+                </edge>
+                <edge source="localManagement.models.Prodotto" target="localManagement.models.Locale">
+                  <point x="55.0" y="-91.5" />
+                  <point x="227.45495495495481" y="900.0" />
+                  <point x="589.8337087087089" y="900.0" />
+                  <point x="-72.33333333333337" y="168.5" />
+                </edge>
+                <edge source="accounts.models.User" target="django.contrib.auth.models.Group">
+                  <point x="-53.5" y="-102.5" />
+                  <point x="1276.0082582582586" y="498.0" />
+                  <point x="1269.7582582582586" y="498.0" />
+                  <point x="0.0" y="58.5" />
+                </edge>
+                <edge source="accounts.models.Commerciante" target="localManagement.models.Locale">
+                  <point x="-59.25" y="-58.5" />
+                  <point x="1123.0003753753754" y="890.0" />
+                  <point x="758.6114864864867" y="890.0" />
+                  <point x="96.44444444444446" y="168.5" />
+                </edge>
+                <edge source="localManagement.models.CompostoDa" target="localManagement.models.Prodotto">
+                  <point x="-81.0" y="-47.5" />
+                  <point x="193.0" y="1386.0" />
+                  <point x="144.95495495495481" y="1386.0" />
+                  <point x="-27.5" y="91.5" />
+                </edge>
+                <edge source="localManagement.models.Locale" target="localManagement.models.Tag">
+                  <point x="-54.25" y="-168.5" />
+                  <point x="607.9170420420421" y="498.0" />
+                  <point x="550.4170420420422" y="498.0" />
+                  <point x="0.0" y="36.5" />
+                </edge>
+                <edge source="order.models.OrdineInAttesa" target="localManagement.models.Prodotto">
+                  <point x="-26.75" y="-146.5" />
+                  <point x="864.2049549549549" y="1143.0" />
+                  <point x="254.95495495495481" y="1143.0" />
+                  <point x="82.5" y="91.5" />
+                </edge>
+                <edge source="user.models.CartaDiCredito" target="accounts.models.Utente">
+                  <point x="0.0" y="-80.5" />
+                  <point x="1521.2503753753754" y="1153.0" />
+                  <point x="1471.5837087087089" y="1153.0" />
+                  <point x="60.33333333333326" y="36.5" />
+                </edge>
+                <edge source="order.models.RichiedeM" target="order.models.OrdineInAttesa">
+                  <point x="0.0" y="-58.5" />
+                  <point x="946.25" y="1729.0" />
+                  <point x="944.4549549549549" y="1729.0" />
+                  <point x="53.5" y="146.5" />
+                </edge>
+                <edge source="localManagement.models.Menu" target="localManagement.models.Prodotto">
+                  <point x="-68.75" y="-80.5" />
+                  <point x="647.4549549549549" y="1153.0" />
+                  <point x="199.95495495495481" y="1153.0" />
+                  <point x="27.5" y="91.5" />
+                </edge>
+                <edge source="localManagement.models.Prodotto" target="localManagement.models.Tipo">
+                  <point x="-55.0" y="-91.5" />
+                  <point x="117.45495495495481" y="880.0" />
+                  <point x="98.5" y="880.0" />
+                  <point x="0.0" y="36.5" />
+                </edge>
+                <edge source="order.models.RichiedeP" target="localManagement.models.Locale">
+                  <point x="-66.0" y="-58.5" />
+                  <point x="79.02252252252288" y="1729.0" />
+                  <point x="51.954954954954815" y="1729.0" />
+                  <point x="51.954954954954815" y="890.0" />
+                  <point x="565.7225975975978" y="890.0" />
+                  <point x="-96.44444444444446" y="168.5" />
+                </edge>
+                <edge source="localManagement.models.Chiusura" target="localManagement.models.Locale">
+                  <point x="0.0" y="-36.5" />
+                  <point x="664.4549549549549" y="920.0" />
+                  <point x="662.1670420420421" y="920.0" />
+                  <point x="0.0" y="168.5" />
+                </edge>
+                <edge source="localManagement.models.FotoLocale" target="localManagement.models.Locale">
+                  <point x="5.6843418860808015E-14" y="-36.5" />
+                  <point x="418.9549549549549" y="920.0" />
+                  <point x="638.055930930931" y="920.0" />
+                  <point x="-24.111111111111086" y="168.5" />
+                </edge>
+                <edge source="accounts.models.Commerciante" target="accounts.models.User">
+                  <point x="59.25" y="-58.5" />
+                  <point x="1241.5003753753754" y="920.0" />
+                  <point x="1276.0082582582586" y="920.0" />
+                  <point x="-53.5" y="102.5" />
+                </edge>
+                <edge source="user.models.Recensione" target="accounts.models.Utente">
+                  <point x="63.0" y="-91.5" />
+                  <point x="1213.0833333333333" y="1153.0" />
+                  <point x="1350.9170420420423" y="1153.0" />
+                  <point x="-60.33333333333326" y="36.5" />
+                </edge>
+                <edge source="order.models.OrdineInAttesa" target="localManagement.models.Menu">
+                  <point x="-80.25" y="-146.5" />
+                  <point x="810.7049549549549" y="1386.0" />
+                  <point x="807.8716216216217" y="1386.0" />
+                  <point x="91.66666666666674" y="80.5" />
+                </edge>
+                <edge source="accounts.models.Utente" target="accounts.models.User">
+                  <point x="0.0" y="-36.5" />
+                  <point x="1411.2503753753754" y="920.0" />
+                  <point x="1383.0082582582586" y="920.0" />
+                  <point x="53.5" y="102.5" />
+                </edge>
+                <edge source="order.models.RichiedeP" target="localManagement.models.Prodotto">
+                  <point x="0.0" y="-58.5" />
+                  <point x="145.02252252252288" y="1729.0" />
+                  <point x="115.0" y="1729.0" />
+                  <point x="115.0" y="1153.0" />
+                  <point x="89.95495495495481" y="1153.0" />
+                  <point x="-82.5" y="91.5" />
+                </edge>
+                <edge source="user.models.Recensione" target="accounts.models.Commerciante">
+                  <point x="0.0" y="-91.5" />
+                  <point x="1150.0833333333333" y="1153.0" />
+                  <point x="1182.2503753753754" y="1153.0" />
+                  <point x="0.0" y="58.5" />
+                </edge>
+                <edge source="order.models.RichiedeP" target="order.models.OrdineInAttesa">
+                  <point x="66.0" y="-58.5" />
+                  <point x="211.02252252252288" y="1729.0" />
+                  <point x="837.4549549549549" y="1729.0" />
+                  <point x="-53.5" y="146.5" />
+                </edge>
+                <edge source="django.contrib.auth.models.Group" target="django.contrib.auth.models.Permission">
+                  <point x="0.0" y="-58.5" />
+                  <point x="-60.0" y="69.5" />
+                </edge>
+                <edge source="user.models.Recensione" target="localManagement.models.Locale">
+                  <point x="-63.0" y="-91.5" />
+                  <point x="1087.0833333333333" y="1153.0" />
+                  <point x="1053.2503753753754" y="1153.0" />
+                  <point x="1053.2503753753754" y="900.0" />
+                  <point x="734.5003753753756" y="900.0" />
+                  <point x="72.33333333333337" y="168.5" />
+                </edge>
+                <edge source="order.models.RichiedeM" target="localManagement.models.Locale">
+                  <point x="63.66666666666663" y="-58.5" />
+                  <point x="1009.9166666666666" y="1729.0" />
+                  <point x="1026.7503753753754" y="1729.0" />
+                  <point x="1026.7503753753754" y="910.0" />
+                  <point x="710.3892642642645" y="910.0" />
+                  <point x="48.222222222222285" y="168.5" />
+                </edge>
+                <edge source="localManagement.models.CompostoDa" target="localManagement.models.Locale">
+                  <point x="0.0" y="-47.5" />
+                  <point x="274.0" y="1386.0" />
+                  <point x="292.9549549549548" y="1386.0" />
+                  <point x="292.9549549549548" y="910.0" />
+                  <point x="613.9448198198199" y="910.0" />
+                  <point x="-48.22222222222217" y="168.5" />
+                </edge>
+                <edge source="order.models.RichiedeM" target="localManagement.models.Menu">
+                  <point x="-63.66666666666663" y="-58.5" />
+                  <point x="882.5833333333334" y="1719.0" />
+                  <point x="716.2049549549549" y="1719.0" />
+                  <point x="0.0" y="80.5" />
+                </edge>
+                <edge source="order.models.OrdineInAttesa" target="accounts.models.Utente">
+                  <point x="26.75" y="-146.5" />
+                  <point x="917.7049549549549" y="1376.0" />
+                  <point x="1411.2503753753754" y="1376.0" />
+                  <point x="0.0" y="36.5" />
+                </edge>
+                <edge source="localManagement.models.CompostoDa" target="localManagement.models.Menu">
+                  <point x="81.0" y="-47.5" />
+                  <point x="355.0" y="1386.0" />
+                  <point x="624.5382882882882" y="1386.0" />
+                  <point x="-91.66666666666663" y="80.5" />
+                </edge>
+                <edge source="order.models.OrdineInAttesa" target="user.models.CartaDiCredito">
+                  <point x="80.25" y="-146.5" />
+                  <point x="971.2049549549549" y="1386.0" />
+                  <point x="1521.2503753753754" y="1386.0" />
+                  <point x="0.0" y="80.5" />
+                </edge>
+              </edges>
+              <settings layout="Hierarchic Group" zoom="0.22375397667020147" x="810.5" y="933.0000000000001" />
+              <SelectedNodes>
+                <node>localManagement.models.Localita</node>
+              </SelectedNodes>
+              <Categories>
+                <Category>Fields</Category>
+              </Categories>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/accounts/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="13" column="70" selection-start-line="13" selection-start-column="70" selection-end-line="13" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>photos|</find>
+      <find>local_</find>
+      <find>&lt;script</find>
+      <find>z-</find>
+      <find>reset</find>
+      <find>self</find>
+      <find>redirec</find>
+      <find>nome_locale</find>
+      <find>get</find>
+      <find>formO</find>
+      <find>rese</find>
+      <find>form_o</find>
+      <find>local_n</find>
+      <find>round</find>
+      <find>scri</find>
+      <find>form</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>cls</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/localManagement/templates/localManagement/localLists.old.html" />
+        <option value="$PROJECT_DIR$/assets/templatetags/newtag.py" />
+        <option value="$PROJECT_DIR$/assets/templatetags/__init__.py" />
+        <option value="$PROJECT_DIR$/templates/base2.html" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/450d297b-ee24-4234-b5f5-15a00d227eec/console.sql" />
+        <option value="$PROJECT_DIR$/TrustEat/settings.py" />
+        <option value="$PROJECT_DIR$/search/forms.py" />
+        <option value="$PROJECT_DIR$/accounts/forms.py" />
+        <option value="$PROJECT_DIR$/localManagement/templates/localManagement/localLists.html" />
+        <option value="$PROJECT_DIR$/user/urls.py" />
+        <option value="$PROJECT_DIR$/order/forms.py" />
+        <option value="$PROJECT_DIR$/localManagement/models.py" />
+        <option value="$PROJECT_DIR$/order/urls.py" />
+        <option value="$PROJECT_DIR$/localManagement/urls.py" />
+        <option value="$PROJECT_DIR$/accounts/models.py" />
+        <option value="$PROJECT_DIR$/user/models.py" />
+        <option value="$PROJECT_DIR$/order/templates/order/placed_order.html" />
+        <option value="$PROJECT_DIR$/localManagement/templatetags/newtag.py" />
+        <option value="$PROJECT_DIR$/localManagement/forms.py" />
+        <option value="$PROJECT_DIR$/localManagement/templates/localManagement/votes.html" />
+        <option value="$PROJECT_DIR$/search/templates/search/index.html" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
+        <option value="$PROJECT_DIR$/order/models.py" />
+        <option value="$PROJECT_DIR$/localManagement/views.py" />
+        <option value="$PROJECT_DIR$/TrustEat/urls.py" />
+        <option value="$PROJECT_DIR$/order/views.py" />
+        <option value="$PROJECT_DIR$/search/views.py" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/order/templates/order/check.html" />
+        <option value="$PROJECT_DIR$/accounts/templates/account/dashboard.html" />
+        <option value="$PROJECT_DIR$/accounts/views.py" />
+        <option value="$PROJECT_DIR$/accounts/urls.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-7" />
+    <option name="width" value="697" />
+    <option name="height" value="775" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
+              <item name="accounts" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
+              <item name="localManagement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
+              <item name="order" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
+              <item name="order" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TrustEat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TrustEat" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="postgresql" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\marco\Google Drive\Trust eat!\PycharmProject\TrustEat\assets" />
+      <recent name="C:\Users\marco\Google Drive\Trust eat!\PycharmProject\TrustEat\assets\css" />
+      <recent name="C:\Users\marco\Google Drive\Trust eat!\PycharmProject\TrustEat\localManagement\templates\localManagement" />
+      <recent name="C:\Users\marco\Google Drive\Trust eat!\PycharmProject\TrustEat\templates" />
+      <recent name="C:\Users\marco\Google Drive\Trust eat!\PycharmProject\TrustEat\localManagement" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\marco\Google Drive\Trust eat!\PycharmProject\TrustEat\localManagement" />
+      <recent name="C:\Users\marco\Google Drive\Trust eat!\PycharmProject\TrustEat\accounts" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="TrustEat" type="Python.DjangoServer" factoryName="Django server">
+      <module name="TrustEat" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="TrustEat.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",SHOW_FIELDS" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="47b1d101-6c59-4d36-80ee-367e5aee040e" name="Default Changelist" comment="" />
+      <created>1541163819759</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1541163819759</updated>
+      <workItem from="1542882257419" duration="39784000" />
+      <workItem from="1543071035510" duration="642000" />
+      <workItem from="1543136885830" duration="382000" />
+      <workItem from="1543256555092" duration="7114000" />
+      <workItem from="1543311084693" duration="35244000" />
+      <workItem from="1543479728910" duration="47362000" />
+      <workItem from="1543764410865" duration="25165000" />
+      <workItem from="1543916688329" duration="20893000" />
+      <workItem from="1543998658989" duration="979000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="177565000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Favorites" order="0" sideWeight="0.50528544" side_tool="true" weight="0.34039333" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.4947146" visible="true" weight="0.20045386" />
+      <window_info id="Structure" order="2" sideWeight="0.50292397" side_tool="true" weight="0.2677761" />
+      <window_info anchor="bottom" id="Database Changes" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32565284" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" visible="true" weight="0.2734255" />
+      <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Console" order="4" weight="0.32718894" />
+      <window_info anchor="bottom" id="Python Console" order="5" weight="0.30721965" />
+      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Find" order="8" weight="0.32872504" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49924356" weight="0.2764977" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.38307694" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info anchor="right" id="Database" order="0" weight="0.22617246" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="4" weight="0.32980332" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" sideWeight="0.50528544" side_tool="true" weight="0.34039333" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.4947146" weight="0.34039333" />
+      <window_info id="Structure" order="2" sideWeight="0.50292397" side_tool="true" weight="0.2677761" />
+      <window_info anchor="bottom" id="Database Changes" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.32718894" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.50075644" side_tool="true" weight="0.27384615" />
+      <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Console" order="4" weight="0.32718894" />
+      <window_info anchor="bottom" id="Python Console" order="5" weight="0.31182796" />
+      <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="7" />
+      <window_info anchor="bottom" id="Find" order="8" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.49924356" visible="true" weight="0.2734255" />
+      <window_info anchor="bottom" id="Debug" order="10" weight="0.38307694" />
+      <window_info anchor="bottom" id="Cvs" order="11" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="12" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="13" />
+      <window_info active="true" anchor="right" id="Database" order="0" visible="true" weight="0.20574887" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="4" weight="0.32980332" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="Python.DjangoServer">
+        <watch expression="self.last_local" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="watch">
+      <expression>
+        <expression-string>self.last_local</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.prod_ordine</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="setValue">
+      <expression>
+        <expression-string>0</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>1</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>'1'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>'2'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>'ciao'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>11</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>__py_debug_temp_var_204441298</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/450d297b-ee24-4234-b5f5-15a00d227eec/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="17" lean-forward="true" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/accounts_utente_carta_di_credito">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sprites/solid.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sprites/regular.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/sprites/brands.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/fontawesome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-918">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/fontawesome.css">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/user_cartadicredito_utente">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/localManagement_prodotto">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/user_cartadicredito">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/localManagement/templates/localManagement/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/localManagement/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="28" lean-forward="true" selection-start-line="5" selection-start-column="28" selection-end-line="5" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/accounts_commerciante_possiede_locale">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/accounts_commerciante">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/localManagement_locale">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/localManagement/templates/localManagement/desktop.ini">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/accounts_utente">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/accounts_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/localManagement/templates/localManagement/localLists.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/user_recensione">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/localManagement/templatetags/newtag.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/localManagement/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-572">
+          <caret line="35" column="3" selection-start-line="155" selection-start-column="73" selection-end-line="156" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/user/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.3/system/python_stubs/-1643739017/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="5186" column="8" selection-start-line="5186" selection-start-column="8" selection-end-line="5186" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/localManagement/templates/localManagement/votes.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="94" column="98" selection-start-line="94" selection-start-column="98" selection-end-line="94" selection-end-column="98" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#form#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/templates/order/placed_order.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-665">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/localManagement/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="35" column="60" lean-forward="true" selection-start-line="35" selection-start-column="60" selection-end-line="35" selection-end-column="60" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TrustEat/loading.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TrustEat/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#632#664#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TrustEat/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2465" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="31" column="67" lean-forward="true" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/order_richiedem">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/order_richiedep">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="181" column="5" selection-start-line="181" selection-start-column="5" selection-end-line="181" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-187">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/search/templates/search/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="58" column="110" lean-forward="true" selection-start-line="58" selection-start-column="92" selection-end-line="58" selection-end-column="110" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#a#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/localManagement/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1496">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://450d297b-ee24-4234-b5f5-15a00d227eec/database/trusteat_db/schema/public/table/order_ordineinattesa">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order/templates/order/check.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="135" column="32" selection-start-line="135" selection-start-column="32" selection-end-line="135" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/templates/account/dashboard.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1173">
+          <caret line="69" selection-start-line="69" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="13" column="70" selection-start-line="13" selection-start-column="70" selection-end-line="13" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/accounts/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="248" column="58" selection-start-line="248" selection-start-column="58" selection-end-line="248" selection-end-column="58" />
+          <folding>
+            <element signature="e#0#37#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://JavaScript-modules-diagram/C:/Users/marco/Google Drive/Trust eat!/PycharmProject/TrustEat">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>JavaScript-modules-diagram</ID>
+          <OriginalElement>$PROJECT_DIR$</OriginalElement>
+          <nodes />
+          <notes />
+          <edges />
+          <settings layout="Hierarchic Group" zoom="1.0" x="528.5" y="211.0" />
+          <SelectedNodes />
+          <Categories>
+            <Category>All</Category>
+          </Categories>
+          <VISIBILITY>Details</VISIBILITY>
+        </state>
+      </provider>
+    </entry>
+    <entry file="uml://DjangoModelDependency/#TrustEat">
+      <provider selected="true" editor-type-id="UmlEditorProvider">
+        <state>
+          <ID>DjangoModelDependency</ID>
+          <OriginalElement>#TrustEat</OriginalElement>
+          <nodes>
+            <node x="453.9170420420422" y="378.0">localManagement.models.Tag</node>
+            <node x="303.45495495495487" y="995.0">localManagement.models.FotoLocale</node>
+            <node x="0.0" y="655.0">localManagement.models.Tipo</node>
+            <node x="1421.7503753753754" y="1184.0">user.models.CartaDiCredito</node>
+            <node x="554.4549549549549" y="995.0">localManagement.models.Chiusura</node>
+            <node x="783.9549549549549" y="1406.0">order.models.OrdineInAttesa</node>
+            <node x="1222.5082582582586" y="589.0">accounts.models.User</node>
+            <node x="578.7049549549549" y="1184.0">localManagement.models.Menu</node>
+            <node x="1055.5833333333333" y="1173.0">user.models.Recensione</node>
+            <node x="1209.5082582582586" y="167.0">django.contrib.auth.models.Permission</node>
+            <node x="1063.7503753753754" y="973.0">accounts.models.Commerciante</node>
+            <node x="1160.7582582582586" y="356.0">django.contrib.auth.models.Group</node>
+            <node x="1181.5082582582586" y="0.0">django.contrib.contenttypes.models.ContentType</node>
+            <node x="666.9170420420421" y="367.0">localManagement.models.Localita</node>
+            <node x="62.454954954954815" y="940.0">localManagement.models.Prodotto</node>
+            <node x="553.6670420420421" y="523.0">localManagement.models.Locale</node>
+            <node x="850.75" y="1749.0">order.models.RichiedeM</node>
+            <node x="152.5" y="1505.0">localManagement.models.CompostoDa</node>
+            <node x="46.02252252252288" y="1749.0">order.models.RichiedeP</node>
+            <node x="1320.7503753753754" y="995.0">accounts.models.Utente</node>
+          </nodes>
+          <notes />
+          <edges>
+            <edge source="localManagement.models.Locale" target="localManagement.models.Localita">
+              <point x="54.25" y="-168.5" />
+              <point x="716.4170420420421" y="498.0" />
+              <point x="773.9170420420421" y="498.0" />
+              <point x="0.0" y="47.5" />
+            </edge>
+            <edge source="localManagement.models.Menu" target="localManagement.models.Locale">
+              <point x="68.75" y="-80.5" />
+              <point x="784.9549549549549" y="920.0" />
+              <point x="686.2781531531532" y="920.0" />
+              <point x="24.111111111111086" y="168.5" />
+            </edge>
+            <edge source="accounts.models.User" target="django.contrib.auth.models.Permission">
+              <point x="53.5" y="-102.5" />
+              <point x="1383.0082582582586" y="498.0" />
+              <point x="1389.2582582582586" y="498.0" />
+              <point x="60.0" y="69.5" />
+            </edge>
+            <edge source="django.contrib.auth.models.Permission" target="django.contrib.contenttypes.models.ContentType">
+              <point x="0.0" y="-69.5" />
+              <point x="0.0" y="58.5" />
+            </edge>
+            <edge source="localManagement.models.Prodotto" target="localManagement.models.Locale">
+              <point x="55.0" y="-91.5" />
+              <point x="227.45495495495481" y="900.0" />
+              <point x="589.8337087087089" y="900.0" />
+              <point x="-72.33333333333337" y="168.5" />
+            </edge>
+            <edge source="accounts.models.User" target="django.contrib.auth.models.Group">
+              <point x="-53.5" y="-102.5" />
+              <point x="1276.0082582582586" y="498.0" />
+              <point x="1269.7582582582586" y="498.0" />
+              <point x="0.0" y="58.5" />
+            </edge>
+            <edge source="accounts.models.Commerciante" target="localManagement.models.Locale">
+              <point x="-59.25" y="-58.5" />
+              <point x="1123.0003753753754" y="890.0" />
+              <point x="758.6114864864867" y="890.0" />
+              <point x="96.44444444444446" y="168.5" />
+            </edge>
+            <edge source="localManagement.models.CompostoDa" target="localManagement.models.Prodotto">
+              <point x="-81.0" y="-47.5" />
+              <point x="193.0" y="1386.0" />
+              <point x="144.95495495495481" y="1386.0" />
+              <point x="-27.5" y="91.5" />
+            </edge>
+            <edge source="localManagement.models.Locale" target="localManagement.models.Tag">
+              <point x="-54.25" y="-168.5" />
+              <point x="607.9170420420421" y="498.0" />
+              <point x="550.4170420420422" y="498.0" />
+              <point x="0.0" y="36.5" />
+            </edge>
+            <edge source="order.models.OrdineInAttesa" target="localManagement.models.Prodotto">
+              <point x="-26.75" y="-146.5" />
+              <point x="864.2049549549549" y="1143.0" />
+              <point x="254.95495495495481" y="1143.0" />
+              <point x="82.5" y="91.5" />
+            </edge>
+            <edge source="user.models.CartaDiCredito" target="accounts.models.Utente">
+              <point x="0.0" y="-80.5" />
+              <point x="1521.2503753753754" y="1153.0" />
+              <point x="1471.5837087087089" y="1153.0" />
+              <point x="60.33333333333326" y="36.5" />
+            </edge>
+            <edge source="order.models.RichiedeM" target="order.models.OrdineInAttesa">
+              <point x="0.0" y="-58.5" />
+              <point x="946.25" y="1729.0" />
+              <point x="944.4549549549549" y="1729.0" />
+              <point x="53.5" y="146.5" />
+            </edge>
+            <edge source="localManagement.models.Menu" target="localManagement.models.Prodotto">
+              <point x="-68.75" y="-80.5" />
+              <point x="647.4549549549549" y="1153.0" />
+              <point x="199.95495495495481" y="1153.0" />
+              <point x="27.5" y="91.5" />
+            </edge>
+            <edge source="localManagement.models.Prodotto" target="localManagement.models.Tipo">
+              <point x="-55.0" y="-91.5" />
+              <point x="117.45495495495481" y="880.0" />
+              <point x="98.5" y="880.0" />
+              <point x="0.0" y="36.5" />
+            </edge>
+            <edge source="order.models.RichiedeP" target="localManagement.models.Locale">
+              <point x="-66.0" y="-58.5" />
+              <point x="79.02252252252288" y="1729.0" />
+              <point x="51.954954954954815" y="1729.0" />
+              <point x="51.954954954954815" y="890.0" />
+              <point x="565.7225975975978" y="890.0" />
+              <point x="-96.44444444444446" y="168.5" />
+            </edge>
+            <edge source="localManagement.models.Chiusura" target="localManagement.models.Locale">
+              <point x="0.0" y="-36.5" />
+              <point x="664.4549549549549" y="920.0" />
+              <point x="662.1670420420421" y="920.0" />
+              <point x="0.0" y="168.5" />
+            </edge>
+            <edge source="localManagement.models.FotoLocale" target="localManagement.models.Locale">
+              <point x="5.6843418860808015E-14" y="-36.5" />
+              <point x="418.9549549549549" y="920.0" />
+              <point x="638.055930930931" y="920.0" />
+              <point x="-24.111111111111086" y="168.5" />
+            </edge>
+            <edge source="accounts.models.Commerciante" target="accounts.models.User">
+              <point x="59.25" y="-58.5" />
+              <point x="1241.5003753753754" y="920.0" />
+              <point x="1276.0082582582586" y="920.0" />
+              <point x="-53.5" y="102.5" />
+            </edge>
+            <edge source="user.models.Recensione" target="accounts.models.Utente">
+              <point x="63.0" y="-91.5" />
+              <point x="1213.0833333333333" y="1153.0" />
+              <point x="1350.9170420420423" y="1153.0" />
+              <point x="-60.33333333333326" y="36.5" />
+            </edge>
+            <edge source="order.models.OrdineInAttesa" target="localManagement.models.Menu">
+              <point x="-80.25" y="-146.5" />
+              <point x="810.7049549549549" y="1386.0" />
+              <point x="807.8716216216217" y="1386.0" />
+              <point x="91.66666666666674" y="80.5" />
+            </edge>
+            <edge source="accounts.models.Utente" target="accounts.models.User">
+              <point x="0.0" y="-36.5" />
+              <point x="1411.2503753753754" y="920.0" />
+              <point x="1383.0082582582586" y="920.0" />
+              <point x="53.5" y="102.5" />
+            </edge>
+            <edge source="order.models.RichiedeP" target="localManagement.models.Prodotto">
+              <point x="0.0" y="-58.5" />
+              <point x="145.02252252252288" y="1729.0" />
+              <point x="115.0" y="1729.0" />
+              <point x="115.0" y="1153.0" />
+              <point x="89.95495495495481" y="1153.0" />
+              <point x="-82.5" y="91.5" />
+            </edge>
+            <edge source="user.models.Recensione" target="accounts.models.Commerciante">
+              <point x="0.0" y="-91.5" />
+              <point x="1150.0833333333333" y="1153.0" />
+              <point x="1182.2503753753754" y="1153.0" />
+              <point x="0.0" y="58.5" />
+            </edge>
+            <edge source="order.models.RichiedeP" target="order.models.OrdineInAttesa">
+              <point x="66.0" y="-58.5" />
+              <point x="211.02252252252288" y="1729.0" />
+              <point x="837.4549549549549" y="1729.0" />
+              <point x="-53.5" y="146.5" />
+            </edge>
+            <edge source="django.contrib.auth.models.Group" target="django.contrib.auth.models.Permission">
+              <point x="0.0" y="-58.5" />
+              <point x="-60.0" y="69.5" />
+            </edge>
+            <edge source="user.models.Recensione" target="localManagement.models.Locale">
+              <point x="-63.0" y="-91.5" />
+              <point x="1087.0833333333333" y="1153.0" />
+              <point x="1053.2503753753754" y="1153.0" />
+              <point x="1053.2503753753754" y="900.0" />
+              <point x="734.5003753753756" y="900.0" />
+              <point x="72.33333333333337" y="168.5" />
+            </edge>
+            <edge source="order.models.RichiedeM" target="localManagement.models.Locale">
+              <point x="63.66666666666663" y="-58.5" />
+              <point x="1009.9166666666666" y="1729.0" />
+              <point x="1026.7503753753754" y="1729.0" />
+              <point x="1026.7503753753754" y="910.0" />
+              <point x="710.3892642642645" y="910.0" />
+              <point x="48.222222222222285" y="168.5" />
+            </edge>
+            <edge source="localManagement.models.CompostoDa" target="localManagement.models.Locale">
+              <point x="0.0" y="-47.5" />
+              <point x="274.0" y="1386.0" />
+              <point x="292.9549549549548" y="1386.0" />
+              <point x="292.9549549549548" y="910.0" />
+              <point x="613.9448198198199" y="910.0" />
+              <point x="-48.22222222222217" y="168.5" />
+            </edge>
+            <edge source="order.models.RichiedeM" target="localManagement.models.Menu">
+              <point x="-63.66666666666663" y="-58.5" />
+              <point x="882.5833333333334" y="1719.0" />
+              <point x="716.2049549549549" y="1719.0" />
+              <point x="0.0" y="80.5" />
+            </edge>
+            <edge source="order.models.OrdineInAttesa" target="accounts.models.Utente">
+              <point x="26.75" y="-146.5" />
+              <point x="917.7049549549549" y="1376.0" />
+              <point x="1411.2503753753754" y="1376.0" />
+              <point x="0.0" y="36.5" />
+            </edge>
+            <edge source="localManagement.models.CompostoDa" target="localManagement.models.Menu">
+              <point x="81.0" y="-47.5" />
+              <point x="355.0" y="1386.0" />
+              <point x="624.5382882882882" y="1386.0" />
+              <point x="-91.66666666666663" y="80.5" />
+            </edge>
+            <edge source="order.models.OrdineInAttesa" target="user.models.CartaDiCredito">
+              <point x="80.25" y="-146.5" />
+              <point x="971.2049549549549" y="1386.0" />
+              <point x="1521.2503753753754" y="1386.0" />
+              <point x="0.0" y="80.5" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="0.22375397667020147" x="810.5" y="933.0000000000001" />
+          <SelectedNodes>
+            <node>localManagement.models.Localita</node>
+          </SelectedNodes>
+          <Categories>
+            <Category>Fields</Category>
+          </Categories>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

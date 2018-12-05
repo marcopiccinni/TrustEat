@@ -1,0 +1,125 @@
+body.login
+{
+    background-image: url('../img/girl_shadow_sad_face_eyes.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 1.5cm 0cm 0cm 0cm;
+}
+
+.login #header {
+    height: auto;
+    padding: 5px 16px;
+    background-color: #a01b2a;
+    color: #f0da5b;
+    opacity: 1;
+}
+
+.login #header h1 {
+    font-size: 18px;
+}
+
+.login #header h1 a {
+    color: #f0da5b;
+}
+
+.login #content {
+    padding: 20px 20px 0;
+    background: lightgrey;
+    opacity: 0.6;
+}
+
+.login #container {
+    /*background: lightgrey;*/
+    /*opacity: 0.6;*/
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 28em;
+    min-width: 300px;
+    margin: 100px auto;
+}
+
+.login #content-main {
+    width: 100%;
+}
+
+.login .form-row {
+    padding: 4px 0;
+    float: left;
+    width: 100%;
+    border-bottom: none;
+    color: white;
+}
+
+.login .form-row label {
+    padding-right: 0.5em;
+    line-height: 2em;
+    font-size: 1.23em;
+    clear: both;
+    color: black;
+    font-weight: bolder;
+}
+
+.login .form-row #id_username, .login .form-row #id_password {
+    clear: both;
+    padding: 8px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    color: #a01b2a;
+}
+
+.login span.help {
+    font-size: 10px;
+    display: block;
+}
+
+.login .submit-row {
+    clear: both;
+    padding: 0.0em 1em 0em 0.0em;
+    margin: 0;
+    border: none;
+    background: none;
+    text-align: left;
+}
+
+.login .password-reset-link {
+    text-align: center;
+}
+
+#footer {
+    clear: both;
+    padding: 10px;
+    background: lightgrey;
+    opacity: 0.6;
+}
+
+.button:active, input[type=submit]:active, input[type=button]:active,
+.button:focus, input[type=submit]:focus, input[type=button]:focus,
+.button:hover, input[type=submit]:hover, input[type=button]:hover
+{
+    background: #a01b2a;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #a01b2a;
+    padding: 10px 150px;
+    border: none;
+    border-radius: 4px;
+    color: #f0da5b;
+    cursor: pointer;
+}
+
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    /*background-color: rgb(243, 255, 184) !important;*/
+    background-color: whitesmoke;
+    background-image: none !important;
+    color: #a01b2a;
+    /*color: rgb(255, 254, 0) !important;*/
+}

@@ -1,0 +1,232 @@
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+{% load newtag %}
+{% load crispy_forms_tags %}
+
+{% block head %}
+    <meta charset="UTF-8">
+    <title>Conferma ordine</title>
+    <style>
+        .nome {
+            width: 45%;
+        }
+        .prezzo {
+            width: 75%;
+        }
+        .totale {
+            width: 10%;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="container text-warning rounded-bottom mx-1 mb-4 pb-1 pl-2 shadow"
+                     style="background-color: #a01b2a; font-size: 120%" align="center">
+                    <h1> {{ locale.nome_locale|upper }}</h1>
+                </div>
+
+                <div class="card shadow" style="background-color: #878787;">
+                    <div class="card-header text-light">
+                        <blockquote class="blockquote text-center">
+                            <p class="m-0 p-0" style="font-size: 100%;"> RIEPILOGO ORDINE</p>
+                        </blockquote>
+                    </div>
+                    <div class="card-body" style="background-color:#F0F0F0">
+
+                        {# ------------------------ Start Prodotti ---------------------------------------------------#}
+                        {% if num_prod > 0 %}
+                            <div class="card text-center mt-3 mb-4"
+                                 style="background-color: #878787; max-height: 70%">
+                                <div class="card-header text-light m-0 p-0">
+                                    <blockquote class="blockquote text-center">
+                                        <p class="m-0 p-0" style="font-size: 90%;">PRODOTTI</p>
+                                    </blockquote>
+                                </div>
+                                <div class="card-body m-0 p-0 card-text"
+                                     style="background-color:#F0F0F0; max-height:300px; overflow-y: scroll">
+                                    <table class="table-responsive p-0 m-0 align-content-center table-striped">
+                                        {% for x in products %}
+                                            {% if x.num_obj > 0 %}
+                                                <tr>
+                                                    <td class="px-1 nome">
+                                                        <div class="food font-weight-bold nome">{{ x.prodotto.nome_prodotto }} </div>
+                                                    </td>
+                                                    <td class="px-1 prezzo">
+                                                        <div> {{ x.prodotto.prezzo }}&nbsp;&euro;
+                                                            x {{ x.num_obj }}
+                                                            pezzi
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-1 totale">
+                                                        <div> {% multiply x.prodotto.prezzo x.num_obj %}&nbsp;&euro;</div>
+                                                    </td>
+                                                </tr>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </table>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {# ------------------------ End Prodotti -----------------------------------------------------#}
+                        {# ------------------------ Start Menu -------------------------------------------------------#}
+                        {% if num_menu > 0 %}
+                            <div class="card text-center mt-3 mb-4" style="background-color: #878787; max-height: 70%">
+                                <div class="card-header text-light m-0 p-0">
+                                    <blockquote class="blockquote text-center">
+                                        <p class="m-0 p-0" style="font-size: 90%;">MENU</p>
+                                    </blockquote>
+                                </div>
+                                <div class="card-body m-0 p-0" style="background-color:#F0F0F0 ">
+                                    <div class="card-text">
+                                        <div style=" max-height:300px; overflow-y:scroll">
+                                            <table class="table-responsive p-0 m-0 align-content-center table-striped">
+                                                {% for x in  menues %}
+                                                    {% if x.num_obj > 0 %}
+                                                        <tr>
+                                                            <td class="px-1 nome">
+                                                                <div class="food font-weight-bold">{{ x.menu.nome_menu }} </div>
+                                                                <div class="desc p-0 m-0 font-italic"> elenco prodotti
+                                                                </div>
+                                                            </td>
+                                                            <td class="px-1 prezzo">
+                                                                <div> {{ x.menu.prezzo }}&nbsp;&euro;
+                                                                    x {{ x.num_obj }}</div>
+                                                            </td>
+                                                            <td class="px-1 totale">
+                                                                <div>{% multiply x.menu.prezzo x.num_obj %}&nbsp;&euro;</div>
+                                                            </td>
+                                                        </tr>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {# ------------------------ End Menu -------------------------------------------------------- #}
+                    </div>
+                    <div class="card-footer " style=" background-color: #878787; color: white; font-size: large">
+                        &nbsp; TOTALE ORDINE: &nbsp;&nbsp;{% total_price %}&nbsp;&euro;
+                    </div>
+                </div>
+            </div>
+
+            <div class="col container">
+                <div class="card text-center mt-3 mb-4 shadow" style="background-color: #878787;">
+                    <div class="card-header text-light m-0 p-0">
+                        <blockquote class="blockquote text-center">
+                            <p class="m-0 p-0" style="font-size: 90%;">DATI DI SPEDIZIONE</p>
+                        </blockquote>
+                    </div>
+                    <div class="card-body m-0 p-0 card-text "
+                         style="background-color:#F0F0F0;">
+                        <div class="container">
+                            <p>
+                                <br>I tuoi dati di spedizione: {{ destination.recapito }}<br>
+                                Indirizzo: {{ destination.indirizzo }}, {{ destination.civico }}
+                                a {{ destination.citta }}
+                            </p>
+
+                            <form method="post">
+                                {% csrf_token %}
+
+                                <div id="div_id_Orario" class="form-group">
+                                    <label for="id_Orario" class="col-form-label requiredField">
+                                        Orario <span class="asteriskField">*</span>
+                                    </label>
+                                    <div class="">
+                                        <input type="time" name="Orario" class=" form-control" required=""
+                                               id="id_Orario" min="{{ tmin }}" max="{{ tmax }}">
+                                        <q>Orario disponibile: {{ tmin }} - {{ tmax }}</q>
+                                    </div>
+                                </div>
+
+                                <div id="div_id_Pagamento" class="form-group">
+                                    <label for="id_Pagamento" class="col-form-label requiredField">
+                                        Pagamento <span class="asteriskField">*</span>
+                                    </label>
+                                    <div class="">
+                                        <select name="Pagamento" class="select form-control" id="id_Pagamento"
+                                                onchange='checkStatusPayment();'>
+                                            <option value="False" selected="">Alla consegna</option>
+                                            <option value="True">Carta di credito</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                {{ form_card|crispy }}
+
+                                <div class="alert alert-danger" role="alert" id="id_ErrorTime" hidden="">
+                                    Impostare un'orario di consegna valido
+                                </div>
+
+                                <div class="alert alert-danger" role="alert" id="id_ErrorCard" hidden="">
+                                    Selezionare una carta
+                                </div>
+
+                                <button class="btn btn-danger mb-3 text-center align-top align-text-top shadow"
+                                        style="font-size: 200%;" type="submit" id="id_SubmitForm"
+                                        onkeypress="checkValues()"
+                                        onfocus="checkValues()"
+                                        onmousemove="checkValues()">
+                                    Conferma l'ordine
+                                </button>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkStatusPayment() {
+            var pay = document.getElementById("id_Pagamento");
+            var sel_pay = pay.options[pay.selectedIndex].text;
+            var card = document.getElementById("id_Carta");
+            if (sel_pay == "Carta di credito")
+                card.disabled = false;
+            else
+                card.disabled = true;
+        }
+
+        function checkValues() {
+            var pay = document.getElementById("id_Pagamento");
+            var sel_pay = pay.options[pay.selectedIndex].text;
+            var card = document.getElementById("id_Carta");
+            var sel_card = card.options[card.selectedIndex].text;
+            var errorCard = document.getElementById("id_ErrorCard");
+            var button = document.getElementById("id_SubmitForm");
+            var time = document.getElementById("id_Orario");
+            var sel_time = time.value;
+            var errorTime = document.getElementById("id_ErrorTime");
+            if (sel_time == '') {
+                  errorTime.hidden = false;
+                button.disabled = true;
+            } else if (sel_time > time.min && sel_time < time.max) {
+                errorTime.hidden = true;
+                button.disabled = true;
+                if (sel_pay == "Carta di credito") {
+                    if (sel_card == '---------') {
+                        errorCard.hidden = false;
+                        button.disabled = true;
+                    } else {
+                        errorCard.hidden = true;
+                        button.disabled = false;
+                    }
+                } else
+                    button.disabled = false;
+            } else {
+                errorTime.hidden = false;
+                button.disabled = true;
+            }
+        }
+    </script>
+{% endblock %}

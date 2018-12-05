@@ -1,0 +1,81 @@
+#header {
+    background-color: #a01b2a;
+    color: #f0da5b;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    margin: 0;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: left;
+    background: #a01b2a;
+    color: #f0da5b;
+}
+
+a.section:link, a.section:visited {
+    color: #f0da5b;
+}
+
+h1 {
+    color: #f0da5b;
+    font-family: Poppins-medium, sans-serif;
+}
+
+body {
+    background-image: url('../img/coffee_continents.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+#content-related {
+    background: #a01b2a;
+    color: #f0da5b;
+}
+
+#content-related {
+    float: right;
+    width: 100px;
+    position: relative;
+    margin-right: -600px;
+}
+
+div.breadcrumbs {
+    background: #a01b2a;
+    padding: 10px 40px;
+    border: none;
+    font-size: 14px;
+    color: #f0da5b;
+    text-align: left;
+    opacity: 0.7;
+    font-weight: bolder;
+}
+
+.module table {
+    border-collapse: collapse;
+    background-color: snow;
+    color: black;
+    border-color: white;
+}
+
+#content-related h3 {
+    font-size: 14px;
+    color: #f0da5b;
+    padding: 0 16px;
+    margin: 0 0 16px;
+}
+
+#content-related .module h2 {
+    background: none;
+    padding: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 18px;
+    color: #f0da5b;
+}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+
+{% block body %}
+
+    <h2>{{ messaggio }}</h2>
+
+    <script type="text/javascript" language="JavaScript">
+        <!--
+        function autoReload() {
+            var timeID = setTimeout("location.href= '/'", 10000)
+        }
+
+        //-->
+    </script>
+
+    </head>
+    <body onload="autoReload()">
+    <br/><br/>
+    <div align="center">
+
+
+        Tra 10 secondi sarai automaticamente rediretto alla home
+        <a href="{% url 'localManagement:products_list' cl %}"> {{ url }} </a>
+
+    </div>
+    <br/><br/><br/><br/><br/><br/>
+    <a href="/"><img src="{% static 'img/logo-trustEat/logo.png' %}" height="300" width="600"/></a>
+
+{% endblock body %}

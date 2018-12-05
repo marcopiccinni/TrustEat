@@ -1,0 +1,20 @@
+{% extends 'registration/registrazione.html' %}
+
+{% block content1 %}
+    <div class="float-right mb-4">
+        <a href="{% url "social:begin" "google-oauth2" %}" class="ml-1 badge-success btn-lg btn-success" role="button"
+           aria-disabled="true">
+            Accedi con Google
+        </a>
+
+        <a href="{% url "social:begin" "facebook" %}" class="ml-1 badge-success btn-lg btn-success" role="button"
+           aria-disabled="true">
+            Accedi con Facebook
+        </a>
+
+        <a style="margin-right: auto" href="{% url "accounts:registrazione_utente" %}"
+           class="ml-1 badge-success btn-lg btn-success" role="button" aria-disabled="true">
+            Sei un utente?
+        </a>
+    </div>
+{% endblock %}

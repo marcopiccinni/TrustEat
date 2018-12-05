@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DjangoModelDependency</ID>
+  <OriginalElement>#TrustEat</OriginalElement>
+  <nodes>
+    <node x="678.456081081081" y="378.0">localManagement.models.Tag</node>
+    <node x="303.45495495495487" y="995.0">localManagement.models.FotoLocale</node>
+    <node x="0.0" y="655.0">localManagement.models.Tipo</node>
+    <node x="1312.7894144144143" y="1184.0">user.models.CartaDiCredito</node>
+    <node x="554.4549549549549" y="995.0">localManagement.models.Chiusura</node>
+    <node x="783.9549549549549" y="1406.0">order.models.OrdineInAttesa</node>
+    <node x="1227.313813813814" y="589.0">accounts.models.User</node>
+    <node x="578.7049549549549" y="1184.0">localManagement.models.Menu</node>
+    <node x="1055.7894144144143" y="1173.0">user.models.Recensione</node>
+    <node x="1214.313813813814" y="167.0">django.contrib.auth.models.Permission</node>
+    <node x="1064.7894144144143" y="973.0">accounts.models.Commerciante</node>
+    <node x="1285.063813813814" y="356.0">django.contrib.auth.models.Group</node>
+    <node x="1186.313813813814" y="0.0">django.contrib.contenttypes.models.ContentType</node>
+    <node x="444.45608108108115" y="367.0">localManagement.models.Localita</node>
+    <node x="62.45495495495493" y="940.0">localManagement.models.Prodotto</node>
+    <node x="554.706081081081" y="523.0">localManagement.models.Locale</node>
+    <node x="850.75" y="1749.0">order.models.RichiedeM</node>
+    <node x="152.5" y="1505.0">localManagement.models.CompostoDa</node>
+    <node x="47.0615615615618" y="1749.0">order.models.RichiedeP</node>
+    <node x="1321.7894144144143" y="995.0">accounts.models.Utente</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="localManagement.models.Locale" target="localManagement.models.Localita">
+      <point x="-54.25" y="-168.5" />
+      <point x="608.956081081081" y="498.0" />
+      <point x="551.4560810810812" y="498.0" />
+      <point x="0.0" y="47.5" />
+    </edge>
+    <edge source="localManagement.models.Menu" target="localManagement.models.Locale">
+      <point x="68.75" y="-80.5" />
+      <point x="784.9549549549549" y="920.0" />
+      <point x="687.3171921921921" y="920.0" />
+      <point x="24.111111111111086" y="168.5" />
+    </edge>
+    <edge source="accounts.models.User" target="django.contrib.auth.models.Permission">
+      <point x="-53.5" y="-102.5" />
+      <point x="1280.813813813814" y="498.0" />
+      <point x="1274.563813813814" y="498.0" />
+      <point x="-60.0" y="69.5" />
+    </edge>
+    <edge source="django.contrib.auth.models.Permission" target="django.contrib.contenttypes.models.ContentType">
+      <point x="0.0" y="-69.5" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="localManagement.models.Prodotto" target="localManagement.models.Locale">
+      <point x="55.0" y="-91.5" />
+      <point x="227.45495495495493" y="900.0" />
+      <point x="590.8727477477478" y="900.0" />
+      <point x="-72.33333333333337" y="168.5" />
+    </edge>
+    <edge source="accounts.models.User" target="django.contrib.auth.models.Group">
+      <point x="53.5" y="-102.5" />
+      <point x="1387.813813813814" y="498.0" />
+      <point x="1394.063813813814" y="498.0" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="accounts.models.Commerciante" target="localManagement.models.Locale">
+      <point x="-59.25" y="-58.5" />
+      <point x="1124.0394144144143" y="890.0" />
+      <point x="759.6505255255256" y="890.0" />
+      <point x="96.44444444444446" y="168.5" />
+    </edge>
+    <edge source="localManagement.models.CompostoDa" target="localManagement.models.Prodotto">
+      <point x="-81.0" y="-47.5" />
+      <point x="193.0" y="1386.0" />
+      <point x="144.95495495495493" y="1386.0" />
+      <point x="-27.5" y="91.5" />
+    </edge>
+    <edge source="localManagement.models.Locale" target="localManagement.models.Tag">
+      <point x="54.25" y="-168.5" />
+      <point x="717.456081081081" y="498.0" />
+      <point x="774.956081081081" y="498.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="order.models.OrdineInAttesa" target="localManagement.models.Prodotto">
+      <point x="-26.75" y="-146.5" />
+      <point x="864.2049549549549" y="1143.0" />
+      <point x="254.95495495495493" y="1143.0" />
+      <point x="82.5" y="91.5" />
+    </edge>
+    <edge source="user.models.CartaDiCredito" target="accounts.models.Utente">
+      <point x="0.0" y="-80.5" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="order.models.RichiedeM" target="order.models.OrdineInAttesa">
+      <point x="0.0" y="-58.5" />
+      <point x="946.25" y="1729.0" />
+      <point x="944.4549549549549" y="1729.0" />
+      <point x="53.5" y="146.5" />
+    </edge>
+    <edge source="localManagement.models.Menu" target="localManagement.models.Prodotto">
+      <point x="-68.75" y="-80.5" />
+      <point x="647.4549549549549" y="1153.0" />
+      <point x="199.95495495495493" y="1153.0" />
+      <point x="27.5" y="91.5" />
+    </edge>
+    <edge source="localManagement.models.Prodotto" target="localManagement.models.Tipo">
+      <point x="-55.0" y="-91.5" />
+      <point x="117.45495495495493" y="880.0" />
+      <point x="98.5" y="880.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+    <edge source="order.models.RichiedeP" target="localManagement.models.Locale">
+      <point x="-66.0" y="-58.5" />
+      <point x="80.0615615615618" y="1729.0" />
+      <point x="51.95495495495493" y="1729.0" />
+      <point x="51.95495495495493" y="890.0" />
+      <point x="566.7616366366367" y="890.0" />
+      <point x="-96.44444444444446" y="168.5" />
+    </edge>
+    <edge source="localManagement.models.Chiusura" target="localManagement.models.Locale">
+      <point x="0.0" y="-36.5" />
+      <point x="664.4549549549549" y="920.0" />
+      <point x="663.206081081081" y="920.0" />
+      <point x="0.0" y="168.5" />
+    </edge>
+    <edge source="localManagement.models.FotoLocale" target="localManagement.models.Locale">
+      <point x="5.6843418860808015E-14" y="-36.5" />
+      <point x="418.9549549549549" y="920.0" />
+      <point x="639.09496996997" y="920.0" />
+      <point x="-24.111111111111086" y="168.5" />
+    </edge>
+    <edge source="accounts.models.Commerciante" target="accounts.models.User">
+      <point x="59.25" y="-58.5" />
+      <point x="1242.5394144144143" y="920.0" />
+      <point x="1280.813813813814" y="920.0" />
+      <point x="-53.5" y="102.5" />
+    </edge>
+    <edge source="user.models.Recensione" target="accounts.models.Utente">
+      <point x="63.0" y="-91.5" />
+      <point x="1213.2894144144143" y="1153.0" />
+      <point x="1351.9560810810813" y="1153.0" />
+      <point x="-60.33333333333326" y="36.5" />
+    </edge>
+    <edge source="order.models.OrdineInAttesa" target="localManagement.models.Menu">
+      <point x="-80.25" y="-146.5" />
+      <point x="810.7049549549549" y="1386.0" />
+      <point x="807.8716216216217" y="1386.0" />
+      <point x="91.66666666666674" y="80.5" />
+    </edge>
+    <edge source="accounts.models.Utente" target="accounts.models.User">
+      <point x="0.0" y="-36.5" />
+      <point x="1412.2894144144143" y="920.0" />
+      <point x="1387.813813813814" y="920.0" />
+      <point x="53.5" y="102.5" />
+    </edge>
+    <edge source="order.models.RichiedeP" target="localManagement.models.Prodotto">
+      <point x="0.0" y="-58.5" />
+      <point x="146.0615615615618" y="1729.0" />
+      <point x="115.0" y="1729.0" />
+      <point x="115.0" y="1153.0" />
+      <point x="89.95495495495493" y="1153.0" />
+      <point x="-82.5" y="91.5" />
+    </edge>
+    <edge source="user.models.Recensione" target="accounts.models.Commerciante">
+      <point x="0.0" y="-91.5" />
+      <point x="1150.2894144144143" y="1153.0" />
+      <point x="1183.2894144144143" y="1153.0" />
+      <point x="0.0" y="58.5" />
+    </edge>
+    <edge source="order.models.RichiedeP" target="order.models.OrdineInAttesa">
+      <point x="66.0" y="-58.5" />
+      <point x="212.0615615615618" y="1729.0" />
+      <point x="837.4549549549549" y="1729.0" />
+      <point x="-53.5" y="146.5" />
+    </edge>
+    <edge source="django.contrib.auth.models.Group" target="django.contrib.auth.models.Permission">
+      <point x="0.0" y="-58.5" />
+      <point x="60.0" y="69.5" />
+    </edge>
+    <edge source="user.models.Recensione" target="localManagement.models.Locale">
+      <point x="-63.0" y="-91.5" />
+      <point x="1087.2894144144143" y="1153.0" />
+      <point x="1054.2894144144143" y="1153.0" />
+      <point x="1054.2894144144143" y="900.0" />
+      <point x="735.5394144144145" y="900.0" />
+      <point x="72.33333333333337" y="168.5" />
+    </edge>
+    <edge source="order.models.RichiedeM" target="localManagement.models.Locale">
+      <point x="63.66666666666663" y="-58.5" />
+      <point x="1009.9166666666666" y="1729.0" />
+      <point x="1027.7894144144143" y="1729.0" />
+      <point x="1027.7894144144143" y="910.0" />
+      <point x="711.4283033033034" y="910.0" />
+      <point x="48.222222222222285" y="168.5" />
+    </edge>
+    <edge source="localManagement.models.CompostoDa" target="localManagement.models.Locale">
+      <point x="0.0" y="-47.5" />
+      <point x="274.0" y="1386.0" />
+      <point x="292.95495495495487" y="1386.0" />
+      <point x="292.95495495495487" y="910.0" />
+      <point x="614.9838588588589" y="910.0" />
+      <point x="-48.22222222222217" y="168.5" />
+    </edge>
+    <edge source="order.models.RichiedeM" target="localManagement.models.Menu">
+      <point x="-63.66666666666663" y="-58.5" />
+      <point x="882.5833333333334" y="1719.0" />
+      <point x="716.2049549549549" y="1719.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+    <edge source="order.models.OrdineInAttesa" target="accounts.models.Utente">
+      <point x="80.25" y="-146.5" />
+      <point x="971.2049549549549" y="1386.0" />
+      <point x="1522.2894144144143" y="1386.0" />
+      <point x="1522.2894144144143" y="1153.0" />
+      <point x="1472.6227477477478" y="1153.0" />
+      <point x="60.33333333333326" y="36.5" />
+    </edge>
+    <edge source="localManagement.models.CompostoDa" target="localManagement.models.Menu">
+      <point x="81.0" y="-47.5" />
+      <point x="355.0" y="1386.0" />
+      <point x="624.5382882882882" y="1386.0" />
+      <point x="-91.66666666666663" y="80.5" />
+    </edge>
+    <edge source="order.models.OrdineInAttesa" target="user.models.CartaDiCredito">
+      <point x="26.75" y="-146.5" />
+      <point x="917.7049549549549" y="1376.0" />
+      <point x="1412.2894144144143" y="1376.0" />
+      <point x="0.0" y="80.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.22375397667020147" x="810.5" y="933.0000000000001" />
+  <SelectedNodes>
+    <node>localManagement.models.Localita</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+  </Categories>
+</Diagram>
+

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Log-in{% endblock %}
+{% block body %}
+    <h1>Accedi</h1>
+    {% if form.errors %}
+    <p>
+    Il tuo username e la tua password non corrispondono
+    Per favore riprova.
+    </p>
+    {% else %}
+    <p>Perfavore, usa il seguente form per loggarti:</p>
+    {% endif %}
+    <div class="login-form">
+    <form action="{% url 'accounts:login' %}" method="post">
+    {{ form|crispy }}
+    {% csrf_token %}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <p><input type="submit" value="Accedi"></p>
+    </form>
+        <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-primary btn-lg btn-success" role="button" aria-disabled="true">
+            Accedi con Google
+        </a>
+
+        <a href="{% url "social:begin" "facebook" %}" class="btn btn-primary btn-lg btn-success" role="button" aria-disabled="true">
+            Accedi con Facebook
+        </a>
+
+        <a href="{% url "accounts:registrazione_utente" %}" class="btn btn-primary btn-lg btn-primary" role="button" aria-disabled="true">
+            Registrati
+        </a>
+
+</div>
+{% endblock %}
