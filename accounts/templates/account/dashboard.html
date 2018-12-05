@@ -54,6 +54,9 @@
                         <div class="card-header text-light m-0 p-0">
                             <blockquote class="blockquote text-center">
                                 <p> ORDINI RECENTI </p>
+                                <footer class="blockquote-footer" style="color: lightgray">
+                                    Premere sull'ordine per visualizzare i dettagli
+                                </footer>
                             </blockquote>
                         </div>
                         <div class="card-body rounded m-0 p-0 pt-1"
@@ -75,7 +78,12 @@
                                         {% endif %}
                                     </div>
                                     <div class="col text-left">
-                                        <p> #{{ order.order.cod_ordine }} a <b> {{ order.local.nome_locale }}</b> &ensp;
+                                        <p>
+                                            <a href="{% url 'order:review_order' order.order.cod_ordine %}"
+                                               style="color: black">
+                                                #{{ order.order.cod_ordine }} a <b> {{ order.local.nome_locale }}</b>
+                                            </a>&ensp;
+
                                             {% if order.order.accettato %}
                                                 <span style="color: green">
                                             {% if order.order.consegnato %}

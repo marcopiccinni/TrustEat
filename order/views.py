@@ -174,11 +174,45 @@ class PlacedOrder(View):
         return render(request, cls.template_name, context)
 
 
+class ReviewOrder(View):
+    template_name = 'order/placed_order.html'
+
+    @classmethod
+    def get(cls, request, cod_ordine):
+        if not request.user.id == OrdineInAttesa.objects.get(cod_ordine=cod_ordine).email.user_id:
+            return redirect('/')
+        if RichiedeP.objects.filter(cod_ordine_id=cod_ordine).count() \
+                and request.user.id == OrdineInAttesa.objects.get(cod_ordine=cod_ordine).email.user_id:
+            locale = RichiedeP.objects.filter(cod_ordine_id=cod_ordine).last().cod_locale
+            print(locale)
+            user_location = Localita.objects.get(cap=User.objects.get(username=request.user.username).cap).nome_localita
+            ordine = OrdineInAttesa.objects.get(cod_ordine=cod_ordine)
+            prodotti = []
+            menues = []
+
+            total = 0.0
+            for p in ordine.prodotti.all():
+                num_obj = RichiedeP.objects.get(cod_locale=locale, cod_ordine=ordine, nome_prodotto=p).quantita
+                prodotti.append({'obj': p, 'num_obj': num_obj})
+                total += float(num_obj) * float(p.prezzo)
+
+            for m in ordine.menues.all():
+                num_obj = RichiedeM.objects.get(cod_locale=locale, cod_ordine=ordine, nome_menu=m).quantita
+                menues.append({'obj': m, 'num_obj': num_obj})
+                total += float(num_obj) * float(m.prezzo)
+
+            context = {
+                'locale': locale, 'user': request.user, 'user_location': user_location,
+                'ordine': ordine, 'prodotti': prodotti, 'menues': menues, 'total': total,
+            }
+            return render(request, cls.template_name, context)
+        return redirect('/')
+
+
 def db_order_consistance():
     for order in OrdineInAttesa.objects.filter(accettato=None):
         if order.data.date() < datetime.datetime.now().date():
             OrdineInAttesa.objects.filter(pk=order.cod_ordine).update(accettato=False,
                                                                       descrizione='Ordine annullato. '
                                                                                   'Il commerciante non ha risposto.')
-            # print(str(datetime.now().date()) + ' vs ' + str(order.data.date()))
     return
