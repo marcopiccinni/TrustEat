@@ -1,0 +1,6 @@
+.idea/
+
+migrations/
+__py_cache__/
+
+.pyc
