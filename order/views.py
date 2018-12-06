@@ -1,9 +1,9 @@
 from django.core.exceptions import ValidationError
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.views.generic import CreateView, View
 from localManagement.models import Locale, Localita, Prodotto, Menu
-from accounts.models import User, Utente
+from accounts.models import User, Utente, Commerciante
 from user.models import CartaDiCredito
 from .models import OrdineInAttesa, RichiedeP, RichiedeM
 from localManagement.views import LocalList
@@ -179,34 +179,128 @@ class ReviewOrder(View):
 
     @classmethod
     def get(cls, request, cod_ordine):
-        if not request.user.id == OrdineInAttesa.objects.get(cod_ordine=cod_ordine).email.user_id:
+        try:
+            if RichiedeP.objects.filter(cod_ordine_id=cod_ordine).count():
+                locale = RichiedeP.objects.filter(cod_ordine_id=cod_ordine).last().cod_locale
+            elif RichiedeM.objects.filter(cod_ordine_id=cod_ordine).count():
+                locale = RichiedeM.objects.filter(cod_ordine_id=cod_ordine).last().cod_locale
+            else:
+                return redirect('/')
+        except:
             return redirect('/')
-        if RichiedeP.objects.filter(cod_ordine_id=cod_ordine).count() \
-                and request.user.id == OrdineInAttesa.objects.get(cod_ordine=cod_ordine).email.user_id:
-            locale = RichiedeP.objects.filter(cod_ordine_id=cod_ordine).last().cod_locale
-            print(locale)
-            user_location = Localita.objects.get(cap=User.objects.get(username=request.user.username).cap).nome_localita
-            ordine = OrdineInAttesa.objects.get(cod_ordine=cod_ordine)
-            prodotti = []
-            menues = []
 
-            total = 0.0
+        prodotti = []
+        menues = []
+        ordine = OrdineInAttesa.objects.get(cod_ordine=cod_ordine)
+        utente = request.user
+        dealers = [dealer.user.id for dealer in
+                   Commerciante.objects.filter(possiede_locale__cod_locale=locale.cod_locale).all()]
+
+        if utente.id == OrdineInAttesa.objects.get(cod_ordine=cod_ordine).email.user_id or utente.id in dealers:
+
             for p in ordine.prodotti.all():
                 num_obj = RichiedeP.objects.get(cod_locale=locale, cod_ordine=ordine, nome_prodotto=p).quantita
                 prodotti.append({'obj': p, 'num_obj': num_obj})
-                total += float(num_obj) * float(p.prezzo)
 
             for m in ordine.menues.all():
                 num_obj = RichiedeM.objects.get(cod_locale=locale, cod_ordine=ordine, nome_menu=m).quantita
                 menues.append({'obj': m, 'num_obj': num_obj})
-                total += float(num_obj) * float(m.prezzo)
 
+            if utente.is_commerciante:
+                utente = ordine.email.user
+
+            user_location = Localita.objects.get(cap=User.objects.get(username=utente.username).cap).nome_localita
             context = {
-                'locale': locale, 'user': request.user, 'user_location': user_location,
-                'ordine': ordine, 'prodotti': prodotti, 'menues': menues, 'total': total,
+                'locale': locale, 'user': utente, 'user_location': user_location, 'dealers': dealers,
+                'ordine': ordine, 'prodotti': prodotti, 'menues': menues, 'total': total_price(cod_ordine),
             }
             return render(request, cls.template_name, context)
         return redirect('/')
+
+
+class ListOrder(View):
+    template_name = 'order/list_order.html'
+
+    def get(self, request, cod_locale):
+        local = get_object_or_404(Locale, pk=cod_locale)
+        if request.user.is_commerciante and request.user in User.objects.filter(id__in=local.possiede_locale.all()):
+            s = set()
+            for x in RichiedeP.objects.filter(cod_locale=cod_locale).all():
+                s.add(x.cod_ordine_id)
+            for x in RichiedeM.objects.filter(cod_locale=cod_locale).all():
+                s.add(x.cod_ordine_id)
+            waiting_list = []
+            refused_list = []
+            tmp_delivering_list = []
+            delivered_list = []
+            for x in s:
+                ordine = OrdineInAttesa.objects.get(cod_ordine=x)
+                tmp = {'ordine': ordine, 'totale': total_price(ordine.cod_ordine),
+                       'location': Localita.objects.get(cap=ordine.email.user.cap)}
+                if ordine.accettato is None:
+                    waiting_list.append(tmp)
+                elif not ordine.accettato:
+                    refused_list.append(tmp)
+                elif ordine.accettato:
+                    if ordine.consegnato:
+                        delivered_list.append(tmp)
+                    else:
+                        tmp_delivering_list.append(tmp)
+
+            delivering_list = []
+            for x in tmp_delivering_list:
+                if len(delivering_list):
+                    for elem in delivering_list:
+                        if x['ordine'].orario_richiesto < elem['ordine'].orario_richiesto:
+                            delivering_list.insert(delivering_list.index(elem), x)
+                            break
+                else:
+                    delivering_list.append(x)
+
+            args = {'waiting_list': waiting_list, 'refused_list': refused_list,
+                    'delivering_list': delivering_list, 'delivered_list': delivered_list,
+                    'local': local,
+                    }
+            return render(request, self.template_name, args)
+        return redirect('/')
+
+    def post(self, request, cod_locale):
+        if request.POST:
+            c = 0
+            keys = request.POST.keys()
+            if 'Consegnato' in keys:
+                c = request.POST['Consegnato']
+                OrdineInAttesa.objects.filter(cod_ordine=c).update(consegnato=True)
+            elif 'Accettato' in keys:
+                c = request.POST['Accettato']
+                OrdineInAttesa.objects.filter(cod_ordine=c).update(accettato=True)
+            elif 'Rifiutato' in keys:
+                c = request.POST['Rifiutato']
+                OrdineInAttesa.objects.filter(cod_ordine=c).update(consegnato=False)
+        return redirect('order:list_order', cod_locale)
+
+
+def total_price(cod_ordine):
+    locale = 0
+    ordine = OrdineInAttesa.objects.get(cod_ordine=cod_ordine)
+    if RichiedeP.objects.filter(cod_ordine_id=cod_ordine).count():
+        locale = RichiedeP.objects.filter(cod_ordine_id=cod_ordine).last().cod_locale
+    elif RichiedeM.objects.filter(cod_ordine_id=cod_ordine).count():
+        locale = RichiedeM.objects.filter(cod_ordine_id=cod_ordine).last().cod_locale
+    else:
+        return locale
+
+    total = float(locale.prezzo_di_spedizione)
+
+    for p in ordine.prodotti.all():
+        num_obj = RichiedeP.objects.get(cod_locale=locale, cod_ordine=ordine, nome_prodotto=p).quantita
+        total += float(num_obj) * float(p.prezzo)
+
+    for m in ordine.menues.all():
+        num_obj = RichiedeM.objects.get(cod_locale=locale, cod_ordine=ordine, nome_menu=m).quantita
+        total += float(num_obj) * float(m.prezzo)
+
+    return round(total, 2)
 
 
 def db_order_consistance():

@@ -84,7 +84,10 @@ class LocalList(View):
             num_obj += el['num_obj']
         for el in self.menu_ordine:
             num_obj += el['num_obj']
+
         args = {'local': local, 'location': location, 'vote': vote, 'dealers': dealers,
+                'dealers_id': [dealer.user.id for dealer in
+                               Commerciante.objects.filter(possiede_locale__cod_locale=cod_locale).all()],
                 'photo_list': photo_list, 'photo_len': photos.__len__(),
                 'prod_list': self.prod_list, 'menu_list': self.menu_list,
                 'prod_ordine': self.prod_ordine, 'menu_ordine': self.menu_ordine, 'num_obj': num_obj,

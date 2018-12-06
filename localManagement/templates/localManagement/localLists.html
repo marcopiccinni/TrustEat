@@ -4,7 +4,7 @@
 {% load newtag %}
 
 {% block head %}
-       <style>
+    <style>
         input.numberinput, input.form-control {
             width: 60px;
             height: 51px;
@@ -25,13 +25,11 @@
 
     <title>║TRUST EAT║ {{ local.nome_locale }}</title>
 
-    <link rel="stylesheet" href="{% static 'css/localList.css' %}">
-
-
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/localList.css' %}">
     <link rel="stylesheet" href="{% static 'css/style5.css' %}">
 
     <!-- Font Awesome JS -->
@@ -49,88 +47,117 @@
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Il tuo ordine:</h3>
-            </div>
-
-            <ul class="list-unstyled components">
-                <li>
-                    <a href="#pageSubmenuProdotti" data-toggle="collapse" aria-expanded="false"
-                       class="dropdown-toggle">
-                        Prodotti
-                    </a>
-                    <ul class="collapse list-unstyled rounded-bottom" id="pageSubmenuProdotti"
-                        style="background-color:#700008">
-                        {% for prod in prod_ordine %}
-                            {% if prod.num_obj > 0 %}
-                                <li>
-                                    <div class="row" style="font-size: 75%">
-                                        <div class="col-5 ml-1">
-                                            {{ prod.prodotto.nome_prodotto }}
-                                        </div>
-                                        <div class="col-3">
-                                            x {{ prod.num_obj }}
-                                        </div>
-                                        <div class="col mr-1">
-                                            {% multiply prod.prodotto.prezzo prod.num_obj %}&nbsp;&euro;
-                                        </div>
-                                    </div>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </li>
-                <li>
-                    <a href="#pageSubmenuMenu" data-toggle="collapse" aria-expanded="false"
-                       class="dropdown-toggle">
-                        Menu
-                    </a>
-                    <ul class="collapse list-unstyled rounded-bottom" id="pageSubmenuMenu"
-                        style="background-color:#700008">
-                        {% for menu in menu_ordine %}
-                            {% if menu.num_obj > 0 %}
-                                <li>
-                                    <div class="row" style="font-size: 75%">
-                                        <div class="col-5 ml-1">
-                                            {{ menu.menu.nome_menu }}
-                                        </div>
-                                        <div class="col-3">
-                                            x {{ menu.num_obj }}
-                                        </div>
-                                        <div class="col mr-1">
-                                            {% multiply menu.menu.prezzo menu.num_obj %}&nbsp;&euro;
-                                        </div>
-                                    </div>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
-                </li>
-            </ul>
-            <ul style="font-size: 85%;"> Costo di spedizione: &nbsp; {{ local.prezzo_di_spedizione }}&nbsp;&euro;</ul>
             {% if request.user.is_utente %}
+                <div class="sidebar-header">
+                    <h3>Il tuo ordine:</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="#pageSubmenuProdotti" data-toggle="collapse" aria-expanded="false"
+                           class="dropdown-toggle">
+                            Prodotti
+                        </a>
+                        <ul class="collapse list-unstyled rounded-bottom" id="pageSubmenuProdotti"
+                            style="background-color:#700008">
+                            {% for prod in prod_ordine %}
+                                {% if prod.num_obj > 0 %}
+                                    <li>
+                                        <div class="row" style="font-size: 75%">
+                                            <div class="col-5 ml-1">
+                                                {{ prod.prodotto.nome_prodotto }}
+                                            </div>
+                                            <div class="col-3">
+                                                x {{ prod.num_obj }}
+                                            </div>
+                                            <div class="col mr-1">
+                                                {% multiply prod.prodotto.prezzo prod.num_obj %}&nbsp;&euro;
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenuMenu" data-toggle="collapse" aria-expanded="false"
+                           class="dropdown-toggle">
+                            Menu
+                        </a>
+                        <ul class="collapse list-unstyled rounded-bottom" id="pageSubmenuMenu"
+                            style="background-color:#700008">
+                            {% for menu in menu_ordine %}
+                                {% if menu.num_obj > 0 %}
+                                    <li>
+                                        <div class="row" style="font-size: 75%">
+                                            <div class="col-5 ml-1">
+                                                {{ menu.menu.nome_menu }}
+                                            </div>
+                                            <div class="col-3">
+                                                x {{ menu.num_obj }}
+                                            </div>
+                                            <div class="col mr-1">
+                                                {% multiply menu.menu.prezzo menu.num_obj %}&nbsp;&euro;
+                                            </div>
+                                        </div>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+                <ul style="font-size: 85%;"> Costo di spedizione: &nbsp; {{ local.prezzo_di_spedizione }}&nbsp;&euro;
+                </ul>
                 {% if num_obj %}
                     <ul>
                         &nbsp;Totale ordine: &nbsp;&nbsp;&nbsp;<label style="font-size: 110%; ">{% total_price %}&nbsp;&euro; </label>
                     </ul>
                     <ul class="list-unstyled CTAs">
-                        <li><a href={% url 'order:check' %} class="article">Procedi con l'ordine</a>
+                        <li><a href='{% url 'order:check' %}' class="article">Procedi con l'ordine</a>
                         </li>
                     </ul>
                 {% endif %}
+
+                {% for deal in dealers %}
+                    {#--------------------------------------------- SCRIPT!!!! ------------------------------------------#}
+                    <script>
+                        fun_1("{{ request.user }}", "{{ deal.username}}");
+                    </script>
+                {% endfor %}
+            {% elif request.user.id in dealers_id %}
+                <div class="sidebar-header">
+                    <h3>Il tuo locale:</h3>
+                </div>
+                <div class="list-unstyled components ml-3 text-center">
+
+                    <a href="{% url 'order:list_order' local.cod_locale %}"
+                       class="btn btn-light btn-lg mb-5 "
+                       role="button" aria-disabled="true"><b>Gestisci gli ordini</b>
+                    </a>
+
+                    <a href="{% url 'localManagement:edit_local' local.cod_locale %}"
+                       class="btn btn-warning btn-lg mb-5 "
+                       role="button" aria-disabled="true"><b>Modifica il locale</b>
+                    </a>
+
+                    <a href="{% url 'localManagement:products_list' local.cod_locale %}"
+                       class="btn btn-outline-warning btn-lg mt-4 mb-2 "
+                       role="button" aria-disabled="true"><b>Modifica i prodotti</b>
+                    </a>
+                    <a href="{% url 'localManagement:menu_list' local.cod_locale %}"
+                       class="btn btn-outline-warning btn-lg mb-0"
+                       role="button" aria-disabled="true"><b>Modifica i menu</b>
+                    </a>
+                </div>
             {% endif %}
-            {% for deal in dealers %}
-                {#--------------------------------------------- SCRIPT!!!! ------------------------------------------#}
-                <script>
-                    fun_1("{{ request.user }}", "{{ deal.username}}");
-                </script>
-            {% endfor %}
+
             <p class="text-center mt-5 pt-5" style="font-size: 85%">
                 by: <br>
                 {% for dealer in dealers %}
                     {{ dealer.first_name | capfirst }} {{ dealer.last_name | capfirst }} <br>
                 {% endfor %}
             </p>
+
         </nav>
 
         <!-- Page Content -->
@@ -188,44 +215,43 @@
                             </div>
                             <div class="card-body m-0 p-0" style="background-color:#F0F0F0 ">
                                 <div class="card-text">
-                                    <div style=" max-height:300px ;overflow: scroll -moz-scrollbars-horizontal">
-                                        <table class="table-responsive p-0 m-0 align-content-center table-striped">
-                                            {% for x in prod_list %}
-                                                <form action="" method="post">
-                                                    <tr>
-                                                        <td class="px-1 pt-3 pb-0">
-                                                            {% csrf_token %}
-                                                            {{ x.form|crispy }}
-                                                        </td>
-                                                        <td>
-                                                            <button class="btn btn-danger p-0 pb-5 text-center align-top align-text-top"
-                                                                    style="font-size: 200%; width: 40px; height: 30px;"
-                                                                    type="submit">
-                                                                <b>+</b>
-                                                            </button>
-                                                        </td>
-                                                        <td class="px-1" style="width:100% ">
-                                                            <div class="food font-weight-bold">{{ x.product.nome_prodotto }} </div>
-                                                            <div class="desc p-0 m-0 font-italic">{{ x.product.descrizione_prodotto }} </div>
-                                                        </td>
+                                    <table class="table-responsive p-0 m-0 align-content-center table-striped"
+                                           style=" max-height:300px ;overflow-y: auto">
+                                        {% for x in prod_list %}
+                                            <form action="" method="post">
+                                                <tr>
+                                                    <td class="px-1 pt-3 pb-0">
+                                                        {% csrf_token %}
+                                                        {{ x.form|crispy }}
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-danger p-0 pb-5 text-center align-top align-text-top"
+                                                                style="font-size: 200%; width: 40px; height: 30px;"
+                                                                type="submit">
+                                                            <b>+</b>
+                                                        </button>
+                                                    </td>
+                                                    <td class="px-1" style="width:100% ">
+                                                        <div class="food font-weight-bold">{{ x.product.nome_prodotto }} </div>
+                                                        <div class="desc p-0 m-0 font-italic">{{ x.product.descrizione_prodotto }} </div>
+                                                    </td>
 
-                                                        <td style=" width:80px ">
-                                                            {% if x.product.foto_prodotto.url != "" %}
-                                                                <img src="{{ x.product.foto_prodotto.url }}"
-                                                                     height="70px"
-                                                                     width="70px"
-                                                                     style="object-fit: fill; border: solid 1px;"
-                                                                     class="rounded-circle"/>
-                                                            {% endif %}
-                                                        </td>
-                                                        <td class="px-1">
-                                                            <div> {{ x.product.prezzo }}&nbsp;&euro;</div>
-                                                        </td>
-                                                    </tr>
-                                                </form>
-                                            {% endfor %}
-                                        </table>
-                                    </div>
+                                                    <td style=" width:80px ">
+                                                        {% if x.product.foto_prodotto.url != "" %}
+                                                            <img src="{{ x.product.foto_prodotto.url }}" alt=""
+                                                                 height="70px"
+                                                                 width="70px"
+                                                                 style="object-fit: fill; border: solid 1px;"
+                                                                 class="rounded-circle"/>
+                                                        {% endif %}
+                                                    </td>
+                                                    <td class="px-1">
+                                                        <div> {{ x.product.prezzo }}&nbsp;&euro;</div>
+                                                    </td>
+                                                </tr>
+                                            </form>
+                                        {% endfor %}
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -240,37 +266,36 @@
                             </div>
                             <div class="card-body m-0 p-0" style="background-color:#F0F0F0 ">
                                 <div class="card-text">
-                                    <div style=" max-height:300px; overflow:scroll -moz-scrollbars-horizontal">
-                                        <table class="table-responsive p-0 m-0 align-content-center table-striped">
-                                            {% for x in  menu_list %}
-                                                <form action="" method="post">
-                                                    <tr>
-                                                        <td class="px-1 pt-3 pb-0">
-                                                            {% csrf_token %}
-                                                            {{ x.form|crispy }}
-                                                        </td>
-                                                        <td>
-                                                            <button class="btn btn-danger p-0 pb-5 text-center align-top align-text-top"
-                                                                    style="font-size: 200%; width: 40px; height: 30px;"
-                                                                    type="submit">
-                                                                <b>+</b>
-                                                            </button>
-                                                        </td>
-                                                        <td class="px-1" style="width:100% ">
-                                                            <div class="food font-weight-bold">{{ x.menu.nome_menu }} </div>
-                                                            <div class="desc p-0 m-0 font-italic">{{ x.menu.descrizione_menu }} </div>
-                                                            <div class="desc p-0 m-0 font-italic"> elenco prodotti</div>
-                                                        </td>
-                                                        <td class="px-1">
-                                                            <div>
-                                                                {{ x.menu.prezzo }}&nbsp;&euro;
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </form>
-                                            {% endfor %}
-                                        </table>
-                                    </div>
+                                    <table class="table-responsive p-0 m-0 align-content-center table-striped"
+                                           style=" max-height:300px; overflow-y:auto">
+                                        {% for x in  menu_list %}
+                                            <form action="" method="post">
+                                                <tr>
+                                                    <td class="px-1 pt-3 pb-0">
+                                                        {% csrf_token %}
+                                                        {{ x.form|crispy }}
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-danger p-0 pb-5 text-center align-top align-text-top"
+                                                                style="font-size: 200%; width: 40px; height: 30px;"
+                                                                type="submit">
+                                                            <b>+</b>
+                                                        </button>
+                                                    </td>
+                                                    <td class="px-1" style="width:100% ">
+                                                        <div class="food font-weight-bold">{{ x.menu.nome_menu }} </div>
+                                                        <div class="desc p-0 m-0 font-italic">{{ x.menu.descrizione_menu }} </div>
+                                                        <div class="desc p-0 m-0 font-italic"> elenco prodotti</div>
+                                                    </td>
+                                                    <td class="px-1">
+                                                        <div>
+                                                            {{ x.menu.prezzo }}&nbsp;&euro;
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </form>
+                                        {% endfor %}
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -352,7 +377,7 @@
                                             {% if img.pos == 0 %}
                                                 <div class="carousel-item active">
                                                     {% if img.pic.foto_locale %}
-                                                        <img class="d-block w-100 rounded"
+                                                        <img class="d-block w-100 rounded" alt=""
                                                              style="max-height: 250px; object-fit: cover"
                                                              src="{{ img.pic.foto_locale.url }}/?auto=yes&bg={{ img.upp }}&fg={{ img.low }}">
                                                     {% endif %}
@@ -360,7 +385,7 @@
                                             {% else %}
                                                 <div class="carousel-item">
                                                     {% if img.pic.foto_locale %}
-                                                        <img class="d-block w-100 rounded"
+                                                        <img class="d-block w-100 rounded" alt=""
                                                              style="max-height: 250px; object-fit: cover"
                                                              src="{{ img.pic.foto_locale.url }}/?auto=yes&bg={{ img.upp }}&fg={{ img.low }}">
                                                     {% endif %}
@@ -386,12 +411,6 @@
                     {#         ------------------------------------ End colonna 2 ---------------------------------------------------#}
                 </div>
             </div>
-            <a href="{% url 'localManagement:edit_local' local.cod_locale %}" class="btn btn-danger btn-lg active"
-               role="button" aria-disabled="true">Mod</a>
-            <a href="{% url 'localManagement:products_list' local.cod_locale %}" class="btn btn-danger btn-lg active"
-               role="button" aria-disabled="true">Lista Prodotti</a>
-            <a href="{% url 'localManagement:menu_list' local.cod_locale %}" class="btn btn-danger btn-lg active"
-               role="button" aria-disabled="true">Lista Menu</a>
         </div>
     </div>
 {% endblock %}

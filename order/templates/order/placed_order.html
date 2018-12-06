@@ -28,7 +28,7 @@
         {% if prodotti|length > 0 %}
             <p>Elenco prodotti</p>
             {% for p in prodotti %}
-                <li>{{ p.obj.nome_prodotto }} {{ p.obj.prezzo }} &euro;&nbsp;&nbsp;&nbsp; x {{ p.num_obj }}
+                <li><b>{{ p.obj.nome_prodotto }}</b> {{ p.obj.prezzo }} &euro;&nbsp;&nbsp;&nbsp; x {{ p.num_obj }}
                     &rarr;&nbsp; {% multiply p.num_obj p.obj.prezzo %} &euro;
                 </li>
             {% endfor %}
@@ -38,7 +38,7 @@
         {% if menues|length > 0 %}
             <p>Elenco menu</p>
             {% for m in menues %}
-                <li>{{ m.obj.nome_menu }}&nbsp;&nbsp; &nbsp;&nbsp;  {{ m.obj.prezzo }} &euro;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; x {{ m.num_obj }}
+                <li><b>{{ m.obj.nome_menu }}</b>&nbsp;&nbsp; &nbsp;&nbsp;  {{ m.obj.prezzo }} &euro;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; x {{ m.num_obj }}
                     &rarr;&nbsp; {% multiply m.num_obj m.obj.prezzo %} &euro;
                 </li>
             {% endfor %}
@@ -51,7 +51,7 @@
             <label style="font-size:115%">Totale da pagare: {{ total }} &euro;</label>
         </p>
         <p>Metodo di pagamento: {{ ordine.metodo_pagamento }}
-            {% if ordine.cod_carta_id %}
+            {% if ordine.cod_carta_id and request.user.id not in dealers %}
                 <br>numero: {{ ordine.cod_carta.numero_carta }}, intestata a {{ ordine.cod_carta.intestatario }}
             {% endif %}
         </p>

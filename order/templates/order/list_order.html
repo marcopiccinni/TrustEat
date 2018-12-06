@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block head %}
+    <title>GESTIONE ORDINI ║{{ local.nome_locale }} </title>
+    <style>
+        .card-body {
+            max-height: 500px;
+            overflow-y: auto
+        }
+    </style>
+{% endblock head %}
+
+{% block body %}
+    <div class="row container-fluid ml-0">
+        <div class="col-lg-6 mt-2">
+            {# ------------------------------------- Ordini in attesa INIZIO ---------------------------------------- #}
+            <div class="card shadow" style="background-color: #878787; max-height: 550px; overflow-y: auto">
+                <div class="card-header text-light">
+                    <blockquote class="blockquote text-center">
+                        <p class="m-0 p-0" style="font-size: 100%;"> ORDINI IN ATTESA</p>
+                    </blockquote>
+                </div>
+                <div class="card-body" style="background-color:#F0F0F0">
+                    {% if waiting_list %}
+                        <form method="post">
+                            {% csrf_token %}
+                            {% for order in waiting_list %}
+                                <div class="card mb-1">
+                                    <div class="card-body row py-1">
+                                        <div style="width: 80px;" class=" p-0 link-disabled">
+                                            <button type="submit" class="btn m-0 p-0 bg-transparent"
+                                                    name="Rifiutato" value="{{ order.ordine.cod_ordine }}">
+                                                <img src="{% static 'img/remove.png' %}" alt="DEL"
+                                                     style="height: 30px; object-fit: scale-down; ">
+                                            </button>
+                                            <button type="submit" class="btn m-0 ml-2 p-0 bg-transparent"
+                                                    name="Accettato" value="{{ order.ordine.cod_ordine }}">
+                                                <img src="{% static 'img/add.ico' %}" alt="ADD"
+                                                     style="height: 30px; object-fit: scale-down;">
+                                            </button>
+                                        </div>
+                                        <a href="{% url 'order:review_order' order.ordine.cod_ordine %}"
+                                           class="col ml-3"
+                                           style="color: black; text-decoration: none ">
+                                            <div class="row">
+                                                #{{ order.ordine.cod_ordine }} &nbsp;
+                                                importo: {{ order.totale }}
+                                                &euro;
+                                                ({{ order.ordine.metodo_pagamento }}) &nbsp;
+                                                orario: {{ order.ordine.orario_richiesto }}
+                                            </div>
+                                            <div class="row">
+                                                &ofcir; {{ order.ordine.email.user.via }}, {{ order.ordine.email.user.civico }}
+                                                a {{ order.location.nome_localita }} ({{ order.location.cap }})
+                                                &nbsp;
+                                                ()km &nbsp; in ()min
+                                            </div>
+                                            <div class="row">
+                                                &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
+                                                ({{ order.ordine.email.user.username }}) &nbsp;
+                                                telefono: {{ order.ordine.email.user.telefono }}
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <div class="card-footer pl-3 pt-1 p-0 inline"
+                                         style=" background-color: #878787; color: white;">
+                                        <label>Aggiungi un commento</label>
+                                        <label>
+                                            <input type="text" name="Descrizione"
+                                                   class=" rounded shadow ml-3 form-control">
+                                        </label>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </form>
+                    {% else %}
+                        <div class="text-center"> Nessun ordine in attesa...</div>
+                    {% endif %}
+                </div>
+                <div class="card-footer " style=" background-color: #878787; color: white; font-size: large"></div>
+            </div>
+            {# ------------------------------------- Ordini in attesa FINE ------------------------------------------ #}
+        </div>
+        <div class="col-lg-6 mt-2">
+            {# -------------------------------- Ordini accettati/consegnati/ rifiutati INIZIO ----------------------- #}
+            <div class="card shadow" style="background-color: #878787;">
+                <div class="card-header text-light text-center">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-light" id="Da consegnare"
+                                onclick="selection_view('Da consegnare')">
+                            Da consegnare
+                        </button>
+                        <button type="button" class="btn btn-outline-light" id="Consegnati"
+                                onclick="selection_view('Consegnati')">
+                            Consegnati
+                        </button>
+                        <button type="button" class="btn btn-outline-light" id="Rifiutati"
+                                onclick="selection_view('Rifiutati')">
+                            Rifiutati
+                        </button>
+                    </div>
+                </div>
+                {# ------------------------------------- In consegna INIZIO ----------------------------------------- #}
+                <div class="card-body" id="delivering"
+                     style="background-color:#F0F0F0">
+                    {% if delivering_list %}
+                        <form method="post">
+                            {% csrf_token %}
+                            {% for order in delivering_list %}
+                                <div class="card mb-1">
+                                    <div class="card-body row py-1">
+                                        <div style="width: 40px">
+                                            <button type="submit" class="btn m-0 p-0 bg-transparent"
+                                                    name="Consegnato" value="{{ order.ordine.cod_ordine }}">
+                                                <img src="{% static 'img/add.ico' %}" alt=""
+                                                     style="height: 30px; object-fit: scale-down">
+                                            </button>
+                                        </div>
+                                        <a href="{% url 'order:review_order' order.ordine.cod_ordine %}"
+                                           class="col ml-3"
+                                           style="color: black; text-decoration: none ">
+                                            <div class="row">
+                                                #{{ order.ordine.cod_ordine }} &nbsp; importo: {{ order.totale }}
+                                                &euro;
+                                                ({{ order.ordine.metodo_pagamento }}) &nbsp;
+                                                orario: {{ order.ordine.orario_richiesto }}
+                                            </div>
+                                            <div class="row">
+                                                &ofcir; {{ order.ordine.email.user.via }}, {{ order.ordine.email.user.civico }}
+                                                a {{ order.location.nome_localita }} ({{ order.location.cap }})
+                                                &nbsp;
+                                                ()km &nbsp; in ()min
+                                            </div>
+                                            <div class="row">
+                                                &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
+                                                ({{ order.ordine.email.user.username }}) &nbsp;
+                                                telefono: {{ order.ordine.email.user.telefono }}
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </form>
+                    {% else %}
+                        <div class="text-center">Nessun ordine da consegnare...</div>
+                    {% endif %}
+                </div>
+                {# ------------------------------------- In consegna FINE ------------------------------------------- #}
+                {# -------------------------------------- Consegnati INIZIO ----------------------------------------- #}
+                <div class="card-body" id="delivered" hidden style="background-color:#F0F0F0">
+                    {% if delivered_list %}
+                        <form method="post">
+                            {% for order in delivered_list %}
+                                <div class="card mb-1">
+                                    <div class="card-body row py-1">
+                                        <a href="{% url 'order:review_order' order.ordine.cod_ordine %}"
+                                           class="col my-0 ml-3" style="color: black; text-decoration: none ">
+                                            #{{ order.ordine.cod_ordine }} &nbsp; importo: {{ order.totale }} &euro;
+                                            &ensp; il {{ order.ordine.data|date }}
+                                            <br>
+                                            &ofcir; {{ order.ordine.email.user.via }}, {{ order.ordine.email.user.civico }}
+                                            a {{ order.location.nome_localita }} ({{ order.location.cap }})
+                                            &nbsp;
+                                            ()km &nbsp; in ()min
+                                            <br>
+                                            &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
+                                            ({{ order.ordine.email.user.username }}) &nbsp;
+                                            telefono: {{ order.ordine.email.user.telefono }}
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </form>
+                    {% else %}
+                        <div class="text-center">
+                            Nessun ordine consegnato...
+                        </div>
+                    {% endif %}
+                </div>
+                {# -------------------------------------- Consegnati FINE ------------------------------------------- #}
+                {# -------------------------------------- Rifiutati INIZIO ------------------------------------------ #}
+                <div class="card-body" id="refused" hidden
+                     style="background-color:#F0F0F0">
+                    {% if refused_list %}
+                        <form method="post">
+                            {% for order in refused_list %}
+                                <div class="card mb-1">
+                                    <div class="card-body row py-1">
+                                        <a href="{% url 'order:review_order' order.ordine.cod_ordine %}"
+                                           class="col my-0 ml-3" style="color: black; text-decoration: none ">
+                                            #{{ order.ordine.cod_ordine }} &nbsp; importo: {{ order.totale }} &euro;
+                                            &ensp; il {{ order.ordine.data|date }}
+                                            <br>
+                                            &ofcir; {{ order.ordine.email.user.via }}, {{ order.ordine.email.user.civico }}
+                                            a {{ order.location.nome_localita }} ({{ order.location.cap }})
+                                            &nbsp;
+                                            ()km &nbsp; in ()min
+                                            <br>
+                                            &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
+                                            ({{ order.ordine.email.user.username }}) &nbsp;
+                                            telefono: {{ order.ordine.email.user.telefono }}
+                                        </a>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </form>
+                    {% else %}
+                        <div class="text-center">
+                            Nessun ordine in lista...
+                        </div>
+                    {% endif %}
+                </div>
+                {# -------------------------------------- Rifiutati FINE -------------------------------------------- #}
+                <div class="card-footer" style=" background-color: #878787; color: white; font-size: large"></div>
+            </div>
+            {# -------------------------------- Ordini accettati/consegnati/ rifiutati FINE ------------------------- #}
+        </div>
+    </div>
+    <script>
+        function selection_view(button_selected) {
+            document.getElementById('delivering').hidden = true;
+            document.getElementById('delivered').hidden = true;
+            document.getElementById('refused').hidden = true;
+
+            document.getElementById("Da consegnare").className = document.getElementById("Da consegnare").className.replace(/(?:^|\s)btn-light(?!\S)/g, ' btn-outline-light ');
+            document.getElementById("Consegnati").className = document.getElementById("Consegnati").className.replace(/(?:^|\s)btn-light(?!\S)/g, ' btn-outline-light ');
+            document.getElementById("Rifiutati").className = document.getElementById("Rifiutati").className.replace(/(?:^|\s)btn-light(?!\S)/g, ' btn-outline-light ');
+
+            switch (button_selected) {
+                case 'Da consegnare':
+                    document.getElementById('delivering').hidden = false;
+                    document.getElementById(button_selected).className = document.getElementById(button_selected).className.replace(/(?:^|\s)btn-outline-light(?!\S)/g, ' btn-light ');
+                    break;
+                case 'Consegnati':
+                    document.getElementById('delivered').hidden = false;
+                    document.getElementById(button_selected).className = document.getElementById(button_selected).className.replace(/(?:^|\s)btn-outline-light(?!\S)/g, ' btn-light ');
+                    break;
+                case 'Rifiutati':
+                    document.getElementById('refused').hidden = false;
+                    document.getElementById(button_selected).className = document.getElementById(button_selected).className.replace(/(?:^|\s)btn-outline-light(?!\S)/g, ' btn-light ');
+                    break;
+            }
+        }
+    </script>
+{% endblock body %}
