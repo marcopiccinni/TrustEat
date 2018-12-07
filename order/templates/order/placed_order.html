@@ -26,7 +26,7 @@
         Situato in {{ locale.via }}, {{ locale.num_civico }} a {{ locale.cap.nome_localita }} ({{ locale.cap.cap }})
         <br><br>
         <p>Effettuato per conto dell'utente {{ user.username }}, {{ user.first_name }} {{ user.last_name }}
-            {% if request.user.is_dealer %}
+            {% if request.user.is_commerciante %}
                 (<a href="mailto:{{ user.email }}">{{ user.email }}</a>
                 <a href="tel:{{ user.telefono }}">{{ user.telefono }}</a> )
             {% else %}

@@ -47,7 +47,7 @@
                                             </button>
                                         </div>
                                         <a href="{% url 'order:review_order' order.ordine.cod_ordine %}"
-                                           class="col ml-3"
+                                           class="col pl-3"
                                            style="color: black; text-decoration: none ">
                                             <div class="row">
                                                 #{{ order.ordine.cod_ordine }} &nbsp;
@@ -61,18 +61,11 @@
                                                 a {{ order.location.nome_localita }} ({{ order.location.cap }})
                                                 &nbsp;
                                                 ()km &nbsp; in ()min
-                                            </div>
-                                            <div class="row">
+                                                <br>
                                                 &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
                                                 &nbsp;
-                                                (
-                                                <a class="text-primary"
-                                                   href="mailto:{{ order.ordine.email.user.email }}">
-                                                    {{ order.ordine.email.user.username }} </a>
-                                                &nbsp; &nbsp;
-                                                <a class="text-primary"
-                                                   href="tel:{{ order.ordine.email.user.telefono }}">{{ order.ordine.email.user.telefono }}</a>
-                                                &nbsp;)
+                                                ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.telefono }}
+                                                )
                                             </div>
                                         </a>
                                     </div>
@@ -148,14 +141,8 @@
                                             <div class="row">
                                                 &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
                                                 &nbsp;
-                                                (
-                                                <a class="text-primary"
-                                                   href="mailto:{{ order.ordine.email.user.email }}">
-                                                    {{ order.ordine.email.user.username }} </a>
-                                                &nbsp; &nbsp;
-                                                <a class="text-primary"
-                                                   href="tel:{{ order.ordine.email.user.telefono }}">{{ order.ordine.email.user.telefono }}</a>
-                                                &nbsp;)
+                                                ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.telefono }}
+                                                )
                                             </div>
                                         </a>
                                     </div>
@@ -186,20 +173,14 @@
                                             <br>
                                             &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
                                             &nbsp;
-                                            (
-                                            <a class="text-primary"
-                                               href="mailto:{{ order.ordine.email.user.email }}">
-                                                {{ order.ordine.email.user.username }} </a>
-                                            &nbsp; &nbsp;
-                                            <a class="text-primary"
-                                               href="tel:{{ order.ordine.email.user.telefono }}">{{ order.ordine.email.user.telefono }}</a>
-                                            &nbsp;)
+                                            ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.telefono }}
+                                            )
                                         </a>
                                     </div>
                                 </div>
                             {% endfor %}
                         </form>
-                        
+
                     {% else %}
                         <div class="text-center">
                             Nessun ordine consegnato...
@@ -221,20 +202,13 @@
                                             &ensp; il {{ order.ordine.data|date }}
                                             <br>
                                             &ofcir; {{ order.ordine.email.user.via }}, {{ order.ordine.email.user.civico }}
-                                            a {{ order.location.nome_localita }} ({{ order.location.cap }})
-                                            &nbsp;
-                                            ()km &nbsp; in ()min
+                                            a {{ order.location.nome_localita }} ({{ order.location.cap }}) &nbsp; ()km
+                                            &nbsp; in ()min
                                             <br>
                                             &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
                                             &nbsp;
-                                            (
-                                            <a class="text-primary"
-                                               href="mailto:{{ order.ordine.email.user.email }}">
-                                                {{ order.ordine.email.user.username }} </a>
-                                            &nbsp; &nbsp;
-                                            <a class="text-primary"
-                                               href="tel:{{ order.ordine.email.user.telefono }}">{{ order.ordine.email.user.telefono }}</a>
-                                            &nbsp;)
+                                            ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.telefono }}
+                                            )
                                         </a>
                                     </div>
                                 </div>
