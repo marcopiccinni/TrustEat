@@ -10,14 +10,6 @@
             height: 51px;
         }
     </style>
-    <script>
-        function fun_1(req, deal) {
-            if (req == deal) {
-                document.write(" <ul class=\"list-unstyled CTAs\">");
-                document.write("<li><a href=\" edit_local\" class=\"article\">Modifica locale</a> </li>");
-            }
-        }
-    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -109,21 +101,14 @@
                 <ul style="font-size: 85%;"> Costo di spedizione: &nbsp; {{ local.prezzo_di_spedizione }}&nbsp;&euro;
                 </ul>
                 {% if num_obj %}
-                    <ul>
-                        &nbsp;Totale ordine: &nbsp;&nbsp;&nbsp;<label style="font-size: 110%; ">{% total_price %}&nbsp;&euro; </label>
-                    </ul>
+                    <div class="ml-3">
+                        &nbsp;Totale ordine: &nbsp;&nbsp;&nbsp;<span style="font-size: 110%; ">{% total_price %}&nbsp;&euro; </span>
+                    </div>
                     <ul class="list-unstyled CTAs">
                         <li><a href='{% url 'order:check' %}' class="article">Procedi con l'ordine</a>
                         </li>
                     </ul>
                 {% endif %}
-
-                {% for deal in dealers %}
-                    {#--------------------------------------------- SCRIPT!!!! ------------------------------------------#}
-                    <script>
-                        fun_1("{{ request.user }}", "{{ deal.username}}");
-                    </script>
-                {% endfor %}
             {% elif request.user.id in dealers_id %}
                 <div class="sidebar-header">
                     <h3>Il tuo locale:</h3>
@@ -285,7 +270,7 @@
                                                     <td class="px-1" style="width:100% ">
                                                         <div class="food font-weight-bold">{{ x.menu.nome_menu }} </div>
                                                         <div class="desc p-0 m-0 font-italic">{{ x.menu.descrizione_menu }} </div>
-                                                        <div class="desc p-0 m-0 font-italic"> elenco prodotti</div>
+                                                        <div class="desc p-0 m-0 font-italic">{{ x.composto_da }}  </div>
                                                     </td>
                                                     <td class="px-1">
                                                         <div>
@@ -342,7 +327,8 @@
                                     <br>
                                 {% endif %}
                                 {% if local.sito_web %}
-                                    Sito web: <a class="text-primary" href=''>{{ local.sito_web }} </a><br>
+                                    Sito web:
+                                    <a class="text-primary" href='{{ local.sito_web }}'>{{ local.sito_web }} </a><br>
                                 {% endif %}
                                 {% if local.email %}
                                     Email:

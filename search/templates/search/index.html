@@ -20,21 +20,23 @@
                     <h2 class="card-title text-center m-0 p-0 pb-1"> BUON APPETITO!</h2>
                 </div>
                 {# ------------------------ RICERCA ------------------------ #}
-                <form action="" method="get" class="mb-5">
+                <form action="" method="get" class="mb-3">
                     {{ SearchForm|crispy }}
-                    <button class="btn btn-md btn-danger rounded-0 shadow" type="submit"
-                            style="width: 140px">
-                        CERCA
-                    </button>
-                    <a href=" {% url 'search:index' %}">
-                        <button class="btn btn-md btn-outline-primary rounded-0 shadow" type="button"
+                    <div class="text-center">
+                        <button class="btn btn-md btn-danger rounded-0 mr-5 shadow" type="submit"
                                 style="width: 140px">
-                            CANCELLA
+                            CERCA
                         </button>
-                    </a>
+                        <a href=" {% url 'search:index' %}">
+                            <button class="btn btn-md btn-outline-primary rounded-0 ml-5 shadow" type="button"
+                                    style="width: 140px">
+                                CANCELLA
+                            </button>
+                        </a>
+                    </div>
                 </form>
             </div>
-            <div class="col-xl-7 ">
+            <div class="col-xl-7 mt-1 ">
                 {#-------------------------------Start LISTA LOCALI ------------------------------------------------------#}
                 <div class="card container mb-2 pb-3 mx-0 px-0 rounded align-content-center text-center shadow"
                      style="background-color: #d5d5d5; max-height: 400px; ">

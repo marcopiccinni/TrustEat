@@ -70,7 +70,12 @@ class LocalList(View):
                 if l['id'] == x.id:
                     form = QuantityForm(initial={'id': x.id, 'num_object': l['num_obj'], 'isProduct': False})
                     break
-            self.menu_list.append({'menu': x, 'pos': pos, 'form': form})
+
+            composto_da = ''
+            for c in CompostoDa.objects.filter(nome_menu=x, cod_locale=cod_locale):
+                composto_da += c.nome_prodotto.nome_prodotto + ', '
+            composto_da = composto_da[::-1].replace(' ,', '', 1)[::-1]
+            self.menu_list.append({'menu': x, 'pos': pos, 'form': form, 'composto_da': composto_da, })
             pos += 1
         vote = {'avg': str(round(avg_vote, 2)).replace('.', ','), 'count': count_vote}
         dealers = []

@@ -12,19 +12,30 @@
 
 {% block body %}
     <div class="container text-center">
-        <img style="max-height: 100px; object-fit: scale-down" src="{% static 'img/logo-trustEat/_logo1.png' %}">
+        <img src="{% static 'img/logo-trustEat/_logo1.png' %}" alt="TRUST EAT"
+             style="max-height: 100px; object-fit: scale-down">
         <h2>
-            {#            <img style="max-height: 60px; object-fit: scale-down" src="{% static 'img/logo-trustEat/_logo1.png' %}">#}
-            Ordine #{{ ordine.cod_ordine }} effettuato a {{ locale.nome_locale }}
+            Ordine #{{ ordine.cod_ordine }} effettuato a
+            {% if request.user.is_utente %}
+                <a href="{% url 'localManagement:localLists' locale.cod_locale %}">{{ locale.nome_locale }}</a>
+            {% else %}
+                {{ locale.nome_locale }}
+            {% endif %}
+
         </h2>
         Situato in {{ locale.via }}, {{ locale.num_civico }} a {{ locale.cap.nome_localita }} ({{ locale.cap.cap }})
         <br><br>
-        <p>Effettuato per conto dell'utente {{ user.username }}, {{ user.first_name }} {{ user.last_name }}<br>
-            Presso {{ user.via }}, {{ user.civico }} a {{ user_location }} ({{ user.cap }}) </p>
-
+        <p>Effettuato per conto dell'utente {{ user.username }}, {{ user.first_name }} {{ user.last_name }}
+            {% if request.user.is_dealer %}
+                (<a href="mailto:{{ user.email }}">{{ user.email }}</a>
+                <a href="tel:{{ user.telefono }}">{{ user.telefono }}</a> )
+            {% else %}
+                ( {{ user.email }}  {{ user.telefono }} )
+            {% endif %}
+            <br> Presso {{ user.via }}, {{ user.civico }} a {{ user_location }} ({{ user.cap }})
+        </p>
     </div>
     <div style="margin-left: 40%">
-
         {% if prodotti|length > 0 %}
             <p>Elenco prodotti</p>
             {% for p in prodotti %}
@@ -38,7 +49,8 @@
         {% if menues|length > 0 %}
             <p>Elenco menu</p>
             {% for m in menues %}
-                <li><b>{{ m.obj.nome_menu }}</b>&nbsp;&nbsp; &nbsp;&nbsp;  {{ m.obj.prezzo }} &euro;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp; x {{ m.num_obj }}
+                <li><b>{{ m.obj.nome_menu }}</b>&nbsp;&nbsp; &nbsp;&nbsp; {{ m.obj.prezzo }} &euro;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp; x {{ m.num_obj }}
                     &rarr;&nbsp; {% multiply m.num_obj m.obj.prezzo %} &euro;
                 </li>
             {% endfor %}
