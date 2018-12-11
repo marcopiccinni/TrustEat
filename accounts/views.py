@@ -1,9 +1,10 @@
 from django.contrib.auth import login
 from django.views.generic import CreateView, TemplateView, UpdateView, View
-from .forms import *
+from .forms import RegUser, RegComm, InsertLoginSocial, EditPersonalData, EditCommData
 from django.shortcuts import render, redirect, HttpResponse, render_to_response, HttpResponseRedirect
 from .models import User, Commerciante, Utente
 from order.models import OrdineInAttesa, RichiedeP, RichiedeM
+from TrustEat.maps import geocode
 from order.views import db_order_consistance
 from django.contrib.auth import get_user_model, authenticate
 from localManagement.models import Locale, Tag, FotoLocale, Chiusura, Localita
@@ -84,20 +85,28 @@ class InsertLogin(View):
                 current_user.civico = civico
                 current_user.cap = cap.cap
                 current_user.telefono = telefono
+                # ---------------- geocoding ------------------------------------
+                current_user.latitude, current_user.longitude = geocode(
+                    str(current_user.via) + ',' + str(current_user.civico) + ',' + str(
+                        current_user.cap) + ',' + 'Italia')
 
                 if tipo_utente == "utente":
                     current_user.is_utente = True
-                    current_user.save(update_fields=['is_utente', 'via', 'civico', 'cap', 'telefono'])
+                    # geocoding
+                    current_user.save(
+                        update_fields=['is_utente', 'via', 'civico', 'cap', 'telefono', 'latitude', 'longitude']
+                    )
                     # CartaDiCredito.objects.create(numero_carta=carta_di_credito)
                     Utente.objects.create(user=current_user)
                 else:
                     current_user = request.user
                     current_user.is_commerciante = True
-                    current_user.save(update_fields=['is_commerciante', 'via', 'civico', 'cap', 'telefono'])
+                    # geocoding
+                    current_user.save(
+                        update_fields=['is_commerciante', 'via', 'civico', 'cap', 'telefono', 'latitude', 'longitude']
+                    )
                     Commerciante.objects.create(user=current_user, p_iva=p_iva)
-
                 return render(request, 'account/avviso_successo.html')
-
         return render(request, 'account/avviso_insuccesso.html')
 
 
@@ -135,7 +144,7 @@ class EditPersonalDataView(View):
                 civico = form.cleaned_data['civico']
                 cap = form.cleaned_data['cap']
                 telefono = form.cleaned_data['telefono']
-
+                # add geocoding
                 if User.objects.filter(username=request.user.username).update(email=email, first_name=nome,
                                                                               last_name=cognome, via=via,
                                                                               civico=civico, cap=cap.cap,
@@ -191,6 +200,7 @@ class EditCommDataView(View):
                 telefono = form.cleaned_data['telefono']
                 p_iva = form.cleaned_data['p_iva']
 
+                # add geocoding
                 if User.objects.filter(username=request.user.username).update(email=email, first_name=nome,
                                                                               last_name=cognome,
                                                                               via=via,

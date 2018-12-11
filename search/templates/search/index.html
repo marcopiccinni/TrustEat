@@ -8,6 +8,8 @@
 {% endblock %}
 {% block body %}
 
+
+
     <div class="card mb-1 container-fluid border-0">
         <img class="card-img-top mx-5 px-5 container" style="max-height: 200px; object-fit: scale-down"
              src="{% static 'img/logo-trustEat/_logo1.png' %}"
@@ -64,6 +66,7 @@
                                             <br>
                                         {% endif %}
 
+
                                         <div class="card-img-overlay">
                                             <h5 class="card-title text-light rounded"
                                                 style=" background-color: rgba(0,0,0,0.5)">
@@ -75,6 +78,7 @@
                                                 if (!"{{ local.foto }}".length)
                                                     document.writeln("<br>");
                                             </script>
+
                                             <a class="card-title my-0 link-disabled">{{ local.local.descrizione }}</a>
                                             <p class="card-text ">
                                                 {# ------------------ SCRIPT !!!!!----------------------------        #}
@@ -103,4 +107,7 @@
             </div>
         </div>
     </div>
+
+
+
 {% endblock %}

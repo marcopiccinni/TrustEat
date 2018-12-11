@@ -1,10 +1,13 @@
 from django.shortcuts import get_object_or_404, render, HttpResponse, redirect
+from django.contrib.auth import get_user_model
 from user.models import Recensione
 from django.views.generic import UpdateView, TemplateView, CreateView, DeleteView, View
-from .models import *
+from TrustEat.maps import geocode
+from .models import Tipo, Tag, FotoLocale, Chiusura, Menu, Prodotto, CompostoDa, Localita, Locale
 from accounts.models import Commerciante, User, Utente
-from .forms import *
-from django.contrib.auth import get_user_model
+from order.models import RichiedeM, RichiedeP, OrdineInAttesa
+from .forms import ReplayForm, ReviewForm, AddEMenu, AddEProduct, CreateLocalForm, EditForm, QuantityForm, ModMenu, \
+    EditProduct
 from django.core.exceptions import ValidationError
 from django.contrib.auth.decorators import login_required
 import datetime
@@ -172,7 +175,7 @@ class Votes(View):
         review = cls.orderer_votes(cls, Recensione.objects.filter(cod_locale=cod_locale).order_by('voto').all())
 
         for dealer in Commerciante.objects.filter(possiede_locale__cod_locale=cod_locale).all():
-            cls.dealers.append(User.objects.get(username=dealer).username, )
+            cls.dealers.append(User.objects.get(username=dealer).username)
         if not request.user.is_anonymous:
             if request.user.is_utente:
                 cls.user_form = ReviewForm()
@@ -188,8 +191,18 @@ class Votes(View):
                     user_list.append((elem.email.user.id, str(elem.email.user.username)), )
                 cls.dealer_form = ReplayForm()
                 cls.dealer_form.fields['Username'].choices = user_list
+
+        tmp_cod_ordine = set()
+        [tmp_cod_ordine.add(x.cod_ordine_id) for x in RichiedeP.objects.filter(cod_locale=cod_locale)]
+        [tmp_cod_ordine.add(x.cod_ordine_id) for x in RichiedeM.objects.filter(cod_locale=cod_locale)]
+
+        allow_rec = False
+        if any([x.pk in list(tmp_cod_ordine) for x in OrdineInAttesa.objects.filter(email_id=request.user.pk)]):
+            allow_rec = True
+
         args = {'local': local, 'vote': review, 'dealers': cls.dealers,
                 'user_form': cls.user_form, 'dealer_form': cls.dealer_form,
+                'allow_rec': allow_rec,
                 }
         return render(request, cls.template_name, args)
 
@@ -273,6 +286,9 @@ class CreateLocalView(View):
                 giorno_chiusura2 = form.cleaned_data['giorno_chiusura2']
                 giorno_chiusura3 = form.cleaned_data['giorno_chiusura3']
 
+                # geocoding ---------------------
+                latitude, longitude = geocode(str(via) + ',' + str(num_civico) + ',' + str(cap) + 'Italia')
+
                 if Locale.objects.filter(nome_locale=nome_locale, cap=cap).exists():
                     messaggio1 = "ERRORE, Esiste gia' un locale col nome inserito nella localita' inserita!"
                     messaggio2 = "Si prega di reinserire i dati correttamente"
@@ -284,12 +300,14 @@ class CreateLocalView(View):
                     messaggio2 = "Si prega di reinserire i dati correttamente"
                 else:
                     t = Tag.objects.filter(nome_tag__in=tag)
+                    # geocoding -----------------------------
                     loc = Locale.objects.create(nome_locale=nome_locale, orario_apertura=orario_apertura,
                                                 orario_chiusura=orario_chiusura, num_civico=num_civico, via=via,
                                                 cap=Localita.objects.get(cap=cap.cap), descrizione=descrizione,
                                                 telefono=telefono,
                                                 sito_web=sito_web, email=email,
-                                                prezzo_di_spedizione=prezzo_di_spedizione)
+                                                prezzo_di_spedizione=prezzo_di_spedizione,
+                                                latitude=latitude, longitude=longitude)
                     loc.tag.set(t)
                     foto1 = FotoLocale(cod_locale=loc, foto_locale=foto_locale1)
                     foto1.save()
@@ -390,6 +408,8 @@ class EditLocal(View):
                 foto_locale2 = form.cleaned_data['foto_locale2']
                 foto_locale3 = form.cleaned_data['foto_locale3']
                 giorno_chiusura = form.cleaned_data['giorno_chiusura']
+                latitude, longitude = geocode(str(via) + ',' + str(num_civico) + ',' + str(cap) + 'Italia')
+                #  geocoding ------------------
                 Locale.objects.filter(cod_locale=cod_locale).update(nome_locale=nome_locale,
                                                                     orario_apertura=orario_apertura,
                                                                     orario_chiusura=orario_chiusura,
@@ -398,7 +418,9 @@ class EditLocal(View):
                                                                     descrizione=descrizione,
                                                                     telefono=telefono,
                                                                     sito_web=sito_web, email=email,
-                                                                    prezzo_di_spedizione=prezzo_spedizione)
+                                                                    prezzo_di_spedizione=prezzo_spedizione,
+                                                                    latitude=latitude, longitude=longitude
+                                                                    )
 
                 id = []
                 indx = 0

@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
+from TrustEat.maps import geocode
 from .models import Utente, Commerciante, User
 from localManagement.models import Localita, Tag, Locale, FotoLocale
 from django.contrib.auth import get_user_model
@@ -33,6 +34,11 @@ class RegUser(UserCreationForm):
         user.cap = self.cleaned_data['cap'].cap
         user.telefono = self.cleaned_data['telefono']
         user.is_utente = True
+
+        # ---------------- geocoding ------------------------------------
+        user.latitude, user.longitude = geocode(
+            str(user.via) + ',' + str(user.civico) + ',' + str(user.cap) + ',' + 'Italia')
+
         user.save()
         utente = Utente.objects.create(user=user)
 
@@ -85,6 +91,11 @@ class RegComm(UserCreationForm):
             user.cap = self.cleaned_data['cap'].cap
             user.telefono = self.cleaned_data['telefono']
             user.is_commerciante = True
+
+            # ---------------- geocoding ------------------------------------
+            user.latitude, user.longitude = geocode(
+                str(user.via) + ',' + str(user.civico) + ',' + str(user.cap) + ',' + 'Italia')
+
             user.save()
             commerciante = Commerciante.objects.create(user=user)
             commerciante.p_iva = self.cleaned_data['p_iva']

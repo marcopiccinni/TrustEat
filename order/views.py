@@ -8,7 +8,10 @@ from user.models import CartaDiCredito
 from .models import OrdineInAttesa, RichiedeP, RichiedeM
 from localManagement.views import LocalList
 from .forms import OrderForm, CardOrderForm
+from TrustEat.maps import distance_time
 import datetime
+
+from TrustEat.settings import GOOGLE_MAPS_SECRET_API_KEY
 
 
 def check(request):
@@ -222,8 +225,10 @@ class ListOrder(View):
     template_name = 'order/list_order.html'
 
     def get(self, request, cod_locale):
-        local = get_object_or_404(Locale, pk=cod_locale)
-        if request.user.is_commerciante and request.user in User.objects.filter(id__in=local.possiede_locale.all()):
+        locale = get_object_or_404(Locale, pk=cod_locale)
+        local = {'locale': locale, 'position': {'lat': locale.latitude, 'lon': locale.longitude}}
+        if request.user.is_commerciante and request.user in \
+                User.objects.filter(id__in=local['locale'].possiede_locale.all()):
             s = set()
             for x in RichiedeP.objects.filter(cod_locale=cod_locale).all():
                 s.add(x.cod_ordine_id)
@@ -233,10 +238,24 @@ class ListOrder(View):
             refused_list = []
             tmp_delivering_list = []
             delivered_list = []
+            delivering_js = []
             for x in s:
                 ordine = OrdineInAttesa.objects.get(cod_ordine=x)
+                locale = Locale.objects.get(cod_locale=cod_locale)
+                persona = ordine.email.user
+                distance = 'None km'
+                time = 'None mins'
+                # distance, time = distance_time(
+                #     origin=str(locale.via) + ',' + str(locale.num_civico) + ',' + str(locale.cap_id) + ',Italia',
+                #     arrival=str(persona.via) + ',' + str(persona.civico) + ',' + str(persona.cap) + ',Italia')
                 tmp = {'ordine': ordine, 'totale': total_price(ordine.cod_ordine),
-                       'location': Localita.objects.get(cap=ordine.email.user.cap)}
+                       'location': Localita.objects.get(cap=ordine.email.user.cap),
+                       'distance': distance, 'time': time,
+                       }
+                tmp1 = {'ordine': ordine.cod_ordine,
+                        'lat': ordine.email.user.latitude, 'lon': ordine.email.user.longitude,
+                        'distance': distance, 'time': time,
+                        }
                 if ordine.accettato is None:
                     waiting_list.append(tmp)
                 elif not ordine.accettato:
@@ -246,20 +265,29 @@ class ListOrder(View):
                         delivered_list.append(tmp)
                     else:
                         tmp_delivering_list.append(tmp)
+                        delivering_js.append(tmp1)
 
+            # Ordinamento in base all'orario richiesto. non in ordine di codice
             delivering_list = []
             for x in tmp_delivering_list:
                 if len(delivering_list):
+                    ins = False
                     for elem in delivering_list:
                         if x['ordine'].orario_richiesto < elem['ordine'].orario_richiesto:
                             delivering_list.insert(delivering_list.index(elem), x)
+                            ins = True
                             break
+                    if not ins:
+                        delivering_list.append(x)
                 else:
                     delivering_list.append(x)
 
-            args = {'waiting_list': waiting_list, 'refused_list': refused_list,
-                    'delivering_list': delivering_list, 'delivered_list': delivered_list,
+            args = {'waiting_list': waiting_list,
+                    'refused_list': refused_list,
+                    'delivering_list': delivering_list, 'delivering_js': delivering_js,
+                    'delivered_list': delivered_list,
                     'local': local,
+                    'googleKey': GOOGLE_MAPS_SECRET_API_KEY,
                     }
             return render(request, self.template_name, args)
         return redirect('/')

@@ -2,26 +2,33 @@
 {% load static from staticfiles %}
 
 {% block head %}
-    <title>GESTIONE ORDINI ║{{ local.nome_locale }} </title>
+    <title>GESTIONE ORDINI ║{{ local.locale.nome_locale }} </title>
     <style>
         .card-body {
             max-height: 500px;
             overflow-y: auto
         }
     </style>
+
+
 {% endblock head %}
 
+
+
+
+
 {% block body %}
+    <body onload="initMap()">
     <div class="row container-fluid ml-0">
         <div class="col-7">
             {# ------------------------ Start Nome Locale ------------------------------------------------------------#}
             <div class="container-fluid mt-0 text-warning rounded-bottom pb-1 mb-2 shadow"
                  style="background-color: #a01b2a">
-                <h1 align="center">{{ local.nome_locale|upper }}</h1>
+                <h1 align="center">{{ local.locale.nome_locale|upper }}</h1>
             </div>
             {# ------------------------ End Nome Locale --------------------------------------------------------------#}
             {# ------------------------------------- Ordini in attesa INIZIO ---------------------------------------- #}
-            <div class="card shadow" style="background-color: #878787; max-height: 550px; overflow-y: auto">
+            <div class="card shadow" style="background-color: #878787; height: 250px; overflow-y: auto">
                 <div class="card-header text-light py-0 pt-1">
                     <h1 class=" text-center" style="font-size: 175%;">
                         ORDINI IN ATTESA
@@ -59,12 +66,12 @@
                                             <div class="row">
                                                 &ofcir; {{ order.ordine.email.user.via }}, {{ order.ordine.email.user.civico }}
                                                 a {{ order.location.nome_localita }} ({{ order.location.cap }})
-                                                &nbsp;
-                                                ()km &nbsp; in ()min
+                                                &nbsp;{{ order.distance }}&nbsp;in {{ order.time }}
+
                                                 <br>
                                                 &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
                                                 &nbsp;
-                                                ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.telefono }}
+                                                ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.email }} {{ order.ordine.email.user.telefono }}
                                                 )
                                             </div>
                                         </a>
@@ -87,6 +94,9 @@
                 <div class="card-footer " style=" background-color: #878787; color: white; font-size: large"></div>
             </div>
             {# ------------------------------------- Ordini in attesa FINE ------------------------------------------ #}
+
+            <div id="map" class="rounded mt-3 shadow" style="object-fit: fill ; height: 250px;"></div>
+
         </div>
         <div class="col-5 mt-2">
             {# -------------------------------- Ordini accettati/consegnati/ rifiutati INIZIO ----------------------- #}
@@ -135,13 +145,13 @@
                                             <div class="row">
                                                 &ofcir; {{ order.ordine.email.user.via }}, {{ order.ordine.email.user.civico }}
                                                 a {{ order.location.nome_localita }} ({{ order.location.cap }})
-                                                &nbsp;
-                                                ()km &nbsp; in ()min
+                                                &nbsp;{{ order.distance }}&nbsp;in {{ order.time }}
+
                                             </div>
                                             <div class="row">
                                                 &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
                                                 &nbsp;
-                                                ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.telefono }}
+                                                ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.email }} {{ order.ordine.email.user.telefono }}
                                                 )
                                             </div>
                                         </a>
@@ -168,12 +178,12 @@
                                             <br>
                                             &ofcir; {{ order.ordine.email.user.via }}, {{ order.ordine.email.user.civico }}
                                             a {{ order.location.nome_localita }} ({{ order.location.cap }})
-                                            &nbsp;
-                                            ()km &nbsp; in ()min
+                                            &nbsp;{{ order.distance }}&nbsp;in {{ order.time }}
+
                                             <br>
                                             &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
                                             &nbsp;
-                                            ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.telefono }}
+                                            ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.email }} {{ order.ordine.email.user.telefono }}
                                             )
                                         </a>
                                     </div>
@@ -202,12 +212,13 @@
                                             &ensp; il {{ order.ordine.data|date }}
                                             <br>
                                             &ofcir; {{ order.ordine.email.user.via }}, {{ order.ordine.email.user.civico }}
-                                            a {{ order.location.nome_localita }} ({{ order.location.cap }}) &nbsp; ()km
-                                            &nbsp; in ()min
+                                            a {{ order.location.nome_localita }} ({{ order.location.cap }})
+                                            &nbsp;{{ order.distance }}&nbsp;in {{ order.time }}
+
                                             <br>
                                             &ofcir; {{ order.ordine.email.user.first_name }} {{ order.ordine.email.user.last_name }}
                                             &nbsp;
-                                            ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.telefono }}
+                                            ( {{ order.ordine.email.user.username }} {{ order.ordine.email.user.email }} {{ order.ordine.email.user.telefono }}
                                             )
                                         </a>
                                     </div>
@@ -252,4 +263,63 @@
             }
         }
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ googleKey }}&callback=initMap"></script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('map'),
+                {
+                    zoom: 15,
+                    center: {
+                        lat: parseFloat("{{ local.position.lat }}".replace(' ', '.').replace(',', '.')),
+                        lng: parseFloat("{{local.position.lon}}".replace(' ', '.').replace(',', '.'))
+                    },
+                });
+
+            var marker = new google.maps.Marker({
+                position: {
+                    lat: parseFloat("{{ local.position.lat }}".replace(' ', '.').replace(',', '.')),
+                    lng: parseFloat("{{local.position.lon}}".replace(' ', '.').replace(',', '.'))
+                },
+                map: map,
+                icon: "{% static 'img/locale.png' %}",
+                title: '{{ local.locale.nome_locale }}'
+            });
+
+            setMarkers(map);
+            console.log('{{ delivering_list|length }}');
+        }
+
+        // Data for the markers consisting of a name, a LatLng and a zIndex for the
+        // order in which these markers should display on top of each other.
+        var beaches = [
+            ['Bondi Beach', -33.890542, 151.274856, 4],
+            ['Coogee Beach', -33.923036, 151.259052, 5],
+            ['Cronulla Beach', -34.028249, 151.157507, 3],
+            ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+            ['Maroubra Beach', -33.950198, 151.259302, 1]
+        ];
+
+        function setMarkers(map) {
+            // Adds markers to the map.
+
+            for (ord of {{ delivering_js|safe }}) {
+                console.log(ord.ordine + ': ' + ord.lat + ' ' + ord.lon);
+                var marker = new google.maps.Marker({
+                    position: {lat: ord.lat, lng: ord.lon},
+                    map: map,
+                    title: 'Ordine: ' + ord.ordine,
+                });
+
+                {#for (var i = 0; i < {{ delivering_list|length }}; i++) {#}
+                {#    var beach = beaches[i];#}
+                {#    var marker = new google.maps.Marker({#}
+                {#        position: {lat: beach[1], lng: beach[2]},#}
+                {#        map: map,#}
+                {#        title: beach[0],#}
+                {#        zIndex: beach[3]#}
+                {#    });#}
+            }
+        }
+    </script>
+    </body>
 {% endblock body %}

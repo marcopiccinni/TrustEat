@@ -14,12 +14,12 @@ class QuantityForm(forms.Form):
 class ReviewForm(forms.Form):
     Voto = forms.IntegerField(required=True, min_value=1, max_value=5, label='Voto', widget=forms.NumberInput(
         attrs={'style': 'width: 60px',
-               'class': 'mx-5 mb-1',
+               'class': 'mx-5 my-0',
                }
     ))
     Descrizione = forms.CharField(required=False, label='Recensione', widget=forms.TextInput(
         attrs={'placeholder': 'Aggiungi qui un commento',
-               'class': 'ml-2',
+               'class': 'ml-2 my-0',
                'style': 'width: 900px',
                }
     ))
@@ -33,17 +33,12 @@ class ReplayForm(forms.Form):
     #                                              }))
     Username = forms.ChoiceField(required=True, label="Seleziona l'utente a cui rispondere",
                                  widget=forms.Select(attrs={
-                                     'class': 'ml-2 mb-1',
+                                     'class': 'ml-2 my-0',
                                  }))
-    # Username1 = forms.ChoiceField(choices=(('LUN', 'lun'), ('MAR', 'mar'), ('MER', 'mer'),), required=True,
-    #                               label="Seleziona l'utente a cui rispondere",
-    #                               widget=forms.Select(attrs={
-    #                                   'class': 'ml-2 mb-1',
-    #                               }))
     Descrizione = forms.CharField(required=True, label='Risposta', widget=forms.TextInput(
         attrs={'placeholder': 'Aggiungi qui la risposta',
-               'class': 'ml-2',
-               'style': 'width: 900px',
+               'class': 'ml-2 my-0',
+               'style': 'width: 100px',
                }
     ))
 

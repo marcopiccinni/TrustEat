@@ -4,8 +4,6 @@ from datetime import datetime
 import os
 
 
-# Create your models here.
-
 class Localita(models.Model):
     cap = models.CharField(max_length=5, primary_key=True)
     nome_localita = models.CharField(max_length=50, null=False, unique=True)
@@ -39,6 +37,8 @@ class Locale(models.Model):
     prezzo_di_spedizione = models.FloatField(null=False, default=0)
     email = models.EmailField(null=True)
     tag = models.ManyToManyField(Tag, blank=True, related_name='locale_tag')
+    latitude = models.FloatField()
+    longitude = models.FloatField()
 
     class Meta:
         unique_together = (("nome_locale", "cap"),)
@@ -50,10 +50,8 @@ class Locale(models.Model):
 
 def validate_image_size(value):
     image_size = value.size
-
     if image_size > 10485760:
-        raise ValidationError("La dimensione massima della foto per poter essere "
-                              "uplodata e' di 10 MB")
+        raise ValidationError("La dimensione massima della foto per poter essere caricata e' di 10 MB")
     else:
         return value
 

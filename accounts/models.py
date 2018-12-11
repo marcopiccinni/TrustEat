@@ -10,6 +10,8 @@ class User(AbstractUser):
     civico = models.CharField(max_length=255)
     cap = models.CharField(max_length=6)
     telefono = models.CharField(max_length=15)
+    latitude = models.FloatField(default=0)
+    longitude = models.FloatField(default=0)
 
     class Meta:
         verbose_name_plural = "Utenti Totali"

@@ -24,7 +24,8 @@ SECRET_KEY = '4v%_x6fox+d0tux%*m!awymvrgd!2c%*x1$__k8v$xw(0hl8db'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.100', 'localhost', '192.168.1.148', ]
+# Per ammettere tutti gli host '*' altrimenti inserire lista di indirizzi IP
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -160,3 +161,5 @@ SOCIAL_AUTH_FACEBOOK_SECRET = '117fe3e7d852afec21e853a16c7adc8a'  # Facebook App
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
 SOCIAL_AUTH_FACEBOOK_API_VERSION = '2.10'
+
+GOOGLE_MAPS_SECRET_API_KEY = 'AIzaSyDzXaKQjh37Tsn6Busjmfb7pRSX0KN-68A'
