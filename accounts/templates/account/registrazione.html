@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load crispy_forms_tags %}
+
+{% block body %}
+
+
+    <h2 style="text-align: center"> Registrati su: </h2>
+    <div class="col">
+        <img src="{% static 'img/logo-trustEat/_logo.png' %}" style="margin-left: 40%" width="300">
+    </div>
+
+    <div class="card text-center my-1 mx-5 shadow" style="background-color: #878787">
+        <div class="card-header text-light m-0 p-0">
+            <blockquote class="blockquote text-center">
+
+            </blockquote>
+            {% block content1 %}
+
+            {% endblock %}
+
+        </div>
+
+        <form method="post">
+            <div class="card-body rounded m-0 px-5 py-1 " style="background-color:#F0F0F0 ">
+
+
+                <div class="container px-5">
+                    <div class="card-text px-5" style="color: #212529">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer rounded-0 m-0 py-2">
+                <button type="submit" class="btn btn-light btn-lg ">
+                    Crea un account
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

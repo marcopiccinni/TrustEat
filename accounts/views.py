@@ -1,6 +1,6 @@
 from django.contrib.auth import login
 from django.views.generic import CreateView, TemplateView, UpdateView, View
-from .forms import RegUser, RegComm, InsertLoginSocial, EditPersonalData, EditCommData
+from .forms import RegUser, RegComm, InsertLoginSocial, EditPersonalData, EditCommData, forms
 from django.shortcuts import render, redirect, HttpResponse, render_to_response, HttpResponseRedirect
 from .models import User, Commerciante, Utente
 from order.models import OrdineInAttesa, RichiedeP, RichiedeM
@@ -15,7 +15,7 @@ from user.models import CartaDiCredito
 class RegUtenteView(CreateView):
     model = get_user_model()
     form_class = RegUser
-    template_name = 'registration/registrazione_utente.html'
+    template_name = 'account/registrazione_utente.html'
 
     def get_context_data(self, **kwargs):
         kwargs['user_type'] = 'utente'
@@ -23,14 +23,21 @@ class RegUtenteView(CreateView):
 
     def form_valid(self, form):
         user = form.save()
-        login(self.request, user, backend='django.contrib.auth.backends.ModelBackend')
-        return render_to_response('account/avviso_successo.html')
+        if user.is_utente:
+            utente = Utente.objects.get(user_id=user.id)
+            if form.cleaned_data['carta_di_credito'] is not "":
+                utente.carta_di_credito.add(CartaDiCredito.objects.get(numero_carta=form.cleaned_data['carta_di_credito']).pk)
+            login(self.request, user, backend='django.contrib.auth.backends.ModelBackend')
+            return render_to_response('account/avviso_successo.html')
+        else:
+            User.objects.filter(username=user.username).delete()
+            return render_to_response('account/avviso_insuccesso.html')
 
 
 class RegCommercianteView(CreateView):
     model = User
     form_class = RegComm
-    template_name = 'registration/registrazione_commerciante.html'
+    template_name = 'account/registrazione_commerciante.html'
 
     def get_context_data(self, **kwargs):
         kwargs['user_type'] = 'commerciante'
@@ -50,7 +57,7 @@ class RegCommercianteView(CreateView):
 @login_required
 def dashboard(request):
     if not request.user.is_utente and not request.user.is_commerciante and not request.user.is_superuser:
-        return HttpResponseRedirect('/accounts/registrazione/login_social')
+        return HttpResponseRedirect('registrazione/login_social')
     else:
         return redirect('/')
 
@@ -61,12 +68,10 @@ class InsertLogin(View):
     template_name = 'account/reindirizzamento_social_dati.html'
     form_class = InsertLoginSocial
 
-    @login_required
     def get(self, request):
         form = InsertLoginSocial()
         return render(request, self.template_name, {'form': form})
 
-    @login_required
     def post(self, request):
         if request.method == 'POST':
             form = InsertLoginSocial(request.POST or None)
@@ -77,7 +82,9 @@ class InsertLogin(View):
                 civico = form.cleaned_data['civico']
                 cap = form.cleaned_data['cap']
                 telefono = form.cleaned_data['telefono']
-                # carta_di_credito = form.cleaned_data['carta_di_credito']
+                carta_di_credito = form.cleaned_data['carta_di_credito']
+                intestatario = form.cleaned_data['intestatario']
+                scadenza = form.cleaned_data['scadenza']
                 p_iva = form.cleaned_data['p_iva']
 
                 current_user = request.user
@@ -96,8 +103,13 @@ class InsertLogin(View):
                     current_user.save(
                         update_fields=['is_utente', 'via', 'civico', 'cap', 'telefono', 'latitude', 'longitude']
                     )
-                    # CartaDiCredito.objects.create(numero_carta=carta_di_credito)
-                    Utente.objects.create(user=current_user)
+                    u = Utente.objects.create(user=current_user)
+
+                    if carta_di_credito is not "":
+                        CartaDiCredito.objects.create(numero_carta=carta_di_credito,
+                                                      intestatario=intestatario,
+                                                      scadenza=scadenza)
+                        u.carta_di_credito.add(CartaDiCredito.objects.get(numero_carta=carta_di_credito).pk)
                 else:
                     current_user = request.user
                     current_user.is_commerciante = True
@@ -133,24 +145,36 @@ class EditPersonalDataView(View):
                 email = form.cleaned_data['email']
                 nome = form.cleaned_data['nome']
                 cognome = form.cleaned_data['cognome']
-                password1 = form.cleaned_data['password1']
-                password2 = form.cleaned_data['password2']
-                if password1 != password2:
-                    form = EditPersonalData()
-                    # AGGIUNGERE ERRORE NEL FORM
-                    return render(request, self.template_name, {'form': form})
+                password_attuale = form.cleaned_data['password_attuale']
+                nuova_password = form.cleaned_data['nuova_password']
+                conferma_password = form.cleaned_data['conferma_password']
+
+                if not request.user.check_password('{}'.format(password_attuale)):
+                    messaggio1 = "Errore"
+                    messaggio2 = "La password inserita non e' corretta"
+                    context = {'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
+                    raise forms.ValidationError('YA')
+                    return render(request, 'account/avviso_insuccesso.html', context)
+
+                if nuova_password != conferma_password:
+                    messaggio1 = "Errore"
+                    messaggio2 = "Le due password non combaciano"
+                    context = {'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
+                    return render(request, 'account/avviso_insuccesso.html', context)
 
                 via = form.cleaned_data['via']
                 civico = form.cleaned_data['civico']
                 cap = form.cleaned_data['cap']
                 telefono = form.cleaned_data['telefono']
-                # add geocoding
+
+                # add geocoding !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
                 if User.objects.filter(username=request.user.username).update(email=email, first_name=nome,
                                                                               last_name=cognome, via=via,
                                                                               civico=civico, cap=cap.cap,
                                                                               telefono=telefono):
                     u = User.objects.get(username=request.user.username)
-                    u.set_password(password2)
+                    u.set_password(nuova_password)
                     u.save()
                     login(self.request, u, backend='django.contrib.auth.backends.ModelBackend')
                     return render(request, 'account/avviso_successo.html', context)
@@ -179,7 +203,7 @@ class EditCommDataView(View):
     def post(self, request):
         form = EditCommData(request.POST or None)
         messaggio = "I dati personali sono stati modificati con successo"
-        url = "Clicca qui per tornare alla home"
+        url = "Clicca qui per tornare all'area utente"
         context = {'messaggio': messaggio, 'url': url}
 
         if request.method == 'POST':
@@ -187,12 +211,21 @@ class EditCommDataView(View):
                 email = form.cleaned_data['email']
                 nome = form.cleaned_data['nome']
                 cognome = form.cleaned_data['cognome']
-                password1 = form.cleaned_data['password1']
-                password2 = form.cleaned_data['password2']
-                if password1 != password2:
-                    form = EditCommData()
-                    # AGGIUNGERE ERRORE NEL FORM
-                    return render(request, self.template_name, {'form': form})
+                password_attuale = form.cleaned_data['password_attuale']
+                nuova_password = form.cleaned_data['nuova_password']
+                conferma_password = form.cleaned_data['conferma_password']
+
+                if not request.user.check_password('{}'.format(password_attuale)):
+                    messaggio1 = "Errore"
+                    messaggio2 = "La password inserita non e' corretta"
+                    context = {'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
+                    return render(request, 'account/avviso_insuccesso.html', context)
+
+                if nuova_password != conferma_password:
+                    messaggio1 = "Errore"
+                    messaggio2 = "Le due password non combaciano"
+                    context = {'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
+                    return render(request, 'account/avviso_insuccesso.html', context)
 
                 via = form.cleaned_data['via']
                 civico = form.cleaned_data['civico']
@@ -200,14 +233,14 @@ class EditCommDataView(View):
                 telefono = form.cleaned_data['telefono']
                 p_iva = form.cleaned_data['p_iva']
 
-                # add geocoding
+                # add geocoding !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 if User.objects.filter(username=request.user.username).update(email=email, first_name=nome,
                                                                               last_name=cognome,
                                                                               via=via,
                                                                               civico=civico, cap=cap.cap,
                                                                               telefono=telefono):
                     u = User.objects.get(username=request.user.username)
-                    u.set_password(password2)
+                    u.set_password(conferma_password)
                     u.save()
                     Commerciante.objects.filter(pk=request.user.id).update(p_iva=p_iva)
                     login(self.request, u, backend='django.contrib.auth.backends.ModelBackend')
@@ -224,7 +257,6 @@ class EditCommDataView(View):
 class AreaUtente(View):
     template_name = 'account/dashboard.html'
 
-    # @login_required()
     def get(self, request):
         if request.user.is_commerciante:
             locals = []

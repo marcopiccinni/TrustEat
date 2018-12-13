@@ -20,7 +20,7 @@ class User(AbstractUser):
 class Utente(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True, related_name='utente_user')
 
-    # carta_di_credito = models.ManyToManyField("user.CartaDiCredito", blank=True, related_name='carta_di_credito')
+    carta_di_credito = models.ManyToManyField("user.CartaDiCredito", blank=True, related_name='carta_di_credito')
 
     def __str__(self):
         return self.user.username
