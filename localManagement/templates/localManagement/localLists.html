@@ -17,22 +17,20 @@
 
     <title>║TRUST EAT║ {{ local.nome_locale }}</title>
 
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
-          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
+{#    <!-- Bootstrap CSS CDN -->#}
+{#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"#}
+{#          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">#}
+{#    <!-- Our Custom CSS -->#}
     <link rel="stylesheet" href="{% static 'css/localList.css' %}">
     <link rel="stylesheet" href="{% static 'css/style5.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}"/>
-
-
     <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
-            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
-            crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
-            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-            crossorigin="anonymous"></script>
+{#    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"#}
+{#            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"#}
+{#            crossorigin="anonymous"></script>#}
+{#    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"#}
+{#            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"#}
+{#            crossorigin="anonymous"></script>#}
 
 {% endblock %}
 
@@ -144,22 +142,15 @@
                     {{ dealer.first_name | capfirst }} {{ dealer.last_name | capfirst }} <br>
                 {% endfor %}
             </p>
-
         </nav>
 
         <!-- Page Content -->
-        <div id="content">
+        <div id="content" >
+
+            {#----------------- Necessario in alto per il corretto funionamento della Sidebar --------------------- #}
             <!-- jQuery CDN - Slim version (=without AJAX) -->
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
                     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-                    crossorigin="anonymous"></script>
-            <!-- Popper.JS -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
-                    integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-                    crossorigin="anonymous"></script>
-            <!-- Bootstrap JS -->
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
-                    integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
                     crossorigin="anonymous"></script>
 
             <script type="text/javascript">
@@ -170,8 +161,18 @@
                     });
                 });
             </script>
+{#        <script type="text/javascript">#}
+{#            function sidebar() {#}
+{#                $(document).ready(function () {#}
+{#                    $('#sidebarCollapse').on('click', function () {#}
+{#                        $('#sidebar').toggleClass('active');#}
+{#                        $(this).toggleClass('active');#}
+{#                    });#}
+{#                });#}
+{#            }#}
+{#            </script>#}
 
-            <div class="mx-lg-5 mb-0">
+            <div class="mx-lg-5 my-0">
                 <div class="row">
                     <div class="col-lg container">
 
@@ -244,13 +245,14 @@
                         {# ------------------------ End Prodotti -----------------------------------------------------#}
 
                         {# ------------------------ Start Menu -------------------------------------------------------#}
-                        <div class="card text-center mt-3 mb-4 shadow" style="background-color: #878787; max-height: 70%">
+                        <div class="card text-center mt-3 mb-4 shadow"
+                             style="background-color: #878787; max-height: 70%">
                             <div class="card-header text-light m-0 p-0">
                                 <blockquote class="blockquote text-center">
                                     <p class="m-0 p-0" style="font-size: 120%;">MENU</p>
                                 </blockquote>
                             </div>
-                            <div class="card-body m-0 p-0" >
+                            <div class="card-body m-0 p-0">
                                 <div class="card-text">
                                     <table class="table-responsive p-0 m-0 align-content-center table-striped"
                                            style=" max-height:300px; overflow-y:auto">
@@ -339,12 +341,11 @@
                             <div class="card-footer rounded-0 m-0 p-0">
                                 <a href="{% url 'localManagement:votes' local.pk %}"
                                    class="text-dark">
-                                    <p class="text-light">Voto: {{ vote.avg }} su {{ vote.count }} recensioni</p>
+                                    <p class="text-light pb-0">Voto: {{ vote.avg }} su {{ vote.count }} recensioni</p>
                                 </a>
                             </div>
                         </div>
                         {# ------------------------------- End Info Locale ------------------------------------------ #}
-
                         {# ------------------------------- Start Carousel Foto Locale ------------------------------- #}
                         <div class="mb-0 mt-3">
                             {% if photo_len > 0 %}
@@ -400,4 +401,9 @@
             </div>
         </div>
     </div>
+{#    <!-- Bootstrap JS -->#}
+{#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"#}
+{#            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"#}
+{#            crossorigin="anonymous"></script>#}
+
 {% endblock %}
