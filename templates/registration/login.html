@@ -1,36 +1,64 @@
 {% extends 'base.html' %}
+
+{% load static from staticfiles %}
 {% load crispy_forms_tags %}
 
 {% block head %}
-    <title> Log-in &boxV; TRUST EAT</title>
-{% endblock head %}
+    <title>Log-in</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}"/>
+{% endblock %}
+
 {% block body %}
-    <h1>Accedi</h1>
-    {% if form.errors %}
-        <p> Il tuo username e la tua password non corrispondono. Per favore riprova. </p>
-    {% else %}
-        <p>Perfavore, usa il seguente form per loggarti:</p>
-    {% endif %}
-    <div class="login-form">
-        <form action="{% url 'accounts:login' %}" method="post">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <input type="hidden" name="next" value="{{ next }}">
-            <p><input type="submit" value="Accedi"></p>
-        </form>
-        <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-primary btn-lg btn-success" role="button"
-           aria-disabled="true">
-            Accedi con Google
-        </a>
+    <div class="container">
+        <div class="card text-center my-1 mx-5 shadow">
+            <div class="card-header text-light m-0 p-0">
+                <blockquote class="blockquote text-center">
+                    <h2 class="mb-0 p-0 pt-1"> Accedi </h2>
+                    {% if form.errors %}
+                        <p>
+                            Il tuo username e la tua password non corrispondono
+                            Per favore riprova.
+                        </p>
+                    {% else %}
+                        <p>Perfavore, usa il seguente form per loggarti:</p>
+                    {% endif %}
+                </blockquote>
+            </div>
 
-        <a href="{% url "social:begin" "facebook" %}" class="btn btn-primary btn-lg btn-success" role="button"
-           aria-disabled="true">
-            Accedi con Facebook
-        </a>
+            <form action="{% url 'accounts:login' %}" method="post">
+                <div class="card-body rounded m-0 px-5 py-1">
+                    <div class="container px-5">
+                        <div class="card-text px-5" style="color: #212529">
+                            <div class="login-form">
+                                {{ form|crispy }}
+                                {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ next }}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <a href="{% url "accounts:registrazione_utente" %}" class="btn btn-primary btn-lg btn-primary" role="button"
-           aria-disabled="true">
-            Registrati
-        </a>
+                <div class="card-footer rounded-0 m-0 py-2">
+                    <button class="btn btn-lg btn-light" type="submit">Accedi</button>
+                    <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-lg btn-light"
+                       role="button"
+                       aria-disabled="true">
+                        Accedi con Google
+                    </a>
+                    <a href="{% url "social:begin" "facebook" %}" class="btn btn-lg btn-light"
+                       role="button"
+                       aria-disabled="true">
+                        Accedi con Facebook
+                    </a>
+                    <div class="float-right mb-3 mr-2">
+                        <a href="{% url "accounts:registrazione_utente" %}" class="btn btn-lg btn-outline-light"
+                           role="button"
+                           aria-disabled="true">
+                            Registrati
+                        </a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock %}

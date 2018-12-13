@@ -37,8 +37,8 @@ class Locale(models.Model):
     prezzo_di_spedizione = models.FloatField(null=False, default=0)
     email = models.EmailField(null=True)
     tag = models.ManyToManyField(Tag, blank=True, related_name='locale_tag')
-    latitude = models.FloatField()
-    longitude = models.FloatField()
+    latitude = models.FloatField(default=0)
+    longitude = models.FloatField(default=0)
 
     class Meta:
         unique_together = (("nome_locale", "cap"),)

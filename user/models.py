@@ -8,7 +8,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 class CartaDiCredito(models.Model):
     cod_carta = models.AutoField(primary_key=True, serialize=True)
-    numero_carta = models.CharField(max_length=16, null=False)
+    numero_carta = models.CharField(max_length=16, null=False, unique=True)
     intestatario = models.CharField(max_length=60, null=False)
     scadenza = models.DateField(null=False)
     utente = models.ManyToManyField(Utente, blank=True)
@@ -35,5 +35,3 @@ class Recensione(models.Model):
 
     def __str__(self):
         return str(self.email.user.username)
-        # return str(self.cod_recensione)
-

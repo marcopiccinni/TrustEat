@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_filters %}
+
+{% block head %}
+    {% if loc.cod_locale is None %}
+        <title>Aggiungi Locale {{ loc.cod_locale }}</title>
+    {% else %}
+        <title>Modifica Locale {{ loc.cod_locale }}</title>
+    {% endif %}
+
+{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        {% if loc.cod_locale is not None %}
+            {# ------------------------ Start Nome Locale ------------------------------------------------------------#}
+            <div class="container-fluid mt-0 text-warning rounded-bottom pb-1 mb-2 pr-4 shadow"
+                 style="background-color: #a01b2a">
+                <h1 align="center">{{ loc.nome_locale|upper }}</h1>
+            </div>
+            {# ------------------------ End Nome Locale --------------------------------------------------------------#}
+        {% endif %}
+
+        <div class="card text-center my-1 mx-5 shadow" style="background-color: #878787">
+            <div class="card-header text-light m-0 p-0">
+                <blockquote class="blockquote text-center">
+                    <h2 class="mb-0 p-0 pt-1"> Ciao {{ request.user.username }} </h2>
+                    <p>{{ mex }}</p>
+                </blockquote>
+            </div>
+            <form method="post" action="" enctype="multipart/form-data" class="">
+                <div class="card-body rounded m-0 px-5 py-1 " style="background-color:#F0F0F0 ">
+
+                    <div class="container px-5">
+                        <div class="card-text px-5" style="color: #212529">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer rounded-0 m-0 py-2">
+                    <button type="submit" class="btn btn-light btn-lg ">
+                        {% if loc.cod_locale is None %}
+                            Aggiungi Locale
+                        {% else %}
+                            Modifica Locale
+                        {% endif %}
+                    </button>
+
+
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+{% endblock body %}

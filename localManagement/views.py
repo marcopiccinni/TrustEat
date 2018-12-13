@@ -1,15 +1,15 @@
 from django.shortcuts import get_object_or_404, render, HttpResponse, redirect
-from django.contrib.auth import get_user_model
 from user.models import Recensione
 from django.views.generic import UpdateView, TemplateView, CreateView, DeleteView, View
 from TrustEat.maps import geocode
 from .models import Tipo, Tag, FotoLocale, Chiusura, Menu, Prodotto, CompostoDa, Localita, Locale
 from accounts.models import Commerciante, User, Utente
 from order.models import RichiedeM, RichiedeP, OrdineInAttesa
-from .forms import ReplayForm, ReviewForm, AddEMenu, AddEProduct, CreateLocalForm, EditForm, QuantityForm, ModMenu, \
-    EditProduct
+from .forms import ReplayForm, ReviewForm, AddEMenu, AddEProduct, CreateLocalForm, QuantityForm, ModMenu, \
+    EditProduct, EditLocal
+from django.contrib.auth import get_user_model
 from django.core.exceptions import ValidationError
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 import datetime
 
 
@@ -251,13 +251,17 @@ def index(request):
 
 
 class CreateLocalView(View):
-    template_name = 'home.html'
+    template_name = 'localManagement/nuovo_locale.html'
     model = get_user_model()
     form_class = CreateLocalForm
 
     def get(self, request):
+        comm = Commerciante.objects.exclude(user_id=request.user.id)
         form = CreateLocalForm()
-        return render(request, self.template_name, {'form': form})
+        form.fields['altri_proprietari'].queryset = comm
+        mex = "Aggiungi qui il tuo locale"
+        context = {'form': form, 'mex': mex}
+        return render(request, self.template_name, context)
 
     def post(self, request):
         if request.method == 'POST':
@@ -279,25 +283,36 @@ class CreateLocalView(View):
                 email = form.cleaned_data['email']
                 prezzo_di_spedizione = form.cleaned_data['prezzo_di_spedizione']
                 tag = form.cleaned_data['tag']
+                giorno_chiusura = form.cleaned_data['giorno_chiusura']
+                altri_proprietari = form.cleaned_data['altri_proprietari']
                 foto_locale1 = form.cleaned_data['foto_locale1']
                 foto_locale2 = form.cleaned_data['foto_locale2']
                 foto_locale3 = form.cleaned_data['foto_locale3']
-                giorno_chiusura1 = form.cleaned_data['giorno_chiusura1']
-                giorno_chiusura2 = form.cleaned_data['giorno_chiusura2']
-                giorno_chiusura3 = form.cleaned_data['giorno_chiusura3']
 
                 # geocoding ---------------------
                 latitude, longitude = geocode(str(via) + ',' + str(num_civico) + ',' + str(cap) + 'Italia')
 
                 if Locale.objects.filter(nome_locale=nome_locale, cap=cap).exists():
-                    messaggio1 = "ERRORE, Esiste gia' un locale col nome inserito nella localita' inserita!"
+                    messaggio = "Errore"
+                    messaggio1 = "Esiste gia' un locale col nome inserito nella localita' inserita!"
                     messaggio2 = "Si prega di reinserire i dati correttamente"
+                    url = "Clicca qui per tornare alla pagina di aggiunta di un locale"
+                    context = {'messaggio': messaggio, 'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
+                    return render(request, 'localManagement/successo_insuccesso_locale.html', context)
                 elif Locale.objects.filter(telefono=telefono).exists():
-                    messaggio1 = "ERRORE, Esiste gia' un locale col numero di telefono inserito!"
+                    messaggio = "Errore"
+                    messaggio1 = "Esiste gia' un locale col numero di telefono inserito!"
                     messaggio2 = "Si prega di reinserire i dati correttamente"
+                    url = "Clicca qui per tornare alla pagina di aggiunta di un locale"
+                    context = {'messaggio': messaggio, 'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
+                    return render(request, 'localManagement/successo_insuccesso_locale.html', context)
                 elif Locale.objects.filter(email=email).exists():
-                    messaggio1 = "ERRORE, Esiste gia' un locale con l'indirizzo email inserito!"
+                    messaggio = "Errore"
+                    messaggio1 = "Esiste gia' un locale con l'indirizzo email inserito!"
                     messaggio2 = "Si prega di reinserire i dati correttamente"
+                    url = "Clicca qui per tornare alla pagina di aggiunta di un locale"
+                    context = {'messaggio': messaggio, 'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
+                    return render(request, 'localManagement/successo_insuccesso_locale.html', context)
                 else:
                     t = Tag.objects.filter(nome_tag__in=tag)
                     # geocoding -----------------------------
@@ -309,6 +324,18 @@ class CreateLocalView(View):
                                                 prezzo_di_spedizione=prezzo_di_spedizione,
                                                 latitude=latitude, longitude=longitude)
                     loc.tag.set(t)
+
+                    if giorno_chiusura is not None:
+                        for x in giorno_chiusura:
+                            Chiusura.objects.create(cod_locale=Locale.objects.get(cod_locale=loc.cod_locale),
+                                                    giorno_chiusura=x)
+
+                    comm = Commerciante.objects.get(user_id=request.user.id)
+                    comm.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
+                    if altri_proprietari is not None:
+                        for x in altri_proprietari:
+                            x.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
+
                     foto1 = FotoLocale(cod_locale=loc, foto_locale=foto_locale1)
                     foto1.save()
 
@@ -320,34 +347,24 @@ class CreateLocalView(View):
                         foto3 = FotoLocale(cod_locale=loc, foto_locale=foto_locale3)
                         foto3.save()
 
-                    if giorno_chiusura1 is not '':
-                        chiusura1 = Chiusura(cod_locale=loc, giorno_chiusura=giorno_chiusura1.lower().capitalize())
-                        chiusura1.save()
+                    return render(request, 'localManagement/successo_insuccesso_locale.html', context)
 
-                    if giorno_chiusura2 is not '':
-                        chiusura2 = Chiusura(cod_locale=loc, giorno_chiusura=giorno_chiusura2.lower().capitalize())
-                        chiusura2.save()
-
-                    if giorno_chiusura3 is not '':
-                        chiusura3 = Chiusura(cod_locale=loc, giorno_chiusura=giorno_chiusura3.lower().capitalize())
-                        chiusura3.save()
-
-                    return render(request, 'account/avviso_successo.html', context)
-
-            messaggio1 = 'Errore'
-            messaggio2 = 'Si prega di reinserire i dati'
-            context = {"form": form, "messaggio1": messaggio1, 'messaggio2': messaggio2, 'url': url}
-            return render(request, 'account/avviso_insuccesso.html', context)
+            messaggio = 'Errore'
+            messaggio1 = 'Si prega di reinserire i dati'
+            context = {"form": form, "messaggio": messaggio, 'messaggio1': messaggio1, 'url': url}
+            return render(request, 'localManagement/successo_insuccesso_locale.html', context)
 
 
-class EditLocal(View):
-    template_name = 'home.html'
-    model = get_user_model()
-    form_class = EditForm
+class EditLocalView(View):
+    template_name = 'localManagement/nuovo_locale.html'
+    model = Locale
+    form_class = EditLocal
 
     def get(self, request, cod_locale):
         loc = Locale.objects.get(cod_locale=cod_locale)
         fot = FotoLocale.objects.filter(cod_locale=cod_locale)
+        comm = Commerciante.objects.exclude(user_id=request.user.id)
+        mex = 'Modifica qui il tuo locale'
         id = []
         indx = 0
 
@@ -358,35 +375,43 @@ class EditLocal(View):
         data = {'cod_locale': loc.cod_locale, 'nome_locale': loc.nome_locale, 'orario_apertura': loc.orario_apertura,
                 'orario_chiusura': loc.orario_chiusura, 'cap': loc.cap, 'via': loc.via, 'num_civico': loc.num_civico,
                 'descrizione': loc.descrizione, 'telefono': loc.telefono, 'sito_web': loc.sito_web,
-                'email': loc.email, 'prezzo_spedizione': loc.prezzo_di_spedizione}
+                'email': loc.email, 'prezzo_di_spedizione': loc.prezzo_di_spedizione}
 
         if indx == 1:
             d1 = {'foto_locale1': FotoLocale.objects.get(id=id[indx - 1]).foto_locale}
             z = dict(data)
             z.update(d1)
-            form = EditForm(request.FILES or None, initial=z)
-            return render(request, self.template_name, {'form': form})
+            form = EditLocal(request.FILES or None, initial=z)
+            form.fields['altri_proprietari'].queryset = comm
+            context = {'form': form, 'loc': loc, 'mex': mex}
+            return render(request, self.template_name, context)
         elif indx == 2:
             d2 = {'foto_locale1': FotoLocale.objects.get(id=id[indx - 2]).foto_locale,
                   'foto_locale2': FotoLocale.objects.get(id=id[indx - 1]).foto_locale}
             z = dict(data)
             z.update(d2)
-            form = EditForm(request.FILES or None, initial=z)
-            return render(request, self.template_name, {'form': form})
+            form = EditLocal(request.FILES or None, initial=z)
+            form.fields['altri_proprietari'].queryset = comm
+            context = {'form': form, 'loc': loc, 'mex': mex}
+            return render(request, self.template_name, context)
         elif indx == 3:
             d3 = {'foto_locale1': FotoLocale.objects.get(id=id[indx - 3]).foto_locale,
                   'foto_locale2': FotoLocale.objects.get(id=id[indx - 2]).foto_locale,
                   'foto_locale3': FotoLocale.objects.get(id=id[indx - 1]).foto_locale}
             z = dict(data)
             z.update(d3)
-            form = EditForm(request.FILES or None, initial=z)
-            return render(request, self.template_name, {'form': form})
+            form = EditLocal(request.FILES or None, initial=z)
+            form.fields['altri_proprietari'].queryset = comm
+            context = {'form': form, 'loc': loc, 'mex': mex}
+            return render(request, self.template_name, context)
         else:
-            form = EditForm(request.FILES or None, initial=data)
-            return render(request, self.template_name, {'form': form})
+            form = EditLocal(request.FILES or None, initial=data)
+            form.fields['altri_proprietari'].queryset = comm
+            context = {'form': form, 'loc': loc, 'mex': mex}
+            return render(request, self.template_name, context)
 
     def post(self, request, cod_locale):
-        form = EditForm(request.POST or None, request.FILES or None)
+        form = EditLocal(request.POST or None, request.FILES or None)
         messaggio = "Il locale e' stato aggiunto con successo"
         url = "Clicca qui per tornare alla home"
         context = {'messaggio': messaggio, 'url': url}
@@ -402,12 +427,13 @@ class EditLocal(View):
                 telefono = form.cleaned_data['telefono']
                 sito_web = form.cleaned_data['sito_web']
                 email = form.cleaned_data['email']
-                prezzo_spedizione = form.cleaned_data['prezzo_spedizione']
+                prezzo_di_spedizione = form.cleaned_data['prezzo_di_spedizione']
                 tag = form.cleaned_data['tag']
+                giorno_chiusura = form.cleaned_data['giorno_chiusura']
+                altri_proprietari = form.cleaned_data['altri_proprietari']
                 foto_locale1 = form.cleaned_data['foto_locale1']
                 foto_locale2 = form.cleaned_data['foto_locale2']
                 foto_locale3 = form.cleaned_data['foto_locale3']
-                giorno_chiusura = form.cleaned_data['giorno_chiusura']
                 latitude, longitude = geocode(str(via) + ',' + str(num_civico) + ',' + str(cap) + 'Italia')
                 #  geocoding ------------------
                 Locale.objects.filter(cod_locale=cod_locale).update(nome_locale=nome_locale,
@@ -418,7 +444,7 @@ class EditLocal(View):
                                                                     descrizione=descrizione,
                                                                     telefono=telefono,
                                                                     sito_web=sito_web, email=email,
-                                                                    prezzo_di_spedizione=prezzo_spedizione,
+                                                                    prezzo_di_spedizione=prezzo_di_spedizione,
                                                                     latitude=latitude, longitude=longitude
                                                                     )
 
@@ -448,28 +474,51 @@ class EditLocal(View):
                                                       foto_locale=foto_locale3)
                     foto3.save()
 
-                lungh = giorno_chiusura.__len__()
-                if giorno_chiusura is not None:
-                    Chiusura.objects.filter(cod_locale=cod_locale).delete()
-                    for i in range(lungh):
-                        chiusura = Chiusura.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
-                                                           giorno_chiusura=giorno_chiusura[i])
-                        chiusura.save()
+                loc = Locale.objects.get(cod_locale=cod_locale)
 
-                l_tag = tag.__len__()
+                if giorno_chiusura is not None:
+                    Chiusura.objects.filter(cod_locale=Locale.objects.get(cod_locale=loc.cod_locale)).delete()
+                    for i in giorno_chiusura:
+                        Chiusura.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
+                                                giorno_chiusura=i)
+
                 loc = Locale.objects.get(cod_locale=cod_locale)
 
                 if tag is not None:
                     Locale.tag.through.objects.all().delete()
-                    for x in range(l_tag):
-                        loc.tag.add(Tag.objects.get(nome_tag=tag[x]))
+                    for x in tag:
+                        loc.tag.add(Tag.objects.get(nome_tag=x))
 
-            return render(request, 'account/avviso_successo.html', context)
+                comm = Commerciante.objects.get(user_id=request.user.id)
+                comm.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
+                if altri_proprietari is not None:
+                    for x in altri_proprietari:
+                        x.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
+
+            return render(request, 'localManagement/successo_insuccesso_locale.html', context)
         else:
-            messaggio1 = 'Insuccesso'
-            messaggio2 = 'Riprovare'
-            context = {"form": form, "messaggio1": messaggio1, 'messaggio2': messaggio2, 'url': url}
-            return render(request, 'account/avviso_insuccesso.html', context)
+            messaggio = 'Insuccesso'
+            messaggio1 = 'Riprovare'
+            context = {"form": form, "messaggio": messaggio, 'messaggio1': messaggio1, 'url': url}
+            return render(request, 'localManagement/successo_insuccesso_locale.html', context)
+
+
+class DeleteLocal(View):
+    def get(self, request, cod_locale):
+        if Locale.objects.filter(cod_locale=cod_locale).delete():
+            messaggio = 'Successo'
+            messaggio1 = "Il locale e' stato rimosso con successo"
+            red = "'accounts:dashboard'"
+            url = "Clicca qui per tornare alla dashboard"
+            context = {'messaggio': messaggio, 'messaggio1': messaggio1, 'red': red, 'url': url}
+            return render(request, 'localManagement/successo_insuccesso_locale.html', context)
+        else:
+            messaggio = 'Insuccesso'
+            messaggio1 = "Il locale non e' stato rimosso con successo"
+            red = "accounts:dashboard"
+            url = "Clicca qui per tornare alla dashboard"
+            context = {'messaggio': messaggio, 'messaggio1': messaggio1, 'red': red, 'url': url}
+            return render(request, 'localManagement/successo_insuccesso_locale.html', context)
 
 
 class ProductsList(View):

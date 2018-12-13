@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from .models import FotoLocale, Locale, Localita, Tag, Prodotto, Tipo, Menu
+from accounts.models import Commerciante
 from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404, render
 
@@ -48,13 +49,15 @@ class CreateLocalForm(forms.Form):
     orario_apertura = forms.TimeField(required=True, widget=forms.TextInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'ore:minuti'
+            'placeholder': 'ore:minuti',
+            'class': 'text-center'
         }
     ))
     orario_chiusura = forms.TimeField(required=True, widget=forms.TextInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'ore:minuti'
+            'placeholder': 'ore:minuti',
+            'class': 'text-center'
         }))
     cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True)
     via = forms.CharField(max_length=50, widget=forms.TextInput(), required=True)
@@ -65,55 +68,52 @@ class CreateLocalForm(forms.Form):
     email = forms.EmailField(required=True, widget=forms.TextInput(
         attrs={
             'ass': 'form-control',
-            'placeholder': 'example@example.com'
+            'placeholder': 'example@example.com',
+            'class': 'text-center'
         }))
-
     prezzo_di_spedizione = forms.FloatField(required=True)
-
     tag = forms.ModelMultipleChoiceField(queryset=Tag.objects.all(),
                                          widget=forms.CheckboxSelectMultiple,
                                          required=True
                                          )
+
+    CHOICES = [
+        ('Lunedì', 'Lunedì'),
+        ('Martedì', 'Martedì'),
+        ('Mercoledì', 'Mercoledì'),
+        ('Giovedì', 'Giovedì'),
+        ('Venerdì', 'Venerdì'),
+        ('Sabato', 'Sabato'),
+        ('Domenica', 'Domenica'),
+    ]
+
+    giorno_chiusura = forms.MultipleChoiceField(choices=CHOICES, widget=forms.CheckboxSelectMultiple, required=False)
+    altri_proprietari = forms.ModelMultipleChoiceField(queryset=Commerciante.objects.all(),
+                                                       required=False)
+
     foto_locale1 = forms.ImageField(required=True)
     foto_locale2 = forms.ImageField(required=False)
     foto_locale3 = forms.ImageField(required=False)
 
-    giorno_chiusura1 = forms.CharField(required=False, widget=forms.TextInput(
-        attrs={
-            'placeholder': 'Lunedì, Martedì...'
-        }
-    ))
-    giorno_chiusura2 = forms.CharField(required=False, widget=forms.TextInput(
-        attrs={
-            'placeholder': 'Lunedì, Martedì...'
-        }
-    ))
-    giorno_chiusura3 = forms.CharField(required=False, widget=forms.TextInput(
-        attrs={
-            'placeholder': 'Lunedì, Martedì...'
-        }
-    ))
-
     class Meta:
         model = Locale, FotoLocale
         fields = ['nome_locale', 'orario_apertura', 'orario_chiusura', 'cap', 'via', 'numero_civico', 'descrizione',
-                  'telefono', 'sito_web', 'email', 'prezzo_di_spedizione', 'tag', 'foto_locale1', 'foto_locale2',
-                  'foto_locale3',
-                  'giorno_chiusura1', 'giorno_chiusura2', 'giorno_chiusura3']
+                  'telefono', 'sito_web', 'email', 'prezzo_di_spedizione', 'tag', 'carta_di_credito', 'giorno_chiusura',
+                  'altri_proprietari', 'foto_locale1', 'foto_locale2', 'foto_locale3']
 
 
-class EditForm(forms.Form):
+class EditLocal(forms.Form):
     nome_locale = forms.CharField(max_length=30, required=False, widget=forms.TextInput())
     orario_apertura = forms.TimeField(required=False, widget=forms.TextInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'ore:minuti:secondi'
+            'placeholder': 'ore:minuti',
         }
     ))
     orario_chiusura = forms.TimeField(required=False, widget=forms.TextInput(
         attrs={
             'class': 'form-control',
-            'placeholder': 'ore:minuti:secondi'
+            'placeholder': 'ore:minuti'
         }))
     cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=False)
     via = forms.CharField(max_length=50, widget=forms.TextInput(), required=False)
@@ -126,10 +126,10 @@ class EditForm(forms.Form):
             'ass': 'form-control',
             'placeholder': 'example@example.com'
         }))
-    prezzo_spedizione = forms.FloatField(required=False)
-    foto_locale1 = forms.ImageField(required=False)
-    foto_locale2 = forms.ImageField(required=False)
-    foto_locale3 = forms.ImageField(required=False)
+    prezzo_di_spedizione = forms.FloatField(required=False)
+
+    tag = forms.ModelMultipleChoiceField(queryset=Tag.objects.all(), required=False,
+                                         widget=forms.CheckboxSelectMultiple)
 
     CHOICES = [
         ('Lunedì', 'Lunedì'),
@@ -141,16 +141,18 @@ class EditForm(forms.Form):
         ('Domenica', 'Domenica'),
     ]
 
-    giorno_chiusura = forms.MultipleChoiceField(choices=CHOICES, required=False)
-
-    tag = forms.ModelMultipleChoiceField(queryset=Tag.objects.all(), required=False)
+    giorno_chiusura = forms.MultipleChoiceField(choices=CHOICES, required=False, widget=forms.CheckboxSelectMultiple)
+    altri_proprietari = forms.ModelMultipleChoiceField(queryset=Commerciante.objects.all(), required=False)
+    foto_locale1 = forms.ImageField(required=False)
+    foto_locale2 = forms.ImageField(required=False)
+    foto_locale3 = forms.ImageField(required=False)
 
     class Meta:
         model = Locale, FotoLocale
         fields = ['nome_locale', 'orario_apertura', 'orario_chiusura', 'cap', 'via', 'numero_civico', 'descrizione',
-                  'telefono', 'sito_web', 'email', 'foto_locale1', 'foto_locale2', 'foto_locale3', 'giorno_chiusura',
-                  'tag'
-                  ]
+                  'telefono', 'sito_web', 'email', 'prezzo_di_spedizione', 'tag', 'giorno_chiusura',
+                  'altri_proprietari', 'foto_locale1', 'foto_locale2',
+                  'foto_locale3']
 
 
 class EditProduct(forms.Form):

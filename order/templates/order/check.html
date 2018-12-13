@@ -11,9 +11,11 @@
         .nome {
             width: 45%;
         }
+
         .prezzo {
             width: 75%;
         }
+
         .totale {
             width: 10%;
         }
@@ -36,6 +38,7 @@
                         </blockquote>
                     </div>
                     <div class="card-body" style="background-color:#F0F0F0">
+
                         {# ------------------------ Start Prodotti ---------------------------------------------------#}
                         {% if num_prod > 0 %}
                             <div class="card text-center mt-3 mb-4"
@@ -157,7 +160,9 @@
                                         </select>
                                     </div>
                                 </div>
+
                                 {{ form_card|crispy }}
+
                                 <div class="alert alert-danger" role="alert" id="id_ErrorTime" hidden="">
                                     Impostare un'orario di consegna valido
                                 </div>
@@ -191,6 +196,7 @@
             else
                 card.disabled = true;
         }
+
         function checkValues() {
             var pay = document.getElementById("id_Pagamento");
             var sel_pay = pay.options[pay.selectedIndex].text;
@@ -202,7 +208,7 @@
             var sel_time = time.value;
             var errorTime = document.getElementById("id_ErrorTime");
             if (sel_time == '') {
-                  errorTime.hidden = false;
+                errorTime.hidden = false;
                 button.disabled = true;
             } else if (sel_time > time.min && sel_time < time.max) {
                 errorTime.hidden = true;
