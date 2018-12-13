@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 {% load static from staticfiles %}
-
 {% load crispy_forms_tags %}
 <link rel="stylesheet" href="{% static 'css/localList.css' %}">
+<link rel="stylesheet" href="{% static 'css/card.css' %}">
 
 <html>
 {% block head %}
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'css/localList.css' %}">
     <title>{{ local.nome_locale }} | recensioni </title>
 {% endblock %}
 
@@ -29,13 +28,13 @@
         </div>
 
         {# ------------------------ Start recensioni --------------------------------------------------------- #}
-        <div class="card text-center mt-2 mb-2 shadow" style="background-color: #878787; max-height: 70%">
+        <div class="card text-center mt-2 mb-2 shadow" style="max-height: 70%">
             <div class="card-header text-light m-0 p-0">
                 <blockquote class="blockquote text-center">
                     <p class="m-0 p-0" style="font-size: 120%;">RECENSIONI</p>
                 </blockquote>
             </div>
-            <div class="card-body m-0 p-0" style="background-color:#F0F0F0 ">
+            <div class="card-body m-0 p-0" >
                 <div class="card-text" style=" height:200px ;overflow-y: auto">
                     <table class="table-responsive p-0 m-0 align-content-center table-striped">
                         {% for rec in vote %}
@@ -73,7 +72,7 @@
         </div>
 
         {% if request.user.is_authenticated %}
-            <div class="card mb-2 shadow" style="background-color: #878787;">
+            <div class="card mb-2 shadow" >
                 <form method="post">
                     {% csrf_token %}
                     <div class="card-header text-light m-0 p-0">
@@ -85,7 +84,7 @@
                             {% endif %}
                         </p>
                     </div>
-                    <div class="card-body my-0 py-0 pb-1" style="background-color:#F0F0F0">
+                    <div class="card-body my-0 py-0 pb-1" >
                         {% if request.user.is_utente %}
                             {% if allow_rec %}
                                 {{ user_form|crispy }}

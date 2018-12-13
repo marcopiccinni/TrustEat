@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
-{% block title %}Dashboard{% endblock %}
-{% block body %}
-    <div class="container ">
-        <div class="row">
-            <div class="col mt-1">
+{% block head %}
+    <title>Dashboard {{ request.user }} </title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}"/>
+{% endblock %}
 
-                <div class="card text-center mb-1 shadow" style="background-color: #878787">
+{% block body %}
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col mt-1">
+                <div class="card text-center mb-1 shadow">
                     <div class="card-header text-light m-0 p-0">
                         <blockquote class="blockquote text-center">
-                            <p class="mb-0 p-0 pt-1">Ciao {{ request.user.username }}</p>
+                            <h1 class="mb-0 p-0 pt-1">Ciao {{ request.user.username }}</h1>
                         </blockquote>
                     </div>
-                    <div class="card-body rounded m-0 p-0 pt-1" style="background-color:#F0F0F0 ">
-                        <p class="card-text" style="color: #212529">
+                    <div class="card-body rounded m-0 p-0 pt-1">
+                        {#                        <p class="card-text" style="color: #212529">#}
 
                         <p>Email: <b>{{ request.user.email }}</b></p>
                         <p> Nome e Cognome: <b>{{ request.user.first_name }} {{ request.user.last_name }}</b></p>
@@ -38,7 +41,7 @@
                                     Modifica info
                                 </button>
                             </a>
-                            <a style="text-decoration: none" href='{% url "accounts:cedit" %}'>
+                            <a style="text-decoration: none" href='{% url "accounts:registrazione_locale" %}'>
                                 <button type="button" class="btn btn-outline-light m-2 shadow">
                                     Aggiungi un locale
                                 </button>
@@ -50,24 +53,23 @@
             </div>
             <div class="col mt-1">
                 {% if request.user.is_utente %}
-                    <div class="card text-center mb-1 shadow" style="background-color: #878787">
-                        <div class="card-header text-light m-0 p-0">
+                    <div class="card text-center mb-1 shadow">
+                        <div class="card-header text-light m-0 p-0 pt-1">
                             <blockquote class="blockquote text-center">
-                                <p> ORDINI RECENTI </p>
+                                <h3> ORDINI RECENTI </h3>
                                 <footer class="blockquote-footer" style="color: lightgray">
                                     Premere sull'ordine per visualizzare i dettagli
                                 </footer>
                             </blockquote>
                         </div>
                         <div class="card-body rounded m-0 p-0 pt-1"
-                             style="background-color:#F0F0F0; max-height:500px; overflow-y: auto">
+                             style="max-height:500px;">
                             {% for order in orders %}
                                 <div class="row container-fluid">
                                     <div class="col-2">
                                         {% if order.order.accettato is None %}
                                             <form method="post">
                                                 {% csrf_token %}
-
                                                 <button type="submit" class="btn m-0 p-0"
                                                         name="num_order" value="{{ order.order.cod_ordine }}">
 
@@ -83,7 +85,6 @@
                                                style="color: black">
                                                 #{{ order.order.cod_ordine }} a <b> {{ order.local.nome_locale }}</b>
                                             </a>&ensp;
-
                                             {% if order.order.accettato %}
                                                 <span style="color: green">
                                             {% if order.order.consegnato %}
@@ -107,9 +108,45 @@
                                 </div>
                             {% endfor %}
                         </div>
-                        <div class="card-footer rounded-0 m-0 p-0">
+                        <div class="card-footer rounded-0 m-0 p-0"></div>
+                    </div>
+                {% elif request.user.is_commerciante %}
+                    <div class="card text-center mb-1 shadow">
+                        <div class="card-header text-light m-0 p-0 pt-1">
+                            <blockquote class="blockquote text-center">
+                                <h3> I TUOI LOCALI </h3>
+                            </blockquote>
+                        </div>
+                        <div class="card-body rounded m-0 p-0 pt-1" style="max-height:500px;">
+                            {% for local in locals %}
+                                <div class="text-left">
+                                    <a href="{% url 'localManagement:localLists' local.local.cod_locale %}"
+                                       style="color: black; text-decoration: none">
+                                        <div class="card mx-3 mb-2 shadow" style="background-color:white ;height: 100px">
+                                            <div class="row container-fluid">
+                                                <div class="col-5">
+                                                    {% if local.foto %}
+                                                        <img src="{{ local.foto.url }}"
+                                                             style="height: 90px; object-fit: scale-down"
+                                                             alt=""
+                                                             class=" my-1 rounded shadow">
+                                                    {% endif %}
+                                                </div>
+                                                <div class="col">
+
+                                                    <h3 class="-align-center text-center">{{ local.local.nome_locale }} </h3>
+                                                    {{ local.local.via }}, {{ local.local.num_civico }} <br>
+                                                    a {{ local.local.cap.nome_localita }} ({{ local.local.cap.cap }})
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
+
 
                         </div>
+                        <div class="card-footer rounded-0 m-0 p-0 pt-1"></div>
                     </div>
                 {% endif %}
             </div>

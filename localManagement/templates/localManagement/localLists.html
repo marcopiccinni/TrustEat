@@ -23,6 +23,8 @@
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{% static 'css/localList.css' %}">
     <link rel="stylesheet" href="{% static 'css/style5.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}"/>
+
 
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
@@ -192,13 +194,13 @@
                         {# ------------------------ End Nome Locale --------------------------------------------------#}
 
                         {# ------------------------ Start Prodotti ---------------------------------------------------#}
-                        <div class="card text-center mt-3 mb-4" style="background-color: #878787; max-height: 70%">
+                        <div class="card text-center mt-3 mb-4 shadow" style=" max-height: 70%">
                             <div class="card-header text-light m-0 p-0">
                                 <blockquote class="blockquote text-center">
                                     <p class="m-0 p-0" style="font-size: 120%;">PRODOTTI</p>
                                 </blockquote>
                             </div>
-                            <div class="card-body m-0 p-0" style="background-color:#F0F0F0 ">
+                            <div class="card-body m-0 p-0">
                                 <div class="card-text">
                                     <table class="table-responsive p-0 m-0 align-content-center table-striped"
                                            style=" max-height:300px ;overflow-y: auto">
@@ -224,8 +226,7 @@
                                                     <td style=" width:80px ">
                                                         {% if x.product.foto_prodotto.url != "" %}
                                                             <img src="{{ x.product.foto_prodotto.url }}" alt=""
-                                                                 height="70px"
-                                                                 width="70px"
+                                                                 height="70px" width="70px"
                                                                  style="object-fit: fill; border: solid 1px;"
                                                                  class="rounded-circle"/>
                                                         {% endif %}
@@ -243,13 +244,13 @@
                         {# ------------------------ End Prodotti -----------------------------------------------------#}
 
                         {# ------------------------ Start Menu -------------------------------------------------------#}
-                        <div class="card text-center mt-3 mb-4" style="background-color: #878787; max-height: 70%">
+                        <div class="card text-center mt-3 mb-4 shadow" style="background-color: #878787; max-height: 70%">
                             <div class="card-header text-light m-0 p-0">
                                 <blockquote class="blockquote text-center">
                                     <p class="m-0 p-0" style="font-size: 120%;">MENU</p>
                                 </blockquote>
                             </div>
-                            <div class="card-body m-0 p-0" style="background-color:#F0F0F0 ">
+                            <div class="card-body m-0 p-0" >
                                 <div class="card-text">
                                     <table class="table-responsive p-0 m-0 align-content-center table-striped"
                                            style=" max-height:300px; overflow-y:auto">
@@ -291,13 +292,13 @@
                     {# ----------------------------------- Start colonna 2 ------------------------------------------ #}
                     <div class="col-lg container pt-3">
                         {# ------------------------------- Start Info Locale ---------------------------------------- #}
-                        <div class="card text-center mb-1" style="background-color: #878787">
+                        <div class="card text-center mb-1 shadow">
                             <div class="card-header text-light m-0 p-0">
                                 <blockquote class="blockquote text-center">
                                     <p class="mb-0 p-0 pt-1">{{ local.descrizione }}</p>
                                 </blockquote>
                             </div>
-                            <div class="card-body rounded m-0 p-0 pt-1" style="background-color:#F0F0F0 ">
+                            <div class="card-body rounded m-0 p-0 pt-1">
                                 {#                                <h4 class="card-title text-black"> ORA APERTO</h4>#}
                                 {#                                ------------Funzione per riconoscimento orario#}
                                 <p class="card-text" style="color: #212529">
@@ -363,7 +364,7 @@
                                             {% if img.pos == 0 %}
                                                 <div class="carousel-item active">
                                                     {% if img.pic.foto_locale %}
-                                                        <img class="d-block w-100 rounded" alt=""
+                                                        <img class="d-block w-100 rounded shadow" alt=""
                                                              style="max-height: 250px; object-fit: cover"
                                                              src="{{ img.pic.foto_locale.url }}/?auto=yes&bg={{ img.upp }}&fg={{ img.low }}">
                                                     {% endif %}
@@ -371,7 +372,7 @@
                                             {% else %}
                                                 <div class="carousel-item">
                                                     {% if img.pic.foto_locale %}
-                                                        <img class="d-block w-100 rounded" alt=""
+                                                        <img class="d-block w-100 rounded shadow" alt=""
                                                              style="max-height: 250px; object-fit: cover"
                                                              src="{{ img.pic.foto_locale.url }}/?auto=yes&bg={{ img.upp }}&fg={{ img.low }}">
                                                     {% endif %}

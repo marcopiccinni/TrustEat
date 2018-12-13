@@ -17,11 +17,11 @@ class RegUser(UserCreationForm):
     via = forms.CharField(required=True)
     civico = forms.CharField(required=True)
     telefono = forms.CharField(required=True)
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True)
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True, label='città')
 
     class Meta:
         model = get_user_model()
-        fields = ["username", "nome", "cognome", "password1", "password2", "email", "via", "civico", "telefono", "cap"]
+        fields = ["username", "nome", "cognome", "email", "password1", "password2", "cap", "via", "civico", "telefono"]
 
     @transaction.atomic
     def save(self, commit=True):
@@ -52,7 +52,7 @@ class RegComm(UserCreationForm):
     nome = forms.CharField(required=True)
     cognome = forms.CharField(required=True)
     email = forms.EmailField(required=True)
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True)
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True, label='città')
     via = forms.CharField(required=True)
     civico = forms.CharField(required=True)
     telefono = forms.CharField(required=True)
@@ -60,8 +60,8 @@ class RegComm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = ["username", "nome", "cognome", "password1", "password2", "email", "via", "civico", "telefono", "cap",
-                  'p_iva']
+        fields = ["username", "nome", "cognome", "email", "password1", "password2", 'p_iva', "cap", "via", "civico",
+                  "telefono"]
 
     def clean_telefono(self):
         telefono = self.cleaned_data['telefono']
@@ -112,10 +112,10 @@ class LoginForm(forms.Form):
 
 class InsertLoginSocial(forms.Form):
     CHOICES = [('utente', 'utente'),
-               ('commerciante', 'commerciante')]
+               ('commerciante', 'commerciante'), ]
     tipo_utente = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect())
 
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all())
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), label='città')
     via = forms.CharField(widget=forms.TextInput())
     civico = forms.CharField(widget=forms.TextInput())
     telefono = forms.CharField(widget=forms.TextInput())
@@ -134,14 +134,14 @@ class EditPersonalData(forms.Form):
     cognome = forms.CharField(widget=forms.TextInput())
     password1 = forms.CharField(widget=forms.PasswordInput())
     password2 = forms.CharField(widget=forms.PasswordInput())
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all())
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), label='città')
     via = forms.CharField(widget=forms.TextInput())
     civico = forms.CharField(widget=forms.TextInput())
     telefono = forms.CharField(widget=forms.TextInput())
 
     class Meta:
         model = get_user_model()
-        field = ['email', 'nome', 'cognome' 'password1', 'password2', 'cap', 'via', 'civico', 'telefono']
+        field = ['nome', 'cognome', 'email', 'password1', 'password2', 'cap', 'via', 'civico', 'telefono']
 
 
 class EditCommData(forms.Form):
@@ -150,7 +150,7 @@ class EditCommData(forms.Form):
     cognome = forms.CharField(widget=forms.TextInput())
     password1 = forms.CharField(widget=forms.PasswordInput())
     password2 = forms.CharField(widget=forms.PasswordInput())
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all())
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), label='città')
     via = forms.CharField(widget=forms.TextInput())
     civico = forms.CharField(widget=forms.TextInput())
     telefono = forms.CharField(widget=forms.TextInput())
@@ -158,4 +158,4 @@ class EditCommData(forms.Form):
 
     class Meta:
         model = get_user_model()
-        field = ['email', 'nome', 'cognome', 'password1', 'password2', 'cap', 'via', 'civico', 'telefono', 'p_iva']
+        field = ['nome', 'cognome', 'email', 'password1', 'password2', 'p_iva', 'cap', 'via', 'civico', 'telefono']

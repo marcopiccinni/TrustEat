@@ -227,10 +227,16 @@ class AreaUtente(View):
     # @login_required()
     def get(self, request):
         if request.user.is_commerciante:
-            if request.method == 'POST':
-                pass
+            locals = []
+            for local in Locale.objects.filter(possiede_locale__user=User.objects.get(username='dealer')):
+                foto = None
+                if FotoLocale.objects.filter(cod_locale=local).count():
+                    foto = FotoLocale.objects.filter(cod_locale=local).first().foto_locale
+                locals.append({'local': local, 'foto': foto})
+
             args = {'commerciante': Commerciante.objects.get(pk=request.user.id),
                     'location': Localita.objects.get(pk=request.user.cap),
+                    'locals': locals,
                     }
             return render(request, self.template_name, args)
 

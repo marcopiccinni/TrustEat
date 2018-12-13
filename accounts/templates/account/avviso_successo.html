@@ -2,37 +2,38 @@
 {% load static from staticfiles %}
 
 {% block head %}
-<title>Profile</title>
+    <title>Profile</title>
 {% endblock %}
 
 {% block body %}
     <div class="container">
-        <h1>SUCCESSO</h1>
-        <h1>{{ messaggio }}</h1>
-        <form method="post">
-            {% csrf_token %}
+    <h1>SUCCESSO</h1>
+    <h1>{{ messaggio }}</h1>
+    <form method="post">
+        {% csrf_token %}
 
-                <script type="text/javascript" language="JavaScript">
-                <!--
-                function autoReload()
-                {
+        <script type="text/javascript" language="JavaScript">
+            <!--
+            function autoReload() {
                 var timeID = setTimeout("location.href= '/'", 10000)
-                }
+            }
 
-                //-->
-                </script>
+            //-->
+        </script>
 
-                </head>
-                <body onload="autoReload()">
-                <br /><br />
-                <div align="center">
+    </form>
+    <body onload="autoReload()">
+    <br/><br/>
+    <div align="center">
 
 
-                Tra 10 secondi verrai trasportato alla HomePage
-                <a href=""> {{ url }} </a>
+        Tra 10 secondi verrai trasportato alla HomePage
+        <a href=""> {{ url }} </a>
 
-                </div>
-                <br /><br /><br /><br /><br /><br />
-                <a href="/"><img src="{% static 'img/logo-trustEat/logo.png' %}" height="300" width="600"/></a>
+    </div>
+    <br/><br/><br/><br/><br/><br/>
+    <a href="/">
+        <img src="{% static 'img/logo-trustEat/logo.png' %}" height="300" width="600" alt="TRUST EAT"/>
+    </a>
 {% endblock body %}
 

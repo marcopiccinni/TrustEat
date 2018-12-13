@@ -1,0 +1,16 @@
+div.card {
+    background-color: #878787;
+}
+
+div.card-body {
+    background-color: #F0F0F0;
+    overflow-y: auto;
+}
+
+div.card-footer {
+
+}
+
+div.card-header {
+
+}
