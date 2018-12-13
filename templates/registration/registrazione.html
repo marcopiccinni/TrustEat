@@ -4,19 +4,16 @@
 
 {% block body %}
     <br>
-
     <div class="row">
         <div class="col-3 pt-4 pl-3 ml-2">
             <h2>Registrati su: </h2>
         </div>
         <div class="col">
-            <img src="{% static 'img/logo-trustEat/_logo.png' %}" width="300">
+            <img src="{% static 'img/logo-trustEat/_logo.png' %}" alt="TRUST EAT" width="300">
         </div>
     </div>
 
-    {% block content1 %}
-
-    {% endblock %}
+    {% block content1 %}{% endblock content1 %}
 
     <form method="post" novalidate>
         {% csrf_token %}
@@ -25,7 +22,4 @@
         <button type="submit" class="btn btn-success">Crea un account</button>
         <br><br><br>
     </form>
-
-
-
 {% endblock %}

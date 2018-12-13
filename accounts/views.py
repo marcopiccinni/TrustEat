@@ -26,7 +26,8 @@ class RegUtenteView(CreateView):
         if user.is_utente:
             utente = Utente.objects.get(user_id=user.id)
             if form.cleaned_data['carta_di_credito'] is not "":
-                utente.carta_di_credito.add(CartaDiCredito.objects.get(numero_carta=form.cleaned_data['carta_di_credito']).pk)
+                utente.carta_di_credito.add(
+                    CartaDiCredito.objects.get(numero_carta=form.cleaned_data['carta_di_credito']).pk)
             login(self.request, user, backend='django.contrib.auth.backends.ModelBackend')
             return render_to_response('account/avviso_successo.html')
         else:
@@ -152,8 +153,8 @@ class EditPersonalDataView(View):
                 if not request.user.check_password('{}'.format(password_attuale)):
                     messaggio1 = "Errore"
                     messaggio2 = "La password inserita non e' corretta"
-                    context = {'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
                     raise forms.ValidationError('YA')
+                    context = {'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
                     return render(request, 'account/avviso_insuccesso.html', context)
 
                 if nuova_password != conferma_password:
@@ -167,12 +168,14 @@ class EditPersonalDataView(View):
                 cap = form.cleaned_data['cap']
                 telefono = form.cleaned_data['telefono']
 
-                # add geocoding !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                # geocoding
+                latitude, longitude = geocode(str(via) + ',' + str(civico) + ',' + str(cap) + ',' + 'Italia')
 
                 if User.objects.filter(username=request.user.username).update(email=email, first_name=nome,
                                                                               last_name=cognome, via=via,
                                                                               civico=civico, cap=cap.cap,
-                                                                              telefono=telefono):
+                                                                              telefono=telefono, latitude=latitude,
+                                                                              longitude=longitude):
                     u = User.objects.get(username=request.user.username)
                     u.set_password(nuova_password)
                     u.save()
@@ -233,12 +236,15 @@ class EditCommDataView(View):
                 telefono = form.cleaned_data['telefono']
                 p_iva = form.cleaned_data['p_iva']
 
-                # add geocoding !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                # geocoding
+                latitude, longitude = geocode(str(via) + ',' + str(civico) + ',' + str(cap) + ',' + 'Italia')
+
                 if User.objects.filter(username=request.user.username).update(email=email, first_name=nome,
                                                                               last_name=cognome,
                                                                               via=via,
                                                                               civico=civico, cap=cap.cap,
-                                                                              telefono=telefono):
+                                                                              telefono=telefono, latitude=latitude,
+                                                                              longitude=longitude):
                     u = User.objects.get(username=request.user.username)
                     u.set_password(conferma_password)
                     u.save()
@@ -276,7 +282,6 @@ class AreaUtente(View):
             orders = []
             for order in OrdineInAttesa.objects.filter(email_id=User.objects.get(
                     username=request.user).id).order_by('data', 'orario_richiesto').reverse():
-                local = None
                 if RichiedeP.objects.filter(cod_ordine=order).count():
                     local = RichiedeP.objects.filter(cod_ordine=order).last().cod_locale
                     orders.append({'order': order, 'local': local})

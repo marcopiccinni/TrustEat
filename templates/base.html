@@ -2,7 +2,6 @@
 {% load static from staticfiles %}
 <html>
 <head>
-<title>{% block title %} {% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
 
     <meta charset="utf-8">
@@ -17,8 +16,7 @@
         <img src="{% static 'img/logo-trustEat/_logo.png' %}" class="1d-inline-block align-top "
              style="object-fit: fill; max-height: 45px" alt="">
     </a>
-    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
+    <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,17 +25,17 @@
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link text-warning" href="{% url 'localManagement:index' %}">
-                    Lista Locali<span class="sr-only">(current)</span></a>
+                    Lista Locali<span class="sr-only">(current)</span>
+                </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link text-warning" href="{% url 'accounts:registrazione_utente' %}">Registrazione
-                    <span
-                            class="sr-only">(current)</span></a>
+                    <span class="sr-only">(current)</span>
+                </a>
             </li>
             <li class="nav-item active">
                 <a class="nav-link text-warning" href="{% url 'accounts:area_utente' %}">Area Utente
-                    <span
-                            class="sr-only">(current)</span></a>
+                    <span class="sr-only">(current)</span></a>
             </li>
             {% if request.user.is_superuser %}
                 <li class="nav-item active">
@@ -63,10 +61,7 @@
     </div>
 </nav>
 
-
-{% block body %}
-{% endblock body %}
-
+{% block body %} {% endblock body %}
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

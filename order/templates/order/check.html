@@ -36,7 +36,6 @@
                         </blockquote>
                     </div>
                     <div class="card-body" style="background-color:#F0F0F0">
-
                         {# ------------------------ Start Prodotti ---------------------------------------------------#}
                         {% if num_prod > 0 %}
                             <div class="card text-center mt-3 mb-4"
@@ -158,9 +157,7 @@
                                         </select>
                                     </div>
                                 </div>
-
                                 {{ form_card|crispy }}
-
                                 <div class="alert alert-danger" role="alert" id="id_ErrorTime" hidden="">
                                     Impostare un'orario di consegna valido
                                 </div>
@@ -176,8 +173,6 @@
                                         onmousemove="checkValues()">
                                     Conferma l'ordine
                                 </button>
-
-
                             </form>
                         </div>
                     </div>
@@ -196,7 +191,6 @@
             else
                 card.disabled = true;
         }
-
         function checkValues() {
             var pay = document.getElementById("id_Pagamento");
             var sel_pay = pay.options[pay.selectedIndex].text;

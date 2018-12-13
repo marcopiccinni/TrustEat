@@ -2,38 +2,32 @@
 {% load static from staticfiles %}
 
 {% block body %}
-    <h2 class='text-center mr-5'>Elenco prodotti: <a href="{% url 'localManagement:add' cl %}"> <img
-            src="{% static '/img/add.ico' %}"
-            class="rounded-circle mr-2"
-            height="25px"
-            width="25px"></a></h2>
+    <h2 class='text-center mr-5'>Elenco prodotti:
+        <a href="{% url 'localManagement:add' cl %}">
+            <img src="{% static '/img/add.ico' %}" alt="ADD" class="rounded-circle mr-2" height="25px" width="25px">
+        </a>
+    </h2>
 
     <div class="container mt-1">
         {% for x in prod %}
             <div class="mt-1" style="margin-left: 20%">
 
+                <a href="{% url 'localManagement:pro' x.cod_locale_id x.id %}">
+                    <img src="{% static '/img/edit-icon.png' %}" class="mr-2" alt="ADD"
+                         height="50px" width="50px">
+                </a>
 
-                <a href="{% url 'localManagement:pro' x.cod_locale_id x.id %}"> <img
-                        src="{% static '/img/edit-icon.png' %}" class="mr-2"
-                        height="50px"
-                        width="50px"></a>
-
-                <a href="{% url 'localManagement:remove' x.cod_locale_id x.id %}"> <img
-                        src="{% static '/img/remove.png' %}" class="rounded-circle mr-2"
-                        height="50px"
-                        width="50px"></a>
-
+                <a href="{% url 'localManagement:remove' x.cod_locale_id x.id %}">
+                    <img src="{% static '/img/remove.png' %}" class="rounded-circle mr-2" alt="DEL"
+                         height="50px" width="50px">
+                </a>
 
                 {% if x.foto_prodotto.url != "" %}
-                    <img src="{{ x.foto_prodotto.url }}" class="rounded-circle"
-                         height="70px"
-                         width="70px"
-                         style="object-fit: fill; border: solid 1px;"
-                    />
+                    <img src="{{ x.foto_prodotto.url }}" class="rounded-circle" alt=""
+                         height="70px" width="70px" style="border: solid 1px;">
                 {% endif %}
                 <b>{{ x.nome_prodotto }}</b>:
                 <i>{{ x.descrizione_prodotto }} </i>
-
                 <br>
             </div>
         {% endfor %}

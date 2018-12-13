@@ -2,31 +2,26 @@
 {% load static from staticfiles %}
 
 {% block body %}
-    <h2 class='text-center mr-5'>Elenco menu: <a href="{% url 'localManagement:add_menu' cl %}"> <img
-            src="{% static '/img/add.ico' %}"
-            class="rounded-circle mr-2"
-            height="25px"
-            width="25px"></a></h2>
+    <h2 class='text-center mr-5'>Elenco menu:
+        <a href="{% url 'localManagement:add_menu' cl %}">
+            <img src="{% static '/img/add.ico' %}" alt="DEL" class="rounded-circle mr-2" height="25px" width="25px">
+        </a>
+    </h2>
 
     <div class="container mt-1">
         {% for x in menu %}
             <div class="mt-1" style="margin-left: 20%">
+                <a href="{% url 'localManagement:edit_menu' x.cod_locale_id x.id %}">
+                    <img src="{% static '/img/edit-icon.png' %}" alt="EDIT" class="mr-2" height="50px" width="50px">
+                </a>
 
-
-                <a href="{% url 'localManagement:edit_menu' x.cod_locale_id x.id %}"> <img
-                        src="{% static '/img/edit-icon.png' %}" class="mr-2"
-                        height="50px"
-                        width="50px"></a>
-
-                <a href="{% url 'localManagement:remove_menu' x.cod_locale_id x.id %}"> <img
-                        src="{% static '/img/remove.png' %}" class="rounded-circle mr-2"
-                        height="50px"
-                        width="50px"></a>
-
+                <a href="{% url 'localManagement:remove_menu' x.cod_locale_id x.id %}">
+                    <img src="{% static '/img/remove.png' %}" alt="DEL" class="rounded-circle mr-2" height="50px"
+                         width="50px">
+                </a>
 
                 <b>{{ x.nome_menu }}</b>:
                 <i>{{ x.descrizione_menu }} </i>
-
                 <br>
             </div>
         {% endfor %}

@@ -1,10 +1,13 @@
 {% if  first_open_list %}
- <ul>
-    {% for locale in first_open_list %}
-        <li><a href="{% url 'localManagement:localLists' locale.cod_locale %}">
-            {{ locale.nome_locale }}</a></li>
-    {% endfor %}
- </ul>
+    <ul>
+        {% for locale in first_open_list %}
+            <li>
+                <a href="{% url 'localManagement:localLists' locale.cod_locale %}">
+                    {{ locale.nome_locale }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 {% else %}
     <p>No locals are avaible</p>
 {% endif %}

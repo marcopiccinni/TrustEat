@@ -2,28 +2,22 @@
 {% load static from staticfiles %}
 
 {% block body %}
-
     <h2>Prodotto eliminato con successo.</h2>
+    <br/><br/>
 
+    <body onload="autoReload()">
+    <div align="center">
+        Tra 5 secondi sarai automaticamente rediretto alla home
+        <a href="{% url 'localManagement:products_list' cl %}"> {{ url }} </a>
+    </div>
+    <br/><br/><br/><br/><br/><br/>
+    <a href="/">
+        <img src="{% static 'img/logo-trustEat/logo.png' %}" height="300" width="600" alt="TRUST EAT"/>
+    </a>
+    </body>
     <script type="text/javascript" language="JavaScript">
-        <!--
         function autoReload() {
             var timeID = setTimeout("location.href= '/'", 5000)
         }
-
-        //-->
     </script>
-
-    <body onload="autoReload()">
-    <br/><br/>
-    <div align="center">
-
-
-        Tra 5 secondi sarai automaticamente rediretto alla home
-        <a href="{% url 'localManagement:products_list' cl %}"> {{ url }} </a>
-
-    </div>
-    <br/><br/><br/><br/><br/><br/>
-    <a href="/"><img src="{% static 'img/logo-trustEat/logo.png' %}" height="300" width="600" alt="TRUST EAT"/></a>
-
 {% endblock body %}

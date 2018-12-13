@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
-
 {% load crispy_forms_filters %}
 
 {% block head %}
-<title>Aggiungi Locale</title>
+    <title>Aggiungi Locale</title>
 {% endblock %}
 
 {% block body %}
     <div class="container">
-        <h3>Ciao {{ request.user.username  }}, {{ mex }}</h3>
+        <h3>Ciao {{ request.user.username }}, {{ mex }}</h3>
         <form method="post" action="" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}
@@ -16,10 +15,6 @@
             <button type="submit" class="btn btn-success">
                 Aggiungi Locale
             </button>
-            <br>
-            <br>
-            <br>
         </form>
     </div>
-
 {% endblock body %}

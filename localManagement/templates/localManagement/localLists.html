@@ -17,20 +17,20 @@
 
     <title>║TRUST EAT║ {{ local.nome_locale }}</title>
 
-{#    <!-- Bootstrap CSS CDN -->#}
-{#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"#}
-{#          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">#}
-{#    <!-- Our Custom CSS -->#}
+    {#    <!-- Bootstrap CSS CDN -->#}
+    {#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"#}
+    {#          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">#}
+    {#    <!-- Our Custom CSS -->#}
     <link rel="stylesheet" href="{% static 'css/localList.css' %}">
     <link rel="stylesheet" href="{% static 'css/style5.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}"/>
     <!-- Font Awesome JS -->
-{#    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"#}
-{#            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"#}
-{#            crossorigin="anonymous"></script>#}
-{#    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"#}
-{#            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"#}
-{#            crossorigin="anonymous"></script>#}
+    {#    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"#}
+    {#            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"#}
+    {#            crossorigin="anonymous"></script>#}
+    {#    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"#}
+    {#            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"#}
+    {#            crossorigin="anonymous"></script>#}
 
 {% endblock %}
 
@@ -145,7 +145,7 @@
         </nav>
 
         <!-- Page Content -->
-        <div id="content" >
+        <div id="content">
 
             {#----------------- Necessario in alto per il corretto funionamento della Sidebar --------------------- #}
             <!-- jQuery CDN - Slim version (=without AJAX) -->
@@ -161,17 +161,6 @@
                     });
                 });
             </script>
-{#        <script type="text/javascript">#}
-{#            function sidebar() {#}
-{#                $(document).ready(function () {#}
-{#                    $('#sidebarCollapse').on('click', function () {#}
-{#                        $('#sidebar').toggleClass('active');#}
-{#                        $(this).toggleClass('active');#}
-{#                    });#}
-{#                });#}
-{#            }#}
-{#            </script>#}
-
             <div class="mx-lg-5 my-0">
                 <div class="row">
                     <div class="col-lg container">
@@ -288,8 +277,6 @@
                             </div>
                         </div>
                         {# ------------------------ End Menu -------------------------------------------------------- #}
-
-
                     </div>
                     {# ----------------------------------- Start colonna 2 ------------------------------------------ #}
                     <div class="col-lg container pt-3">
@@ -394,16 +381,16 @@
                                 </div>
                             {% endif %}
                         </div>
-                        {#             -------------------------------- End Carousel Foto Locale ----------------------------------------#}
+                        {# ------------------------- End Carousel Foto Locale ----------------------------------------#}
                     </div>
-                    {#         ------------------------------------ End colonna 2 ---------------------------------------------------#}
+                    {# ----------------------------- End colonna 2 ---------------------------------------------------#}
                 </div>
             </div>
         </div>
     </div>
-{#    <!-- Bootstrap JS -->#}
-{#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"#}
-{#            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"#}
-{#            crossorigin="anonymous"></script>#}
+    {#    <!-- Bootstrap JS -->#}
+    {#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"#}
+    {#            integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"#}
+    {#            crossorigin="anonymous"></script>#}
 
 {% endblock %}

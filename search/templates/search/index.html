@@ -3,12 +3,10 @@
 {% load crispy_forms_tags %}
 
 {% block head %}
+      <title>{{ request.user }}</title>
     <link rel="stylesheet" href="{% static 'css/localList.css' %}">
-    <title>{{ request.user }}</title>
-{% endblock %}
+{% endblock head %}
 {% block body %}
-
-
 
     <div class="card mb-1 container-fluid border-0">
         <img class="card-img-top mx-5 px-5 container" style="max-height: 200px; object-fit: scale-down"
@@ -66,7 +64,6 @@
                                             <br>
                                         {% endif %}
 
-
                                         <div class="card-img-overlay">
                                             <h5 class="card-title text-light rounded"
                                                 style=" background-color: rgba(0,0,0,0.5)">
@@ -107,7 +104,4 @@
             </div>
         </div>
     </div>
-
-
-
 {% endblock %}

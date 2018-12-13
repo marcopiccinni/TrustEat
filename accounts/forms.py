@@ -16,7 +16,7 @@ class RegUser(UserCreationForm):
     nome = forms.CharField(required=True)
     cognome = forms.CharField(required=True)
     email = forms.EmailField(required=True)
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True, label="Citta'")
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True, label="città")
     via = forms.CharField(required=True)
     civico = forms.CharField(required=True)
     telefono = forms.CharField(required=True)
@@ -31,8 +31,7 @@ class RegUser(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = ["username", "nome", "cognome", "password1", "password2", "email", "cap", "via", "civico", "telefono",
-                  ]
+        fields = ['username', 'nome', 'cognome', 'email', 'telefono', 'cap', 'via', 'civico', 'password1', 'password2']
 
     def clean_telefono(self):
         telefono = self.cleaned_data['telefono']
@@ -99,7 +98,7 @@ class RegComm(UserCreationForm):
     nome = forms.CharField(required=True)
     cognome = forms.CharField(required=True)
     email = forms.EmailField(required=True)
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True, label="Citta'")
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True, label="città")
     via = forms.CharField(required=True)
     civico = forms.CharField(required=True)
     telefono = forms.CharField(required=True)
@@ -107,8 +106,8 @@ class RegComm(UserCreationForm):
 
     class Meta:
         model = get_user_model()
-        fields = ["username", "nome", "cognome", "email", "password1", "password2", 'p_iva', "cap", "via", "civico",
-                  "telefono"]
+        fields = ['username', 'nome', 'cognome', 'email', 'telefono', 'p_iva', 'cap', 'via', 'civico', 'password1',
+                  'password2']
 
     def clean_telefono(self):
         telefono = self.cleaned_data['telefono']
@@ -166,7 +165,7 @@ class InsertLoginSocial(forms.Form):
         attrs={
             'placeholder': 'Numero carta..es: 1111222233334444'
         }
-    ), help_text="Inserire solamente se hai selezionato utente." +
+    ), help_text="Inserire solamente se hai selezionato utente" +
                  "<br>Necessario per inserire una carta" +
                  "<br>Se lasciato vuoto la carta non sara' aggiunta")
 
@@ -186,15 +185,15 @@ class EditPersonalData(forms.Form):
     password_attuale = forms.CharField(widget=forms.PasswordInput())
     nuova_password = forms.CharField(widget=forms.PasswordInput())
     conferma_password = forms.CharField(widget=forms.PasswordInput())
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all())
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), label='città')
     via = forms.CharField(widget=forms.TextInput())
     civico = forms.CharField(widget=forms.TextInput())
     telefono = forms.CharField(widget=forms.TextInput())
 
     class Meta:
         model = get_user_model()
-        field = ['email', 'nome', 'cognome', 'password_attuale', 'nuova_password', 'conferma_password', 'cap', 'via',
-                 'civico', 'telefono']
+        field = ['email', 'nome', 'cognome', 'telefono', 'password_attuale', 'cap', 'via', 'civico', 'nuova_password',
+                 'conferma_password']
 
 
 class EditCommData(forms.Form):
@@ -204,7 +203,7 @@ class EditCommData(forms.Form):
     password_attuale = forms.CharField(widget=forms.PasswordInput())
     nuova_password = forms.CharField(widget=forms.PasswordInput())
     conferma_password = forms.CharField(widget=forms.PasswordInput())
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all())
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), label='città')
     via = forms.CharField(widget=forms.TextInput())
     civico = forms.CharField(widget=forms.TextInput())
     telefono = forms.CharField(widget=forms.TextInput())
@@ -212,5 +211,5 @@ class EditCommData(forms.Form):
 
     class Meta:
         model = get_user_model()
-        field = ['email', 'nome', 'cognome', 'password_attuale', 'nuova_password', 'conferma_password', 'cap', 'via',
-                 'civico', 'telefono', 'p_iva']
+        field = ['email', 'nome', 'cognome', 'telefono', 'cap', 'via', 'civico', 'p_iva', 'password_attuale',
+                 'nuova_password', 'conferma_password']

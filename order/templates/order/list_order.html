@@ -2,20 +2,14 @@
 {% load static from staticfiles %}
 
 {% block head %}
-    <title>GESTIONE ORDINI ║{{ local.locale.nome_locale }} </title>
     <style>
         .card-body {
             max-height: 500px;
             overflow-y: auto
         }
     </style>
-
-
+    <title>GESTIONE ORDINI ║{{ local.locale.nome_locale }} </title>
 {% endblock head %}
-
-
-
-
 
 {% block body %}
     <body onload="initMap()">
@@ -96,7 +90,6 @@
             {# ------------------------------------- Ordini in attesa FINE ------------------------------------------ #}
 
             <div id="map" class="rounded mt-3 shadow" style="object-fit: fill ; height: 250px;"></div>
-
         </div>
         <div class="col-5 mt-2">
             {# -------------------------------- Ordini accettati/consegnati/ rifiutati INIZIO ----------------------- #}
@@ -275,7 +268,13 @@
                     },
                 });
 
-            var marker = new google.maps.Marker({
+
+            setMarkers(map);
+        }
+
+        function setMarkers(map) {
+            // Adds markers to the map.
+            marker = new google.maps.Marker({
                 position: {
                     lat: parseFloat("{{ local.position.lat }}".replace(' ', '.').replace(',', '.')),
                     lng: parseFloat("{{local.position.lon}}".replace(' ', '.').replace(',', '.'))
@@ -285,39 +284,13 @@
                 title: '{{ local.locale.nome_locale }}'
             });
 
-            setMarkers(map);
-            console.log('{{ delivering_list|length }}');
-        }
-
-        // Data for the markers consisting of a name, a LatLng and a zIndex for the
-        // order in which these markers should display on top of each other.
-        var beaches = [
-            ['Bondi Beach', -33.890542, 151.274856, 4],
-            ['Coogee Beach', -33.923036, 151.259052, 5],
-            ['Cronulla Beach', -34.028249, 151.157507, 3],
-            ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-            ['Maroubra Beach', -33.950198, 151.259302, 1]
-        ];
-
-        function setMarkers(map) {
-            // Adds markers to the map.
-
             for (ord of {{ delivering_js|safe }}) {
                 console.log(ord.ordine + ': ' + ord.lat + ' ' + ord.lon);
-                var marker = new google.maps.Marker({
+                marker = new google.maps.Marker({
                     position: {lat: ord.lat, lng: ord.lon},
                     map: map,
                     title: 'Ordine: ' + ord.ordine,
                 });
-
-                {#for (var i = 0; i < {{ delivering_list|length }}; i++) {#}
-                {#    var beach = beaches[i];#}
-                {#    var marker = new google.maps.Marker({#}
-                {#        position: {lat: beach[1], lng: beach[2]},#}
-                {#        map: map,#}
-                {#        title: beach[0],#}
-                {#        zIndex: beach[3]#}
-                {#    });#}
             }
         }
     </script>

@@ -3,24 +3,20 @@
 
 {% block title %}{{ title }} |  Trust Eat {% endblock %}
 
-
 {% block extrastyle %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
     <style>
-    div.__web-inspector-hide-shortcut__ {
-           background: transparent;
+        div.__web-inspector-hide-shortcut__ {
+            background: transparent;
             color: transparent;
-    }
+        }
     </style>
 {% endblock %}
 
-
 {% block branding %}
-<h1 id="site-name"><a href="{% url 'admin:index' %}">TRUST EAT</a></h1>
+    <h1 id="site-name">
+        <a href="{% url 'admin:index' %}">TRUST EAT</a>
+    </h1>
 {% endblock %}
-
 {% block nav-global %}{% endblock %}
-
-{% block body %}
-
-{% endblock %}
+{% block body %}{% endblock %}
