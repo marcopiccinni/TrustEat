@@ -1,9 +1,7 @@
 from django.db import models
-# Create your models here.
-
+from django.core.validators import MaxValueValidator, MinValueValidator
 from localManagement.models import Locale
 from accounts.models import Utente, Commerciante
-from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class CartaDiCredito(models.Model):

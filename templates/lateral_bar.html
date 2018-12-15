@@ -2,11 +2,13 @@
 {% load static from staticfiles %}
 <html>
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
     <meta charset="utf-8">
     <link rel="icon" href="{% static 'img/logo-trustEat/_logo.ico' %} "/>
+    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"#}
+    {#          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">#}
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/card.css' %}">
+
     {% block head %}
     {% endblock head %}
     {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"#}
@@ -14,63 +16,57 @@
 
 </head>
 <body>
-<div>
-    <nav class="rounded-right navbar navbar-expand-lg text-warning mr-1 mt-0 pt-0"
-         style="background-color: #a01b2a; max-height: 55px; z-index: 20">
-        <a class="navbar-brand " style=" max-height: 55px" href="/">
-            <img src="{% static 'img/logo-trustEat/_logo.png' %}" class="1d-inline-block align-top"
-                 style="object-fit: fill; max-height: 45px">
-        </a>
-
-        {#              <a class="navbar-brand" href="/">Navbar</a>#}
-        <button class="navbar-toggler mt-0 bg-dark" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse rounded-bottom pl-2" id="navbarSupportedContent"
-             style="background-color: #a01b2a">
-            <ul class="navbar-nav mr-auto">
+{% block navbar %}
+{% endblock navbar %}
+<nav class="rounded-bottom navbar navbar-expand-lg text-warning mx-1 mt-0 pt-0 shadow"
+     style="background-color: #a01b2a; max-height: 55px;  z-index: 20">
+    <a class="navbar-brand" style=" max-height: 55px" href="/">
+        <img src="{% static 'img/logo-trustEat/_logo.png' %}" class="1d-inline-block align-top "
+             style="object-fit: fill; max-height: 45px" alt="TRUST EAT">
+    </a>
+    <button class="navbar-toggler bg-warning shadow" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">&boxH; </span>
+    </button>
+    <div class="collapse navbar-collapse rounded-bottom pl-2" id="navbarSupportedContent"
+         style="background-color: #a01b2a;">
+        <ul class="navbar-nav mr-auto">
+            {% if request.user.is_superuser %}
                 <li class="nav-item active">
-                    <a class="nav-link text-warning" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-warning" href="/admin">Pagina Admin
+                        <span class="sr-only">(current)</span>
+                    </a>
                 </li>
+            {% endif %}
+            {% if request.user.is_authenticated %}
                 <li class="nav-item active">
-                    <a class="nav-link text-warning" href="{% url 'localManagement:index' %}">
-                        Lista Locali<span class="sr-only">(current)</span></a>
+                    <a class="nav-link text-warning" href="{% url 'accounts:area_utente' %}">Area Utente
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-warning" href="{% url 'accounts:logout' %}">Esci</a>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link text-warning" href="{% url 'accounts:login' %}">Accedi</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link text-warning" href="{% url 'accounts:registrazione_utente' %}">Registrazione
-                        Utente<span
-                                class="sr-only">(current)</span></a>
+                        <span class="sr-only">(current)</span>
+                    </a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link text-warning" href="{% url 'accounts:registrazione_commerciante' %}">Registrazione
-                        Commerciante<span
-                                class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link text-warning" href="/admin">Admin Page<span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link text-warning" href="{% url 'accounts:registrazione_locale' %}">
-                        Nuovo Locale<span class="sr-only">(current)</span></a>
-                </li>
-
-                {% if request.user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link text-warning" href="{% url 'accounts:logout' %}">Logout</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link text-warning" href="{% url 'accounts:login' %}">Login</a>
-                    </li>
-                {% endif %}
-            </ul>
-        </div>
-    </nav>
-</div>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link text-warning ml-lg-4" href="{% url 'contatti' %}">Contattaci</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 
 {% block body %}
 {% endblock body %}
+
 </body>
 </html>

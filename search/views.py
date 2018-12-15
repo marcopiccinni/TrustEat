@@ -1,13 +1,12 @@
-import operator
 from django.shortcuts import render
-from .forms import SearchForm
 from django.views.generic import ListView
 from django.views.decorators.csrf import csrf_exempt
+from .forms import SearchForm
 from user.models import Recensione
-from localManagement.models import *
-from order.views import db_order_consistance
+from localManagement.models import FotoLocale, Locale, Localita, Tag
 from accounts.models import User
-from order.models import OrdineInAttesa
+from order.views import db_order_consistance
+import operator
 
 
 class Ricerca(ListView):

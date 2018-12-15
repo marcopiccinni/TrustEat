@@ -4,29 +4,21 @@
 
 {% block body %}
 
-
     <h2 style="text-align: center"> Registrati su: </h2>
-    <div class="col">
-        <img src="{% static 'img/logo-trustEat/_logo.png' %}" style="margin-left: 40%" width="300">
+    <div class=" text-center">
+        <img src="{% static 'img/logo-trustEat/_logo1.png' %}" width="400px" alt="TRUST EAT">
     </div>
 
-    <div class="card text-center my-1 mx-5 shadow" style="background-color: #878787">
-        <div class="card-header text-light m-0 p-0">
-            <blockquote class="blockquote text-center">
-
-            </blockquote>
+    <div class="card text-center my-1 mx-lg-5 shadow" >
+        <div class="card-header text-light m-0 p-0 pt-3">
             {% block content1 %}
-
             {% endblock %}
-
         </div>
 
         <form method="post">
-            <div class="card-body rounded m-0 px-5 py-1 " style="background-color:#F0F0F0 ">
-
-
-                <div class="container px-5">
-                    <div class="card-text px-5" style="color: #212529">
+            <div class="card-body rounded m-0 px-lg-5 py-1">
+                <div class="container px-lg-5">
+                    <div class="card-text px-lg-5" style="color: #212529">
                         {% csrf_token %}
                         {{ form|crispy }}
                     </div>

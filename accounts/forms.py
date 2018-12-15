@@ -16,18 +16,21 @@ class RegUser(UserCreationForm):
     nome = forms.CharField(required=True)
     cognome = forms.CharField(required=True)
     email = forms.EmailField(required=True)
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True, label="città")
-    via = forms.CharField(required=True)
-    civico = forms.CharField(required=True)
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True, label="Città")
+    via = forms.CharField(required=True, label='Indirizzo')
+    civico = forms.CharField(required=True, label='Numero civico')
     telefono = forms.CharField(required=True)
     carta_di_credito = forms.CharField(max_length=16, required=False,
-                                       help_text="Necessario per inserire una carta" +
-                                                 "<br> Se lasciato vuoto la carta non sara' aggiunta"
+                                       label='<br><br>'
+                                             '<h3>Vuoi aggiungere una carta di credito per i tuoi acquisti?</h3><br>'
+                                             'Numero della carta',
+                                       help_text="Necessario per collegare una carta al tuo profilo.<br>"
+                                                 "Se lasciato vuoto la carta non sarà aggiunta."
                                        )
     intestatario = forms.CharField(max_length=100, required=False)
-    scadenza = forms.DateField(required=False, widget=forms.DateInput(
+    scadenza = forms.DateField(required=False, label='Data di scadenza', widget=forms.DateInput(
         attrs={'class': 'form-control',
-               'type': 'date'}), help_text="Il giorno non verra' considerato", )
+               'type': 'date'}), help_text="Il giorno non verrà considerato", )
 
     class Meta:
         model = get_user_model()
@@ -73,7 +76,6 @@ class RegUser(UserCreationForm):
         user.cap = self.cleaned_data['cap'].cap
         user.telefono = self.cleaned_data['telefono']
         user.is_utente = True
-
         # ---------------- geocoding ------------------------------------
         user.latitude, user.longitude = geocode(
             str(user.via) + ',' + str(user.civico) + ',' + str(user.cap) + ',' + 'Italia')
@@ -82,12 +84,10 @@ class RegUser(UserCreationForm):
         utente = Utente.objects.create(user=user)
 
         carta = self.cleaned_data['carta_di_credito']
-
         if carta is not "":
             CartaDiCredito.objects.create(numero_carta=self.cleaned_data['carta_di_credito'],
                                           intestatario=self.cleaned_data['intestatario'],
                                           scadenza=self.cleaned_data['scadenza'])
-
         if commit:
             utente.save()
         return user
@@ -98,11 +98,11 @@ class RegComm(UserCreationForm):
     nome = forms.CharField(required=True)
     cognome = forms.CharField(required=True)
     email = forms.EmailField(required=True)
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True, label="città")
-    via = forms.CharField(required=True)
-    civico = forms.CharField(required=True)
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), required=True, label="Città")
+    via = forms.CharField(required=True, label='Indirizzo')
+    civico = forms.CharField(required=True, label='Numero civico')
     telefono = forms.CharField(required=True)
-    p_iva = forms.CharField(required=True)
+    p_iva = forms.CharField(required=True, label='Partita IVA')
 
     class Meta:
         model = get_user_model()
@@ -132,7 +132,6 @@ class RegComm(UserCreationForm):
         user.cap = self.cleaned_data['cap'].cap
         user.telefono = self.cleaned_data['telefono']
         user.is_commerciante = True
-
         # ---------------- geocoding ------------------------------------
         user.latitude, user.longitude = geocode(
             str(user.via) + ',' + str(user.civico) + ',' + str(user.cap) + ',' + 'Italia')
@@ -155,13 +154,11 @@ class InsertLoginSocial(forms.Form):
     CHOICES = [('utente', 'utente'),
                ('commerciante', 'commerciante')]
     tipo_utente = forms.ChoiceField(choices=CHOICES, widget=forms.RadioSelect())
-
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), label='città')
-    via = forms.CharField(widget=forms.TextInput())
-    civico = forms.CharField(widget=forms.TextInput())
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), label='Città')
+    via = forms.CharField(widget=forms.TextInput(), label='Indirizzo')
+    civico = forms.CharField(widget=forms.TextInput(), label='Numero civico')
     telefono = forms.CharField(widget=forms.TextInput())
-
-    carta_di_credito = forms.CharField(required=False, widget=forms.TextInput(
+    carta_di_credito = forms.CharField(required=False, label='Numero della carta di credito', widget=forms.TextInput(
         attrs={
             'placeholder': 'Numero carta..es: 1111222233334444'
         }
@@ -174,7 +171,7 @@ class InsertLoginSocial(forms.Form):
         attrs={'class': 'form-control',
                'type': 'date'}), label="Scadenza (il giorno non verra' considerato)", )
 
-    p_iva = forms.CharField(widget=forms.TextInput(), required=False,
+    p_iva = forms.CharField(widget=forms.TextInput(), required=False, label='Partita IVA',
                             help_text="Inserire solamente se hai selezionato commerciante")
 
 
@@ -185,14 +182,14 @@ class EditPersonalData(forms.Form):
     password_attuale = forms.CharField(widget=forms.PasswordInput())
     nuova_password = forms.CharField(widget=forms.PasswordInput())
     conferma_password = forms.CharField(widget=forms.PasswordInput())
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), label='città')
-    via = forms.CharField(widget=forms.TextInput())
-    civico = forms.CharField(widget=forms.TextInput())
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), label='Città')
+    via = forms.CharField(widget=forms.TextInput(), label='Indirizzo')
+    civico = forms.CharField(widget=forms.TextInput(), label='Numero civico')
     telefono = forms.CharField(widget=forms.TextInput())
 
     class Meta:
         model = get_user_model()
-        field = ['email', 'nome', 'cognome', 'telefono', 'password_attuale', 'cap', 'via', 'civico', 'nuova_password',
+        field = ['nome', 'cognome', 'email', 'telefono', 'cap', 'via', 'civico', 'password_attuale', 'nuova_password',
                  'conferma_password']
 
 
@@ -203,13 +200,13 @@ class EditCommData(forms.Form):
     password_attuale = forms.CharField(widget=forms.PasswordInput())
     nuova_password = forms.CharField(widget=forms.PasswordInput())
     conferma_password = forms.CharField(widget=forms.PasswordInput())
-    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), label='città')
-    via = forms.CharField(widget=forms.TextInput())
-    civico = forms.CharField(widget=forms.TextInput())
+    cap = forms.ModelChoiceField(queryset=Localita.objects.all(), label='Città')
+    via = forms.CharField(widget=forms.TextInput(), label='Indirizzo')
+    civico = forms.CharField(widget=forms.TextInput(), label='Numero civico')
     telefono = forms.CharField(widget=forms.TextInput())
-    p_iva = forms.CharField(widget=forms.TextInput())
+    p_iva = forms.CharField(widget=forms.TextInput(), label='Partita IVA')
 
     class Meta:
         model = get_user_model()
-        field = ['email', 'nome', 'cognome', 'telefono', 'cap', 'via', 'civico', 'p_iva', 'password_attuale',
+        field = ['nome', 'cognome', 'email', 'telefono', 'cap', 'via', 'civico', 'p_iva', 'password_attuale',
                  'nuova_password', 'conferma_password']

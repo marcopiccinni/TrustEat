@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
-from .views import *
+from .views import EditLocalView, DeleteLocal, LocalList, Votes, ProductsList, MenuList, AddProduct, AddMenu, \
+    ProductsMod, EditMenu, DeleteProduct, DeleteMenu
 from django.conf.urls import url
 
 app_name = 'localManagement'

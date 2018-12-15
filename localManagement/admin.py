@@ -1,6 +1,5 @@
 from django.contrib import admin
-# Register your models here.
-from localManagement.models import *
+from localManagement.models import Prodotto, Menu, Tipo, CompostoDa, Localita, Locale, FotoLocale, Chiusura, Tag
 
 
 class LocalitaInline(admin.StackedInline):
@@ -49,9 +48,7 @@ class LocaleAdmin(admin.ModelAdmin):
                  ]
     list_display = ('nome_locale', 'orario_apertura', 'orario_chiusura', 'cap', 'via', 'num_civico')
     list_display_links = ['nome_locale']
-    list_select_related = (
-        'cap',
-    )
+    list_select_related = ('cap',)
     search_fields = ['nome_locale']
     list_filter = ['orario_apertura', 'orario_chiusura']
     inlines = [FotoInLine, ChiusuraInLine, TInLine]
@@ -68,9 +65,7 @@ class ProdottoAdmin(admin.ModelAdmin):
                  ('About it', {'fields': ['descrizione_prodotto', 'prezzo', 'nome_tipo', 'cod_locale']}),
                  ]
     list_display = ['nome_prodotto', 'foto_prodotto', 'descrizione_prodotto', 'prezzo', 'nome_tipo']
-    list_select_related = [
-        'nome_tipo', 'cod_locale'
-    ]
+    list_select_related = ['nome_tipo', 'cod_locale']
     inlines = [ProdInLine]
 
 
@@ -79,9 +74,7 @@ class MenuAdmin(admin.ModelAdmin):
                  ('About it', {'fields': ['descrizione_menu', 'prezzo', 'cod_locale']}),
                  ]
     list_display = ['nome_menu', 'descrizione_menu', 'prezzo']
-    list_select_related = [
-        'cod_locale'
-    ]
+    list_select_related = ['cod_locale', ]
     inlines = [MenuInLine]
 
 

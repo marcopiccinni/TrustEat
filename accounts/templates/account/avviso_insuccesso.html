@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
+{% load crispy_forms_tags %}
 
 {% block head %}
     <title>Profile</title>
@@ -8,34 +9,24 @@
 {% block body %}
     <div class="container">
         <h1>ERRORE</h1>
-        <form method="post">
-            {% csrf_token %}
-            <h2>{{ messaggio1 }}</h2>
-            <br>
-            <h2>{{ messaggio2 }}</h2>
 
-            <script type="text/javascript" language="JavaScript">
-                <!--
-                function autoReload() {
-                    var timeID = setTimeout("location.href= '/'", 10000)
-                }
+        <h2>{{ messaggio1 }}</h2> <br>
+        <h2>{{ messaggio2 }}</h2>
 
-                //-->
-            </script>
-
-            <div onload="autoReload()">
+        <script type="text/javascript" language="JavaScript">
+            function autoReload() {
+                var timeID = setTimeout("location.href= '/'", 10000)
+            }
+        </script>
+        <div onload="autoReload()">
             <br/><br/>
             <div align="center">
-
-
                 Tra 10 secondi tornerai alla home
                 <a href="{% url 'accounts:area_utente' %}"> {{ url }} </a>
-
-
             </div>
             <br/><br/><br/><br/><br/><br/>
-            <a href="/"><img src="{% static 'img/logo-trustEat/logo.png' %}" height="300" width="600"/></a>
-            </div>
-        </form>
+            <img src="{% static 'img/logo-trustEat/_logo1.png' %}" alt="TRUST EAT" width="600px"
+                 style="object-fit: scale-down">
+        </div>
     </div>
 {% endblock body %}

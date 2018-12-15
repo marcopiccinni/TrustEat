@@ -1,15 +1,14 @@
-from django.contrib.auth import login
-from django.views.generic import CreateView, TemplateView, UpdateView, View
-from .forms import RegUser, RegComm, InsertLoginSocial, EditPersonalData, EditCommData, forms
-from django.shortcuts import render, redirect, HttpResponse, render_to_response, HttpResponseRedirect
-from .models import User, Commerciante, Utente
-from order.models import OrdineInAttesa, RichiedeP, RichiedeM
-from TrustEat.maps import geocode
-from order.views import db_order_consistance
-from django.contrib.auth import get_user_model, authenticate
-from localManagement.models import Locale, Tag, FotoLocale, Chiusura, Localita
+from django.contrib.auth import login,get_user_model
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, redirect, HttpResponse, render_to_response, HttpResponseRedirect
+from django.views.generic import CreateView, TemplateView, UpdateView, View
+from .forms import RegUser, RegComm, InsertLoginSocial, EditPersonalData, EditCommData
+from .models import User, Commerciante, Utente
+from localManagement.models import Locale, Tag, FotoLocale, Chiusura, Localita
+from order.models import OrdineInAttesa, RichiedeP, RichiedeM
+from order.views import db_order_consistance
 from user.models import CartaDiCredito
+from TrustEat.maps import geocode
 
 
 class RegUtenteView(CreateView):
@@ -102,13 +101,11 @@ class InsertLogin(View):
                     current_user.is_utente = True
                     # geocoding
                     current_user.save(
-                        update_fields=['is_utente', 'via', 'civico', 'cap', 'telefono', 'latitude', 'longitude']
-                    )
+                        update_fields=['is_utente', 'via', 'civico', 'cap', 'telefono', 'latitude', 'longitude'])
                     u = Utente.objects.create(user=current_user)
 
                     if carta_di_credito is not "":
-                        CartaDiCredito.objects.create(numero_carta=carta_di_credito,
-                                                      intestatario=intestatario,
+                        CartaDiCredito.objects.create(numero_carta=carta_di_credito, intestatario=intestatario,
                                                       scadenza=scadenza)
                         u.carta_di_credito.add(CartaDiCredito.objects.get(numero_carta=carta_di_credito).pk)
                 else:
@@ -130,8 +127,8 @@ class EditPersonalDataView(View):
 
     def get(self, request):
         data = {'email': request.user.email, 'nome': request.user.first_name, 'cognome': request.user.last_name,
-                'via': request.user.via, 'civico': request.user.civico,
-                'cap': request.user.cap, 'telefono': request.user.telefono}
+                'via': request.user.via, 'civico': request.user.civico, 'cap': request.user.cap,
+                'telefono': request.user.telefono}
         form = EditPersonalData(initial=data)
         return render(request, self.template_name, {'form': form})
 
@@ -153,7 +150,6 @@ class EditPersonalDataView(View):
                 if not request.user.check_password('{}'.format(password_attuale)):
                     messaggio1 = "Errore"
                     messaggio2 = "La password inserita non e' corretta"
-                    raise forms.ValidationError('YA')
                     context = {'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
                     return render(request, 'account/avviso_insuccesso.html', context)
 
@@ -167,7 +163,6 @@ class EditPersonalDataView(View):
                 civico = form.cleaned_data['civico']
                 cap = form.cleaned_data['cap']
                 telefono = form.cleaned_data['telefono']
-
                 # geocoding
                 latitude, longitude = geocode(str(via) + ',' + str(civico) + ',' + str(cap) + ',' + 'Italia')
 
@@ -176,8 +171,7 @@ class EditPersonalDataView(View):
                                                                               civico=civico, cap=cap.cap,
                                                                               telefono=telefono, latitude=latitude,
                                                                               longitude=longitude):
-                    u = User.objects.get(username=request.user.username)
-                    u.set_password(nuova_password)
+                    u = User.objects.get(username=request.user.username).set_password(nuova_password)
                     u.save()
                     login(self.request, u, backend='django.contrib.auth.backends.ModelBackend')
                     return render(request, 'account/avviso_successo.html', context)
@@ -197,9 +191,8 @@ class EditCommDataView(View):
 
     def get(self, request):
         data = {'email': request.user.email, 'nome': request.user.first_name, 'cognome': request.user.last_name,
-                'via': request.user.via, 'civico': request.user.civico,
-                'cap': request.user.cap, 'telefono': request.user.telefono,
-                'p_iva': request.user.commerciante_user.p_iva}
+                'via': request.user.via, 'civico': request.user.civico, 'cap': request.user.cap,
+                'telefono': request.user.telefono, 'p_iva': request.user.commerciante_user.p_iva}
         form = EditCommData(initial=data)
         return render(request, self.template_name, {'form': form})
 
@@ -235,7 +228,6 @@ class EditCommDataView(View):
                 cap = form.cleaned_data['cap']
                 telefono = form.cleaned_data['telefono']
                 p_iva = form.cleaned_data['p_iva']
-
                 # geocoding
                 latitude, longitude = geocode(str(via) + ',' + str(civico) + ',' + str(cap) + ',' + 'Italia')
 
@@ -245,8 +237,7 @@ class EditCommDataView(View):
                                                                               civico=civico, cap=cap.cap,
                                                                               telefono=telefono, latitude=latitude,
                                                                               longitude=longitude):
-                    u = User.objects.get(username=request.user.username)
-                    u.set_password(conferma_password)
+                    u = User.objects.get(username=request.user.username).set_password(conferma_password)
                     u.save()
                     Commerciante.objects.filter(pk=request.user.id).update(p_iva=p_iva)
                     login(self.request, u, backend='django.contrib.auth.backends.ModelBackend')
@@ -273,9 +264,7 @@ class AreaUtente(View):
                 locals.append({'local': local, 'foto': foto})
 
             args = {'commerciante': Commerciante.objects.get(pk=request.user.id),
-                    'location': Localita.objects.get(pk=request.user.cap),
-                    'locals': locals,
-                    }
+                    'location': Localita.objects.get(pk=request.user.cap), 'locals': locals}
             return render(request, self.template_name, args)
 
         elif request.user.is_utente:

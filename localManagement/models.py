@@ -1,6 +1,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
-from datetime import datetime
+import datetime
 import os
 
 
@@ -58,7 +58,7 @@ def validate_image_size(value):
 
 def local_images_path(instance, filename):
     name, ext = filename.rsplit('.', 1)
-    dt = datetime.now()
+    dt = datetime.datetime.now()
     file_path = 'media_db/{cod_locale_id}/locale/'.format(cod_locale_id=instance.cod_locale_id)
     if not os.path.exists(file_path):
         os.makedirs(file_path)
@@ -128,7 +128,7 @@ class Menu(models.Model):
 
 def product_images_path(instance, filename):
     name, ext = filename.rsplit('.', 1)
-    dt = datetime.now()
+    dt = datetime.datetime.now()
     file_path = 'media_db/{cod_locale_id}/{nome_prodotto}/'.format(cod_locale_id=instance.cod_locale_id,
                                                                    nome_prodotto=instance.nome_prodotto,
                                                                    )

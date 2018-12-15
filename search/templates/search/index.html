@@ -3,8 +3,16 @@
 {% load crispy_forms_tags %}
 
 {% block head %}
-      <title>{{ request.user }}</title>
-    <link rel="stylesheet" href="{% static 'css/localList.css' %}">
+    <title>{{ request.user }}</title>
+    {#    <link rel="stylesheet" href="{% static 'css/localList.css' %}">#}
+    <style>
+        div.card {
+            background-color: white
+        }
+    div.card-body{
+        background-color: unset;
+    }
+    </style>
 {% endblock head %}
 {% block body %}
 

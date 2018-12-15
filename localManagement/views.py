@@ -1,13 +1,13 @@
+from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, render, HttpResponse, redirect
-from user.models import Recensione
 from django.views.generic import UpdateView, TemplateView, CreateView, DeleteView, View
-from TrustEat.maps import geocode
 from .models import Tipo, Tag, FotoLocale, Chiusura, Menu, Prodotto, CompostoDa, Localita, Locale
-from accounts.models import Commerciante, User, Utente
-from order.models import RichiedeM, RichiedeP, OrdineInAttesa
 from .forms import ReplayForm, ReviewForm, AddEMenu, AddEProduct, CreateLocalForm, QuantityForm, ModMenu, \
     EditProduct, EditLocal
-from django.contrib.auth import get_user_model
+from accounts.models import Commerciante, User, Utente
+from user.models import Recensione
+from order.models import RichiedeM, RichiedeP, OrdineInAttesa
+from TrustEat.maps import geocode
 from django.core.exceptions import ValidationError
 from django.contrib.auth.decorators import login_required, user_passes_test
 import datetime
@@ -202,8 +202,7 @@ class Votes(View):
 
         args = {'local': local, 'vote': review, 'dealers': cls.dealers,
                 'user_form': cls.user_form, 'dealer_form': cls.dealer_form,
-                'allow_rec': allow_rec,
-                }
+                'allow_rec': allow_rec}
         return render(request, cls.template_name, args)
 
     @classmethod
@@ -288,7 +287,6 @@ class CreateLocalView(View):
                 foto_locale1 = form.cleaned_data['foto_locale1']
                 foto_locale2 = form.cleaned_data['foto_locale2']
                 foto_locale3 = form.cleaned_data['foto_locale3']
-
                 # geocoding ---------------------
                 latitude, longitude = geocode(str(via) + ',' + str(num_civico) + ',' + str(cap) + 'Italia')
 
@@ -338,11 +336,9 @@ class CreateLocalView(View):
 
                     foto1 = FotoLocale(cod_locale=loc, foto_locale=foto_locale1)
                     foto1.save()
-
                     if foto_locale2 is not None:
                         foto2 = FotoLocale(cod_locale=loc, foto_locale=foto_locale2)
                         foto2.save()
-
                     if foto_locale3 is not None:
                         foto3 = FotoLocale(cod_locale=loc, foto_locale=foto_locale3)
                         foto3.save()
@@ -445,9 +441,7 @@ class EditLocalView(View):
                                                                     telefono=telefono,
                                                                     sito_web=sito_web, email=email,
                                                                     prezzo_di_spedizione=prezzo_di_spedizione,
-                                                                    latitude=latitude, longitude=longitude
-                                                                    )
-
+                                                                    latitude=latitude, longitude=longitude)
                 id = []
                 indx = 0
 
@@ -475,14 +469,11 @@ class EditLocalView(View):
                     foto3.save()
 
                 loc = Locale.objects.get(cod_locale=cod_locale)
-
                 if giorno_chiusura is not None:
                     Chiusura.objects.filter(cod_locale=Locale.objects.get(cod_locale=loc.cod_locale)).delete()
                     for i in giorno_chiusura:
                         Chiusura.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
                                                 giorno_chiusura=i)
-
-                loc = Locale.objects.get(cod_locale=cod_locale)
 
                 if tag is not None:
                     Locale.tag.through.objects.all().delete()
@@ -651,8 +642,7 @@ class AddMenu(View):
                     return render(request, 'localManagement/successo_aggiunta_menu.html', context)
 
                 mymenu = Menu.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale), nome_menu=nome_menu,
-                                             descrizione_menu=descrizione_menu,
-                                             prezzo=prezzo)
+                                             descrizione_menu=descrizione_menu, prezzo=prezzo)
 
                 l_prod = composto_da_prodotti.__len__()
 
