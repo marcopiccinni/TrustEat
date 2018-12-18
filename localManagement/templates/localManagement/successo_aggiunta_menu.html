@@ -1,22 +1,36 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
+{% block head %}
+    <title>Aggiunta menu</title>
+    <script src="{% static 'js/functions.js' %}"></script>
+{% endblock head %}
+
 
 {% block body %}
-    <h2>{{ messaggio }}.</h2>
-    <br/><br/>
-    <body onload="autoReload()">
+    <script> autoReload(10000)</script>
+    <div class="container">
+        <a href="{% url 'localManagement:localLists' locale.pk %}" style="color: #a01b2a">
+            <div class="container-fluid mt-0 pb-1 text-warning rounded-bottom link-disabled shadow"
+                 style="background-color: #a01b2a">
+                <h1 align="center">{{ locale.nome_locale|upper }}</h1>
+            </div>
+        </a>
 
-    <div align="center">
-        Tra 10 secondi sarai automaticamente rediretto alla home
-        <a href="{% url 'localManagement:menu_list' cl %}"> {{ url }} </a>
+        <div class="card text-center mt-2">
+            <form method="post" action="" enctype="multipart/form-data">
+                <div class="card-header text-light">
+                    <h2>{{ messaggio }}.</h2>
+                </div>
+                <div class="card-body">
+                    Tra 10 secondi sarai automaticamente rediretto alla home
+                    <a href="{% url 'localManagement:menu_list' cl %}"> {{ url }} </a>
+                </div>
+                <div class="card-footer"></div>
+            </form>
+        </div>
     </div>
-    <br/><br/><br/><br/><br/><br/>
-    <a href="/"><img src="{% static 'img/logo-trustEat/logo.png' %}" alt="TRUST EAT" height="300"
-                     style="object-fit: scale-down"/></a>
-
-    <script type="text/javascript" language="JavaScript">
-        function autoReload() {
-            var timeID = setTimeout("location.href= '/'", 10000)
-        }
-    </script>
+    <a href="/">
+        <img src="{% static 'img/logo-trustEat/logo.png' %}" alt="TRUST EAT" height="300"
+             style="object-fit: scale-down"/>
+    </a>
 {% endblock body %}

@@ -71,12 +71,5 @@
             Stampa copia
         </button>
     </div>
-    <script>
-        function stampa() {
-            var but = document.getElementById('id_PrintButton');
-            but.hidden = true;
-            print();
-            but.hidden = false;
-        }
-    </script>
+    <script src="{% static 'js/functions.js' %}"> </script>
 {% endblock body %}

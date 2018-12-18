@@ -515,7 +515,7 @@ class DeleteLocal(View):
 class ProductsList(View):
     def get(self, request, cod_locale):
         prod = Prodotto.objects.filter(cod_locale=cod_locale)
-        context = {"prod": prod, "cl": cod_locale}
+        context = {"prod": prod, "cl": cod_locale, 'locale': Locale.objects.get(pk=cod_locale)}
         return render(request, 'localManagement/product_list.html', context)
 
 
@@ -528,7 +528,7 @@ class ProductsMod(View):
         initial = {'nome_prodotto': prod.nome_prodotto, 'descrizione_prodotto': prod.descrizione_prodotto,
                    'prezzo': prod.prezzo, 'foto_prodotto': prod.foto_prodotto, 'nome_tipo': prod.nome_tipo}
         form = EditProduct(initial=initial)
-        context = {'form': form}
+        context = {'form': form, 'locale': Locale.objects.get(pk=cod_locale)}
         return render(request, 'localManagement/edit_product.html', context)
 
     @classmethod
@@ -536,7 +536,7 @@ class ProductsMod(View):
         form = EditProduct(request.POST or None, request.FILES or None)
         messaggio = "La modifica del prodotto e' avvenuta con successo"
         url = "Clicca qui per tornare alla home"
-        context = {'messaggio': messaggio, 'url': url}
+        context = {'messaggio': messaggio, 'url': url, 'locale': Locale.objects.get(pk=cod_locale)}
         if request.method == 'POST':
             if form.is_valid():
                 nome_prodotto = form.cleaned_data['nome_prodotto']
@@ -552,7 +552,7 @@ class ProductsMod(View):
             else:
                 messaggio = "Errore nella modifica del prodotto. Riprovare inserendo correttamente i campi"
                 url = "Clicca qui per tornare alla pagina dei prodotti"
-                context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale}
+                context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale, 'locale': Locale.objects.get(pk=cod_locale)}
                 return render(request, 'localManagement/successo_aggiunta_prodotto.html', context)
 
 
@@ -562,12 +562,12 @@ class DeleteProduct(View):
             messaggio = "l'eliminazione del prodotto e' avvenuta con successo"
             url = 'Clicca qui se invece vuoi tornare alla pagina dei tuoi prodotti'
             Prodotto.objects.filter(id=id).delete()
-            context = {"cl": cod_locale, 'url': url, 'messaggio': messaggio}
+            context = {"cl": cod_locale, 'url': url, 'messaggio': messaggio, 'locale': Locale.objects.get(pk=cod_locale)}
             return render(request, 'localManagement/delete_product.html', context)
         else:
             messaggio = "Qualcosa e' andato storto, controllare che il prodotto esista e riprovare"
             url = "Clicca qui per tornare alla pagina dei menu"
-            context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale}
+            context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale, 'locale': Locale.objects.get(pk=cod_locale)}
             return render(request, 'localManagement/successo_aggiunta_menu.html', context)
 
 
@@ -577,7 +577,7 @@ class AddProduct(View):
     @classmethod
     def get(cls, request, cod_locale):
         form = AddEProduct()
-        context = {'form': form}
+        context = {'form': form, 'locale': Locale.objects.get(pk=cod_locale)}
         return render(request, 'localManagement/aggiunta_prodotto.html', context)
 
     @classmethod
@@ -585,7 +585,7 @@ class AddProduct(View):
         form = AddEProduct(request.POST or None, request.FILES or None)
         messaggio = "L'aggiunta del prodotto e' avvenuta con successo"
         url = "Clicca qui per tornare alla pagina dei prodotti"
-        context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale}
+        context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale, 'locale': Locale.objects.get(pk=cod_locale)}
         if request.method == 'POST':
             if form.is_valid():
                 nome_prodotto = form.cleaned_data['nome_prodotto']
@@ -600,7 +600,8 @@ class AddProduct(View):
             else:
                 messaggio = "Errore nell'aggiunta del prodotto. Riprovare inserendo correttamente i campi"
                 url = "Clicca qui per tornare alla pagina dei prodotti"
-                context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale}
+                context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
+                           'locale': Locale.objects.get(pk=cod_locale)}
                 return render(request, 'localManagement/successo_aggiunta_prodotto.html', context)
 
 
@@ -619,7 +620,7 @@ class AddMenu(View):
         prod = Prodotto.objects.filter(cod_locale=cod_locale)
         form = AddEMenu()
         form.fields['composto_da_prodotti'].queryset = prod
-        context = {'form': form}
+        context = {'form': form, 'locale': Locale.objects.get(pk=cod_locale)}
         return render(request, 'localManagement/aggiunta_menu.html', context)
 
     @classmethod
@@ -627,7 +628,7 @@ class AddMenu(View):
         form = AddEMenu(request.POST or None, request.FILES or None)
         messaggio = "L'aggiunta del menu e' avvenuta con successo"
         url = "Clicca qui per tornare alla pagina dei menu"
-        context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale}
+        context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale, 'locale': Locale.objects.get(pk=cod_locale)}
         if request.method == 'POST':
             if form.is_valid():
                 nome_menu = form.cleaned_data['nome_menu']
@@ -638,7 +639,8 @@ class AddMenu(View):
                 if Menu.objects.filter(nome_menu=nome_menu).exists():
                     messaggio = "Esiste gia' un menu con lo stesso nome per il locale selezionato. Cambiare e ripovare."
                     url = "Clicca qui per tornare alla pagina dei menu"
-                    context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale}
+                    context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
+                               'locale': Locale.objects.get(pk=cod_locale)}
                     return render(request, 'localManagement/successo_aggiunta_menu.html', context)
 
                 mymenu = Menu.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale), nome_menu=nome_menu,
@@ -655,7 +657,8 @@ class AddMenu(View):
             else:
                 messaggio = "Qualcosa e' andato storto, inserire i dati in maniera corretta e riprovare"
                 url = "Clicca qui per tornare alla pagina dei menu"
-                context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale}
+                context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
+                           'locale': Locale.objects.get(pk=cod_locale)}
                 return render(request, 'localManagement/successo_aggiunta_menu.html', context)
 
 
@@ -665,12 +668,14 @@ class DeleteMenu(View):
             url = 'Clicca qui se invece vuoi tornare alla pagina dei tuoi menu'
             messaggio = "Il menu' e' stato eliminato con successo"
             Menu.objects.filter(id=id).delete()
-            context = {"cl": cod_locale, 'url': url, 'messaggio': messaggio}
+            context = {"cl": cod_locale, 'url': url, 'messaggio': messaggio,
+                       'locale': Locale.objects.get(pk=cod_locale)}
             return render(request, 'localManagement/successo_aggiunta_menu.html', context)
         else:
             messaggio = "Qualcosa e' andato storto, controllare che il menu esista e riprovare"
             url = "Clicca qui per tornare alla pagina dei menu"
-            context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale}
+            context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
+                       'locale': Locale.objects.get(pk=cod_locale)}
             return render(request, 'localManagement/successo_aggiunta_menu.html', context)
 
 
@@ -685,7 +690,7 @@ class EditMenu(View):
                    'prezzo': menu.prezzo}
         form = ModMenu(initial=initial)
         form.fields['composto_da_prodotti'].queryset = prod
-        context = {'form': form}
+        context = {'form': form, 'locale': Locale.objects.get(pk=cod_locale)}
         return render(request, 'localManagement/aggiunta_menu.html', context)
 
     @classmethod
@@ -693,7 +698,7 @@ class EditMenu(View):
         form = ModMenu(request.POST or None, request.FILES or None)
         messaggio = "La modifica del menu e' avvenuta con successo"
         url = "Clicca qui per tornare alla pagina dei menu"
-        context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale}
+        context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale, 'locale': Locale.objects.get(pk=cod_locale)}
         if request.method == 'POST':
             if form.is_valid():
                 nome_menu = form.cleaned_data['nome_menu']
@@ -703,7 +708,8 @@ class EditMenu(View):
                 if Menu.objects.filter(nome_menu=nome_menu).exists():
                     messaggio = "Esiste gia' un menu con lo stesso nome per il locale selezionato. Cambiare e ripovare."
                     url = "Clicca qui per tornare alla pagina dei menu"
-                    context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale}
+                    context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
+                               'locale': Locale.objects.get(pk=cod_locale)}
                     return render(request, 'localManagement/successo_aggiunta_menu.html', context)
                 id = Menu.objects.get(id=id).id
                 Menu.objects.filter(id=id).delete()
@@ -726,5 +732,6 @@ class EditMenu(View):
             else:
                 messaggio = "Qualcosa e' andato storto, inserire i dati in maniera corretta e riprovare"
                 url = "Clicca qui per tornare alla pagina dei menu"
-                context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale}
+                context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
+                           'locale': Locale.objects.get(pk=cod_locale)}
                 return render(request, 'localManagement/successo_aggiunta_menu.html', context)

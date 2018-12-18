@@ -4,39 +4,30 @@
 
 {% block head %}
     <title>Profile</title>
-    <script type="text/javascript" language="JavaScript">
-        function autoReload() {
-            console.log("I'm in");
-            var timeID = setTimeout("location.href= '/'", 10000)
-        }
-    </script>
+    <script src="{% static 'js/functions.js' %}"></script>
 {% endblock %}
 
 {% block body %}
+    <script> autoReload(10000) </script>
     <div class="container">
         <form method="post">
             {% csrf_token %}
-            <h1>SUCCESSO</h1>
-            <h1>{{ messaggio }}</h1>
-
-            <div onload="autoReload()">
-                <script>
-                    autoReload()
-                </script>
-                <br/><br/>
-                <div align="center">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h1>SUCCESSO</h1>
+                </div>
+                <div class="card-body">
+                    <h2>{{ messaggio }}</h2>
                     Tra 10 secondi verrai trasportato alla HomePage
                     <a href="{% url 'accounts:area_utente' %}"> {{ url }} </a>
-
                 </div>
-                <br/><br/><br/><br/><br/><br/>
-
+                <div class="card-footer"></div>
+            </div>
+            <br><br>
+            <div class="text-center">
                 <img src="{% static 'img/logo-trustEat/_logo1.png' %}" alt="TRUST EAT" width="600px"
                      style="object-fit: scale-down">
-
             </div>
         </form>
-
     </div>
-
 {% endblock body %}

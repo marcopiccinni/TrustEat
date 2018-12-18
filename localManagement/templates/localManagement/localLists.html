@@ -10,18 +10,7 @@
 
     <title>║TRUST EAT║ {{ local.nome_locale }}</title>
 
-    <!-- Bootstrap CSS CDN -->
-    {#    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"#}
-    {#          integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">#}
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style5.css' %}">
-    <link rel="stylesheet" href="{% static 'css/localList.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}"/>
-
-
-
 {% endblock head %}
-
 
 {% block body %}
 
@@ -119,17 +108,17 @@
                        role="button" aria-disabled="true"><b>Modifica i prodotti</b>
                     </a>
                     <a href="{% url 'localManagement:menu_list' local.cod_locale %}"
-                       class="btn btn-outline-warning btn-lg mb-0"
+                       class="btn btn-outline-warning btn-lg mb-5"
                        role="button" aria-disabled="true"><b>Modifica i menu</b>
                     </a>
                     <a href="{% url 'localManagement:delete_local' local.cod_locale %}"
-                       class="btn btn-danger btn-lg active"
-                       role="button" aria-disabled="true">Elimina Locale
+                       class="btn btn-outline-warning mt-5"
+                       role="button" aria-disabled="true">Elimina il locale
                     </a>
                 </div>
             {% endif %}
 
-            <p class="text-center mt-5 pt-5" style="font-size: 85%">
+            <p class="text-center mt-2 pt-4" style="font-size: 85%">
                 by: <br>
                 {% for dealer in dealers %}
                     {{ dealer.first_name | capfirst }} {{ dealer.last_name | capfirst }} <br>
@@ -161,16 +150,15 @@
                         {# ------------------------ End Nome Locale --------------------------------------------------#}
 
                         {# ------------------------ Start Prodotti ---------------------------------------------------#}
-                        <div class="card text-center mt-3 mb-4 shadow" style=" max-height: 70%">
+                        <div class="card text-center mt-3 mb-4 shadow" style=" max-height: 40%">
                             <div class="card-header text-light m-0 p-0">
                                 <blockquote class="blockquote text-center">
                                     <p class="m-0 p-0" style="font-size: 120%;">PRODOTTI</p>
                                 </blockquote>
                             </div>
-                            <div class="card-body m-0 p-0">
+                            <div class="card-body m-0 p-0"  style=" max-height:300px ">
                                 <div class="card-text">
-                                    <table class="table-responsive p-0 m-0 align-content-center table-striped"
-                                           style=" max-height:300px ;overflow-y: auto">
+                                    <table class="table-responsive p-0 m-0 align-content-center table-striped">
                                         {% for x in prod_list %}
                                             <form action="" method="post">
                                                 <tr>
@@ -211,16 +199,15 @@
                         {# ------------------------ End Prodotti -----------------------------------------------------#}
                         {# ------------------------ Start Menu -------------------------------------------------------#}
                         <div class="card text-center mt-3 mb-4 shadow"
-                             style="background-color: #878787; max-height: 70%">
+                             style="background-color: #878787; max-height: 40%">
                             <div class="card-header text-light m-0 p-0">
                                 <blockquote class="blockquote text-center">
                                     <p class="m-0 p-0" style="font-size: 120%;">MENU</p>
                                 </blockquote>
                             </div>
-                            <div class="card-body m-0 p-0">
+                            <div class="card-body m-0 p-0" style=" max-height:300px">
                                 <div class="card-text">
-                                    <table class="table-responsive p-0 m-0 align-content-center table-striped"
-                                           style=" max-height:300px; overflow-y:auto">
+                                    <table class="table-responsive p-0 m-0 align-content-center table-striped">
                                         {% for x in  menu_list %}
                                             <form action="" method="post">
                                                 <tr>

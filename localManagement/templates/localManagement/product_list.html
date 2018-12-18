@@ -1,35 +1,52 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
+{% load crispy_forms_filters %}
+
+{% block head %}
+    <title>I tuoi prodotti</title>
+{% endblock head %}
 
 {% block body %}
-    <h2 class='text-center mr-5'>Elenco prodotti:
-        <a href="{% url 'localManagement:add' cl %}">
-            <img src="{% static '/img/add.ico' %}" alt="ADD" class="rounded-circle mr-2" height="25px" width="25px">
-        </a>
-    </h2>
-
-    <div class="container mt-1">
-        {% for x in prod %}
-            <div class="mt-1" style="margin-left: 20%">
-
-                <a href="{% url 'localManagement:pro' x.cod_locale_id x.id %}">
-                    <img src="{% static '/img/edit-icon.png' %}" class="mr-2" alt="ADD"
-                         height="50px" width="50px">
-                </a>
-
-                <a href="{% url 'localManagement:remove' x.cod_locale_id x.id %}">
-                    <img src="{% static '/img/remove.png' %}" class="rounded-circle mr-2" alt="DEL"
-                         height="50px" width="50px">
-                </a>
-
-                {% if x.foto_prodotto.url != "" %}
-                    <img src="{{ x.foto_prodotto.url }}" class="rounded-circle" alt=""
-                         height="70px" width="70px" style="border: solid 1px;">
-                {% endif %}
-                <b>{{ x.nome_prodotto }}</b>:
-                <i>{{ x.descrizione_prodotto }} </i>
-                <br>
+    <div class="container">
+        <a href="{% url 'localManagement:localLists' locale.pk %}" style="color: #a01b2a">
+            <div class="container-fluid mt-0 pb-1 text-warning rounded-bottom link-disabled shadow"
+                 style="background-color: #a01b2a">
+                <h1 align="center">{{ locale.nome_locale|upper }}</h1>
             </div>
-        {% endfor %}
+        </a>
+        <div class="card mt-2">
+            <form method="post" action="" enctype="multipart/form-data">
+                <div class="card-header text-light  text-center">
+                    <h2 class='text-center mr-5'>Elenco prodotti:
+                        <a href="{% url 'localManagement:add' cl %}">
+                            <img src="{% static '/img/add.ico' %}" alt="ADD" class="rounded-circle mr-2 shadow"
+                                 height="35px" width="35px">
+                        </a>
+                    </h2>
+                </div>
+                <div class="card-body">
+                    {% for x in prod %}
+                        <div class="mt-1" style="margin-left: 20%">
+                            <a href="{% url 'localManagement:pro' x.cod_locale_id x.id %}">
+                                <img src="{% static '/img/edit-icon.png' %}" class="mr-2" alt="ADD"
+                                     height="50px" width="50px">
+                            </a>
+                            <a href="{% url 'localManagement:remove' x.cod_locale_id x.id %}">
+                                <img src="{% static '/img/remove.png' %}" class="rounded-circle mr-2" alt="DEL"
+                                     height="50px" width="50px">
+                            </a>
+                            {% if x.foto_prodotto.url != "" %}
+                                <img src="{{ x.foto_prodotto.url }}" class="rounded-circle" alt=""
+                                     height="70px" width="70px" style="border: solid 1px;">
+                            {% endif %}
+                            <b>{{ x.nome_prodotto }}</b>:
+                            <i>{{ x.descrizione_prodotto }} </i>
+                            <br>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="card-footer"></div>
+            </form>
+        </div>
     </div>
 {% endblock %}

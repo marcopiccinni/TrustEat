@@ -2,16 +2,28 @@
 {% load crispy_forms_filters %}
 
 {% block body %}
-    <h1 class="text-center">Modifica Prodotto</h1>
-    <form method="post" action="" enctype="multipart/form-data">
-            {% csrf_token %}
-          {{ form|crispy }}
-            <br>
-        <button type="submit" class="btn btn-danger">
-                Modifica
-            </button>
-            <br>
-            <br>
-            <br>
+    <div class="container">
+        <a href="{% url 'localManagement:localLists' locale.pk %}" style="color: #a01b2a">
+            <div class="container-fluid mt-0 pb-1 text-warning rounded-bottom link-disabled shadow"
+                 style="background-color: #a01b2a">
+                <h1 align="center">{{ locale.nome_locale|upper }}</h1>
+            </div>
+        </a>
+        <form method="post" action="" enctype="multipart/form-data">
+            <div class="card text-center my-2 shadow">
+                <div class="card-header text-light">
+                    <h1> Modifica prodotto </h1>
+                </div>
+                <div class="card-body">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-outline-light btn-lg">
+                        Modifica
+                    </button>
+                </div>
+            </div>
         </form>
+    </div>
 {% endblock %}

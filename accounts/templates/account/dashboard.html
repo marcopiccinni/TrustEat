@@ -15,12 +15,9 @@
                         </blockquote>
                     </div>
                     <div class="card-body rounded m-0 p-0 pt-1">
-                        {#                        <p class="card-text" style="color: #212529">#}
-
                         <p>Email: <b>{{ request.user.email }}</b></p>
                         <p> Nome e Cognome: <b>{{ request.user.first_name }} {{ request.user.last_name }}</b></p>
                         <p>Città: <b>{{ location }} ({{ request.user.cap }})</b></p>
-                        {#                        <p>Cap: <b>{{ request.user.cap }}</b></p>#}
                         <p>Indirizzo: <b>{{ request.user.via }}, {{ request.user.civico }}</b></p>
                         <p>Telefono: <b>{{ request.user.telefono }}</b></p>
                         {% if request.user.is_commerciante %}
@@ -48,7 +45,6 @@
                         {% endif %}
                     </div>
                 </div>
-
             </div>
             <div class="col mt-1">
                 {% if request.user.is_utente %}
@@ -71,7 +67,6 @@
                                                 {% csrf_token %}
                                                 <button type="submit" class="btn m-0 p-0"
                                                         name="num_order" value="{{ order.order.cod_ordine }}">
-
                                                     <img id="{{ order.order }}" src='{% static "img/remove.png" %}'
                                                          alt="Elimina" style="height: 30px; object-fit: scale-down">
                                                 </button>
@@ -142,8 +137,6 @@
                                     </a>
                                 </div>
                             {% endfor %}
-
-
                         </div>
                         <div class="card-footer rounded-0 m-0 p-0 pt-1"></div>
                     </div>

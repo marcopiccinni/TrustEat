@@ -1,38 +1,39 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
+{% block head %}
+    <title>TRUST EAT</title>
+    <script src="{% static 'js/functions.js' %}"></script>
+{% endblock head %}
 
 {% block body %}
+    <script>autoReload(10000)</script>
+
     <div class="container">
-        <h1>{{ messaggio }}</h1>
-        <h2> {{ messaggio1 }}</h2>
-        <h2> {{ messaggio2 }}</h2>
-        <form method="post">
-            {% csrf_token %}
-
-                <script type="text/javascript" language="JavaScript">
-                <!--
-                function autoReload()
-                {
-                var timeID = setTimeout("location.href= '/'", 10000)
-                }
-
-                //-->
-                </script>
-
-                </head>
-                <body onload="autoReload()">
-                <br /><br />
-                <div align="center">
-
-
-                Tra 10 secondi verrai trasportato alla HomePage <br>
-                <a href="{% url 'accounts:area_utente' %}"> {{ url }} </a>
+        <a href="{% url 'localManagement:localLists' cod_locale %}" style="color: #a01b2a">
+            <div class="container-fluid mt-0 pb-1 text-warning rounded-bottom link-disabled shadow"
+                 style="background-color: #a01b2a">
+                <h1 align="center">{{ nome_locale|upper }}</h1>
+            </div>
+        </a>
+        <div class="card text-center">
+            <form method="post">
+                {% csrf_token %}
+                <div class="card-header text-light">
+                    <h1>{{ messaggio }}</h1>
+                </div>
+                <div class="card-body">
+                    <h2> {{ messaggio1 }}</h2>
+                    <h2> {{ messaggio2 }}</h2>
+                    <br>
+                    Tra 10 secondi verrai trasportato alla HomePage <br>
+                    <a href="{% url 'accounts:area_utente' %}"> {{ url }} </a>
 
                 </div>
-                <br /><br /><br /><br /><br /><br />
-                <a href="/"><img src="{% static 'img/logo-trustEat/logo.png' %}" height="300" width="600"/></a>
-                </body>
-        </form>
+                <div class="card-footer"></div>
+            </form>
+        </div>
+        <a href="/">
+            <img src="{% static 'img/logo-trustEat/_logo1.png' %}" alt="TRUST EAT" width="600px"/>
+        </a>
     </div>
 {% endblock body %}
-

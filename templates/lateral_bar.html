@@ -4,21 +4,19 @@
 <head>
     <meta charset="utf-8">
     <link rel="icon" href="{% static 'img/logo-trustEat/_logo.ico' %} "/>
-    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"#}
-    {#          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">#}
-    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'css/style5.css' %}">
+    <link rel="stylesheet" href="{% static 'css/localList.css' %}">
     <link rel="stylesheet" href="{% static 'css/card.css' %}">
 
     {% block head %}
     {% endblock head %}
-    {#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"#}
-    {#    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">#}
 
 </head>
 <body>
 {% block navbar %}
 {% endblock navbar %}
-<nav class="rounded-bottom navbar navbar-expand-lg text-warning mx-1 mt-0 pt-0 shadow"
+<nav class="rounded-bottom navbar navbar-expand-lg text-warning mr-3 mt-0 pt-0 shadow"
      style="background-color: #a01b2a; max-height: 55px;  z-index: 20">
     <a class="navbar-brand" style=" max-height: 55px" href="/">
         <img src="{% static 'img/logo-trustEat/_logo.png' %}" class="1d-inline-block align-top "

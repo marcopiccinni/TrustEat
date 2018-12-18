@@ -3,7 +3,6 @@
 {% load crispy_forms_tags %}
 
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
     <title>TRUST EAT</title>
 {% endblock head %}
 
@@ -16,7 +15,6 @@
                 </div>
                 <div class="text-center card-body">
                     <img src="{% static 'img/logo-trustEat/_logo1.png' %}" alt="TRUST EAT" width="400px" class="mb-3">
-
                     {% block content1 %}
                     {% endblock content1 %}
 
@@ -27,7 +25,6 @@
                     <button type="submit" class="btn btn-outline-light btn-lg">Completa la registrazione</button>
                 </div>
             </form>
-
         </div>
     </div>
 {% endblock body %}

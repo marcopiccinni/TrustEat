@@ -1,19 +1,33 @@
 {% extends 'base.html' %}
-
 {% load crispy_forms_filters %}
 
+{% block head %}
+    <title>Aggiungi menu </title>
+{% endblock head %}
+
 {% block body %}
-<div class="container">
-        <form method="post" action="" enctype="multipart/form-data" >
-            {% csrf_token %}
-            {{ form|crispy }}
-            <br>
-            <button type="submit" class="btn btn-success">
-                Aggiungi Prodotto
-            </button>
-            <br>
-            <br>
-            <br>
-        </form>
+    <div class="container">
+           <a href="{% url 'localManagement:localLists' locale.pk %}" style="color: #a01b2a">
+            <div class="container-fluid mt-0 pb-1 text-warning rounded-bottom link-disabled shadow"
+                 style="background-color: #a01b2a">
+                <h1 align="center">{{ locale.nome_locale|upper }}</h1>
+            </div>
+        </a>
+        <div class="card text-center mt-2">
+            <form method="post" action="" enctype="multipart/form-data">
+                <div class="card-header text-light">
+                    <h1>Aggiungi un menu</h1>
+                </div>
+                <div class="card-body">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-outline-light btn-lg">
+                        Aggiungi prodotto
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 {% endblock %}

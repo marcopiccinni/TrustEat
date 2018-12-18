@@ -1,23 +1,32 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
 
-{% block body %}
-    <h2>Prodotto eliminato con successo.</h2>
-    <br/><br/>
+{% block head %}
+    <title>Prodotto eliminato</title>
+    <script src="{% static 'js/functions.js' %}"></script>
+{% endblock head %}
 
-    <body onload="autoReload()">
-    <div align="center">
-        Tra 5 secondi sarai automaticamente rediretto alla home
-        <a href="{% url 'localManagement:products_list' cl %}"> {{ url }} </a>
+{% block body %}
+    <script> autoReload(5000)</script>
+    <a href="{% url 'localManagement:localLists' locale.pk %}" style="color: #a01b2a">
+        <div class="container-fluid mt-0 pb-1 text-warning rounded-bottom link-disabled shadow"
+             style="background-color: #a01b2a">
+            <h1 align="center">{{ locale.nome_locale|upper }}</h1>
+        </div>
+    </a>
+
+    <div class="card text-center">
+        <div class="card-header text-light">
+            <h2>Prodotto eliminato con successo.</h2>
+        </div>
+        <div class="card-body">
+            Tra 5 secondi sarai automaticamente rediretto alla home
+            <a href="{% url 'localManagement:products_list' cl %}"> {{ url }} </a>
+        </div>
+        <div class="card-footer"></div>
     </div>
-    <br/><br/><br/><br/><br/><br/>
     <a href="/">
         <img src="{% static 'img/logo-trustEat/logo.png' %}" height="300" width="600" alt="TRUST EAT"/>
     </a>
-    </body>
-    <script type="text/javascript" language="JavaScript">
-        function autoReload() {
-            var timeID = setTimeout("location.href= '/'", 5000)
-        }
-    </script>
+
 {% endblock body %}
