@@ -239,12 +239,14 @@ class ListOrder(View):
                 ordine = OrdineInAttesa.objects.get(cod_ordine=x)
                 distance = 'None km'
                 time = 'None mins'
+                # -----------------------------------------------------------------------------------------------------
                 # In caso sia possibile attivare il calcolo della distanza e tempo
                 # locale = Locale.objects.get(cod_locale=cod_locale)
                 # persona = ordine.email.user
                 # distance, time = distance_time(
                 #     origin=str(locale.via) + ',' + str(locale.num_civico) + ',' + str(locale.cap_id) + ',Italia',
                 #     arrival=str(persona.via) + ',' + str(persona.civico) + ',' + str(persona.cap) + ',Italia')
+                # -----------------------------------------------------------------------------------------------------
                 tmp = {'ordine': ordine, 'totale': total_price(ordine.cod_ordine),
                        'location': Localita.objects.get(cap=ordine.email.user.cap),
                        'distance': distance, 'time': time}

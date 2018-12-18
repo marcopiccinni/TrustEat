@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView
 from django.views.decorators.csrf import csrf_exempt
 from .forms import SearchForm
@@ -22,9 +22,16 @@ class Ricerca(ListView):
         db_order_consistance()
         form = SearchForm()
 
-        if request.user.is_authenticated and not (request.user.is_superuser or request.user.is_superuser):
+        if request.user.is_authenticated and not (request.user.is_superuser or request.user.is_staff):
             location = User.objects.get(username=request.user).cap
-            self.sorting(Locale.objects.filter(cap=Localita.objects.get(cap=location)).all())
+            try:
+                self.sorting(Locale.objects.filter(cap=Localita.objects.get(cap=location)).all())
+            except:
+                print(location)
+                print(User.objects.get(pk=request.user.pk))
+                User.objects.filter(pk=request.user.pk).delete()
+                return redirect('/')
+
             form = SearchForm(initial={'Position': Localita.objects.get(cap=location), 'Tag': None}, )
             self.pos = Localita.objects.get(cap=location).nome_localita
         else:
@@ -33,7 +40,6 @@ class Ricerca(ListView):
             form = SearchForm(request.GET or None)
             if form.is_valid():
                 location = form.cleaned_data['Position']
-                print('località selezionata: ' + str(location))
                 if location is not None:
                     self.sorting(Locale.objects.filter(cap=Localita.objects.get(nome_localita=location)).all())
                     self.pos = location
