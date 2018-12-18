@@ -4,14 +4,14 @@
 
 {% block head %}
     <title>{{ request.user }}</title>
-    {#    <link rel="stylesheet" href="{% static 'css/localList.css' %}">#}
     <style>
         div.card {
             background-color: white
         }
-    div.card-body{
-        background-color: unset;
-    }
+
+        div.card-body {
+            background-color: unset;
+        }
     </style>
 {% endblock head %}
 {% block body %}
@@ -48,20 +48,20 @@
                 {#-------------------------------Start LISTA LOCALI ------------------------------------------------------#}
                 <div class="card container mb-2 pb-3 mx-0 px-0 rounded align-content-center text-center shadow"
                      style="background-color: #d5d5d5; max-height: 400px; ">
-                    <div class="card-body align-content-center">
+                    <div class="card-header align-content-center" style="border: none; background-color: #d5d5d5">
                         {% if location_len > 1 %}
-                            <h5 class="card-title pb-0 bg-secondary text-light rounded shadow"
+                            <h5 class="card-title pb-0 bg-secondary text-light rounded "
                                 style="border: solid 2px #505050">LOCALI PER TE A: {{ location | upper }}</h5>
                         {% else %}
-                            <h5 class="card-title pb-0 bg-secondary text-light rounded shadow"
+                            <h5 class="card-title pb-0 bg-secondary text-light rounded "
                                 style="border: solid 2px #505050">LOCALI PER TE</h5>
                         {% endif %}
-                        {#                    <p class="card-text"> </p>#}
                     </div>
                     <ul class="list-group list-group-flush" style="overflow-y:auto">
                         {% for local in locals %}
                             <a href="{% url 'localManagement:localLists' local.local.pk %}">
-                                <div class="list-group-item border-0 my-0 py-0 mb-1" style="background-color: #d5d5d5">
+                                <div class="list-group-item border-0 my-0 py-0 mb-1"
+                                     style="background-color: #d5d5d5 ;border: none">
                                     <div class="card m-0 p-0 rounded border-secondary shadow">
 
                                         {% if local.foto %}
@@ -78,12 +78,9 @@
                                                 {{ local.local.nome_locale | upper }}</h5>
                                         </div>
                                         <div class="card-body m-0 p-0">
-                                            {# ------------------ SCRIPT !!!!!----------------------------        #}
-                                            <script>
-                                                if (!"{{ local.foto }}".length)
-                                                    document.writeln("<br>");
-                                            </script>
-
+                                            {% if not local.foto|length %}
+                                                <br>
+                                            {% endif %}
                                             <a class="card-title my-0 link-disabled">{{ local.local.descrizione }}</a>
                                             <p class="card-text ">
                                                 {# ------------------ SCRIPT !!!!!----------------------------        #}

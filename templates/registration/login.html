@@ -24,7 +24,6 @@
                     {% endif %}
                 </blockquote>
             </div>
-
             <form action="{% url 'accounts:login' %}" method="post">
                 <div class="card-body rounded m-0 px-5 py-1">
                     <div class="container px-5">
@@ -37,7 +36,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card-footer rounded-0 m-0 py-2">
                     <button class="btn btn-lg btn-light" type="submit">Accedi</button>
                     <a href="{% url "social:begin" "google-oauth2" %}" class="btn btn-lg btn-light"

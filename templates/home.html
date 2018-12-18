@@ -1,20 +1,30 @@
 {% extends 'base.html' %}
 {% load crispy_forms_filters %}
+{% load static from staticfiles %}
 
 {% block head %}
-    <title>Aggiungi Locale</title>
+    <title>Aggiungi locale</title>
 {% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h3>Ciao {{ request.user.username }}, {{ mex }}</h3>
-        <form method="post" action="" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form|crispy }}
-            <br>
-            <button type="submit" class="btn btn-success">
-                Aggiungi Locale
-            </button>
-        </form>
+    <div class="container mt-1">
+        <img src="{% static 'img/logo-trustEat/_logo1.png' %}" alt="TRUST EAT" width="400px">
+        <div class="card mt-4 shadow">
+            <div class="card-header text-center text-light">
+                <h3>Ciao {{ request.user.username }}, {{ mex }}</h3>
+            </div>
+            <form method="post" action="" enctype="multipart/form-data">
+                <div class="card-body text-center py-2">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                </div>
+                <div class="card-header text-center">
+                    <button type="submit" class="btn btn-lg btn-outline-light">
+                        Aggiungi il locale
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer"></div>
     </div>
 {% endblock body %}

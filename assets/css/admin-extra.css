@@ -1,5 +1,4 @@
-body.login
-{
+body.login {
     background-image: url('../img/girl_shadow_sad_face_eyes.jpg');
     background-repeat: no-repeat;
     background-position: center;
@@ -8,7 +7,7 @@ body.login
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    padding: 1.5cm 0cm 0cm 0cm;
+    padding: 1.5cm;
 }
 
 .login #header {
@@ -70,8 +69,8 @@ body.login
     padding: 8px;
     width: 100%;
     -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     color: #a01b2a;
 }
 
@@ -82,7 +81,7 @@ body.login
 
 .login .submit-row {
     clear: both;
-    padding: 0.0em 1em 0em 0.0em;
+    padding: 0.0em 1em 0.0em;
     margin: 0;
     border: none;
     background: none;
@@ -102,8 +101,7 @@ body.login
 
 .button:active, input[type=submit]:active, input[type=button]:active,
 .button:focus, input[type=submit]:focus, input[type=button]:focus,
-.button:hover, input[type=submit]:hover, input[type=button]:hover
-{
+.button:hover, input[type=submit]:hover, input[type=button]:hover {
     background: #a01b2a;
 }
 
@@ -122,4 +120,8 @@ input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
     background-image: none !important;
     color: #a01b2a;
     /*color: rgb(255, 254, 0) !important;*/
+}
+
+input {
+    cursor: inherit;
 }

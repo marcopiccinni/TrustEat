@@ -3,31 +3,28 @@
 {% load static from staticfiles %}
 
 {% block body %}
-<div class="container">
+    <div class="container">
 
- <div class="my-5 container-fluid border-0">
-        <img class="card-img-top mx-5 px-5 container" style="max-height: 200px; object-fit: scale-down"
-             src="{% static 'img/logo-trustEat/_logo1.png' %}"
-             alt="TRUST EAT">
-    </div>
-
-    <div class="card text-center my-1 mx-5 shadow" style="background-color: #878787">
-        <div class="card-header text-light m-0 p-0">
-            <blockquote class="blockquote text-center">
-                <h2 class="mb-0 p-0 pt-1"> Ciao {{ request.user.username }} </h2>
-            </blockquote>
+        <div class="my-3 text-center">
+            <img width="500px" src="{% static 'img/logo-trustEat/_logo1.png' %}" alt="TRUST EAT">
         </div>
-        <div class="card-body rounded m-0 px-5 py-1 " style="background-color:#F0F0F0 ">
-            <div class="container px-5 mb-3">
-                <div class="card-text px-5" style="color: #212529">
+        <div class="card text-center my-1 mx-5 shadow" style="background-color: #878787">
+            <div class="card-header text-light m-0 p-0">
+                <blockquote class="blockquote text-center">
+                    <h2 class="mb-0 p-0 pt-1"> Ciao {{ request.user.username }} </h2>
+                </blockquote>
+            </div>
+            <div class="card-body rounded m-0 px-5 py-1 " style="background-color:#F0F0F0 ">
+                <div class="card-text px-5 pt-2" style="color: #212529">
                     <p>{{ messaggio }}</p>
-
                     <a href="mailto:dev.trusteat@gmail.com"> dev.trusteat@gmail.com </a>
+                    <p><br>
+                        Grazie per aver scelto di utilizzare il nostro servizio. <br>
+                        Continueremo a migliorarlo per offrire sempre la migliore esperienza possibile.
+                    </p>
+
                 </div>
             </div>
         </div>
     </div>
-
-
-</div>
 {% endblock %}

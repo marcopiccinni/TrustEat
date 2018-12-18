@@ -2,22 +2,32 @@
 {% load static from staticfiles %}
 {% load crispy_forms_tags %}
 
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}">
+    <title>TRUST EAT</title>
+{% endblock head %}
+
 {% block body %}
-    <div class="row mt-5 ">
-        <div class="pt-4 pl-3 ml-2">
-            <h5>Inserisci i seguenti dati per continuare la registrazione su: </h5>
-        </div>
-        <div class="text-center">
-            <img src="{% static 'img/logo-trustEat/_logo.png' %}" alt="TRUST EAT" width="300">
+    <div class="container">
+        <div class="card mt-4 shadow">
+            <form method="post" novalidate>
+                <div class="card-header text-center text-light">
+                    <h3>Inserisci i seguenti dati per continuare la registrazione su: </h3>
+                </div>
+                <div class="text-center card-body">
+                    <img src="{% static 'img/logo-trustEat/_logo1.png' %}" alt="TRUST EAT" width="400px" class="mb-3">
+
+                    {% block content1 %}
+                    {% endblock content1 %}
+
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                </div>
+                <div class="card-footer text-center shadow">
+                    <button type="submit" class="btn btn-outline-light btn-lg">Completa la registrazione</button>
+                </div>
+            </form>
+
         </div>
     </div>
-    {% block content1 %}
-    {% endblock content1 %}
-
-    <form method="post" novalidate>
-        {% csrf_token %}
-        {{ form|crispy }}
-        <br>
-        <button type="submit" class="btn btn-success">Crea un account</button>
-    </form>
 {% endblock body %}

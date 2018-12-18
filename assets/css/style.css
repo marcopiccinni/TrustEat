@@ -79,3 +79,8 @@ div.breadcrumbs {
     font-size: 18px;
     color: #f0da5b;
 }
+
+div.__web-inspector-hide-shortcut__ {
+    background: transparent;
+    color: transparent;
+}
