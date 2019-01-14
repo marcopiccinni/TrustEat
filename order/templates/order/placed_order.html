@@ -20,11 +20,11 @@
             {% else %}
                 {{ locale.nome_locale }}
             {% endif %}
-
         </h2>
-        Situato in {{ locale.via }}, {{ locale.num_civico }} a {{ locale.cap.nome_localita }} ({{ locale.cap.cap }})
+        Situato in {{ locale.via }}, {{ locale.num_civico }} a {{ locale.cap.nome_localita }} ({{ locale.cap.cap }})<br>
+        Richiesto per le ore {{ ordine.orario_richiesto }}&nbsp; il giorno {{ ordine.data|date:"l, d F Y" }}
         <br><br>
-        <p>Effettuato per conto dell'utente {{ user.username }}, {{ user.first_name }} {{ user.last_name }}
+        <p>Per conto di {{ user.username }}, {{ user.first_name }} {{ user.last_name }}
             {% if request.user.is_commerciante %}
                 (<a href="mailto:{{ user.email }}">{{ user.email }}</a>
                 <a href="tel:{{ user.telefono }}">{{ user.telefono }}</a> )
@@ -38,7 +38,7 @@
         {% if prodotti|length > 0 %}
             <p>Elenco prodotti</p>
             {% for p in prodotti %}
-                <li><b>{{ p.obj.nome_prodotto }}</b> {{ p.obj.prezzo }} &euro;&nbsp;&nbsp;&nbsp; x {{ p.num_obj }}
+                <li><b>{{ p.obj.nome_prodotto }}</b> {{ p.obj.prezzo }} &euro;&nbsp;&nbsp;&nbsp; <b>x {{ p.num_obj }}</b>&ensp;
                     &rarr;&nbsp; {% multiply p.num_obj p.obj.prezzo %} &euro;
                 </li>
             {% endfor %}

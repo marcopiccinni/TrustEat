@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
-{% load crispy_forms_tags %}
 
 {% block head %}
     <title>Profile</title>
@@ -10,15 +9,13 @@
 {% block body %}
     <script> autoReload(10000) </script>
     <div class="container">
-        <form method="post">
-            {% csrf_token %}
             <div class="card text-center">
                 <div class="card-header">
                     <h1>SUCCESSO</h1>
                 </div>
                 <div class="card-body">
                     <h2>{{ messaggio }}</h2>
-                    Tra 10 secondi verrai trasportato alla HomePage
+                    Tra 10 secondi verrai trasportato alla HomePage<br>
                     <a href="{% url 'accounts:area_utente' %}"> {{ url }} </a>
                 </div>
                 <div class="card-footer"></div>
@@ -28,6 +25,5 @@
                 <img src="{% static 'img/logo-trustEat/_logo1.png' %}" alt="TRUST EAT" width="600px"
                      style="object-fit: scale-down">
             </div>
-        </form>
     </div>
 {% endblock body %}

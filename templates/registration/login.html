@@ -32,6 +32,9 @@
                                 {{ form|crispy }}
                                 {% csrf_token %}
                                 <input type="hidden" name="next" value="{{ next }}"/>
+                                <p>Hai dimenticato la password?
+                                    <a href="{% url 'contatti' %}">Contattaci!</a>
+                                </p>
                             </div>
                         </div>
                     </div>

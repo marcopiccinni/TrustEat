@@ -1,0 +1,38 @@
+aggiungi anche che devo gestire gli ordini in consegna dopo la giornata corrente
+
+
+
+
+
+
+#a causa di cambio nome pacchetto in versione successiva
+pip install psycopg2-binary
+
+-Cancellato reset password
+-Modificato login, aggiunta scritta contattaci password smarrita
+-Cancellare tipo -> modifica db
+-in modifica locale cambiare in locale aggiunto con successo a locale modificato con successo
+-centrare logo aggiunta menu
+-inserire banner locale aggiunta menu
+-quando cancello tag da modifica (forse anche creazione, controllare) lui cancella la tabella
+-idem cancellando giorno chiusura
+-controllare aggiunta commercianti
+-spostare file js template user
+-sistemata descrizione ordini
+- sistemare view recensioni controllo utente inserito in risposta commerciante
+- chi puo' vedere cosa:
+-area utente  || anonimi non possono
+- controllare review
+- aumentare max height
+- mettere barre verticali recensioni
+- allargare risposta commerciante
+- altezza gestione ordini e rifiutati
+- togliere print javascript e in giro
+- disabilitare pulsanti locale per ordinare
+-ritornare booleani da funzioni e se passano tutti i controlli cambiare il bottone
+-controllare carta di credito sia di 16 numeri
+-ordinare il codice -> locallist addproduct prima di modproduct
+-gestire aggiunta prodotto-menu con nome già presente
+-controllare non si usi una carta scaduta nell'ordine
+-Sistemare i vari loghi ->padding/center
+

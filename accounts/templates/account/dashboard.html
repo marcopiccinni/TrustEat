@@ -20,6 +20,24 @@
                         <p>Città: <b>{{ location }} ({{ request.user.cap }})</b></p>
                         <p>Indirizzo: <b>{{ request.user.via }}, {{ request.user.civico }}</b></p>
                         <p>Telefono: <b>{{ request.user.telefono }}</b></p>
+                        {% if request.user.is_utente %}
+                            <h5 class='text-center mr-5'>Elenco carte <a href="{% url 'user:add_cc' %}">
+                                <img
+                                        src="{% static '/img/add.ico' %}"
+                                        class="rounded-circle mr-2"
+                                        height="25px"
+                                        width="25px"></a></h5>
+                            {% for x in cia %}
+                                <p>Numero carta: <b> {{ x.cards.numero_carta }}</b>
+                                    <a href="{% url 'user:remove_cc' x.cards.cod_carta %}"
+                                       onclick="return conf_del('Sicuro di voler procedere con l\'eliminazione?')">
+                                        <img
+                                                src="{% static '/img/remove.png' %}" class="rounded-circle mr-2"
+                                                height="25px"
+                                                width="25px"></a>
+                                </p>
+                            {% endfor %}
+                        {% endif %}
                         {% if request.user.is_commerciante %}
                             <p>Partita iva: <b>{{ commerciante.p_iva }}</b></p>
                         {% endif %}
@@ -66,7 +84,8 @@
                                             <form method="post">
                                                 {% csrf_token %}
                                                 <button type="submit" class="btn m-0 p-0"
-                                                        name="num_order" value="{{ order.order.cod_ordine }}">
+                                                        name="num_order" value="{{ order.order.cod_ordine }}"
+                                                        onclick="return conf_del()">
                                                     <img id="{{ order.order }}" src='{% static "img/remove.png" %}'
                                                          alt="Elimina" style="height: 30px; object-fit: scale-down">
                                                 </button>
@@ -111,14 +130,15 @@
                                 <h3> I TUOI LOCALI </h3>
                             </blockquote>
                         </div>
-                        <div class="card-body rounded m-0 p-0 pt-1" style="max-height:500px;">
+                        <div class="card-body rounded m-0 p-0 pt-1" style="max-height:500px; overflow-y: auto">
                             {% for local in locals %}
                                 <div class="text-left">
                                     <a href="{% url 'localManagement:localLists' local.local.cod_locale %}"
                                        style="color: black; text-decoration: none">
-                                        <div class="card mx-3 mb-2 shadow" style="background-color:white ;height: 100px">
+                                        <div class="card mx-3 mb-2 shadow"
+                                             style="background-color:white ;max-height: 400px">
                                             <div class="row container-fluid">
-                                                <div class="col-5">
+                                                <div class="col">
                                                     {% if local.foto %}
                                                         <img src="{{ local.foto.url }}"
                                                              style="height: 90px; object-fit: scale-down"
@@ -144,4 +164,5 @@
             </div>
         </div>
     </div>
+    <script src="{% static 'js/functions.js' %}"></script>
 {% endblock %}

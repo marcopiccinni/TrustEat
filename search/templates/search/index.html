@@ -8,7 +8,6 @@
         div.card {
             background-color: white
         }
-
         div.card-body {
             background-color: unset;
         }
@@ -17,9 +16,13 @@
 {% block body %}
 
     <div class="card mb-1 container-fluid border-0">
-        <img class="card-img-top mx-5 px-5 container" style="max-height: 200px; object-fit: scale-down"
+    <div class="container ml-lg-5 pl-lg-5">
+        <div class="container ml-lg-5 pl-lg-5 ">
+        <img class="card-img-top ml-lg-5 px-lg-5 container" style="max-height: 200px; object-fit: scale-down"
              src="{% static 'img/logo-trustEat/_logo1.png' %}"
              alt="TRUST EAT">
+    </div>
+    </div>
     </div>
     <div class="container-fluid">
         <div class="row">
@@ -47,7 +50,7 @@
             <div class="col-xl-7 mt-1 ">
                 {#-------------------------------Start LISTA LOCALI ------------------------------------------------------#}
                 <div class="card container mb-2 pb-3 mx-0 px-0 rounded align-content-center text-center shadow"
-                     style="background-color: #d5d5d5; max-height: 400px; ">
+                     style="background-color: #d5d5d5; max-height: 700px; ">
                     <div class="card-header align-content-center" style="border: none; background-color: #d5d5d5">
                         {% if location_len > 1 %}
                             <h5 class="card-title pb-0 bg-secondary text-light rounded "

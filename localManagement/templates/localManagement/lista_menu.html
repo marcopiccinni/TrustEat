@@ -1,29 +1,55 @@
 {% extends "base.html" %}
 {% load static from staticfiles %}
+{% load crispy_forms_filters %}
+
+{% block head %}
+    <title>I tuoi menu</title>
+{% endblock head %}
 
 {% block body %}
-    <h2 class='text-center mr-5'>Elenco menu:
-        <a href="{% url 'localManagement:add_menu' cl %}">
-            <img src="{% static '/img/add.ico' %}" alt="DEL" class="rounded-circle mr-2" height="25px" width="25px">
-        </a>
-    </h2>
-
-    <div class="container mt-1">
-        {% for x in menu %}
-            <div class="mt-1" style="margin-left: 20%">
-                <a href="{% url 'localManagement:edit_menu' x.cod_locale_id x.id %}">
-                    <img src="{% static '/img/edit-icon.png' %}" alt="EDIT" class="mr-2" height="50px" width="50px">
-                </a>
-
-                <a href="{% url 'localManagement:remove_menu' x.cod_locale_id x.id %}">
-                    <img src="{% static '/img/remove.png' %}" alt="DEL" class="rounded-circle mr-2" height="50px"
-                         width="50px">
-                </a>
-
-                <b>{{ x.nome_menu }}</b>:
-                <i>{{ x.descrizione_menu }} </i>
-                <br>
+    <div class="container">
+        <a href="{% url 'localManagement:localLists' locale.pk %}" style="color: #a01b2a">
+            <div class="container-fluid mt-0 pb-1 text-warning rounded-bottom link-disabled shadow"
+                 style="background-color: #a01b2a">
+                <h1 align="center">{{ locale.nome_locale|upper }}</h1>
             </div>
-        {% endfor %}
+        </a>
+        <div class="card mt-2">
+            <form method="post" action="" enctype="multipart/form-data">
+                <div class="card-header text-light  text-center">
+                    <h2 class='text-center mr-5'>Elenco menu:
+                        <a href="{% url 'localManagement:add_menu' cl %}">
+                            <img src="{% static '/img/add.ico' %}" alt="ADD" class="rounded-circle mr-2 shadow"
+                                 height="35px" width="35px">
+                        </a>
+                    </h2>
+                </div>
+                <div class="card-body">
+                    {% for x in menu %}
+                        <div class="row mt-1 mb-2">
+                            <div class="col-1 ml-4 pt-2">
+                                <a href="{% url 'localManagement:edit_menu' x.cod_locale_id x.id %}">
+                                    <img src="{% static '/img/edit-icon.png' %}" class="mr-2" alt="ADD"
+                                         height="50px" width="50px">
+                                </a>
+                            </div>
+                            <div class="col-1 pt-2">
+                                <a href="{% url 'localManagement:remove_menu' x.cod_locale_id x.id %}"
+                                   onclick="return conf_del('Sicuro di voler procedere con l\'eliminazione?')">
+                                    <img src="{% static '/img/remove.png' %}" class="rounded-circle mr-2" alt="DEL"
+                                         height="50px" width="50px">
+                                </a>
+                            </div>
+                            <div class="col pl-4 pt-3">
+                                <b>{{ x.nome_menu }}</b>:
+                                <i>{{ x.descrizione_menu }} </i>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="card-footer"></div>
+            </form>
+        </div>
     </div>
+    <script src="{% static 'js/functions.js' %}"></script>
 {% endblock %}

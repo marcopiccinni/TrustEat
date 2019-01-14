@@ -7,16 +7,16 @@
 
 {% block body %}
     <div class="container">
-           <a href="{% url 'localManagement:localLists' locale.pk %}" style="color: #a01b2a">
+        <a href="{% url 'localManagement:localLists' locale.pk %}" style="color: #a01b2a">
             <div class="container-fluid mt-0 pb-1 text-warning rounded-bottom link-disabled shadow"
                  style="background-color: #a01b2a">
                 <h1 align="center">{{ locale.nome_locale|upper }}</h1>
             </div>
         </a>
-        <div class="card text-center mt-2">
+        <div class="card text-center mt-2 shadow">
             <form method="post" action="" enctype="multipart/form-data">
                 <div class="card-header text-light">
-                    <h1>Aggiungi un menu</h1>
+                    <h1>Aggiungi un prodotto</h1>
                 </div>
                 <div class="card-body">
                     {% csrf_token %}
@@ -24,10 +24,11 @@
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-outline-light btn-lg">
-                        Aggiungi prodotto
+                        Aggiungi
                     </button>
                 </div>
             </form>
         </div>
+
     </div>
 {% endblock %}

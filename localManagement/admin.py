@@ -1,5 +1,5 @@
 from django.contrib import admin
-from localManagement.models import Prodotto, Menu, Tipo, CompostoDa, Localita, Locale, FotoLocale, Chiusura, Tag
+from localManagement.models import Prodotto, Menu, CompostoDa, Localita, Locale, FotoLocale, Chiusura, Tag
 
 
 class LocalitaInline(admin.StackedInline):
@@ -62,9 +62,9 @@ class TagAdmin(admin.ModelAdmin):
 
 class ProdottoAdmin(admin.ModelAdmin):
     fieldsets = [(None, {'fields': ['nome_prodotto', 'foto_prodotto']}),
-                 ('About it', {'fields': ['descrizione_prodotto', 'prezzo', 'nome_tipo', 'cod_locale']}),
+                 ('About it', {'fields': ['descrizione_prodotto', 'prezzo', 'cod_locale']}),
                  ]
-    list_display = ['nome_prodotto', 'foto_prodotto', 'descrizione_prodotto', 'prezzo', 'nome_tipo']
+    list_display = ['nome_prodotto', 'foto_prodotto', 'descrizione_prodotto', 'prezzo']
     list_select_related = ['nome_tipo', 'cod_locale']
     inlines = [ProdInLine]
 
@@ -77,10 +77,6 @@ class MenuAdmin(admin.ModelAdmin):
     list_select_related = ['cod_locale', ]
     inlines = [MenuInLine]
 
-
-class TipoAdmin(admin.ModelAdmin):
-    fieldsets = [(None, {'fields': ['nome_tipo']}), ]
-    list_display = ['nome_tipo']
 
 
 class ChiusuraAdmin(admin.ModelAdmin):
@@ -106,7 +102,6 @@ admin.site.register(Locale, LocaleAdmin)
 admin.site.register(Tag, TagAdmin)
 admin.site.register(Prodotto, ProdottoAdmin)
 admin.site.register(Menu, MenuAdmin)
-admin.site.register(Tipo, TipoAdmin)
 admin.site.register(Chiusura, ChiusuraAdmin)
 admin.site.register(FotoLocale, FotoLocaleAdmin)
 admin.site.register(CompostoDa, CompostoDaAdmin)

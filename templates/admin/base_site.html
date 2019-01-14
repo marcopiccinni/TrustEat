@@ -9,7 +9,10 @@
 
 {% block branding %}
     <h1 id="site-name">
-        <a href="{% url 'admin:index' %}">TRUST EAT</a>
+        <a href="{% url 'admin:index' %}">
+        <img src="/static/img/logo-trustEat/_logo.png" class="1d-inline-block align-top "
+             style="object-fit: fill; max-height: 45px" alt="TRUST EAT">
+        </a>
     </h1>
 {% endblock %}
 {% block nav-global %}{% endblock %}

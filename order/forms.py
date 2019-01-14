@@ -18,5 +18,13 @@ class CardOrderForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         super(CardOrderForm, self).__init__(*args, **kwargs)
-        self.fields['Carta'].queryset = Utente.objects.get(
-            pk=User.objects.get(username=LocalList.last_user).pk).cartadicredito_set.all()
+
+        carte = Utente.carta_di_credito.through.objects.filter(
+            utente_id=User.objects.get(username=LocalList.last_user).id)
+        wanted_items = set()
+        for carta in carte:
+            c_id = carta.cartadicredito_id
+            if CartaDiCredito.objects.get(cod_carta=c_id).is_valid():
+                wanted_items.add(CartaDiCredito.objects.get(cod_carta=c_id).pk)
+
+        self.fields['Carta'].queryset = CartaDiCredito.objects.filter(pk__in=wanted_items)

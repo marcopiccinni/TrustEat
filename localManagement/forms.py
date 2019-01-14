@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from .models import FotoLocale, Locale, Localita, Tag, Prodotto, Tipo, Menu
+from .models import FotoLocale, Locale, Localita, Tag, Prodotto, Menu
 from accounts.models import Commerciante
 from django.core.exceptions import ValidationError
 from django.shortcuts import get_object_or_404, render
@@ -27,7 +27,7 @@ class ReviewForm(forms.Form):
         attrs={'style': 'width: 60px', 'class': 'mx-5 my-0', }
     ))
     Descrizione = forms.CharField(required=False, label='Recensione', widget=forms.TextInput(
-        attrs={'placeholder': 'Aggiungi qui un commento', 'class': 'ml-2 my-0', 'style': 'width: 900px', }
+        attrs={'placeholder': 'Aggiungi qui un commento', 'class': 'ml-2 my-0', 'style': 'width: 100%', }
     ))
 
 
@@ -36,7 +36,7 @@ class ReplayForm(forms.Form):
                                  widget=forms.Select(attrs={'class': 'ml-2 my-0', })
                                  )
     Descrizione = forms.CharField(required=True, label='Risposta', widget=forms.TextInput(
-        attrs={'placeholder': 'Aggiungi qui la risposta', 'class': 'ml-2 my-0', 'style': 'width: 100px', }
+        attrs={'placeholder': 'Aggiungi qui la risposta', 'class': 'ml-2 my-0', 'style': 'width: 100%', }
     ))
 
 
@@ -96,6 +96,8 @@ class EditLocal(forms.Form):
     giorno_chiusura = forms.MultipleChoiceField(choices=DAY_CHOICES, required=False, label='Giorno di chiusura',
                                                 widget=forms.CheckboxSelectMultiple)
     altri_proprietari = forms.ModelMultipleChoiceField(queryset=Commerciante.objects.all(), required=False)
+    rimuovi_altri_proprietari = forms.BooleanField(required=False, label='Rimuovi altri proprietari')
+
     foto_locale1 = forms.ImageField(required=False)
     foto_locale2 = forms.ImageField(required=False)
     foto_locale3 = forms.ImageField(required=False)
@@ -104,7 +106,7 @@ class EditLocal(forms.Form):
         model = Locale, FotoLocale
         fields = ['nome_locale', 'cap', 'via', 'numero_civico', 'telefono', 'sito_web', 'email', 'descrizione',
                   'prezzo_di_spedizione', 'tag', 'orario_apertura', 'orario_chiusura', 'giorno_chiusura',
-                  'altri_proprietari', 'foto_locale1', 'foto_locale2', 'foto_locale3']
+                  'altri_proprietari', 'rimuovi_altri_proprietari', 'foto_locale1', 'foto_locale2', 'foto_locale3']
 
 
 class EditProduct(forms.Form):
@@ -113,11 +115,10 @@ class EditProduct(forms.Form):
                                            label='Ingredienti')
     prezzo = forms.FloatField(min_value=0, required=False)
     foto_prodotto = forms.ImageField(required=False, label='Foto')
-    nome_tipo = forms.ModelChoiceField(queryset=Tipo.objects.all(), required=False, label='Tipo')
 
     class Meta:
         model = Prodotto
-        fields = ['nome_prodotto', 'descrizione_prodotto', 'prezzo', 'nome_tipo', 'foto_prodotto']
+        fields = ['nome_prodotto', 'descrizione_prodotto', 'prezzo', 'foto_prodotto']
 
 
 class AddEProduct(forms.Form):
@@ -125,11 +126,10 @@ class AddEProduct(forms.Form):
     descrizione_prodotto = forms.CharField(max_length=100, required=True, widget=forms.TextInput(), label='Ingredienti')
     prezzo = forms.FloatField(min_value=0, required=True)
     foto_prodotto = forms.ImageField(required=False)
-    nome_tipo = forms.ModelChoiceField(queryset=Tipo.objects.all(), required=False, label='Tipo')
 
     class Meta:
         model = Prodotto
-        fields = ['nome_prodotto', 'descrizione_prodotto', 'prezzo', 'nome_tipo', 'foto_prodotto']
+        fields = ['nome_prodotto', 'descrizione_prodotto', 'prezzo', 'foto_prodotto']
 
 
 class AddEMenu(forms.Form):

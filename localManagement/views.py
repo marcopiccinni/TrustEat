@@ -1,15 +1,13 @@
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404, render, HttpResponse, redirect
 from django.views.generic import UpdateView, TemplateView, CreateView, DeleteView, View
-from .models import Tipo, Tag, FotoLocale, Chiusura, Menu, Prodotto, CompostoDa, Localita, Locale
+from .models import Tag, FotoLocale, Chiusura, Menu, Prodotto, CompostoDa, Localita, Locale
 from .forms import ReplayForm, ReviewForm, AddEMenu, AddEProduct, CreateLocalForm, QuantityForm, ModMenu, \
     EditProduct, EditLocal
 from accounts.models import Commerciante, User, Utente
 from user.models import Recensione
 from order.models import RichiedeM, RichiedeP, OrdineInAttesa
 from TrustEat.maps import geocode
-from django.core.exceptions import ValidationError
-from django.contrib.auth.decorators import login_required, user_passes_test
 import datetime
 
 
@@ -93,12 +91,16 @@ class LocalList(View):
         for el in self.menu_ordine:
             num_obj += el['num_obj']
 
+        tags = '- '
+        for elem in local.tag.all().values_list():
+            tags += elem[0] + ', '
         args = {'local': local, 'location': location, 'vote': vote, 'dealers': dealers,
                 'dealers_id': [dealer.user.id for dealer in
                                Commerciante.objects.filter(possiede_locale__cod_locale=cod_locale).all()],
                 'photo_list': photo_list, 'photo_len': photos.__len__(),
                 'prod_list': self.prod_list, 'menu_list': self.menu_list,
                 'prod_ordine': self.prod_ordine, 'menu_ordine': self.menu_ordine, 'num_obj': num_obj,
+                'tags': tags.rsplit(', ', 1)[0] + ' -'
                 }
         return args
 
@@ -179,6 +181,7 @@ class Votes(View):
         if not request.user.is_anonymous:
             if request.user.is_utente:
                 cls.user_form = ReviewForm()
+                cls.update=False
                 for rev in review:
                     if request.user == rev.email.user:
                         cls.user_form = ReviewForm(initial={'Voto': rev.voto, 'Descrizione': rev.descrizione})
@@ -228,6 +231,8 @@ class Votes(View):
                 form = ReplayForm(request.POST or None)
                 descrizione = form.data['Descrizione']
                 username = form.data['Username']
+                if username == '0':
+                    return redirect('localManagement:votes', cod_locale)
                 if Recensione.objects.filter(voto=None, cod_locale=cod_locale, email_id=username).count():
                     Recensione.objects.filter(cod_locale=Locale.objects.get(pk=cod_locale), voto=None,
                                               email=Utente.objects.get(pk=username)). \
@@ -243,18 +248,15 @@ class Votes(View):
         return redirect('localManagement:votes', cod_locale)
 
 
-def index(request):
-    first_open_list = Locale.objects.order_by('-cap')
-    context = {'first_open_list': first_open_list}
-    return render(request, 'localManagement/index.html', context)
-
-
 class CreateLocalView(View):
     template_name = 'localManagement/nuovo_locale.html'
     model = get_user_model()
     form_class = CreateLocalForm
 
     def get(self, request):
+        if request.user.is_anonymous or not request.user.is_commerciante:
+            return redirect('/')
+
         comm = Commerciante.objects.exclude(user_id=request.user.id)
         form = CreateLocalForm()
         form.fields['altri_proprietari'].queryset = comm
@@ -266,7 +268,7 @@ class CreateLocalView(View):
         if request.method == 'POST':
             form = CreateLocalForm(request.POST or None, request.FILES or None)
             messaggio = "Il locale e' stato aggiunto con successo"
-            url = "Clicca qui per tornare alla home"
+            url = "Clicca qui per tornare all'area utente"
             context = {'messaggio': messaggio, 'url': url}
 
             if form.is_valid():
@@ -313,37 +315,60 @@ class CreateLocalView(View):
                     return render(request, 'localManagement/successo_insuccesso_locale.html', context)
                 else:
                     t = Tag.objects.filter(nome_tag__in=tag)
+
                     # geocoding -----------------------------
-                    loc = Locale.objects.create(nome_locale=nome_locale, orario_apertura=orario_apertura,
-                                                orario_chiusura=orario_chiusura, num_civico=num_civico, via=via,
-                                                cap=Localita.objects.get(cap=cap.cap), descrizione=descrizione,
-                                                telefono=telefono,
-                                                sito_web=sito_web, email=email,
-                                                prezzo_di_spedizione=prezzo_di_spedizione,
-                                                latitude=latitude, longitude=longitude)
-                    loc.tag.set(t)
 
-                    if giorno_chiusura is not None:
-                        for x in giorno_chiusura:
-                            Chiusura.objects.create(cod_locale=Locale.objects.get(cod_locale=loc.cod_locale),
-                                                    giorno_chiusura=x)
+                    loc = Locale(nome_locale=nome_locale,
+                                 orario_apertura=orario_apertura,
+                                 orario_chiusura=orario_chiusura,
+                                 num_civico=num_civico, via=via,
+                                 cap=Localita.objects.get(cap=cap.cap),
+                                 descrizione=descrizione,
+                                 telefono=telefono,
+                                 sito_web=sito_web, email=email,
+                                 prezzo_di_spedizione=prezzo_di_spedizione,
+                                 latitude=latitude, longitude=longitude)
 
-                    comm = Commerciante.objects.get(user_id=request.user.id)
-                    comm.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
-                    if altri_proprietari is not None:
-                        for x in altri_proprietari:
-                            x.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
+                    if loc.correct_open_close_time():
 
-                    foto1 = FotoLocale(cod_locale=loc, foto_locale=foto_locale1)
-                    foto1.save()
-                    if foto_locale2 is not None:
-                        foto2 = FotoLocale(cod_locale=loc, foto_locale=foto_locale2)
-                        foto2.save()
-                    if foto_locale3 is not None:
-                        foto3 = FotoLocale(cod_locale=loc, foto_locale=foto_locale3)
-                        foto3.save()
+                        # loc = Locale.objects.create(nome_locale=nome_locale, orario_apertura=orario_apertura,
+                        #                             orario_chiusura=orario_chiusura, num_civico=num_civico, via=via,
+                        #                             cap=Localita.objects.get(cap=cap.cap), descrizione=descrizione,
+                        #                             telefono=telefono,
+                        #                             sito_web=sito_web, email=email,
+                        #                             prezzo_di_spedizione=prezzo_di_spedizione,
+                        #                             latitude=latitude, longitude=longitude)
+                        loc.save()
+                        loc.tag.set(t)
 
-                    return render(request, 'localManagement/successo_insuccesso_locale.html', context)
+                        if giorno_chiusura is not None:
+                            for x in giorno_chiusura:
+                                Chiusura.objects.create(cod_locale=Locale.objects.get(cod_locale=loc.cod_locale),
+                                                        giorno_chiusura=x)
+
+                        comm = Commerciante.objects.get(user_id=request.user.id)
+                        comm.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
+                        if altri_proprietari is not None:
+                            for x in altri_proprietari:
+                                x.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
+
+                        foto1 = FotoLocale(cod_locale=loc, foto_locale=foto_locale1)
+                        foto1.save()
+                        if foto_locale2 is not None:
+                            foto2 = FotoLocale(cod_locale=loc, foto_locale=foto_locale2)
+                            foto2.save()
+                        if foto_locale3 is not None:
+                            foto3 = FotoLocale(cod_locale=loc, foto_locale=foto_locale3)
+                            foto3.save()
+
+                        return render(request, 'localManagement/successo_insuccesso_locale.html', context)
+                    else:
+                        messaggio = 'Errore'
+                        messaggio1 = 'Si prega di reinserire correttamente i dati'
+                        messaggio2 = 'Ricordarsi che l\'orario di apertura non puo\' essere successivo a quello di chiusura'
+                        context = {"form": form, "messaggio": messaggio, 'messaggio1': messaggio1,
+                                   'messaggio2': messaggio2, 'url': url}
+                        return render(request, 'localManagement/successo_insuccesso_locale.html', context)
 
             messaggio = 'Errore'
             messaggio1 = 'Si prega di reinserire i dati'
@@ -357,9 +382,17 @@ class EditLocalView(View):
     form_class = EditLocal
 
     def get(self, request, cod_locale):
+        if request.user.is_anonymous or not request.user.is_commerciante:
+            return redirect('/')
+
         loc = Locale.objects.get(cod_locale=cod_locale)
         fot = FotoLocale.objects.filter(cod_locale=cod_locale)
         comm = Commerciante.objects.exclude(user_id=request.user.id)
+        dealers = []
+        for dealer in Commerciante.objects.filter(possiede_locale__cod_locale=cod_locale).exclude(
+                user_id=request.user.id):
+            dealers.append(User.objects.get(username=dealer).username)
+
         mex = 'Modifica qui il tuo locale'
         id = []
         indx = 0
@@ -408,8 +441,8 @@ class EditLocalView(View):
 
     def post(self, request, cod_locale):
         form = EditLocal(request.POST or None, request.FILES or None)
-        messaggio = "Il locale e' stato aggiunto con successo"
-        url = "Clicca qui per tornare alla home"
+        messaggio = "Il locale e' stato modificato con successo"
+        url = "Clicca qui per tornare all'area utente"
         context = {'messaggio': messaggio, 'url': url}
         if request.method == 'POST':
             if form.is_valid():
@@ -427,75 +460,100 @@ class EditLocalView(View):
                 tag = form.cleaned_data['tag']
                 giorno_chiusura = form.cleaned_data['giorno_chiusura']
                 altri_proprietari = form.cleaned_data['altri_proprietari']
+                rimuovi_altri_proprietari = form.cleaned_data['rimuovi_altri_proprietari']
                 foto_locale1 = form.cleaned_data['foto_locale1']
                 foto_locale2 = form.cleaned_data['foto_locale2']
                 foto_locale3 = form.cleaned_data['foto_locale3']
                 latitude, longitude = geocode(str(via) + ',' + str(num_civico) + ',' + str(cap) + 'Italia')
                 #  geocoding ------------------
-                Locale.objects.filter(cod_locale=cod_locale).update(nome_locale=nome_locale,
-                                                                    orario_apertura=orario_apertura,
-                                                                    orario_chiusura=orario_chiusura,
-                                                                    num_civico=num_civico, via=via,
-                                                                    cap=Localita.objects.get(cap=cap.cap),
-                                                                    descrizione=descrizione,
-                                                                    telefono=telefono,
-                                                                    sito_web=sito_web, email=email,
-                                                                    prezzo_di_spedizione=prezzo_di_spedizione,
-                                                                    latitude=latitude, longitude=longitude)
-                id = []
-                indx = 0
+                c = Locale(nome_locale=nome_locale,
+                           orario_apertura=orario_apertura,
+                           orario_chiusura=orario_chiusura,
+                           num_civico=num_civico, via=via,
+                           cap=Localita.objects.get(cap=cap.cap),
+                           descrizione=descrizione,
+                           telefono=telefono,
+                           sito_web=sito_web, email=email,
+                           prezzo_di_spedizione=prezzo_di_spedizione,
+                           latitude=latitude, longitude=longitude)
 
-                for f in FotoLocale.objects.all():
-                    id.append(f.id)
-                    indx += 1
+                if c.correct_open_close_time():
 
-                if foto_locale1 is not None:
-                    if indx is 1:
-                        FotoLocale.objects.get(id=id[0]).delete()
-                    foto1 = FotoLocale.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
-                                                      foto_locale=foto_locale1)
-                    foto1.save()
-                if foto_locale2 is not None:
-                    if indx is 2:
-                        FotoLocale.objects.get(id=id[1]).delete()
-                    foto2 = FotoLocale.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
-                                                      foto_locale=foto_locale2)
-                    foto2.save()
-                if foto_locale3 is not None:
-                    if indx is 3:
-                        FotoLocale.objects.get(id=(id[2])).delete()
-                    foto3 = FotoLocale.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
-                                                      foto_locale=foto_locale3)
-                    foto3.save()
+                    Locale.objects.filter(cod_locale=cod_locale).update(nome_locale=nome_locale,
+                                                                        orario_apertura=orario_apertura,
+                                                                        orario_chiusura=orario_chiusura,
+                                                                        num_civico=num_civico, via=via,
+                                                                        cap=Localita.objects.get(cap=cap.cap),
+                                                                        descrizione=descrizione,
+                                                                        telefono=telefono,
+                                                                        sito_web=sito_web, email=email,
+                                                                        prezzo_di_spedizione=prezzo_di_spedizione,
+                                                                        latitude=latitude, longitude=longitude)
+                    id = []
+                    indx = 0
+                    for f in FotoLocale.objects.all():
+                        id.append(f.id)
+                        indx += 1
 
-                loc = Locale.objects.get(cod_locale=cod_locale)
-                if giorno_chiusura is not None:
-                    Chiusura.objects.filter(cod_locale=Locale.objects.get(cod_locale=loc.cod_locale)).delete()
-                    for i in giorno_chiusura:
-                        Chiusura.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
-                                                giorno_chiusura=i)
+                    if foto_locale1 is not None:
+                        if indx is 1:
+                            FotoLocale.objects.get(id=id[0]).delete()
+                        foto1 = FotoLocale.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
+                                                          foto_locale=foto_locale1)
+                        foto1.save()
+                    if foto_locale2 is not None:
+                        if indx is 2:
+                            FotoLocale.objects.get(id=id[1]).delete()
+                        foto2 = FotoLocale.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
+                                                          foto_locale=foto_locale2)
+                        foto2.save()
+                    if foto_locale3 is not None:
+                        if indx is 3:
+                            FotoLocale.objects.get(id=(id[2])).delete()
+                        foto3 = FotoLocale.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
+                                                          foto_locale=foto_locale3)
+                        foto3.save()
 
-                if tag is not None:
-                    Locale.tag.through.objects.all().delete()
-                    for x in tag:
-                        loc.tag.add(Tag.objects.get(nome_tag=x))
+                    loc = Locale.objects.get(cod_locale=cod_locale)
+                    if giorno_chiusura:
+                        Chiusura.objects.filter(cod_locale=Locale.objects.get(cod_locale=loc.cod_locale)).delete()
+                        for i in giorno_chiusura:
+                            Chiusura.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
+                                                    giorno_chiusura=i)
 
-                comm = Commerciante.objects.get(user_id=request.user.id)
-                comm.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
-                if altri_proprietari is not None:
-                    for x in altri_proprietari:
-                        x.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
+                    if tag:
+                        Locale.tag.through.objects.filter(locale_id=cod_locale).delete()
+                        for x in tag:
+                            loc.tag.add(Tag.objects.get(nome_tag=x))
 
-            return render(request, 'localManagement/successo_insuccesso_locale.html', context)
-        else:
-            messaggio = 'Insuccesso'
-            messaggio1 = 'Riprovare'
-            context = {"form": form, "messaggio": messaggio, 'messaggio1': messaggio1, 'url': url}
-            return render(request, 'localManagement/successo_insuccesso_locale.html', context)
+                    comm = Commerciante.objects.get(user_id=request.user.id)
+                    comm.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
+                    if altri_proprietari is not None:
+                        for x in altri_proprietari:
+                            x.possiede_locale.add(Locale.objects.get(cod_locale=loc.cod_locale))
+
+                    if rimuovi_altri_proprietari:
+                        a = Commerciante.possiede_locale.through.objects.filter(locale_id=cod_locale).exclude(
+                            commerciante_id=request.user.id).delete()
+
+                    return render(request, 'localManagement/successo_insuccesso_locale.html', context)
+                else:
+                    messaggio = 'Insuccesso'
+                    messaggio1 = 'L\'orario di apertura non puo\' essere successivo a quello di chiusura'
+                    context = {"form": form, "messaggio": messaggio, 'messaggio1': messaggio1, 'url': url}
+                    return render(request, 'localManagement/successo_insuccesso_locale.html', context)
+            else:
+                messaggio = 'Insuccesso'
+                messaggio1 = 'Riprovare'
+                context = {"form": form, "messaggio": messaggio, 'messaggio1': messaggio1, 'url': url}
+                return render(request, 'localManagement/successo_insuccesso_locale.html', context)
 
 
 class DeleteLocal(View):
     def get(self, request, cod_locale):
+        if request.user.is_anonymous or not request.user.is_commerciante:
+            return redirect('/')
+
         if Locale.objects.filter(cod_locale=cod_locale).delete():
             messaggio = 'Successo'
             messaggio1 = "Il locale e' stato rimosso con successo"
@@ -514,61 +572,12 @@ class DeleteLocal(View):
 
 class ProductsList(View):
     def get(self, request, cod_locale):
+        if request.user.is_anonymous or not request.user.is_commerciante:
+            return redirect('/')
+
         prod = Prodotto.objects.filter(cod_locale=cod_locale)
         context = {"prod": prod, "cl": cod_locale, 'locale': Locale.objects.get(pk=cod_locale)}
         return render(request, 'localManagement/product_list.html', context)
-
-
-class ProductsMod(View):
-    form_class = EditProduct
-
-    @classmethod
-    def get(cls, request, cod_locale, id):
-        prod = Prodotto.objects.get(id=id)
-        initial = {'nome_prodotto': prod.nome_prodotto, 'descrizione_prodotto': prod.descrizione_prodotto,
-                   'prezzo': prod.prezzo, 'foto_prodotto': prod.foto_prodotto, 'nome_tipo': prod.nome_tipo}
-        form = EditProduct(initial=initial)
-        context = {'form': form, 'locale': Locale.objects.get(pk=cod_locale)}
-        return render(request, 'localManagement/edit_product.html', context)
-
-    @classmethod
-    def post(cls, request, cod_locale, id):
-        form = EditProduct(request.POST or None, request.FILES or None)
-        messaggio = "La modifica del prodotto e' avvenuta con successo"
-        url = "Clicca qui per tornare alla home"
-        context = {'messaggio': messaggio, 'url': url, 'locale': Locale.objects.get(pk=cod_locale)}
-        if request.method == 'POST':
-            if form.is_valid():
-                nome_prodotto = form.cleaned_data['nome_prodotto']
-                descrizione_prodotto = form.cleaned_data['descrizione_prodotto']
-                prezzo = form.cleaned_data['prezzo']
-                foto_prodotto = form.cleaned_data['foto_prodotto']
-                nome_tipo = form.cleaned_data['nome_tipo']
-                Prodotto.objects.filter(id=id).delete()
-                Prodotto.objects.create(id=id, nome_prodotto=nome_prodotto, descrizione_prodotto=descrizione_prodotto,
-                                        prezzo=prezzo, foto_prodotto=foto_prodotto, nome_tipo=nome_tipo,
-                                        cod_locale_id=cod_locale)
-                return render(request, 'localManagement/successo_aggiunta_prodotto.html', context)
-            else:
-                messaggio = "Errore nella modifica del prodotto. Riprovare inserendo correttamente i campi"
-                url = "Clicca qui per tornare alla pagina dei prodotti"
-                context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale, 'locale': Locale.objects.get(pk=cod_locale)}
-                return render(request, 'localManagement/successo_aggiunta_prodotto.html', context)
-
-
-class DeleteProduct(View):
-    def get(self, request, cod_locale, id):
-        if Prodotto.objects.filter(id=id).exists():
-            messaggio = "l'eliminazione del prodotto e' avvenuta con successo"
-            url = 'Clicca qui se invece vuoi tornare alla pagina dei tuoi prodotti'
-            Prodotto.objects.filter(id=id).delete()
-            context = {"cl": cod_locale, 'url': url, 'messaggio': messaggio, 'locale': Locale.objects.get(pk=cod_locale)}
-            return render(request, 'localManagement/delete_product.html', context)
-        else:
-            messaggio = "Qualcosa e' andato storto, controllare che il prodotto esista e riprovare"
-            url = "Clicca qui per tornare alla pagina dei menu"
-            context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale, 'locale': Locale.objects.get(pk=cod_locale)}
-            return render(request, 'localManagement/successo_aggiunta_menu.html', context)
 
 
 class AddProduct(View):
@@ -576,6 +585,9 @@ class AddProduct(View):
 
     @classmethod
     def get(cls, request, cod_locale):
+        if request.user.is_anonymous or not request.user.is_commerciante:
+            return redirect('/')
+
         form = AddEProduct()
         context = {'form': form, 'locale': Locale.objects.get(pk=cod_locale)}
         return render(request, 'localManagement/aggiunta_prodotto.html', context)
@@ -592,10 +604,16 @@ class AddProduct(View):
                 descrizione_prodotto = form.cleaned_data['descrizione_prodotto']
                 prezzo = form.cleaned_data['prezzo']
                 foto_prodotto = form.cleaned_data['foto_prodotto']
-                nome_tipo = form.cleaned_data['nome_tipo']
+
+                if Prodotto.objects.filter(nome_prodotto=nome_prodotto, cod_locale=cod_locale).exists():
+                    messaggio = "Esiste gia' un prodotto con lo stesso nome per il locale selezionato. Cambiare e ripovare."
+                    url = "Clicca qui per tornare alla pagina dei prodotti"
+                    context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
+                               'locale': Locale.objects.get(pk=cod_locale)}
+                    return render(request, 'localManagement/successo_aggiunta_prodotto.html', context)
+
                 Prodotto.objects.create(nome_prodotto=nome_prodotto, descrizione_prodotto=descrizione_prodotto,
-                                        prezzo=prezzo, foto_prodotto=foto_prodotto, nome_tipo=nome_tipo,
-                                        cod_locale_id=cod_locale)
+                                        prezzo=prezzo, foto_prodotto=foto_prodotto, cod_locale_id=cod_locale)
                 return render(request, 'localManagement/successo_aggiunta_prodotto.html', context)
             else:
                 messaggio = "Errore nell'aggiunta del prodotto. Riprovare inserendo correttamente i campi"
@@ -605,10 +623,90 @@ class AddProduct(View):
                 return render(request, 'localManagement/successo_aggiunta_prodotto.html', context)
 
 
+class ProductsMod(View):
+    form_class = EditProduct
+
+    @classmethod
+    def get(cls, request, cod_locale, id):
+        if request.user.is_anonymous or not request.user.is_commerciante:
+            return redirect('/')
+
+        prod = Prodotto.objects.get(id=id)
+        initial = {'nome_prodotto': prod.nome_prodotto, 'descrizione_prodotto': prod.descrizione_prodotto,
+                   'prezzo': prod.prezzo, 'foto_prodotto': prod.foto_prodotto}
+        form = EditProduct(initial=initial)
+        context = {'form': form, 'locale': Locale.objects.get(pk=cod_locale)}
+        return render(request, 'localManagement/edit_product.html', context)
+
+    @classmethod
+    def post(cls, request, cod_locale, id):
+        form = EditProduct(request.POST or None, request.FILES or None)
+        messaggio = "La modifica del prodotto e' avvenuta con successo"
+        url = "Clicca qui per tornare alla pagina dei prodotti"
+        context = {'messaggio': messaggio, 'url': url, 'locale': Locale.objects.get(pk=cod_locale)}
+        if request.method == 'POST':
+            if form.is_valid():
+                nome_prodotto = form.cleaned_data['nome_prodotto']
+                descrizione_prodotto = form.cleaned_data['descrizione_prodotto']
+                prezzo = form.cleaned_data['prezzo']
+                foto_prodotto = form.cleaned_data['foto_prodotto']
+                foto_prod = Prodotto.objects.get(id=id).foto_prodotto
+                print(foto_prod)
+                Prodotto.objects.filter(id=id).delete()
+
+                if Prodotto.objects.filter(nome_prodotto=nome_prodotto, cod_locale=cod_locale).exists():
+                    messaggio = "Esiste gia' un prodotto con lo stesso nome per il locale selezionato. Cambiare e ripovare."
+                    url = "Clicca qui per tornare alla pagina dei prodotti"
+                    context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
+                               'locale': Locale.objects.get(pk=cod_locale)}
+                    return render(request, 'localManagement/successo_aggiunta_prodotto.html', context)
+
+                if foto_prodotto is not None:
+                    Prodotto.objects.create(id=id, nome_prodotto=nome_prodotto,
+                                            descrizione_prodotto=descrizione_prodotto,
+                                            prezzo=prezzo, foto_prodotto=foto_prodotto,
+                                            cod_locale_id=cod_locale)
+                else:
+                    Prodotto.objects.create(id=id, nome_prodotto=nome_prodotto,
+                                            descrizione_prodotto=descrizione_prodotto,
+                                            prezzo=prezzo, foto_prodotto=foto_prod,
+                                            cod_locale_id=cod_locale)
+                return render(request, 'localManagement/successo_aggiunta_prodotto.html', context)
+            else:
+                messaggio = "Errore nella modifica del prodotto. Riprovare inserendo correttamente i campi"
+                url = "Clicca qui per tornare alla pagina dei prodotti"
+                context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
+                           'locale': Locale.objects.get(pk=cod_locale)}
+                return render(request, 'localManagement/successo_aggiunta_prodotto.html', context)
+
+
+class DeleteProduct(View):
+    def get(self, request, cod_locale, id):
+        if request.user.is_anonymous or not request.user.is_commerciante:
+            return redirect('/')
+
+        if Prodotto.objects.filter(id=id).exists():
+            messaggio = "l'eliminazione del prodotto e' avvenuta con successo"
+            url = 'Clicca qui se invece vuoi tornare alla pagina dei tuoi prodotti'
+            Prodotto.objects.filter(id=id).delete()
+            context = {"cl": cod_locale, 'url': url, 'messaggio': messaggio,
+                       'locale': Locale.objects.get(pk=cod_locale)}
+            return render(request, 'localManagement/delete_product.html', context)
+        else:
+            messaggio = "Qualcosa e' andato storto, controllare che il prodotto esista e riprovare"
+            url = "Clicca qui per tornare alla pagina dei menu"
+            context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
+                       'locale': Locale.objects.get(pk=cod_locale)}
+            return render(request, 'localManagement/successo_aggiunta_menu.html', context)
+
+
 class MenuList(View):
     def get(self, request, cod_locale):
+        if request.user.is_anonymous or not request.user.is_commerciante:
+            return redirect('/')
+
         menu = Menu.objects.filter(cod_locale=cod_locale)
-        context = {"menu": menu, "cl": cod_locale}
+        context = {"menu": menu, "cl": cod_locale, 'locale': Locale.objects.get(pk=cod_locale)}
         return render(request, 'localManagement/lista_menu.html', context)
 
 
@@ -617,6 +715,9 @@ class AddMenu(View):
 
     @classmethod
     def get(cls, request, cod_locale):
+        if request.user.is_anonymous or not request.user.is_commerciante:
+            return redirect('/')
+
         prod = Prodotto.objects.filter(cod_locale=cod_locale)
         form = AddEMenu()
         form.fields['composto_da_prodotti'].queryset = prod
@@ -636,7 +737,7 @@ class AddMenu(View):
                 prezzo = form.cleaned_data['prezzo']
                 composto_da_prodotti = form.cleaned_data['composto_da_prodotti']
 
-                if Menu.objects.filter(nome_menu=nome_menu).exists():
+                if Menu.objects.filter(nome_menu=nome_menu, cod_locale=cod_locale).exists():
                     messaggio = "Esiste gia' un menu con lo stesso nome per il locale selezionato. Cambiare e ripovare."
                     url = "Clicca qui per tornare alla pagina dei menu"
                     context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
@@ -651,7 +752,8 @@ class AddMenu(View):
                 for x in range(l_prod):
                     CompostoDa.objects.create(cod_locale=Locale.objects.get(cod_locale=cod_locale),
                                               nome_menu=Menu.objects.get(nome_menu=mymenu.nome_menu),
-                                              nome_prodotto=Prodotto.objects.get(nome_prodotto=composto_da_prodotti[x]))
+                                              nome_prodotto=Prodotto.objects.get(nome_prodotto=composto_da_prodotti[x],
+                                                                                 cod_locale=cod_locale), )
 
                 return render(request, 'localManagement/successo_aggiunta_menu.html', context)
             else:
@@ -664,6 +766,9 @@ class AddMenu(View):
 
 class DeleteMenu(View):
     def get(self, request, cod_locale, id):
+        if request.user.is_anonymous or not request.user.is_commerciante:
+            return redirect('/')
+
         if Menu.objects.filter(id=id).exists():
             url = 'Clicca qui se invece vuoi tornare alla pagina dei tuoi menu'
             messaggio = "Il menu' e' stato eliminato con successo"
@@ -684,6 +789,9 @@ class EditMenu(View):
 
     @classmethod
     def get(cls, request, cod_locale, id):
+        if request.user.is_anonymous or not request.user.is_commerciante:
+            return redirect('/')
+
         prod = Prodotto.objects.filter(cod_locale=cod_locale)
         menu = Menu.objects.get(id=id)
         initial = {'nome_menu': menu.nome_menu, 'descrizione_menu': menu.descrizione_menu,
@@ -705,14 +813,16 @@ class EditMenu(View):
                 descrizione_menu = form.cleaned_data['descrizione_menu']
                 prezzo = form.cleaned_data['prezzo']
                 composto_da_prodotti = form.cleaned_data['composto_da_prodotti']
-                if Menu.objects.filter(nome_menu=nome_menu).exists():
+                id = Menu.objects.get(id=id).id
+                Menu.objects.filter(id=id).delete()
+
+                if Menu.objects.filter(nome_menu=nome_menu, cod_locale=cod_locale).exists():
                     messaggio = "Esiste gia' un menu con lo stesso nome per il locale selezionato. Cambiare e ripovare."
                     url = "Clicca qui per tornare alla pagina dei menu"
                     context = {'messaggio': messaggio, 'url': url, 'cl': cod_locale,
                                'locale': Locale.objects.get(pk=cod_locale)}
                     return render(request, 'localManagement/successo_aggiunta_menu.html', context)
-                id = Menu.objects.get(id=id).id
-                Menu.objects.filter(id=id).delete()
+
                 mymenu = Menu.objects.create(id=id, cod_locale=Locale.objects.get(cod_locale=cod_locale),
                                              nome_menu=nome_menu,
                                              descrizione_menu=descrizione_menu,

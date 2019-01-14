@@ -7,6 +7,4 @@ app_name = 'search'
 
 urlpatterns = [
     path('', Ricerca.as_view(), name='index'),
-    # path('', views.index, name='index'),
-
 ]

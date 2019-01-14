@@ -9,31 +9,31 @@
     <script>autoReload(10000)</script>
 
     <div class="container">
-        <a href="{% url 'localManagement:localLists' cod_locale %}" style="color: #a01b2a">
-            <div class="container-fluid mt-0 pb-1 text-warning rounded-bottom link-disabled shadow"
-                 style="background-color: #a01b2a">
-                <h1 align="center">{{ nome_locale|upper }}</h1>
-            </div>
-        </a>
+        {% if cod_locale %}
+            <a href="{% url 'localManagement:localLists' cod_locale %}" style="color: #a01b2a">
+                <div class="container-fluid mt-0 pb-1 text-warning rounded-bottom link-disabled shadow"
+                     style="background-color: #a01b2a">
+                    <h1 align="center">{{ nome_locale|upper }}</h1>
+                </div>
+            </a>
+        {% endif %}
         <div class="card text-center">
-            <form method="post">
-                {% csrf_token %}
-                <div class="card-header text-light">
-                    <h1>{{ messaggio }}</h1>
-                </div>
-                <div class="card-body">
-                    <h2> {{ messaggio1 }}</h2>
-                    <h2> {{ messaggio2 }}</h2>
-                    <br>
-                    Tra 10 secondi verrai trasportato alla HomePage <br>
-                    <a href="{% url 'accounts:area_utente' %}"> {{ url }} </a>
-
-                </div>
-                <div class="card-footer"></div>
-            </form>
+            <div class="card-header text-light">
+                <h1>{{ messaggio }}</h1>
+            </div>
+            <div class="card-body">
+                <h2> {{ messaggio1 }}</h2>
+                <h2> {{ messaggio2 }}</h2>
+                <br>
+                Tra 10 secondi verrai trasportato alla HomePage <br>
+                <a href="{% url 'accounts:area_utente' %}"> {{ url }} </a>
+            </div>
+            <div class="card-footer"></div>
         </div>
+
         <a href="/">
-            <img src="{% static 'img/logo-trustEat/_logo1.png' %}" alt="TRUST EAT" width="600px"/>
+            <img src="{% static 'img/logo-trustEat/_logo1.png' %}" width="600" alt="TRUST EAT"
+                 style="object-fit: scale-down; " class="mt-5 pl-5 ml-5"/>
         </a>
     </div>
 {% endblock body %}

@@ -5,7 +5,6 @@
     <script src="{% static 'js/functions.js' %}"></script>
 {% endblock head %}
 
-
 {% block body %}
     <script> autoReload(10000)</script>
     <div class="container">
@@ -15,22 +14,21 @@
                 <h1 align="center">{{ locale.nome_locale|upper }}</h1>
             </div>
         </a>
-
-        <div class="card text-center mt-2">
+        <div class="card text-center mt-2 shadow">
             <form method="post" action="" enctype="multipart/form-data">
                 <div class="card-header text-light">
                     <h2>{{ messaggio }}.</h2>
                 </div>
                 <div class="card-body">
-                    Tra 10 secondi sarai automaticamente rediretto alla home
+                    Tra 10 secondi sarai automaticamente rediretto alla home<br>
                     <a href="{% url 'localManagement:menu_list' cl %}"> {{ url }} </a>
                 </div>
                 <div class="card-footer"></div>
             </form>
         </div>
+        <a href="/">
+            <img src="{% static 'img/logo-trustEat/_logo1.png' %}" width="600" alt="TRUST EAT"
+                 style="object-fit: scale-down; " class="mt-5 pl-5 ml-5"/>
+        </a>
     </div>
-    <a href="/">
-        <img src="{% static 'img/logo-trustEat/logo.png' %}" alt="TRUST EAT" height="300"
-             style="object-fit: scale-down"/>
-    </a>
 {% endblock body %}

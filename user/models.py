@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from localManagement.models import Locale
 from accounts.models import Utente, Commerciante
+import datetime
 
 
 class CartaDiCredito(models.Model):
@@ -9,13 +10,18 @@ class CartaDiCredito(models.Model):
     numero_carta = models.CharField(max_length=16, null=False, unique=True)
     intestatario = models.CharField(max_length=60, null=False)
     scadenza = models.DateField(null=False)
-    utente = models.ManyToManyField(Utente, blank=True)
 
     class Meta:
         verbose_name_plural = 'Carte di credito'
 
     def __str__(self):
         return self.numero_carta
+
+    def is_valid(self):
+        if self.scadenza.year >= datetime.datetime.now().year and self.scadenza.month >= datetime.datetime.now().month:
+            return True
+        else:
+            return False
 
 
 class Recensione(models.Model):

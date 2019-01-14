@@ -22,6 +22,7 @@ from . import views
 
 
 urlpatterns = [
+    path('user/', include('user.urls', namespace='user')),
     path('contattaci/', views.contattaci, name='contatti'),
     path('social-auth/', include('social_django.urls', namespace='social')),
     path('accounts/', include('accounts.urls', namespace='accounts')),

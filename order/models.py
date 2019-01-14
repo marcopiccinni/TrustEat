@@ -2,6 +2,7 @@ from django.db import models
 from localManagement.models import Menu, Prodotto, Locale
 from user.models import CartaDiCredito
 from accounts.models import Utente
+import datetime
 
 
 class OrdineInAttesa(models.Model):
@@ -31,6 +32,12 @@ class OrdineInAttesa(models.Model):
 
     def __str__(self):
         return "Ordine " + str(self.cod_ordine)
+
+    def check_order_data(self):
+        if self.data.date() == datetime.datetime.now().date():
+            return True
+        else:
+            return False
 
 
 class RichiedeM(models.Model):

@@ -26,27 +26,38 @@
                 </div>
                 <div class="card-body">
                     {% for x in prod %}
-                        <div class="mt-1" style="margin-left: 20%">
-                            <a href="{% url 'localManagement:pro' x.cod_locale_id x.id %}">
-                                <img src="{% static '/img/edit-icon.png' %}" class="mr-2" alt="ADD"
-                                     height="50px" width="50px">
-                            </a>
-                            <a href="{% url 'localManagement:remove' x.cod_locale_id x.id %}">
-                                <img src="{% static '/img/remove.png' %}" class="rounded-circle mr-2" alt="DEL"
-                                     height="50px" width="50px">
-                            </a>
-                            {% if x.foto_prodotto.url != "" %}
-                                <img src="{{ x.foto_prodotto.url }}" class="rounded-circle" alt=""
-                                     height="70px" width="70px" style="border: solid 1px;">
-                            {% endif %}
-                            <b>{{ x.nome_prodotto }}</b>:
-                            <i>{{ x.descrizione_prodotto }} </i>
-                            <br>
+                        <div class="row mt-1 mb-2">
+                            <div class="col-1 ml-4 pt-2">
+                                <a href="{% url 'localManagement:pro' x.cod_locale_id x.id %}">
+                                    <img src="{% static '/img/edit-icon.png' %}" class="mr-2" alt="ADD"
+                                         height="50px" width="50px">
+                                </a>
+                            </div>
+
+                            <div class="col-1 pt-2">
+                                <a href="{% url 'localManagement:remove' x.cod_locale_id x.id %}"
+                                   onclick="return conf_del('Sicuro di voler procedere con l\'eliminazione?')">
+                                    <img src="{% static '/img/remove.png' %}" class="rounded-circle mr-2" alt="DEL"
+                                         height="50px" width="50px">
+                                </a>
+                            </div>
+                            <div class="col-1">
+                                {% if x.foto_prodotto.url != "" %}
+                                    <img src="{{ x.foto_prodotto.url }}" class="rounded-circle" alt=""
+                                         height="70px" width="70px" style="border: solid 1px;">
+                                {% endif %}
+                            </div>
+                            <div class="col pl-4 pt-3">
+                                <b>{{ x.nome_prodotto }}</b>:
+                                <i>{{ x.descrizione_prodotto }} </i>
+                            </div>
                         </div>
                     {% endfor %}
                 </div>
-                <div class="card-footer"></div>
+                <div class="card-footer">
+                </div>
             </form>
         </div>
     </div>
+    <script src="{% static 'js/functions.js' %}"></script>
 {% endblock %}

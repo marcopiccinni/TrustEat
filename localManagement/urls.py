@@ -19,5 +19,4 @@ urlpatterns = [
     url(r'^(?P<cod_locale>[0-9]+)/menu_list/add$', AddMenu.as_view(), name='add_menu'),
     url(r'^(?P<cod_locale>[0-9]+)/products_list/(?P<id>[0-9]+)/remove$', DeleteProduct.as_view(), name='remove'),
     url(r'^(?P<cod_locale>[0-9]+)/menu_list/(?P<id>[0-9]+)/remove$', DeleteMenu.as_view(), name='remove_menu'),
-    path('', views.index, name='index'),
 ]

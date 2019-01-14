@@ -40,6 +40,9 @@ class Locale(models.Model):
     latitude = models.FloatField(default=0)
     longitude = models.FloatField(default=0)
 
+    def correct_open_close_time(self):
+        return self.orario_apertura < self.orario_chiusura
+
     class Meta:
         unique_together = (("nome_locale", "cap"),)
         verbose_name_plural = 'Locali'
@@ -99,16 +102,6 @@ class Chiusura(models.Model):
         return self.cod_locale.nome_locale
 
 
-class Tipo(models.Model):
-    nome_tipo = models.CharField(max_length=20, primary_key=True)
-
-    class Meta:
-        verbose_name_plural = 'Tipi'
-
-    def __str__(self):
-        return self.nome_tipo
-
-
 class Menu(models.Model):
     cod_locale = models.ForeignKey(Locale, on_delete=models.CASCADE)
     nome_menu = models.CharField(max_length=30, null=False)
@@ -146,7 +139,6 @@ class Prodotto(models.Model):
     nome_prodotto = models.CharField(max_length=30, null=False)
     descrizione_prodotto = models.CharField(max_length=200, null=False)
     prezzo = models.DecimalField(decimal_places=2, max_digits=4)
-    nome_tipo = models.ForeignKey(Tipo, on_delete=models.CASCADE)
     foto_prodotto = models.ImageField(upload_to=product_images_path, null=True, blank=True,
                                       validators=[validate_image_size])
 

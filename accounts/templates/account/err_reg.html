@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block head %}
+    <script src="{% static 'js/functions.js' %}"></script>
+    <title>Profile</title>
+{% endblock head %}
+
+{% block body %}
+    <script> autoReload(10000) </script>
+    <div class="container">
+        <div class="card text-center">
+            <div class="card-header text-light">
+                <h1>ERRORE</h1>
+            </div>
+            <div class="card-body">
+                <h2>{{ messaggio1 }}</h2>
+                <h2>{{ messaggio2 }}</h2>
+                Tra 10 secondi verrai trasportato alla HomePage<br>
+                <a href="{% url 'accounts:registrazione_utente' %}"> {{ url }} </a>
+            </div>
+            <div class="card-footer"></div>
+        </div>
+        <br/><br/>
+        <div class="text-center">
+            <img src="{% static 'img/logo-trustEat/_logo1.png' %}" alt="TRUST EAT" width="600px"
+                 style="object-fit: scale-down">
+        </div>
+    </div>
+{% endblock body %}

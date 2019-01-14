@@ -5,6 +5,9 @@ import datetime
 
 def distance_time(origin, arrival):
     gmaps = googlemaps.Client(key=GOOGLE_MAPS_SECRET_API_KEY)
+    # questo serve soltanto in caso di limite giornaliero dato da api google
+    return None, None
+    # ---------------------------------------------------------------------
     try:
         trip = gmaps.distance_matrix(origins=origin, destinations=arrival)
         return trip['rows'][0]['elements'][0]['distance']['text'], trip['rows'][0]['elements'][0]['duration']['text']
@@ -18,6 +21,9 @@ def distance_time(origin, arrival):
 
 def geocode(address):
     gmaps = googlemaps.Client(key=GOOGLE_MAPS_SECRET_API_KEY)
+    # questo serve soltanto in caso di limite giornaliero dato da api google
+    return 0, 0
+    # ---------------------------------------------------------------------
     try:
         location = gmaps.geocode(address=address)
         return location[0]['geometry']['location']['lat'], location[0]['geometry']['location']['lng']

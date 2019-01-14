@@ -113,7 +113,8 @@
                     </a>
                     <a href="{% url 'localManagement:delete_local' local.cod_locale %}"
                        class="btn btn-outline-warning mt-5"
-                       role="button" aria-disabled="true">Elimina il locale
+                       role="button" aria-disabled="true"
+                       onclick="return conf_del('Sicuro di voler procedere con l\'eliminazione?')">Elimina il locale
                     </a>
                 </div>
             {% endif %}
@@ -150,29 +151,31 @@
                         {# ------------------------ End Nome Locale --------------------------------------------------#}
 
                         {# ------------------------ Start Prodotti ---------------------------------------------------#}
-                        <div class="card text-center mt-3 mb-4 shadow" style=" max-height: 40%">
+                        <div class="card text-center mt-3 mb-4 shadow" style=" max-height: 60%">
                             <div class="card-header text-light m-0 p-0">
                                 <blockquote class="blockquote text-center">
                                     <p class="m-0 p-0" style="font-size: 120%;">PRODOTTI</p>
                                 </blockquote>
                             </div>
-                            <div class="card-body m-0 p-0"  style=" max-height:300px ">
+                            <div class="card-body m-0 p-0" style=" max-height:300px ">
                                 <div class="card-text">
                                     <table class="table-responsive p-0 m-0 align-content-center table-striped">
                                         {% for x in prod_list %}
                                             <form action="" method="post">
                                                 <tr>
-                                                    <td class="px-1 pt-3 pb-0">
-                                                        {% csrf_token %}
-                                                        {{ x.form|crispy }}
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-danger p-0 pb-5 text-center align-top align-text-top"
-                                                                style="font-size: 200%; width: 40px; height: 30px;"
-                                                                type="submit">
-                                                            <b>+</b>
-                                                        </button>
-                                                    </td>
+                                                    {% if user.is_utente %}
+                                                        <td class="px-1 pt-3 pb-0">
+                                                            {% csrf_token %}
+                                                            {{ x.form|crispy }}
+                                                        </td>
+                                                        <td>
+                                                            <button class="btn btn-danger p-0 pb-5 text-center align-top align-text-top"
+                                                                    style="font-size: 200%; width: 40px; height: 30px;"
+                                                                    type="submit">
+                                                                <b>+</b>
+                                                            </button>
+                                                        </td>
+                                                    {% endif %}
                                                     <td class="px-1" style="width:100% ">
                                                         <div class="food font-weight-bold">{{ x.product.nome_prodotto }} </div>
                                                         <div class="desc p-0 m-0 font-italic">{{ x.product.descrizione_prodotto }} </div>
@@ -198,47 +201,51 @@
                         </div>
                         {# ------------------------ End Prodotti -----------------------------------------------------#}
                         {# ------------------------ Start Menu -------------------------------------------------------#}
-                        <div class="card text-center mt-3 mb-4 shadow"
-                             style="background-color: #878787; max-height: 40%">
-                            <div class="card-header text-light m-0 p-0">
-                                <blockquote class="blockquote text-center">
-                                    <p class="m-0 p-0" style="font-size: 120%;">MENU</p>
-                                </blockquote>
-                            </div>
-                            <div class="card-body m-0 p-0" style=" max-height:300px">
-                                <div class="card-text">
-                                    <table class="table-responsive p-0 m-0 align-content-center table-striped">
-                                        {% for x in  menu_list %}
-                                            <form action="" method="post">
-                                                <tr>
-                                                    <td class="px-1 pt-3 pb-0">
-                                                        {% csrf_token %}
-                                                        {{ x.form|crispy }}
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn btn-danger p-0 pb-5 text-center align-top align-text-top"
-                                                                style="font-size: 200%; width: 40px; height: 30px;"
-                                                                type="submit">
-                                                            <b>+</b>
-                                                        </button>
-                                                    </td>
-                                                    <td class="px-1" style="width:100% ">
-                                                        <div class="food font-weight-bold">{{ x.menu.nome_menu }} </div>
-                                                        <div class="desc p-0 m-0 font-italic">{{ x.menu.descrizione_menu }} </div>
-                                                        <div class="desc p-0 m-0 font-italic">{{ x.composto_da }}  </div>
-                                                    </td>
-                                                    <td class="px-1">
-                                                        <div>
-                                                            {{ x.menu.prezzo }}&nbsp;&euro;
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </form>
-                                        {% endfor %}
-                                    </table>
+                        {% if menu_list|length %}
+                            <div class="card text-center mt-3 mb-4 shadow"
+                                 style="background-color: #878787; max-height: 60%">
+                                <div class="card-header text-light m-0 p-0">
+                                    <blockquote class="blockquote text-center">
+                                        <p class="m-0 p-0" style="font-size: 120%;">MENU</p>
+                                    </blockquote>
+                                </div>
+                                <div class="card-body m-0 p-0" style=" max-height:300px">
+                                    <div class="card-text">
+                                        <table class="table-responsive p-0 m-0 align-content-center table-striped">
+                                            {% for x in  menu_list %}
+                                                <form action="" method="post">
+                                                    <tr>
+                                                        {% if user.is_utente %}
+                                                            <td class="px-1 pt-3 pb-0">
+                                                                {% csrf_token %}
+                                                                {{ x.form|crispy }}
+                                                            </td>
+                                                            <td>
+                                                                <button class="btn btn-danger p-0 pb-5 text-center align-top align-text-top"
+                                                                        style="font-size: 200%; width: 40px; height: 30px;"
+                                                                        type="submit">
+                                                                    <b>+</b>
+                                                                </button>
+                                                            </td>
+                                                        {% endif %}
+                                                        <td class="px-1" style="width:100% ">
+                                                            <div class="food font-weight-bold">{{ x.menu.nome_menu }} </div>
+                                                            <div class="desc p-0 m-0 font-italic">{{ x.menu.descrizione_menu }} </div>
+                                                            <div class="desc p-0 m-0 font-italic">{{ x.composto_da }}  </div>
+                                                        </td>
+                                                        <td class="px-1">
+                                                            <div>
+                                                                {{ x.menu.prezzo }}&nbsp;&euro;
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </form>
+                                            {% endfor %}
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        {% endif %}
                         {# ------------------------ End Menu -------------------------------------------------------- #}
                     </div>
                     {# ----------------------------------- Start colonna 2 ------------------------------------------ #}
@@ -248,6 +255,8 @@
                             <div class="card-header text-light m-0 p-0">
                                 <blockquote class="blockquote text-center">
                                     <p class="mb-0 p-0 pt-1">{{ local.descrizione }}</p>
+                                    <footer style="font-size:70%;"> {{ tags }}</footer>
+
                                 </blockquote>
                             </div>
                             <div class="card-body rounded m-0 p-0 pt-1">
@@ -314,7 +323,7 @@
                                                 <div class="carousel-item active">
                                                     {% if img.pic.foto_locale %}
                                                         <img class="d-block w-100 rounded shadow" alt=""
-                                                             style="max-height: 250px; object-fit: cover"
+                                                             style="max-height: 500px; object-fit: cover"
                                                              src="{{ img.pic.foto_locale.url }}/?auto=yes&bg={{ img.upp }}&fg={{ img.low }}">
                                                     {% endif %}
                                                 </div>
@@ -322,7 +331,7 @@
                                                 <div class="carousel-item">
                                                     {% if img.pic.foto_locale %}
                                                         <img class="d-block w-100 rounded shadow" alt=""
-                                                             style="max-height: 250px; object-fit: cover"
+                                                             style="max-height: 500px; object-fit: cover"
                                                              src="{{ img.pic.foto_locale.url }}/?auto=yes&bg={{ img.upp }}&fg={{ img.low }}">
                                                     {% endif %}
                                                 </div>
@@ -349,4 +358,5 @@
             </div>
         </div>
     </div>
+    <script src="{% static 'js/functions.js' %}"></script>
 {% endblock body %}

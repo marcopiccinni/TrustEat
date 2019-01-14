@@ -22,7 +22,7 @@
             </div>
             {# ------------------------ End Nome Locale --------------------------------------------------------------#}
             {# ------------------------------------- Ordini in attesa INIZIO ---------------------------------------- #}
-            <div class="card shadow" style="background-color: #878787; height: 250px; overflow-y: auto">
+            <div class="card shadow" style="background-color: #878787; height: 400px; overflow-y: auto">
                 <div class="card-header text-light py-0 pt-1">
                     <h1 class=" text-center" style="font-size: 175%;">
                         ORDINI IN ATTESA
@@ -37,12 +37,14 @@
                                     <div class="card-body row py-1">
                                         <div style="width: 80px;" class=" p-0 link-disabled">
                                             <button type="submit" class="btn m-0 p-0 bg-transparent"
-                                                    name="Rifiutato" value="{{ order.ordine.cod_ordine }}">
+                                                    name="Rifiutato" value="{{ order.ordine.cod_ordine }}"
+                                                    onclick="return conf_del('Sicuro di voler rifiutare l\'ordine?')">
                                                 <img src="{% static 'img/remove.png' %}" alt="DEL"
                                                      style="height: 30px; object-fit: scale-down; ">
                                             </button>
                                             <button type="submit" class="btn m-0 ml-2 p-0 bg-transparent"
-                                                    name="Accettato" value="{{ order.ordine.cod_ordine }}">
+                                                    name="Accettato" value="{{ order.ordine.cod_ordine }}"
+                                                    onclick="return conf_del('Sicuro di voler accettare l\'ordine?')">
                                                 <img src="{% static 'img/add.ico' %}" alt="ADD"
                                                      style="height: 30px; object-fit: scale-down;">
                                             </button>
@@ -74,7 +76,7 @@
                                          style=" background-color: #878787; color: white;">
                                         <label style="font-size: 140%">Aggiungi una motivazione</label>
                                         <label>
-                                            <input type="text" name="Descrizione"
+                                            <input type="text" name="Descrizione{{ order.ordine.cod_ordine }}"
                                                    class=" rounded shadow ml-3 form-control">
                                         </label>
                                     </div>
@@ -89,7 +91,7 @@
             </div>
             {# ------------------------------------- Ordini in attesa FINE ------------------------------------------ #}
 
-            <div id="map" class="rounded mt-3 shadow" style="object-fit: fill ; height: 250px;"></div>
+            <div id="map" class="rounded mt-3 shadow" style="object-fit: fill ; height: 400px;"></div>
 
         </div>
         <div class="col-5 mt-2">
@@ -113,7 +115,7 @@
                 </div>
                 {# ------------------------------------- In consegna INIZIO ----------------------------------------- #}
                 <div class="card-body" id="delivering"
-                     style="background-color:#F0F0F0">
+                     style="background-color:#F0F0F0; max-height: 800px">
                     {% if delivering_list %}
                         <form method="post">
                             {% csrf_token %}
@@ -122,7 +124,8 @@
                                     <div class="card-body row py-1">
                                         <div style="width: 40px">
                                             <button type="submit" class="btn m-0 p-0 bg-transparent"
-                                                    name="Consegnato" value="{{ order.ordine.cod_ordine }}">
+                                                    name="Consegnato" value="{{ order.ordine.cod_ordine }}"
+                                                    onclick="return conf_del('Confermi che l\'ordine? sia stato consegnato?')">
                                                 <img src="{% static 'img/add.ico' %}" alt=""
                                                      style="height: 30px; object-fit: scale-down">
                                             </button>
@@ -159,7 +162,7 @@
                 </div>
                 {# ------------------------------------- In consegna FINE ------------------------------------------- #}
                 {# -------------------------------------- Consegnati INIZIO ----------------------------------------- #}
-                <div class="card-body" id="delivered" hidden style="background-color:#F0F0F0">
+                <div class="card-body" id="delivered" hidden style="background-color:#F0F0F0; max-height: 800px">
                     {% if delivered_list %}
                         <form method="post">
                             {% for order in delivered_list %}
@@ -194,7 +197,7 @@
                 {# -------------------------------------- Consegnati FINE ------------------------------------------- #}
                 {# -------------------------------------- Rifiutati INIZIO ------------------------------------------ #}
                 <div class="card-body" id="refused" hidden
-                     style="background-color:#F0F0F0">
+                     style="background-color:#F0F0F0; max-height: 800px">
                     {% if refused_list %}
                         <form method="post">
                             {% for order in refused_list %}
@@ -268,7 +271,7 @@
                         lng: parseFloat("{{local.position.lon}}".replace(' ', '.').replace(',', '.'))
                     },
                 });
-
+            // Imposta il marker del locale
             var marker = new google.maps.Marker({
                 position: {
                     lat: parseFloat("{{ local.position.lat }}".replace(' ', '.').replace(',', '.')),
@@ -278,24 +281,11 @@
                 icon: "{% static 'img/locale.png' %}",
                 title: '{{ local.locale.nome_locale }}'
             });
-
             setMarkers(map);
-            console.log('{{ delivering_list|length }}');
         }
 
-        // Data for the markers consisting of a name, a LatLng and a zIndex for the
-        // order in which these markers should display on top of each other.
-        var beaches = [
-            ['Bondi Beach', -33.890542, 151.274856, 4],
-            ['Coogee Beach', -33.923036, 151.259052, 5],
-            ['Cronulla Beach', -34.028249, 151.157507, 3],
-            ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-            ['Maroubra Beach', -33.950198, 151.259302, 1]
-        ];
-
+        //Imposta i marker degli ordini
         function setMarkers(map) {
-            // Adds markers to the map.
-
             for (ord of {{ delivering_js|safe }}) {
                 console.log(ord.ordine + ': ' + ord.lat + ' ' + ord.lon);
                 var marker = new google.maps.Marker({
@@ -303,17 +293,9 @@
                     map: map,
                     title: 'Ordine: ' + ord.ordine,
                 });
-
-                {#for (var i = 0; i < {{ delivering_list|length }}; i++) {#}
-                {#    var beach = beaches[i];#}
-                {#    var marker = new google.maps.Marker({#}
-                {#        position: {lat: beach[1], lng: beach[2]},#}
-                {#        map: map,#}
-                {#        title: beach[0],#}
-                {#        zIndex: beach[3]#}
-                {#    });#}
             }
         }
     </script>
+    <script src="{% static 'js/functions.js' %}"></script>
     </body>
 {% endblock body %}
