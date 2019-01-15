@@ -234,32 +234,6 @@
             {# -------------------------------- Ordini accettati/consegnati/ rifiutati FINE ------------------------- #}
         </div>
     </div>
-    <script>
-        function selection_view(button_selected) {
-            document.getElementById('delivering').hidden = true;
-            document.getElementById('delivered').hidden = true;
-            document.getElementById('refused').hidden = true;
-
-            document.getElementById("Da consegnare").className = document.getElementById("Da consegnare").className.replace(/(?:^|\s)btn-light(?!\S)/g, ' btn-outline-light ');
-            document.getElementById("Consegnati").className = document.getElementById("Consegnati").className.replace(/(?:^|\s)btn-light(?!\S)/g, ' btn-outline-light ');
-            document.getElementById("Rifiutati").className = document.getElementById("Rifiutati").className.replace(/(?:^|\s)btn-light(?!\S)/g, ' btn-outline-light ');
-
-            switch (button_selected) {
-                case 'Da consegnare':
-                    document.getElementById('delivering').hidden = false;
-                    document.getElementById(button_selected).className = document.getElementById(button_selected).className.replace(/(?:^|\s)btn-outline-light(?!\S)/g, ' btn-light ');
-                    break;
-                case 'Consegnati':
-                    document.getElementById('delivered').hidden = false;
-                    document.getElementById(button_selected).className = document.getElementById(button_selected).className.replace(/(?:^|\s)btn-outline-light(?!\S)/g, ' btn-light ');
-                    break;
-                case 'Rifiutati':
-                    document.getElementById('refused').hidden = false;
-                    document.getElementById(button_selected).className = document.getElementById(button_selected).className.replace(/(?:^|\s)btn-outline-light(?!\S)/g, ' btn-light ');
-                    break;
-            }
-        }
-    </script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ googleKey }}&callback=initMap"></script>
     <script>
         function initMap() {
@@ -287,7 +261,6 @@
         //Imposta i marker degli ordini
         function setMarkers(map) {
             for (ord of {{ delivering_js|safe }}) {
-                console.log(ord.ordine + ': ' + ord.lat + ' ' + ord.lon);
                 var marker = new google.maps.Marker({
                     position: {lat: ord.lat, lng: ord.lon},
                     map: map,

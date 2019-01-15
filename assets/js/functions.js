@@ -11,6 +11,7 @@ function checkStatusPayment() {
     checkValues();
 }
 
+// ---------- order/check.html
 function checkValues() {
     let pay = document.getElementById("id_Pagamento");
     let sel_pay = pay.options[pay.selectedIndex].text;
@@ -180,4 +181,30 @@ function check_check() {
 // ---------- conferma prima di eliminazione o cose importanti
 function conf_del(question) {
     return confirm(question);
+}
+
+// ------------ order/list_order.html
+function selection_view(button_selected) {
+    document.getElementById('delivering').hidden = true;
+    document.getElementById('delivered').hidden = true;
+    document.getElementById('refused').hidden = true;
+
+    document.getElementById("Da consegnare").className = document.getElementById("Da consegnare").className.replace(/(?:^|\s)btn-light(?!\S)/g, ' btn-outline-light ');
+    document.getElementById("Consegnati").className = document.getElementById("Consegnati").className.replace(/(?:^|\s)btn-light(?!\S)/g, ' btn-outline-light ');
+    document.getElementById("Rifiutati").className = document.getElementById("Rifiutati").className.replace(/(?:^|\s)btn-light(?!\S)/g, ' btn-outline-light ');
+
+    switch (button_selected) {
+        case 'Da consegnare':
+            document.getElementById('delivering').hidden = false;
+            document.getElementById(button_selected).className = document.getElementById(button_selected).className.replace(/(?:^|\s)btn-outline-light(?!\S)/g, ' btn-light ');
+            break;
+        case 'Consegnati':
+            document.getElementById('delivered').hidden = false;
+            document.getElementById(button_selected).className = document.getElementById(button_selected).className.replace(/(?:^|\s)btn-outline-light(?!\S)/g, ' btn-light ');
+            break;
+        case 'Rifiutati':
+            document.getElementById('refused').hidden = false;
+            document.getElementById(button_selected).className = document.getElementById(button_selected).className.replace(/(?:^|\s)btn-outline-light(?!\S)/g, ' btn-light ');
+            break;
+    }
 }
