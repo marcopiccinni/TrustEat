@@ -47,3 +47,45 @@ python manage.py runserver
 ```
 
 Il sito sara' visitabile all'indirizzo **127.0.0.1:8000**.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Contenuto del db:
+
+Il db, caricabile attraverso il seguente comando:
+
+```bash
+python manage.py loaddata dati_db_trusteat.json
+```
+
+ contiene svariati utenti/commercianti (omettero' tuttavia gli utenti creati con la registrazione tramite google per ovvi motivi) e sono i seguenti:
+
+utenti:
+
+	username: Calvin
+	password: Dinamici
+
+	username: Louis
+	password: Dinamici
+
+
+commercianti:
+
+	username: PaperonDePaperoni
+	password: Dinamici
+
+	username: Quadro
+	password: Dinamici
+
+
+admin:
+	
+	username: admin
+	password: admin
+
+
+Gli utenti hanno gia' effettuato ordini, quindi troveremo gia' ordini consegnati/rifiutati e relative recensione lasciate ai locali, con, in alcuni casi, le risposte da parte dei commercianti.
+Per testare gli ordini in attesa e' invece necessario effettuare un ordine, in quanto, essi, scoccata la mezzanotte di ogni giorno, vengono impostati come rifiutati, in quanto il sito si basa su ordini gestiti giorno per giorno.
+Ovviamente troveremo anche diversi locali in varie localita', con vari prodotti e menu'.
+
+N.B. Ricordarsi di spostare un ordine da "ordine in attesa" a "confermato" per poter visualizzare il relativo segnalino sulla mappa.

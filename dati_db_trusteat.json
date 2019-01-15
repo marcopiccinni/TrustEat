@@ -1,0 +1,4696 @@
+[
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "localManagement",
+    "model": "chiusura"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "localManagement",
+    "model": "compostoda"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "localManagement",
+    "model": "fotolocale"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "localManagement",
+    "model": "locale"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "localManagement",
+    "model": "localita"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "localManagement",
+    "model": "menu"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "localManagement",
+    "model": "prodotto"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "localManagement",
+    "model": "tag"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "user",
+    "model": "cartadicredito"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 15,
+  "fields": {
+    "app_label": "user",
+    "model": "recensione"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 16,
+  "fields": {
+    "app_label": "order",
+    "model": "ordineinattesa"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 17,
+  "fields": {
+    "app_label": "order",
+    "model": "richiedem"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 18,
+  "fields": {
+    "app_label": "order",
+    "model": "richiedep"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 19,
+  "fields": {
+    "app_label": "accounts",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 20,
+  "fields": {
+    "app_label": "accounts",
+    "model": "commerciante"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 21,
+  "fields": {
+    "app_label": "accounts",
+    "model": "utente"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 22,
+  "fields": {
+    "app_label": "social_django",
+    "model": "association"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 23,
+  "fields": {
+    "app_label": "social_django",
+    "model": "code"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 24,
+  "fields": {
+    "app_label": "social_django",
+    "model": "nonce"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 25,
+  "fields": {
+    "app_label": "social_django",
+    "model": "usersocialauth"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 26,
+  "fields": {
+    "app_label": "social_django",
+    "model": "partial"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0ts48a15f5px0oyu7w5fai1vmwyw6p6x",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T01:21:21.221Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1szs4smptyzds95erktqq2jo7gfmbwu1",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:40:16.793Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "419kwlgiam4c9acr2rxf0o1e1n0ll0lx",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:06:31.807Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7sivnv9rlt3hsv8hob4gk8cr73cyehgg",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:04:12.825Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8e6b2vsilh3yldy6593x3v8tbcyfurbv",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T10:09:32.013Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ac8fkjjaie7mt3mk4ptsxea4ycer3vb0",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T01:29:46.948Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bnb6o5kgkr9hkmqmiljn3pkv0q8tnk1a",
+  "fields": {
+    "session_data": "ZTBkN2Y2ZWZiMmY1NWQ2MzNkMDZiODU2YTExNjBkYmNhNmJhMjM4MTp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0ZmI1OTRhZTcxYWY0OTkzMDA1YTNjM2VlNGE2YmEwNWFmNmQ3ODgyIn0=",
+    "expire_date": "2019-01-28T15:11:22.444Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bs2npruh1rah5e0jdhna82wfj3d3co8j",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:31:11.632Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dckozd512c6vwdqir2yqm4lb35jrt1hm",
+  "fields": {
+    "session_data": "ZTBkN2Y2ZWZiMmY1NWQ2MzNkMDZiODU2YTExNjBkYmNhNmJhMjM4MTp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0ZmI1OTRhZTcxYWY0OTkzMDA1YTNjM2VlNGE2YmEwNWFmNmQ3ODgyIn0=",
+    "expire_date": "2019-01-24T13:30:05.512Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dttzleisirk1f9hhychwdbtzmtk7sw0n",
+  "fields": {
+    "session_data": "NjRjNTk0Njk4ZWRkNzgzNThmNjU3NjNmOWNkOGFhOWUxYzZkZTA4Mzp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiI0eDNVQnRiM3lxOXE0eWdrSFp5QjdJNzByZWZnUDRsRiIsIl9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoic29jaWFsX2NvcmUuYmFja2VuZHMuZ29vZ2xlLkdvb2dsZU9BdXRoMiIsIl9hdXRoX3VzZXJfaGFzaCI6IjAwMzU0YjUyMDQzMjNiNGJkMTZkMjljNWQxYTQ1ZGUwMjNlYzU5ZGUiLCJzb2NpYWxfYXV0aF9sYXN0X2xvZ2luX2JhY2tlbmQiOiJnb29nbGUtb2F1dGgyIn0=",
+    "expire_date": "2019-01-24T10:10:18.926Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "egaihnrt3279plyrthzgteyr4kgdj5rm",
+  "fields": {
+    "session_data": "Yzk5NzBhYTNkODEyYmU2MDJlYmJjNDMzNWRlNjI3YjljYjg5NTdjMTp7Il9hdXRoX3VzZXJfaWQiOiI5OCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiOWJmZDI3NDY1MzIzOTIxNmMxMjM1NDFhMDdkZDUxZDMxOWIxMTBkNCJ9",
+    "expire_date": "2019-01-27T13:53:32.027Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ejjxurofgy3oavrperqqlwuynhjca3o6",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T01:41:22.233Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "f3z8ohj134r79d3t40orm8jo87pkpxw6",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:49:07.734Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gow5x9oc3uv4w0fyckdqilclhxr907j9",
+  "fields": {
+    "session_data": "ZTBkN2Y2ZWZiMmY1NWQ2MzNkMDZiODU2YTExNjBkYmNhNmJhMjM4MTp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0ZmI1OTRhZTcxYWY0OTkzMDA1YTNjM2VlNGE2YmEwNWFmNmQ3ODgyIn0=",
+    "expire_date": "2019-01-22T15:02:49.663Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jt8t6a3w3czmrk3ms6rgrket6nngwvtd",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T01:30:25.847Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kpk4q5ct6nw9rd3purxtmmq17wlezz3a",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:05:25.649Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "m0q6b4zc6byra51eqjtvnqgpsrgvgebo",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:01:50.929Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "nxvdfy1v786y6llb53k4vurl22lmxd2b",
+  "fields": {
+    "session_data": "ZTBkN2Y2ZWZiMmY1NWQ2MzNkMDZiODU2YTExNjBkYmNhNmJhMjM4MTp7Il9hdXRoX3VzZXJfaWQiOiI0IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI0ZmI1OTRhZTcxYWY0OTkzMDA1YTNjM2VlNGE2YmEwNWFmNmQ3ODgyIn0=",
+    "expire_date": "2019-01-25T00:07:32.245Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "oedv48tx5df827wghowqc47cx2oszy79",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:07:59.920Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ot9le8qdq5dlq2m240esp9db51ngu7aj",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T01:23:15.523Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "p1q3cwhi8rhpah0rvs5phcaj6sp7bebw",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:04:59.089Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "sugd9ukysbg57yo5w6imv5lnby40ci01",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T01:42:20.293Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "tdb4ld1gv1q67xwv8q9dune9918o5ftk",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T01:50:13.069Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ut8p2g4pdmlwc7pjynroik6xzujhcefd",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:35:32.522Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "vywusj4mvq65pc0gntb95rdgs7al7xi7",
+  "fields": {
+    "session_data": "ODk5NGJhMjk4YTRlNTRlNDFmZGRkMDY5MGQyY2FiMjlhYTViNjQ5ZTp7Il9hdXRoX3VzZXJfaWQiOiI1IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhODI0ZTUyYWY4YmMxMGRmMzJjYTZkMWQ0ODBhNmQ0NGQ1MGFmYTQxIn0=",
+    "expire_date": "2019-01-28T10:21:55.897Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "w1i2gv4o4ibrotyudjw9z14i3fqqysph",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:13:16.517Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wkd7xiclcmfz14qupwnk7h3kaxnu853n",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:09:54.940Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wvel9j0myy9gt25f182v5ftxu6pugsgi",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T01:15:01.030Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wy39keovo5rt61dzp03zefuk9weoucav",
+  "fields": {
+    "session_data": "ODk5NGJhMjk4YTRlNTRlNDFmZGRkMDY5MGQyY2FiMjlhYTViNjQ5ZTp7Il9hdXRoX3VzZXJfaWQiOiI1IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJhODI0ZTUyYWY4YmMxMGRmMzJjYTZkMWQ0ODBhNmQ0NGQ1MGFmYTQxIn0=",
+    "expire_date": "2019-01-28T09:30:13.746Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "yyytu01yauwmn6ojt58jzt6knx6u70yj",
+  "fields": {
+    "session_data": "ZDM0NmYyMDc5YjFjMmYzMThlOTZkYWMwZTBiMWY5YWJlNWMxYzBiYzp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiJ5RnYwemtjVXdCcklpZVdVQ1JYYkdxVEY2MGxnZG9DZSJ9",
+    "expire_date": "2019-01-24T10:50:55.636Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zd9m50h6os7sosz7sld174fapvi3p8qw",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T04:33:48.019Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zyrvm2jaf5smsgu1erbx5u8q168gqsvh",
+  "fields": {
+    "session_data": "ODcyMWYzNDFjNTI4YjU3ZjhhNDliNmYxY2IwNTgwNzJlZmNhODgyZjp7fQ==",
+    "expire_date": "2019-01-25T01:56:00.603Z"
+  }
+},
+{
+  "model": "localManagement.localita",
+  "pk": "00100",
+  "fields": {
+    "nome_localita": "Roma"
+  }
+},
+{
+  "model": "localManagement.localita",
+  "pk": "20100",
+  "fields": {
+    "nome_localita": "Milano"
+  }
+},
+{
+  "model": "localManagement.localita",
+  "pk": "41100",
+  "fields": {
+    "nome_localita": "Modena"
+  }
+},
+{
+  "model": "localManagement.tag",
+  "pk": "asporto",
+  "fields": {}
+},
+{
+  "model": "localManagement.tag",
+  "pk": "gnocco",
+  "fields": {}
+},
+{
+  "model": "localManagement.tag",
+  "pk": "italiano",
+  "fields": {}
+},
+{
+  "model": "localManagement.tag",
+  "pk": "pizzeria",
+  "fields": {}
+},
+{
+  "model": "localManagement.tag",
+  "pk": "ristorante",
+  "fields": {}
+},
+{
+  "model": "localManagement.tag",
+  "pk": "tigelle",
+  "fields": {}
+},
+{
+  "model": "localManagement.locale",
+  "pk": 2,
+  "fields": {
+    "nome_locale": "La Romana",
+    "orario_apertura": "09:00:00",
+    "orario_chiusura": "23:00:00",
+    "num_civico": "52",
+    "via": "via appia nuova",
+    "cap": "00100",
+    "descrizione": "La vera pizza a Roma",
+    "telefono": "001987654321",
+    "sito_web": "www.romanaderoma.rm",
+    "prezzo_di_spedizione": 4.0,
+    "email": "info@romana.rm",
+    "latitude": 41.8843419,
+    "longitude": 12.5085917,
+    "tag": [
+      "italiano",
+      "asporto"
+    ]
+  }
+},
+{
+  "model": "localManagement.locale",
+  "pk": 3,
+  "fields": {
+    "nome_locale": "La Romana Emiliana",
+    "orario_apertura": "10:00:00",
+    "orario_chiusura": "23:59:59",
+    "num_civico": "134",
+    "via": "via araldi",
+    "cap": "41100",
+    "descrizione": "La Romana Modena Edition",
+    "telefono": "059876524",
+    "sito_web": "www.romanadimodena.mo",
+    "prezzo_di_spedizione": 2.0,
+    "email": "info@romana.mo",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "tag": [
+      "gnocco",
+      "tigelle",
+      "ristorante"
+    ]
+  }
+},
+{
+  "model": "localManagement.locale",
+  "pk": 10,
+  "fields": {
+    "nome_locale": "QuadroByNight",
+    "orario_apertura": "10:00:00",
+    "orario_chiusura": "23:59:59",
+    "num_civico": "10",
+    "via": "Via Abbondio Sangiorgio",
+    "cap": "20100",
+    "descrizione": "Plachiamo la tua fame notturna!",
+    "telefono": "3665482545",
+    "sito_web": "www.quadrobynight.it",
+    "prezzo_di_spedizione": 3.0,
+    "email": "quadrobynight@gmail.com",
+    "latitude": 45.6607881,
+    "longitude": 8.8621724,
+    "tag": [
+      "asporto"
+    ]
+  }
+},
+{
+  "model": "localManagement.locale",
+  "pk": 13,
+  "fields": {
+    "nome_locale": "La Romana Milano Edition",
+    "orario_apertura": "10:00:00",
+    "orario_chiusura": "23:35:00",
+    "num_civico": "10",
+    "via": "via archimede",
+    "cap": "20100",
+    "descrizione": "Tutta l'originalita' della Romana a Milano!",
+    "telefono": "023654568",
+    "sito_web": "www.laromana.it",
+    "prezzo_di_spedizione": 3.0,
+    "email": "laromana@milano.it",
+    "latitude": 45.4646507,
+    "longitude": 9.2071878,
+    "tag": [
+      "asporto",
+      "italiano",
+      "pizzeria"
+    ]
+  }
+},
+{
+  "model": "localManagement.fotolocale",
+  "pk": 3,
+  "fields": {
+    "cod_locale": 2,
+    "foto_locale": "2/locale/2019-01-08_162605.331679.jpg"
+  }
+},
+{
+  "model": "localManagement.fotolocale",
+  "pk": 4,
+  "fields": {
+    "cod_locale": 2,
+    "foto_locale": "2/locale/2019-01-08_162605.334843.jpg"
+  }
+},
+{
+  "model": "localManagement.fotolocale",
+  "pk": 5,
+  "fields": {
+    "cod_locale": 3,
+    "foto_locale": "3/locale/2019-01-08_170912.390889.jpg"
+  }
+},
+{
+  "model": "localManagement.fotolocale",
+  "pk": 6,
+  "fields": {
+    "cod_locale": 3,
+    "foto_locale": "3/locale/2019-01-08_170912.396319.jpg"
+  }
+},
+{
+  "model": "localManagement.fotolocale",
+  "pk": 13,
+  "fields": {
+    "cod_locale": 10,
+    "foto_locale": "10/locale/2019-01-13_142329.198718.jpg"
+  }
+},
+{
+  "model": "localManagement.fotolocale",
+  "pk": 16,
+  "fields": {
+    "cod_locale": 13,
+    "foto_locale": "13/locale/2019-01-13_161809.053142.jpg"
+  }
+},
+{
+  "model": "localManagement.chiusura",
+  "pk": 11,
+  "fields": {
+    "cod_locale": 3,
+    "giorno_chiusura": "Luned\u00ec"
+  }
+},
+{
+  "model": "localManagement.chiusura",
+  "pk": 12,
+  "fields": {
+    "cod_locale": 3,
+    "giorno_chiusura": "Domenica"
+  }
+},
+{
+  "model": "localManagement.menu",
+  "pk": 1,
+  "fields": {
+    "cod_locale": 2,
+    "nome_menu": "Pizza per due!",
+    "descrizione_menu": "pizza1 + pizza2",
+    "prezzo": "8.00"
+  }
+},
+{
+  "model": "localManagement.menu",
+  "pk": 4,
+  "fields": {
+    "cod_locale": 2,
+    "nome_menu": "Pizza-family",
+    "descrizione_menu": "3 pizze per una cena in famiglia",
+    "prezzo": "15.00"
+  }
+},
+{
+  "model": "localManagement.menu",
+  "pk": 6,
+  "fields": {
+    "cod_locale": 3,
+    "nome_menu": "combo",
+    "descrizione_menu": "gnocco fritto e affettati + calzone",
+    "prezzo": "7.00"
+  }
+},
+{
+  "model": "localManagement.menu",
+  "pk": 7,
+  "fields": {
+    "cod_locale": 10,
+    "nome_menu": "Panino al volo!",
+    "descrizione_menu": "Kebab + patatine",
+    "prezzo": "5.00"
+  }
+},
+{
+  "model": "localManagement.menu",
+  "pk": 8,
+  "fields": {
+    "cod_locale": 10,
+    "nome_menu": "Piadina al volo",
+    "descrizione_menu": "piadina + patatine fritte",
+    "prezzo": "5.50"
+  }
+},
+{
+  "model": "localManagement.menu",
+  "pk": 10,
+  "fields": {
+    "cod_locale": 13,
+    "nome_menu": "Double-pizzas!",
+    "descrizione_menu": "Due pizze ad un prezzo imperdibile!",
+    "prezzo": "9.00"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 1,
+  "fields": {
+    "cod_locale": 2,
+    "nome_prodotto": "Margherita",
+    "descrizione_prodotto": "mozzarella, pomodoro ed una foglia di basilico",
+    "prezzo": "4.00",
+    "foto_prodotto": "2/Margherita/2019-01-08_172354.619020.jpg"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 2,
+  "fields": {
+    "cod_locale": 2,
+    "nome_prodotto": "Tonno e Cipolla",
+    "descrizione_prodotto": "pomodoro, mozzarella, tonno e cipolla tagliata a julienne",
+    "prezzo": "7.00",
+    "foto_prodotto": "2/Tonno e Cipolla/2019-01-08_172452.796463.jpg"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 3,
+  "fields": {
+    "cod_locale": 3,
+    "nome_prodotto": "Calzone",
+    "descrizione_prodotto": "prosciutto mozzarella pomodoro",
+    "prezzo": "5.00",
+    "foto_prodotto": "3/Calzone/2019-01-10_095715.544333.jpg"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 6,
+  "fields": {
+    "cod_locale": 2,
+    "nome_prodotto": "Gnocco fritto e formaggi",
+    "descrizione_prodotto": "gnocco, grana",
+    "prezzo": "6.00",
+    "foto_prodotto": "2/Gnocco fritto e formaggi/2019-01-12_123607.481703.jpg"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 49,
+  "fields": {
+    "cod_locale": 2,
+    "nome_prodotto": "Capricciosa",
+    "descrizione_prodotto": "pomodoro, mozzarella, prosciutto cotto, carciofini sott'olio, funghi trifolati e le olive nere",
+    "prezzo": "7.00",
+    "foto_prodotto": "2/Capricciosa/2019-01-13_010601.349250.jpg"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 53,
+  "fields": {
+    "cod_locale": 3,
+    "nome_prodotto": "Gnocco fritto e affettati",
+    "descrizione_prodotto": "gnocco fritto e affettati",
+    "prezzo": "4.00",
+    "foto_prodotto": "3/Gnocco fritto e affettati/2019-01-13_120128.519118.jpg"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 54,
+  "fields": {
+    "cod_locale": 10,
+    "nome_prodotto": "Panino kebab",
+    "descrizione_prodotto": "pane, kebab",
+    "prezzo": "3.50",
+    "foto_prodotto": "10/Panino kebab/2019-01-13_142833.759965.jpg"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 55,
+  "fields": {
+    "cod_locale": 10,
+    "nome_prodotto": "Piadina kebab",
+    "descrizione_prodotto": "piadina, kebab",
+    "prezzo": "4.00",
+    "foto_prodotto": "10/Piadina kebab/2019-01-13_142852.068331.jpg"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 56,
+  "fields": {
+    "cod_locale": 10,
+    "nome_prodotto": "Uramaki 6 pz.",
+    "descrizione_prodotto": "riso, salmone, avocado",
+    "prezzo": "8.00",
+    "foto_prodotto": "10/Uramaki 6 pz./2019-01-13_142932.849945.jpg"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 57,
+  "fields": {
+    "cod_locale": 10,
+    "nome_prodotto": "Patatine fritte",
+    "descrizione_prodotto": "patatine fritte, sale",
+    "prezzo": "3.00",
+    "foto_prodotto": "10/Patatine fritte/2019-01-13_142958.386417.jpg"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 58,
+  "fields": {
+    "cod_locale": 13,
+    "nome_prodotto": "Margherita",
+    "descrizione_prodotto": "pomodoro, mozzarella",
+    "prezzo": "4.00",
+    "foto_prodotto": "13/Margherita/2019-01-13_162232.078098.jpg"
+  }
+},
+{
+  "model": "localManagement.prodotto",
+  "pk": 59,
+  "fields": {
+    "cod_locale": 13,
+    "nome_prodotto": "Capricciosa",
+    "descrizione_prodotto": "pomodoro, mozzarella, prosciutto cotto, carciofini sott'olio, funghi trifolati e le olive nere",
+    "prezzo": "8.00",
+    "foto_prodotto": "13/Capricciosa/2019-01-13_162254.583088.jpg"
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 1,
+  "fields": {
+    "cod_locale": 2,
+    "nome_menu": 1,
+    "nome_prodotto": 1
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 2,
+  "fields": {
+    "cod_locale": 2,
+    "nome_menu": 1,
+    "nome_prodotto": 2
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 8,
+  "fields": {
+    "cod_locale": 2,
+    "nome_menu": 4,
+    "nome_prodotto": 1
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 9,
+  "fields": {
+    "cod_locale": 2,
+    "nome_menu": 4,
+    "nome_prodotto": 2
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 10,
+  "fields": {
+    "cod_locale": 2,
+    "nome_menu": 4,
+    "nome_prodotto": 49
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 12,
+  "fields": {
+    "cod_locale": 3,
+    "nome_menu": 6,
+    "nome_prodotto": 3
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 13,
+  "fields": {
+    "cod_locale": 3,
+    "nome_menu": 6,
+    "nome_prodotto": 53
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 14,
+  "fields": {
+    "cod_locale": 10,
+    "nome_menu": 7,
+    "nome_prodotto": 54
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 15,
+  "fields": {
+    "cod_locale": 10,
+    "nome_menu": 7,
+    "nome_prodotto": 57
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 16,
+  "fields": {
+    "cod_locale": 10,
+    "nome_menu": 8,
+    "nome_prodotto": 55
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 17,
+  "fields": {
+    "cod_locale": 10,
+    "nome_menu": 8,
+    "nome_prodotto": 57
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 18,
+  "fields": {
+    "cod_locale": 13,
+    "nome_menu": 10,
+    "nome_prodotto": 58
+  }
+},
+{
+  "model": "localManagement.compostoda",
+  "pk": 19,
+  "fields": {
+    "cod_locale": 13,
+    "nome_menu": 10,
+    "nome_prodotto": 59
+  }
+},
+{
+  "model": "user.cartadicredito",
+  "pk": 2,
+  "fields": {
+    "numero_carta": "1111222233334444",
+    "intestatario": "Daniele Tortoli",
+    "scadenza": "2022-01-10"
+  }
+},
+{
+  "model": "user.cartadicredito",
+  "pk": 9,
+  "fields": {
+    "numero_carta": "5555444433332222",
+    "intestatario": "Riso allo Zafferano",
+    "scadenza": "2023-04-04"
+  }
+},
+{
+  "model": "user.cartadicredito",
+  "pk": 10,
+  "fields": {
+    "numero_carta": "234567890",
+    "intestatario": "dile",
+    "scadenza": "2080-04-13"
+  }
+},
+{
+  "model": "user.cartadicredito",
+  "pk": 13,
+  "fields": {
+    "numero_carta": "0000555566662222",
+    "intestatario": "pippo topolino",
+    "scadenza": "2019-04-04"
+  }
+},
+{
+  "model": "user.cartadicredito",
+  "pk": 32,
+  "fields": {
+    "numero_carta": "222",
+    "intestatario": "dan",
+    "scadenza": "2019-01-11"
+  }
+},
+{
+  "model": "user.cartadicredito",
+  "pk": 36,
+  "fields": {
+    "numero_carta": "5555666644442222",
+    "intestatario": "Masc",
+    "scadenza": "2018-01-07"
+  }
+},
+{
+  "model": "user.cartadicredito",
+  "pk": 39,
+  "fields": {
+    "numero_carta": "2131231231213123",
+    "intestatario": "sadasd",
+    "scadenza": "2019-01-11"
+  }
+},
+{
+  "model": "user.cartadicredito",
+  "pk": 42,
+  "fields": {
+    "numero_carta": "7777895842256587",
+    "intestatario": "Louis Vuitton",
+    "scadenza": "2023-04-17"
+  }
+},
+{
+  "model": "user.recensione",
+  "pk": 1,
+  "fields": {
+    "email": 2,
+    "cod_locale": 3,
+    "p_iva": null,
+    "voto": 4,
+    "descrizione": "Servizio davvero lodevole ma piatti non perfetti. Manca un po' di piccante",
+    "date": "2019-01-10"
+  }
+},
+{
+  "model": "user.recensione",
+  "pk": 2,
+  "fields": {
+    "email": 2,
+    "cod_locale": 3,
+    "p_iva": 3,
+    "voto": null,
+    "descrizione": "Grazie per il suo feedback, cercheremo di migliorare!",
+    "date": "2019-01-10"
+  }
+},
+{
+  "model": "user.recensione",
+  "pk": 3,
+  "fields": {
+    "email": 98,
+    "cod_locale": 10,
+    "p_iva": null,
+    "voto": 3,
+    "descrizione": "Cibo accettabile, consegna puntuale ma un po' caro per la qualita' che offre",
+    "date": "2019-01-13"
+  }
+},
+{
+  "model": "user.recensione",
+  "pk": 8,
+  "fields": {
+    "email": 99,
+    "cod_locale": 10,
+    "p_iva": null,
+    "voto": 5,
+    "descrizione": "Tutto perfetto!",
+    "date": "2019-01-13"
+  }
+},
+{
+  "model": "user.recensione",
+  "pk": 10,
+  "fields": {
+    "email": 99,
+    "cod_locale": 13,
+    "p_iva": null,
+    "voto": 5,
+    "descrizione": "La Romana sempre insuperabile, anche qui a Milano!",
+    "date": "2019-01-14"
+  }
+},
+{
+  "model": "user.recensione",
+  "pk": 14,
+  "fields": {
+    "email": 98,
+    "cod_locale": 10,
+    "p_iva": 5,
+    "voto": null,
+    "descrizione": "Grazie per il suo feedback, cercheremo di migliorare!",
+    "date": "2019-01-14"
+  }
+},
+{
+  "model": "user.recensione",
+  "pk": 15,
+  "fields": {
+    "email": 99,
+    "cod_locale": 10,
+    "p_iva": 5,
+    "voto": null,
+    "descrizione": "Grazie per il suo feedback, continui ad ordinare da noi!",
+    "date": "2019-01-14"
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 2,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-09T09:14:53.557Z",
+    "orario_richiesto": "12:12:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 3,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-09T09:20:35.426Z",
+    "orario_richiesto": "10:21:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 4,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-09T09:27:12.340Z",
+    "orario_richiesto": "12:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 6,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-10T09:34:37.073Z",
+    "orario_richiesto": "10:50:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 2,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": null
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 9,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-10T10:20:13.743Z",
+    "orario_richiesto": "13:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 2,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 12,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-10T10:27:30.396Z",
+    "orario_richiesto": "23:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 2,
+    "accettato": true,
+    "consegnato": true,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 13,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-10T10:28:11.093Z",
+    "orario_richiesto": "23:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 2,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 14,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-10T10:29:27.571Z",
+    "orario_richiesto": "12:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 15,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-10T10:31:51.042Z",
+    "orario_richiesto": "22:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 16,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-10T10:32:25.333Z",
+    "orario_richiesto": "22:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 2,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 19,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-10T10:59:05.819Z",
+    "orario_richiesto": "22:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 21,
+  "fields": {
+    "email": 14,
+    "data": "2019-01-10T15:12:31.241Z",
+    "orario_richiesto": "21:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 10,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 22,
+  "fields": {
+    "email": 14,
+    "data": "2019-01-10T15:12:31.335Z",
+    "orario_richiesto": "21:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 10,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 23,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-10T15:34:58.285Z",
+    "orario_richiesto": "16:34:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 24,
+  "fields": {
+    "email": 14,
+    "data": "2019-01-10T20:01:11.341Z",
+    "orario_richiesto": "22:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 10,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 25,
+  "fields": {
+    "email": 14,
+    "data": "2019-01-10T20:02:07.912Z",
+    "orario_richiesto": "22:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 10,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 26,
+  "fields": {
+    "email": 17,
+    "data": "2019-01-10T20:02:53.288Z",
+    "orario_richiesto": "22:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 27,
+  "fields": {
+    "email": 17,
+    "data": "2019-01-10T20:03:18.652Z",
+    "orario_richiesto": "23:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 28,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-10T20:16:29.297Z",
+    "orario_richiesto": "22:02:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 29,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-11T15:56:38.280Z",
+    "orario_richiesto": "23:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 2,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Consegna annullata. Contattare il locale per maggiori informazioni."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 32,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-12T10:23:42.074Z",
+    "orario_richiesto": "22:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 33,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-12T10:27:29.081Z",
+    "orario_richiesto": "22:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 2,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 34,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-12T11:45:20.256Z",
+    "orario_richiesto": "13:58:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 35,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-12T11:47:55.367Z",
+    "orario_richiesto": "12:59:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 2,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Ordine annullato. Il commerciante non ha risposto."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 37,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-13T11:04:55.486Z",
+    "orario_richiesto": "22:55:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 2,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 38,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-13T11:05:15.227Z",
+    "orario_richiesto": "22:03:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": true,
+    "consegnato": true,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 39,
+  "fields": {
+    "email": 2,
+    "data": "2019-01-13T11:16:23.626Z",
+    "orario_richiesto": "23:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 2,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 41,
+  "fields": {
+    "email": 98,
+    "data": "2019-01-13T15:28:12.211Z",
+    "orario_richiesto": "22:00:00",
+    "metodo_pagamento": "carta di credito",
+    "cod_carta": 42,
+    "accettato": true,
+    "consegnato": true,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 42,
+  "fields": {
+    "email": 99,
+    "data": "2019-01-13T15:28:50.284Z",
+    "orario_richiesto": "16:29:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": true,
+    "consegnato": true,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 43,
+  "fields": {
+    "email": 99,
+    "data": "2019-01-13T15:33:58.659Z",
+    "orario_richiesto": "23:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Consegna annullata. Contattare il locale per maggiori informazioni."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 44,
+  "fields": {
+    "email": 99,
+    "data": "2019-01-13T15:48:27.966Z",
+    "orario_richiesto": "18:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Consegna annullata. Contattare il locale per maggiori informazioni."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 45,
+  "fields": {
+    "email": 99,
+    "data": "2019-01-13T20:58:57.254Z",
+    "orario_richiesto": "22:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": "Consegna annullata. Contattare il locale per maggiori informazioni."
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 46,
+  "fields": {
+    "email": 99,
+    "data": "2019-01-13T20:59:07.680Z",
+    "orario_richiesto": "22:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": true,
+    "consegnato": true,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 47,
+  "fields": {
+    "email": 99,
+    "data": "2019-01-14T09:16:39.339Z",
+    "orario_richiesto": "20:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": true,
+    "consegnato": true,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 48,
+  "fields": {
+    "email": 99,
+    "data": "2019-01-14T09:25:43.450Z",
+    "orario_richiesto": "20:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": true,
+    "consegnato": true,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 49,
+  "fields": {
+    "email": 99,
+    "data": "2019-01-14T09:30:06.136Z",
+    "orario_richiesto": "20:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 50,
+  "fields": {
+    "email": 99,
+    "data": "2019-01-14T09:39:34.875Z",
+    "orario_richiesto": "20:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": false,
+    "consegnato": false,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.ordineinattesa",
+  "pk": 51,
+  "fields": {
+    "email": 99,
+    "data": "2019-01-14T10:16:13.513Z",
+    "orario_richiesto": "15:00:00",
+    "metodo_pagamento": "alla consegna",
+    "cod_carta": null,
+    "accettato": true,
+    "consegnato": false,
+    "descrizione": ""
+  }
+},
+{
+  "model": "order.richiedem",
+  "pk": 1,
+  "fields": {
+    "cod_ordine": 3,
+    "cod_locale": 2,
+    "nome_menu": 1,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedem",
+  "pk": 2,
+  "fields": {
+    "cod_ordine": 25,
+    "cod_locale": 2,
+    "nome_menu": 1,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedem",
+  "pk": 5,
+  "fields": {
+    "cod_ordine": 35,
+    "cod_locale": 2,
+    "nome_menu": 1,
+    "quantita": 78
+  }
+},
+{
+  "model": "order.richiedem",
+  "pk": 6,
+  "fields": {
+    "cod_ordine": 37,
+    "cod_locale": 3,
+    "nome_menu": 6,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedem",
+  "pk": 7,
+  "fields": {
+    "cod_ordine": 39,
+    "cod_locale": 3,
+    "nome_menu": 6,
+    "quantita": 99
+  }
+},
+{
+  "model": "order.richiedem",
+  "pk": 9,
+  "fields": {
+    "cod_ordine": 41,
+    "cod_locale": 10,
+    "nome_menu": 8,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedem",
+  "pk": 10,
+  "fields": {
+    "cod_ordine": 42,
+    "cod_locale": 13,
+    "nome_menu": 10,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedem",
+  "pk": 11,
+  "fields": {
+    "cod_ordine": 43,
+    "cod_locale": 13,
+    "nome_menu": 10,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedem",
+  "pk": 12,
+  "fields": {
+    "cod_ordine": 45,
+    "cod_locale": 13,
+    "nome_menu": 10,
+    "quantita": 3
+  }
+},
+{
+  "model": "order.richiedem",
+  "pk": 13,
+  "fields": {
+    "cod_ordine": 50,
+    "cod_locale": 10,
+    "nome_menu": 7,
+    "quantita": 3
+  }
+},
+{
+  "model": "order.richiedem",
+  "pk": 14,
+  "fields": {
+    "cod_ordine": 51,
+    "cod_locale": 10,
+    "nome_menu": 8,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 2,
+  "fields": {
+    "cod_ordine": 2,
+    "cod_locale": 2,
+    "nome_prodotto": 1,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 3,
+  "fields": {
+    "cod_ordine": 3,
+    "cod_locale": 2,
+    "nome_prodotto": 2,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 4,
+  "fields": {
+    "cod_ordine": 4,
+    "cod_locale": 2,
+    "nome_prodotto": 1,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 6,
+  "fields": {
+    "cod_ordine": 6,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 9,
+  "fields": {
+    "cod_ordine": 9,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 12,
+  "fields": {
+    "cod_ordine": 12,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 13,
+  "fields": {
+    "cod_ordine": 13,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 14,
+  "fields": {
+    "cod_ordine": 14,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 15,
+  "fields": {
+    "cod_ordine": 15,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 16,
+  "fields": {
+    "cod_ordine": 16,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 19,
+  "fields": {
+    "cod_ordine": 19,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 21,
+  "fields": {
+    "cod_ordine": 21,
+    "cod_locale": 2,
+    "nome_prodotto": 2,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 22,
+  "fields": {
+    "cod_ordine": 22,
+    "cod_locale": 2,
+    "nome_prodotto": 2,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 23,
+  "fields": {
+    "cod_ordine": 23,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 24,
+  "fields": {
+    "cod_ordine": 24,
+    "cod_locale": 2,
+    "nome_prodotto": 1,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 25,
+  "fields": {
+    "cod_ordine": 25,
+    "cod_locale": 2,
+    "nome_prodotto": 2,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 26,
+  "fields": {
+    "cod_ordine": 25,
+    "cod_locale": 2,
+    "nome_prodotto": 1,
+    "quantita": 4
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 27,
+  "fields": {
+    "cod_ordine": 26,
+    "cod_locale": 2,
+    "nome_prodotto": 1,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 28,
+  "fields": {
+    "cod_ordine": 27,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 10
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 29,
+  "fields": {
+    "cod_ordine": 28,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 4
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 31,
+  "fields": {
+    "cod_ordine": 29,
+    "cod_locale": 2,
+    "nome_prodotto": 2,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 36,
+  "fields": {
+    "cod_ordine": 32,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 11
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 37,
+  "fields": {
+    "cod_ordine": 33,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 12
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 38,
+  "fields": {
+    "cod_ordine": 34,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 99
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 39,
+  "fields": {
+    "cod_ordine": 35,
+    "cod_locale": 2,
+    "nome_prodotto": 1,
+    "quantita": 78
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 40,
+  "fields": {
+    "cod_ordine": 35,
+    "cod_locale": 2,
+    "nome_prodotto": 2,
+    "quantita": 44
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 42,
+  "fields": {
+    "cod_ordine": 35,
+    "cod_locale": 2,
+    "nome_prodotto": 6,
+    "quantita": 99
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 44,
+  "fields": {
+    "cod_ordine": 38,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 45,
+  "fields": {
+    "cod_ordine": 39,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 34
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 46,
+  "fields": {
+    "cod_ordine": 39,
+    "cod_locale": 3,
+    "nome_prodotto": 53,
+    "quantita": 43
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 48,
+  "fields": {
+    "cod_ordine": 41,
+    "cod_locale": 10,
+    "nome_prodotto": 56,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 49,
+  "fields": {
+    "cod_ordine": 44,
+    "cod_locale": 13,
+    "nome_prodotto": 59,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 50,
+  "fields": {
+    "cod_ordine": 46,
+    "cod_locale": 10,
+    "nome_prodotto": 57,
+    "quantita": 4
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 51,
+  "fields": {
+    "cod_ordine": 47,
+    "cod_locale": 13,
+    "nome_prodotto": 59,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 52,
+  "fields": {
+    "cod_ordine": 48,
+    "cod_locale": 3,
+    "nome_prodotto": 3,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 53,
+  "fields": {
+    "cod_ordine": 49,
+    "cod_locale": 10,
+    "nome_prodotto": 54,
+    "quantita": 2
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 54,
+  "fields": {
+    "cod_ordine": 51,
+    "cod_locale": 10,
+    "nome_prodotto": 56,
+    "quantita": 1
+  }
+},
+{
+  "model": "order.richiedep",
+  "pk": 55,
+  "fields": {
+    "cod_ordine": 51,
+    "cod_locale": 10,
+    "nome_prodotto": 57,
+    "quantita": 1
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 4,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 4,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 4,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 4,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 5,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 5,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 5,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 5,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add Chiusura",
+    "content_type": 6,
+    "codename": "add_chiusura"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change Chiusura",
+    "content_type": 6,
+    "codename": "change_chiusura"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete Chiusura",
+    "content_type": 6,
+    "codename": "delete_chiusura"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view Chiusura",
+    "content_type": 6,
+    "codename": "view_chiusura"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add Composto da",
+    "content_type": 7,
+    "codename": "add_compostoda"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change Composto da",
+    "content_type": 7,
+    "codename": "change_compostoda"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete Composto da",
+    "content_type": 7,
+    "codename": "delete_compostoda"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view Composto da",
+    "content_type": 7,
+    "codename": "view_compostoda"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add foto locale",
+    "content_type": 8,
+    "codename": "add_fotolocale"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change foto locale",
+    "content_type": 8,
+    "codename": "change_fotolocale"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete foto locale",
+    "content_type": 8,
+    "codename": "delete_fotolocale"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view foto locale",
+    "content_type": 8,
+    "codename": "view_fotolocale"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add locale",
+    "content_type": 9,
+    "codename": "add_locale"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change locale",
+    "content_type": 9,
+    "codename": "change_locale"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete locale",
+    "content_type": 9,
+    "codename": "delete_locale"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view locale",
+    "content_type": 9,
+    "codename": "view_locale"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add Localit\u00e0",
+    "content_type": 10,
+    "codename": "add_localita"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change Localit\u00e0",
+    "content_type": 10,
+    "codename": "change_localita"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete Localit\u00e0",
+    "content_type": 10,
+    "codename": "delete_localita"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view Localit\u00e0",
+    "content_type": 10,
+    "codename": "view_localita"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add Men\u00f9",
+    "content_type": 11,
+    "codename": "add_menu"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change Men\u00f9",
+    "content_type": 11,
+    "codename": "change_menu"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete Men\u00f9",
+    "content_type": 11,
+    "codename": "delete_menu"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view Men\u00f9",
+    "content_type": 11,
+    "codename": "view_menu"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add prodotto",
+    "content_type": 12,
+    "codename": "add_prodotto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change prodotto",
+    "content_type": 12,
+    "codename": "change_prodotto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete prodotto",
+    "content_type": 12,
+    "codename": "delete_prodotto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view prodotto",
+    "content_type": 12,
+    "codename": "view_prodotto"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add tag",
+    "content_type": 13,
+    "codename": "add_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change tag",
+    "content_type": 13,
+    "codename": "change_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete tag",
+    "content_type": 13,
+    "codename": "delete_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view tag",
+    "content_type": 13,
+    "codename": "view_tag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add carta di credito",
+    "content_type": 14,
+    "codename": "add_cartadicredito"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change carta di credito",
+    "content_type": 14,
+    "codename": "change_cartadicredito"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete carta di credito",
+    "content_type": 14,
+    "codename": "delete_cartadicredito"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view carta di credito",
+    "content_type": 14,
+    "codename": "view_cartadicredito"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 57,
+  "fields": {
+    "name": "Can add recensione",
+    "content_type": 15,
+    "codename": "add_recensione"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 58,
+  "fields": {
+    "name": "Can change recensione",
+    "content_type": 15,
+    "codename": "change_recensione"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 59,
+  "fields": {
+    "name": "Can delete recensione",
+    "content_type": 15,
+    "codename": "delete_recensione"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 60,
+  "fields": {
+    "name": "Can view recensione",
+    "content_type": 15,
+    "codename": "view_recensione"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 61,
+  "fields": {
+    "name": "Can add ordine in attesa",
+    "content_type": 16,
+    "codename": "add_ordineinattesa"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 62,
+  "fields": {
+    "name": "Can change ordine in attesa",
+    "content_type": 16,
+    "codename": "change_ordineinattesa"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 63,
+  "fields": {
+    "name": "Can delete ordine in attesa",
+    "content_type": 16,
+    "codename": "delete_ordineinattesa"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 64,
+  "fields": {
+    "name": "Can view ordine in attesa",
+    "content_type": 16,
+    "codename": "view_ordineinattesa"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 65,
+  "fields": {
+    "name": "Can add richiede m",
+    "content_type": 17,
+    "codename": "add_richiedem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 66,
+  "fields": {
+    "name": "Can change richiede m",
+    "content_type": 17,
+    "codename": "change_richiedem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 67,
+  "fields": {
+    "name": "Can delete richiede m",
+    "content_type": 17,
+    "codename": "delete_richiedem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 68,
+  "fields": {
+    "name": "Can view richiede m",
+    "content_type": 17,
+    "codename": "view_richiedem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 69,
+  "fields": {
+    "name": "Can add richiede p",
+    "content_type": 18,
+    "codename": "add_richiedep"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 70,
+  "fields": {
+    "name": "Can change richiede p",
+    "content_type": 18,
+    "codename": "change_richiedep"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 71,
+  "fields": {
+    "name": "Can delete richiede p",
+    "content_type": 18,
+    "codename": "delete_richiedep"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 72,
+  "fields": {
+    "name": "Can view richiede p",
+    "content_type": 18,
+    "codename": "view_richiedep"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 73,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 19,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 74,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 19,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 75,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 19,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 76,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 19,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 77,
+  "fields": {
+    "name": "Can add commerciante",
+    "content_type": 20,
+    "codename": "add_commerciante"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 78,
+  "fields": {
+    "name": "Can change commerciante",
+    "content_type": 20,
+    "codename": "change_commerciante"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 79,
+  "fields": {
+    "name": "Can delete commerciante",
+    "content_type": 20,
+    "codename": "delete_commerciante"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 80,
+  "fields": {
+    "name": "Can view commerciante",
+    "content_type": 20,
+    "codename": "view_commerciante"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 81,
+  "fields": {
+    "name": "Can add utente",
+    "content_type": 21,
+    "codename": "add_utente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 82,
+  "fields": {
+    "name": "Can change utente",
+    "content_type": 21,
+    "codename": "change_utente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 83,
+  "fields": {
+    "name": "Can delete utente",
+    "content_type": 21,
+    "codename": "delete_utente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 84,
+  "fields": {
+    "name": "Can view utente",
+    "content_type": 21,
+    "codename": "view_utente"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 85,
+  "fields": {
+    "name": "Can add association",
+    "content_type": 22,
+    "codename": "add_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 86,
+  "fields": {
+    "name": "Can change association",
+    "content_type": 22,
+    "codename": "change_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 87,
+  "fields": {
+    "name": "Can delete association",
+    "content_type": 22,
+    "codename": "delete_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 88,
+  "fields": {
+    "name": "Can view association",
+    "content_type": 22,
+    "codename": "view_association"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 89,
+  "fields": {
+    "name": "Can add code",
+    "content_type": 23,
+    "codename": "add_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 90,
+  "fields": {
+    "name": "Can change code",
+    "content_type": 23,
+    "codename": "change_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 91,
+  "fields": {
+    "name": "Can delete code",
+    "content_type": 23,
+    "codename": "delete_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 92,
+  "fields": {
+    "name": "Can view code",
+    "content_type": 23,
+    "codename": "view_code"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 93,
+  "fields": {
+    "name": "Can add nonce",
+    "content_type": 24,
+    "codename": "add_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 94,
+  "fields": {
+    "name": "Can change nonce",
+    "content_type": 24,
+    "codename": "change_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 95,
+  "fields": {
+    "name": "Can delete nonce",
+    "content_type": 24,
+    "codename": "delete_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 96,
+  "fields": {
+    "name": "Can view nonce",
+    "content_type": 24,
+    "codename": "view_nonce"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 97,
+  "fields": {
+    "name": "Can add user social auth",
+    "content_type": 25,
+    "codename": "add_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 98,
+  "fields": {
+    "name": "Can change user social auth",
+    "content_type": 25,
+    "codename": "change_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 99,
+  "fields": {
+    "name": "Can delete user social auth",
+    "content_type": 25,
+    "codename": "delete_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 100,
+  "fields": {
+    "name": "Can view user social auth",
+    "content_type": 25,
+    "codename": "view_usersocialauth"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 101,
+  "fields": {
+    "name": "Can add partial",
+    "content_type": 26,
+    "codename": "add_partial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 102,
+  "fields": {
+    "name": "Can change partial",
+    "content_type": 26,
+    "codename": "change_partial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 103,
+  "fields": {
+    "name": "Can delete partial",
+    "content_type": 26,
+    "codename": "delete_partial"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 104,
+  "fields": {
+    "name": "Can view partial",
+    "content_type": 26,
+    "codename": "view_partial"
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 2,
+  "fields": {
+    "password": "!HX2sOhmVLxbFZiRESx5KWees1mIBdsud2PEDfDdf",
+    "last_login": "2019-01-13T11:15:46.965Z",
+    "is_superuser": false,
+    "username": "danieletortoli",
+    "first_name": "Daniele",
+    "last_name": "Tortoli",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-01-08T12:09:22.918Z",
+    "is_utente": true,
+    "is_commerciante": false,
+    "email": "danieletortoli@gmail.com",
+    "via": "via emilia est",
+    "civico": "387",
+    "cap": "41100",
+    "telefono": "3472804711",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$9hLr06ZcHNE5$9gDyZEyAnEGX+ZYd4KkXneZt/8csjEpa6c579c2BZ0w=",
+    "last_login": "2019-01-14T09:26:15.823Z",
+    "is_superuser": false,
+    "username": "PaperonDePaperoni",
+    "first_name": "Paperon",
+    "last_name": "De Paperoni",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-01-08T12:15:11.957Z",
+    "is_utente": false,
+    "is_commerciante": true,
+    "email": "papero_ricco@money.com",
+    "via": "via dei dollari",
+    "civico": "1",
+    "cap": "00100",
+    "telefono": "052654585",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$gLRTqLrG8gA5$fCJDJIWmkmvbjfkqRIVweikjGm1LbtjkbUGhDO5RmXs=",
+    "last_login": "2019-01-14T15:11:22.441Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-01-08T15:02:45.188Z",
+    "is_utente": false,
+    "is_commerciante": false,
+    "email": "admin@admin.com",
+    "via": "",
+    "civico": "",
+    "cap": "",
+    "telefono": "",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$Wn1ojYjiAjnQ$IwLyLffcOGTOgURJAGdh1fT8ioiuEfOjjef165C4RhY=",
+    "last_login": "2019-01-14T10:21:55.894Z",
+    "is_superuser": false,
+    "username": "Quadro",
+    "first_name": "pi",
+    "last_name": "quadro",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-01-09T10:12:04.372Z",
+    "is_utente": false,
+    "is_commerciante": true,
+    "email": "quadro@gmail.com",
+    "via": "via monte sabotino",
+    "civico": "70",
+    "cap": "41100",
+    "telefono": "3554652566",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 7,
+  "fields": {
+    "password": "!TgYhJqaBqlVcI1mtrWvZmr46FnItW6jAtIUWve9P",
+    "last_login": "2019-01-09T15:36:44.712Z",
+    "is_superuser": false,
+    "username": "215023",
+    "first_name": "DANIELE",
+    "last_name": "TORTOLI",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-01-09T15:36:44.678Z",
+    "is_utente": false,
+    "is_commerciante": true,
+    "email": "215023@studenti.unimore.it",
+    "via": "via emilia est",
+    "civico": "662",
+    "cap": "00100",
+    "telefono": "356657",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 13,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$2TorU2luT3tL$bBz1CEG70kFNusKdhiYHIjlC9iIyNAnTVJ9yM5RSje0=",
+    "last_login": "2019-01-10T13:31:56.675Z",
+    "is_superuser": false,
+    "username": "Zafferano",
+    "first_name": "riso",
+    "last_name": "allo zafferano",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-01-10T13:31:56.527Z",
+    "is_utente": true,
+    "is_commerciante": false,
+    "email": "risozafferano@gmail.com",
+    "via": "Piazza della Scala",
+    "civico": "2",
+    "cap": "20100",
+    "telefono": "347582564",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$n60XPmPF3cQY$+aYhF+Jj0hjrSs9XjLDwx80018nXq1BFD6WS7DwB/KU=",
+    "last_login": "2019-01-10T15:11:05.474Z",
+    "is_superuser": false,
+    "username": "dg",
+    "first_name": "diletta",
+    "last_name": "giulia",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-01-10T15:11:05.344Z",
+    "is_utente": true,
+    "is_commerciante": false,
+    "email": "dilettagiulia@gmail.com",
+    "via": "via dante",
+    "civico": "56",
+    "cap": "41100",
+    "telefono": "327638493827",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$cRZD0odQWmAe$Dkdp0ac3IOrXBCnnrgZep9ld5ZnKdlVzk2y5U4Ck2c8=",
+    "last_login": "2019-01-10T20:02:34.677Z",
+    "is_superuser": false,
+    "username": "pippo",
+    "first_name": "pippo",
+    "last_name": "topolino",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-01-10T15:47:40.326Z",
+    "is_utente": true,
+    "is_commerciante": false,
+    "email": "pippo@topolinia.us",
+    "via": "viale carlo sigonio",
+    "civico": "243",
+    "cap": "41100",
+    "telefono": "2335553342",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 98,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$7v5ABgYNtX7G$NJGmAuJ+p7nRMpQVFXuwNqjDN6x7BzOGSxK2EkDSBMI=",
+    "last_login": "2019-01-13T15:30:24.989Z",
+    "is_superuser": false,
+    "username": "Louis",
+    "first_name": "Louis",
+    "last_name": "Vuitton",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-01-13T13:34:54.437Z",
+    "is_utente": true,
+    "is_commerciante": false,
+    "email": "louis@vuitton.com",
+    "via": "Via Abramo Lincoln",
+    "civico": "5",
+    "cap": "20100",
+    "telefono": "3365565425",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.user",
+  "pk": 99,
+  "fields": {
+    "password": "pbkdf2_sha256$120000$jPvbxgTbgZHt$yB5F7AI+ryowWh95zDfWFOH+by+Der+Q8CatoG0HMoo=",
+    "last_login": "2019-01-14T09:58:46.098Z",
+    "is_superuser": false,
+    "username": "Calvin",
+    "first_name": "Calvin",
+    "last_name": "Klein",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2019-01-13T15:13:01.992Z",
+    "is_utente": true,
+    "is_commerciante": false,
+    "email": "calvin@klein.com",
+    "via": "via marcona",
+    "civico": "3",
+    "cap": "20100",
+    "telefono": "335448522",
+    "latitude": 45.4635946,
+    "longitude": 9.2063274,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "accounts.utente",
+  "pk": 2,
+  "fields": {
+    "carta_di_credito": [
+      36,
+      2
+    ]
+  }
+},
+{
+  "model": "accounts.utente",
+  "pk": 13,
+  "fields": {
+    "carta_di_credito": [
+      9
+    ]
+  }
+},
+{
+  "model": "accounts.utente",
+  "pk": 14,
+  "fields": {
+    "carta_di_credito": [
+      10
+    ]
+  }
+},
+{
+  "model": "accounts.utente",
+  "pk": 17,
+  "fields": {
+    "carta_di_credito": [
+      13
+    ]
+  }
+},
+{
+  "model": "accounts.utente",
+  "pk": 98,
+  "fields": {
+    "carta_di_credito": [
+      42
+    ]
+  }
+},
+{
+  "model": "accounts.utente",
+  "pk": 99,
+  "fields": {
+    "carta_di_credito": []
+  }
+},
+{
+  "model": "accounts.commerciante",
+  "pk": 3,
+  "fields": {
+    "p_iva": "11221",
+    "possiede_locale": [
+      3,
+      2,
+      13
+    ]
+  }
+},
+{
+  "model": "accounts.commerciante",
+  "pk": 5,
+  "fields": {
+    "p_iva": "2255889",
+    "possiede_locale": [
+      2,
+      10
+    ]
+  }
+},
+{
+  "model": "accounts.commerciante",
+  "pk": 7,
+  "fields": {
+    "p_iva": "5467494",
+    "possiede_locale": []
+  }
+},
+{
+  "model": "social_django.usersocialauth",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "provider": "google-oauth2",
+    "uid": "danieletortoli@gmail.com",
+    "extra_data": "{\"auth_time\": 1547378146, \"expires\": 3600, \"token_type\": \"Bearer\", \"access_token\": \"ya29.GlyQBlpUqEqZUrUd8-M5Jh5ppZp69-yrUt91Ceos3WX2peT0JfOB3v-iSZ20Sj2BXoxj8bqRTHFAcqHhr1eK1lgnc5JljR8jU5IwfT9ntJFfZ00lIN5HV4G3d5BlBg\"}"
+  }
+},
+{
+  "model": "social_django.usersocialauth",
+  "pk": 3,
+  "fields": {
+    "user": 7,
+    "provider": "google-oauth2",
+    "uid": "215023@studenti.unimore.it",
+    "extra_data": "{\"auth_time\": 1547048204, \"expires\": 3600, \"token_type\": \"Bearer\", \"access_token\": \"ya29.GluMBpRCifUwyKlQK4zv-tovQyNuGfPdUzhKL0ymkPPjMJKqusnx0tP3G0a4x9FO7NJvSBCb7D2auXXdiTyB-oXd8qrD4A_Egm7ndjujY1HFqwLKG__6IGDsIrwT\"}"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2019-01-08T15:03:05.212Z",
+    "user": 4,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "prova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2019-01-09T15:36:32.933Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "6",
+    "object_repr": "215023",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2019-01-10T13:30:13.897Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "11",
+    "object_repr": "Zafferano",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2019-01-10T13:31:43.199Z",
+    "user": 4,
+    "content_type": 14,
+    "object_id": "6",
+    "object_repr": "5555444433332222",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2019-01-10T15:46:00.374Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "15",
+    "object_repr": "pippo",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2019-01-10T22:07:44.529Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "18",
+    "object_repr": "sfsdfsdf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2019-01-11T00:07:43.215Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "20",
+    "object_repr": "asdda",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2019-01-11T00:08:05.442Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "21",
+    "object_repr": "asdda",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2019-01-11T00:37:56.127Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "19",
+    "object_repr": "prov",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2019-01-11T00:43:33.862Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "22",
+    "object_repr": "sada",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2019-01-11T00:45:44.915Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "23",
+    "object_repr": "sada",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2019-01-11T00:52:30.420Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "24",
+    "object_repr": "sada",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2019-01-11T01:07:40.507Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "26",
+    "object_repr": "prov",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2019-01-11T01:14:16.211Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "28",
+    "object_repr": "afsasf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2019-01-11T01:14:16.218Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "27",
+    "object_repr": "prov",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2019-01-11T01:14:16.221Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "25",
+    "object_repr": "asfasfa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2019-01-11T01:14:49.198Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "29",
+    "object_repr": "afsasf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2019-01-11T01:15:28.638Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "30",
+    "object_repr": "afsasf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2019-01-11T01:15:56.521Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "31",
+    "object_repr": "afsasf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2019-01-11T01:17:17.299Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "32",
+    "object_repr": "afsasf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2019-01-11T01:18:34.014Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "33",
+    "object_repr": "afsasf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2019-01-11T01:23:37.597Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "35",
+    "object_repr": "asffa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2019-01-11T01:23:37.608Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "34",
+    "object_repr": "afsasf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2019-01-11T01:24:21.858Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "36",
+    "object_repr": "asffa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2019-01-11T01:25:34.500Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "37",
+    "object_repr": "asffa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2019-01-11T01:26:32.630Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "38",
+    "object_repr": "asffa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2019-01-11T01:28:51.712Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "39",
+    "object_repr": "asffa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2019-01-11T01:29:30.732Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "40",
+    "object_repr": "asffa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2019-01-11T01:30:12.543Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "41",
+    "object_repr": "asfasfa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2019-01-11T01:30:34.795Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "42",
+    "object_repr": "asfasfa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2019-01-11T01:32:23.349Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "43",
+    "object_repr": "asfasfa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2019-01-11T01:32:55.979Z",
+    "user": 4,
+    "content_type": 14,
+    "object_id": "14",
+    "object_repr": "112",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2019-01-11T01:33:04.783Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "44",
+    "object_repr": "asfasfa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2019-01-11T01:34:13.766Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "45",
+    "object_repr": "asfasfa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2019-01-11T01:42:14.962Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "47",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2019-01-11T01:42:14.971Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "46",
+    "object_repr": "asfasfa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2019-01-11T01:46:07.441Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "48",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2019-01-11T01:57:23.765Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "50",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2019-01-11T01:57:23.770Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "49",
+    "object_repr": "dansafa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2019-01-11T01:58:12.726Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "51",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2019-01-11T03:24:10.099Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "53",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2019-01-11T03:24:10.106Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "52",
+    "object_repr": "daas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2019-01-11T03:25:20.600Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "54",
+    "object_repr": "sadsada",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2019-01-11T03:26:27.391Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "55",
+    "object_repr": "sadsada",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2019-01-11T03:30:23.412Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "56",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2019-01-11T03:31:21.873Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "57",
+    "object_repr": "asdas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2019-01-11T03:31:57.457Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "58",
+    "object_repr": "asdas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2019-01-11T03:37:20.319Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "60",
+    "object_repr": "asdasdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2019-01-11T03:37:20.327Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "59",
+    "object_repr": "asdazx",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2019-01-11T03:40:45.576Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "61",
+    "object_repr": "asdasdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2019-01-11T03:43:20.529Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "62",
+    "object_repr": "dasfasf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2019-01-11T03:46:30.565Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "63",
+    "object_repr": "asda",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2019-01-11T03:52:11.390Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "64",
+    "object_repr": "asdasdaaas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2019-01-11T03:53:21.383Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "65",
+    "object_repr": "asdasda",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2019-01-11T03:58:33.329Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "66",
+    "object_repr": "sdad",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2019-01-11T04:00:54.125Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "67",
+    "object_repr": "asdas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2019-01-11T04:02:44.523Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "68",
+    "object_repr": "sadas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2019-01-11T04:04:31.029Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "69",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2019-01-11T04:06:00.479Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "71",
+    "object_repr": "sadasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2019-01-11T04:06:00.488Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "70",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2019-01-11T04:07:35.694Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "72",
+    "object_repr": "ASDASDAS",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2019-01-11T04:08:16.578Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "73",
+    "object_repr": "ASDASDAS",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2019-01-11T04:09:29.837Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "74",
+    "object_repr": "ASDASDAS",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2019-01-11T04:11:00.404Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "75",
+    "object_repr": "sadasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2019-01-11T04:11:45.896Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "76",
+    "object_repr": "ihauf",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2019-01-11T04:38:50.610Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "82",
+    "object_repr": "cbnbnb",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2019-01-11T04:38:50.620Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "81",
+    "object_repr": "dasdas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2019-01-11T04:38:50.624Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "80",
+    "object_repr": "asdad",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2019-01-11T04:38:50.627Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "79",
+    "object_repr": "daasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2019-01-11T04:38:50.630Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "78",
+    "object_repr": "Dasda",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2019-01-11T04:38:50.634Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "77",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2019-01-11T04:38:50.637Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "17",
+    "object_repr": "pippo",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2019-01-11T04:39:04.924Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "82",
+    "object_repr": "cbnbnb",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2019-01-11T04:39:04.929Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "81",
+    "object_repr": "dasdas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2019-01-11T04:39:04.933Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "80",
+    "object_repr": "asdad",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2019-01-11T04:39:04.936Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "79",
+    "object_repr": "daasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2019-01-11T04:39:04.940Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "78",
+    "object_repr": "Dasda",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2019-01-11T04:39:04.943Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "77",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2019-01-11T04:49:43.799Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "84",
+    "object_repr": "daasdsadkk",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2019-01-11T04:49:43.810Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "83",
+    "object_repr": "dasdas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2019-01-11T04:49:58.072Z",
+    "user": 4,
+    "content_type": 14,
+    "object_id": "27",
+    "object_repr": "",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2019-01-11T04:49:58.083Z",
+    "user": 4,
+    "content_type": 14,
+    "object_id": "18",
+    "object_repr": "222",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2019-01-11T09:44:50.593Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "86",
+    "object_repr": "asdas",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2019-01-11T09:44:50.602Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "85",
+    "object_repr": "asdad",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2019-01-11T09:48:59.838Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "87",
+    "object_repr": "fadfaj",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2019-01-11T10:03:18.300Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "88",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2019-01-11T10:11:04.927Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "89",
+    "object_repr": "sadasdasda",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2019-01-11T10:12:18.437Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "90",
+    "object_repr": "sadasdasda",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2019-01-11T11:50:52.082Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "93",
+    "object_repr": "prova",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2019-01-11T11:50:52.090Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "92",
+    "object_repr": "asdsad",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2019-01-11T11:50:52.092Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "91",
+    "object_repr": "asdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2019-01-11T12:03:34.723Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "94",
+    "object_repr": "sadasdfa",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2019-01-11T16:09:50.588Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "95",
+    "object_repr": "sdada",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2019-01-12T09:02:10.616Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "97",
+    "object_repr": "asdada",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 105,
+  "fields": {
+    "action_time": "2019-01-12T09:02:10.626Z",
+    "user": 4,
+    "content_type": 19,
+    "object_id": "96",
+    "object_repr": "dasdasd",
+    "action_flag": 3,
+    "change_message": ""
+  }
+}
+]
