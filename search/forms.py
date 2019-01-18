@@ -11,3 +11,4 @@ class SearchForm(forms.Form):
                                          help_text='Usa ctrl per la selezione multipla',
                                          required=False,
                                          )
+    CercaNome= forms.CharField(label='Oppure... <br>cerca per nome:', required=False)
