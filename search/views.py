@@ -85,7 +85,6 @@ class Ricerca(ListView):
                             f = foto.foto_locale.url
                         locals.append(
                             {'local': l, 'voto': str(round(vote, 2)).replace('.', ','), 'n_rec': n_rec, 'foto': f})
-                    print(locals)
                     context = {'locals': locals, 'SearchForm': form, 'location': self.pos,
                                'location_len': len(str(self.pos))}
         # end alternative

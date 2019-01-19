@@ -306,7 +306,7 @@ class CreateLocalView(View):
                     url = "Clicca qui per tornare alla pagina di aggiunta di un locale"
                     context = {'messaggio': messaggio, 'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
                     return render(request, 'localManagement/successo_insuccesso_locale.html', context)
-                elif Locale.objects.filter(email=email).exists():
+                elif Locale.objects.filter(email=email).exists() and email is not '':
                     messaggio = "Errore"
                     messaggio1 = "Esiste gia' un locale con l'indirizzo email inserito!"
                     messaggio2 = "Si prega di reinserire i dati correttamente"
