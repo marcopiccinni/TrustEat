@@ -18,7 +18,9 @@ class RegUtenteView(CreateView):
 
     def get(self, request):
         form = RegUser()
-        return render(request, self.template_name, {'form': form})
+        flag = True
+        context = {'form': form, 'flag':flag}
+        return render(request, self.template_name, context)
 
     def post(self, request):
         if request.method == 'POST':

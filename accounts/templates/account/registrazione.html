@@ -26,21 +26,23 @@
                         {{ form|crispy }}
                     </div>
                 </div>
+                {% if flag %}
                 <br>
                 <h5>Scegliere Sì se si desidera aggiungere una carta di credito, altrimenti selezionare No</h5>
-                <fieldset>
-                    Sì <input type="radio" name="scelta" value="sì" id="choice_1"/>
-                    No <input type="radio" name="scelta" value="no" id="choice_2"/>
-                </fieldset>
-                <br>Carta di credito<br>
-                <input type="text" maxlength="16" id="cc" name="carta_di_credito"
-                       onchange="checkCard()">
-                <br><br>Intestatario<br>
-                <input type="text" maxlength="100" id="intest" name="intestatario"
-                       onchange="checkIntestatario()">
-                <br><br>Data di scadenza<br>
-                <input type="date" id="scad" name="scadenza" style="height: 50px">
-                <br><label>Il giorno del mese non verrà considerato</label>
+                    <fieldset>
+                        Sì <input type="radio" name="scelta" value="sì" id="choice_1"/>
+                        No <input type="radio" name="scelta" value="no" id="choice_2"/>
+                    </fieldset>
+                    <br>Carta di credito<br>
+                    <input type="text" maxlength="16" id="cc" name="carta_di_credito"
+                           onchange="checkCard()">
+                    <br><br>Intestatario<br>
+                    <input type="text" maxlength="100" id="intest" name="intestatario"
+                           onchange="checkIntestatario()">
+                    <br><br>Data di scadenza<br>
+                    <input type="date" id="scad" name="scadenza" style="height: 50px">
+                    <br><label>Il giorno del mese non verrà considerato</label>
+                {% endif %}
             </div>
 
             <div class="card-footer rounded-0 m-0 py-2">

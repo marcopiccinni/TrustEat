@@ -32,7 +32,6 @@ function checkValues() {
         button.setAttribute('type', 'submit');
         if (sel_pay === "Carta di credito") {
             if (sel_card === '---------') {
-                console.log('carta vuota');
                 errorCard.hidden = false;
                 button.classList.add("disabled");
                 button.setAttribute('type', 'button');

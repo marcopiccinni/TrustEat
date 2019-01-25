@@ -17,8 +17,11 @@ class LocalsTests(TestCase):
         Localita.objects.create(cap='41100', nome_localita='Modena')
         local = Locale(nome_locale='Prova', orario_apertura='13:50', orario_chiusura='13:50',
                        cap=Localita.objects.get(nome_localita='Modena'), via='viale Italia', num_civico=3,
-                       telefono='059000000',)
-        self.assertEqual(local.correct_open_close_time(), False)
+                       telefono='059000000',
+                       )
+        local.save()
+        print(Locale.objects.all())
+        self.assertEqual(local.orario_apertura < local.orario_chiusura, False)
 
     def test_orario_greater(self):
         Localita.objects.create(cap='41100', nome_localita='Modena')
@@ -26,4 +29,4 @@ class LocalsTests(TestCase):
                        cap=Localita.objects.get(nome_localita='Modena'), via='viale Italia', num_civico=3,
                        telefono='059000000',
                        )
-        self.assertEqual(local.correct_open_close_time(), False)
+        self.assertEqual(local.orario_apertura < local.orario_chiusura, False)

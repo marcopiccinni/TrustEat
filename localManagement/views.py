@@ -291,6 +291,7 @@ class CreateLocalView(View):
                 foto_locale3 = form.cleaned_data['foto_locale3']
                 # geocoding ---------------------
                 latitude, longitude = geocode(str(via) + ',' + str(num_civico) + ',' + str(cap) + 'Italia')
+                print(email)
 
                 if Locale.objects.filter(nome_locale=nome_locale, cap=cap).exists():
                     messaggio = "Errore"
@@ -306,7 +307,7 @@ class CreateLocalView(View):
                     url = "Clicca qui per tornare alla pagina di aggiunta di un locale"
                     context = {'messaggio': messaggio, 'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
                     return render(request, 'localManagement/successo_insuccesso_locale.html', context)
-                elif Locale.objects.filter(email=email).exists() and email is not '':
+                elif Locale.objects.filter(email=email).exists() and email is not "":
                     messaggio = "Errore"
                     messaggio1 = "Esiste gia' un locale con l'indirizzo email inserito!"
                     messaggio2 = "Si prega di reinserire i dati correttamente"
@@ -651,7 +652,6 @@ class ProductsMod(View):
                 prezzo = form.cleaned_data['prezzo']
                 foto_prodotto = form.cleaned_data['foto_prodotto']
                 foto_prod = Prodotto.objects.get(id=id).foto_prodotto
-                print(foto_prod)
                 Prodotto.objects.filter(id=id).delete()
 
                 if Prodotto.objects.filter(nome_prodotto=nome_prodotto, cod_locale=cod_locale).exists():

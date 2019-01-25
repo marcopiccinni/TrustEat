@@ -43,12 +43,12 @@ class RegComm(UserCreationForm):
     via = forms.CharField(required=True, label='Indirizzo')
     civico = forms.CharField(required=True, label='Numero civico')
     telefono = forms.CharField(required=True)
-    p_iva = forms.CharField(required=True, label='Partita IVA')
+    p_iva = forms.CharField(required=True, label='Partita IVA', max_length=11)
 
     class Meta:
         model = get_user_model()
-        fields = ['username', 'password1', 'password2', 'nome', 'cognome', 'email', 'telefono', 'p_iva', 'cap', 'via',
-                  'civico']
+        fields = ['username', 'password1', 'password2', 'nome', 'cognome', 'email', 'telefono', 'cap', 'via',
+                  'civico', 'p_iva']
 
     def clean_telefono(self):
         telefono = self.cleaned_data['telefono']
@@ -61,8 +61,11 @@ class RegComm(UserCreationForm):
         p_iva = self.cleaned_data['p_iva']
         if Commerciante.objects.filter(p_iva=self.cleaned_data['p_iva']).exists():
             raise forms.ValidationError("La partita iva inserita esiste gia'")
+        # elif p_iva > self.max_length:
+        #     raise forms.ValidationError("La partita iva non deve superare gli 11 caratteri")
         else:
             return p_iva
+
 
     @transaction.atomic
     def save(self, commit=True):

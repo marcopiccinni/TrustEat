@@ -192,7 +192,6 @@ class ListOrder(View):
             s = sorted(s, key=int)
             for x in s:
                 ordine = OrdineInAttesa.objects.get(cod_ordine=x)
-                print('Ordine: ', ordine.pk, ordine.accettato, ordine.consegnato)
                 distance = 'None km'
                 time = 'None mins'
                 # -----------------------------------------------------------------------------------------------------
@@ -211,7 +210,6 @@ class ListOrder(View):
                 if ordine.accettato is None:
                     waiting_list.append(tmp)
                 elif not ordine.accettato:
-                    print('rifiutato: ', ordine.pk)
                     refused_list.append(tmp)
                 elif ordine.accettato:
                     if ordine.consegnato:
@@ -234,8 +232,6 @@ class ListOrder(View):
                         delivering_list.append(x)
                 else:
                     delivering_list.append(x)
-            print('delivering_list: ', delivering_list)
-            print('delivering_js: ', delivering_js)
 
             args = {'waiting_list': waiting_list, 'refused_list': refused_list[::-1],
                     'delivering_list': delivering_list, 'delivering_js': delivering_js,
