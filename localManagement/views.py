@@ -10,7 +10,7 @@ from order.models import RichiedeM, RichiedeP, OrdineInAttesa
 from TrustEat.maps import geocode
 import datetime
 
-
+# pagina del singolo locale
 class LocalList(View):
     form = QuantityForm()
     last_user = '0'
@@ -23,6 +23,7 @@ class LocalList(View):
     prod_list = []
     menu_list = []
 
+    # funzione che inizializza a zero gli ordini
     @staticmethod
     def init_obj(self, cod_locale):
         for x in Prodotto.objects.filter(cod_locale=cod_locale).all():
@@ -44,6 +45,7 @@ class LocalList(View):
                 avg_vote += v.voto
             avg_vote /= count_vote
 
+        # gestione pulsanti slider bootstrap
         photo_list = []
         num = photos.__len__() * 2
         pos = 0
@@ -72,6 +74,7 @@ class LocalList(View):
                     form = QuantityForm(initial={'id': x.id, 'num_object': l['num_obj'], 'isProduct': False})
                     break
 
+            # per ogni menu' elenca i prodotti associati
             composto_da = ''
             for c in CompostoDa.objects.filter(nome_menu=x, cod_locale=cod_locale):
                 composto_da += c.nome_prodotto.nome_prodotto + ', '
@@ -144,6 +147,7 @@ class Votes(View):
     dealer_form = ReplayForm
     dealers = []
 
+    # ordina correttamente tutti i voti delle recensioni
     @staticmethod
     def orderer_votes(self, vote):
         tree = []
@@ -171,6 +175,7 @@ class Votes(View):
                         break
         return tree
 
+    # gestione scelta form inserimento/risposta. Controlla anche se la recensione e' un update o un nuovo inserimento
     @classmethod
     def get(cls, request, cod_locale):
         local = get_object_or_404(Locale, pk=cod_locale)
@@ -330,15 +335,9 @@ class CreateLocalView(View):
                                  prezzo_di_spedizione=prezzo_di_spedizione,
                                  latitude=latitude, longitude=longitude)
 
+                    # chiamo un metodo definito nel model per controllare la correttezza degli orari
                     if loc.correct_open_close_time():
 
-                        # loc = Locale.objects.create(nome_locale=nome_locale, orario_apertura=orario_apertura,
-                        #                             orario_chiusura=orario_chiusura, num_civico=num_civico, via=via,
-                        #                             cap=Localita.objects.get(cap=cap.cap), descrizione=descrizione,
-                        #                             telefono=telefono,
-                        #                             sito_web=sito_web, email=email,
-                        #                             prezzo_di_spedizione=prezzo_di_spedizione,
-                        #                             latitude=latitude, longitude=longitude)
                         loc.save()
                         loc.tag.set(t)
 
@@ -570,7 +569,7 @@ class DeleteLocal(View):
             context = {'messaggio': messaggio, 'messaggio1': messaggio1, 'red': red, 'url': url}
             return render(request, 'localManagement/successo_insuccesso_locale.html', context)
 
-
+# Gestione prodotti
 class ProductsList(View):
     def get(self, request, cod_locale):
         if request.user.is_anonymous or not request.user.is_commerciante:
@@ -604,6 +603,7 @@ class AddProduct(View):
                 nome_prodotto = form.cleaned_data['nome_prodotto']
                 descrizione_prodotto = form.cleaned_data['descrizione_prodotto']
                 prezzo = form.cleaned_data['prezzo']
+                print('prezzo:', prezzo)
                 foto_prodotto = form.cleaned_data['foto_prodotto']
 
                 if Prodotto.objects.filter(nome_prodotto=nome_prodotto, cod_locale=cod_locale).exists():
@@ -699,7 +699,7 @@ class DeleteProduct(View):
                        'locale': Locale.objects.get(pk=cod_locale)}
             return render(request, 'localManagement/successo_aggiunta_menu.html', context)
 
-
+# gestione Menu
 class MenuList(View):
     def get(self, request, cod_locale):
         if request.user.is_anonymous or not request.user.is_commerciante:

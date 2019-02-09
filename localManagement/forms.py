@@ -113,7 +113,7 @@ class EditProduct(forms.Form):
     nome_prodotto = forms.CharField(max_length=100, required=False, widget=forms.TextInput(), label='Nome')
     descrizione_prodotto = forms.CharField(max_length=100, required=False, widget=forms.TextInput(),
                                            label='Ingredienti')
-    prezzo = forms.FloatField(min_value=0, required=False)
+    prezzo = forms.FloatField(min_value=0, required=False, max_value=99)
     foto_prodotto = forms.ImageField(required=False, label='Foto')
 
     class Meta:
@@ -124,7 +124,7 @@ class EditProduct(forms.Form):
 class AddEProduct(forms.Form):
     nome_prodotto = forms.CharField(max_length=100, required=True, widget=forms.TextInput(), label='Nome')
     descrizione_prodotto = forms.CharField(max_length=100, required=True, widget=forms.TextInput(), label='Ingredienti')
-    prezzo = forms.FloatField(min_value=0, required=True)
+    prezzo = forms.FloatField(min_value=0, required=True, max_value=99)
     foto_prodotto = forms.ImageField(required=False)
 
     class Meta:
@@ -135,7 +135,7 @@ class AddEProduct(forms.Form):
 class AddEMenu(forms.Form):
     nome_menu = forms.CharField(max_length=100, required=True, widget=forms.TextInput(), label='Nome')
     descrizione_menu = forms.CharField(max_length=100, required=True, widget=forms.TextInput(), label='Descrizione')
-    prezzo = forms.FloatField(min_value=0, required=True)
+    prezzo = forms.FloatField(min_value=0, required=True, max_value=99)
     composto_da_prodotti = forms.ModelMultipleChoiceField(queryset=Prodotto.objects.all(), required=True,
                                                           widget=forms.CheckboxSelectMultiple(),
                                                           label='Prodotti inclusi')
@@ -148,7 +148,7 @@ class AddEMenu(forms.Form):
 class ModMenu(forms.Form):
     nome_menu = forms.CharField(max_length=100, required=True, widget=forms.TextInput(), label='Nome')
     descrizione_menu = forms.CharField(max_length=100, required=True, widget=forms.TextInput(), label='Descrizione')
-    prezzo = forms.FloatField(min_value=0, required=True)
+    prezzo = forms.FloatField(min_value=0, required=True, max_value=99)
     composto_da_prodotti = forms.ModelMultipleChoiceField(queryset=Prodotto.objects.all(), required=False,
                                                           widget=forms.CheckboxSelectMultiple(),
                                                           label='Prodotti inclusi')

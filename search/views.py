@@ -17,13 +17,17 @@ class Ricerca(ListView):
     ordered = []
     pos = ''
 
-    @csrf_exempt
+    # disable csrf
+    # @csrf_exempt
     def get(self, request, *args, **kwargs):
         db_order_consistance()
         form = SearchForm()
 
         if request.user.is_authenticated and not (request.user.is_superuser or request.user.is_staff):
             location = User.objects.get(username=request.user).cap
+
+            # Ordina i locali della corrispettiva localita'. In caso questa non esista, l'utente e'
+            # sbagliato, e quindi viene eliminato.
             try:
                 self.sorting(Locale.objects.filter(cap=Localita.objects.get(cap=location)).all())
             except:
@@ -38,6 +42,7 @@ class Ricerca(ListView):
             self.sorting(Locale.objects.all())
         context = {'locals': self.ordered, 'SearchForm': form,
                    'location': self.pos, 'location_len': len(str(self.pos))}
+
         if request.method == 'GET':
             form = SearchForm(request.GET or None)
             if form.is_valid():
@@ -90,6 +95,8 @@ class Ricerca(ListView):
         # end alternative
         return render(request, self.template_name, context)
 
+    # metodo che prende i dati dei locali e dopo chiama la funzione sort per ordinarli prima rispetto al numero di recensioni
+    # ed infine rispetto al voto.
     def sorting(self, locals_list):
         self.ordered = []
         for local in locals_list:

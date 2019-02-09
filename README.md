@@ -1,4 +1,4 @@
-Questo è un sito di food delivery. In questa app di django, i commercianti possono inserire i propri locali e gli utenti possono ordinare il cibo.
+Questo e' un sito di food delivery. In questa app di django, i commercianti possono inserire i propri locali e gli utenti possono ordinare il cibo.
 
 Primo, installare python 3.7.1
 
@@ -46,7 +46,7 @@ Quarto ed ultimo, avviare il server.
 python manage.py runserver
 ```
 
-Il sito sarà visitabile all'indirizzo **127.0.0.1:8000**.
+Il sito sara' visitabile all'indirizzo **127.0.0.1:8000**.
 
 ----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -58,7 +58,7 @@ Il db, caricabile attraverso il seguente comando:
 python manage.py loaddata dati_db_trusteat.json
 ```
 
- contiene svariati utenti/commercianti (sarano omessi tuttavia gli utenti creati con la registrazione tramite Google per ovvi motivi) e sono i seguenti:
+ contiene svariati utenti/commercianti (omettero' tuttavia gli utenti creati con la registrazione tramite google per ovvi motivi) e sono i seguenti:
 
 utenti:
 
@@ -84,8 +84,8 @@ admin:
 	password: admin
 
 
-Gli utenti hanno già effettuato ordini, quindi troveremo già ordini consegnati/rifiutati e relative recensioni lasciate ai locali con, in alcuni casi, le risposte da parte dei commercianti.
-Per testare gli ordini in attesa è invece necessario effettuare un ordine, in quanto essi, scoccata la mezzanotte di ogni giorno, vengono impostati come rifiutati, perchè il sito si basa su ordini gestiti giorno per giorno.
-Ovviamente sono presenti anche locali in differenti località, con vari prodotti e menù.
+Gli utenti hanno gia' effettuato ordini, quindi troveremo gia' ordini consegnati/rifiutati e relative recensione lasciate ai locali, con, in alcuni casi, le risposte da parte dei commercianti.
+Per testare gli ordini in attesa e' invece necessario effettuare un ordine, in quanto, essi, scoccata la mezzanotte di ogni giorno, vengono impostati come rifiutati, in quanto il sito si basa su ordini gestiti giorno per giorno.
+Ovviamente troveremo anche diversi locali in varie localita', con vari prodotti e menu'.
 
 N.B. Ricordarsi di spostare un ordine da "ordine in attesa" a "confermato" per poter visualizzare il relativo segnalino sulla mappa.

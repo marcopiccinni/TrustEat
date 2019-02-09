@@ -1,7 +1,5 @@
 from django import forms
 from .models import CartaDiCredito
-from accounts.models import Utente
-from django.db import transaction
 
 
 class EditRecUser(forms.Form):

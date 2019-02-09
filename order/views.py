@@ -1,9 +1,8 @@
-from django.core.exceptions import ValidationError
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import CreateView, View
 from .models import OrdineInAttesa, RichiedeP, RichiedeM
 from .forms import OrderForm, CardOrderForm
-from localManagement.models import Locale, Localita, Prodotto, Menu
+from localManagement.models import Locale, Localita
 from localManagement.views import LocalList
 from accounts.models import User, Utente, Commerciante
 from user.models import CartaDiCredito
@@ -88,7 +87,7 @@ class Check(CreateView):
                                                      nome_menu=menu['menu'], quantita=menu['num_obj'])
         return redirect('order:placed_order')
 
-
+# riepilogo dell'ordine che puoi stampare, dopo il check
 class PlacedOrder(View):
     template_name = 'order/placed_order.html'
 
@@ -124,7 +123,7 @@ class PlacedOrder(View):
             'total': round(total + locale.prezzo_di_spedizione, 2), 'dealers': dealers}
         return render(request, cls.template_name, context)
 
-
+# pagina di riepilogo che puo' essere chiamata sia da utente che da commerciante
 class ReviewOrder(View):
     template_name = 'order/placed_order.html'
 
@@ -172,6 +171,8 @@ class ListOrder(View):
     template_name = 'order/list_order.html'
 
     def get(self, request, cod_locale):
+        db_order_consistance()
+
         if request.user.is_anonymous or not request.user.is_commerciante:
             return redirect('/')
 
@@ -257,7 +258,7 @@ class ListOrder(View):
 
         return redirect('order:list_order', cod_locale)
 
-
+# funzione generale per il calcolo del costo totale dell'ordine
 def total_price(cod_ordine):
     locale = 0
     ordine = OrdineInAttesa.objects.get(cod_ordine=cod_ordine)
@@ -277,7 +278,8 @@ def total_price(cod_ordine):
         total += float(num_obj) * float(m.prezzo)
     return round(total, 2)
 
-
+# funzione che garantisce la consistenza del database annullando, a fine giornata, gli ordini in attesa e quelli accettati
+# ma non consegnati
 def db_order_consistance():
     for not_accepted in OrdineInAttesa.objects.filter(accettato=None):
         if not_accepted.data.date() < datetime.datetime.now().date():

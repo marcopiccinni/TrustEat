@@ -9,6 +9,7 @@ from order.models import OrdineInAttesa, RichiedeP, RichiedeM
 from user.models import CartaDiCredito
 from TrustEat.maps import geocode
 from datetime import date
+from order.views import db_order_consistance
 
 
 class RegUtenteView(CreateView):
@@ -19,7 +20,7 @@ class RegUtenteView(CreateView):
     def get(self, request):
         form = RegUser()
         flag = True
-        context = {'form': form, 'flag':flag}
+        context = {'form': form, 'flag': flag}
         return render(request, self.template_name, context)
 
     def post(self, request):
@@ -35,8 +36,8 @@ class RegUtenteView(CreateView):
                 cap = form.cleaned_data['cap'].cap
                 telefono = form.cleaned_data['telefono']
                 password = form.cleaned_data['password1']
-                user = User.objects.create(username=username, first_name=nome, last_name=cognome, email=email, via=via, civico=civico,
-                                    cap=cap, telefono=telefono, is_utente=True)
+                user = User.objects.create(username=username, first_name=nome, last_name=cognome, email=email, via=via,
+                                           civico=civico, cap=cap, telefono=telefono, is_utente=True)
                 user.set_password(password)
                 # ---------------- geocoding ------------------------------------
                 user.latitude, user.longitude = geocode(
@@ -52,9 +53,9 @@ class RegUtenteView(CreateView):
                 scelta = form.data['scelta']
 
                 if scelta == 'sì':
-                    scelta=True
+                    scelta = True
                 else:
-                    scelta=False
+                    scelta = False
 
                 carta_di_credito = form.data['carta_di_credito']
                 intestatario = form.data['intestatario']
@@ -70,13 +71,11 @@ class RegUtenteView(CreateView):
                     utente.carta_di_credito.add(CartaDiCredito.objects.get(numero_carta=carta_di_credito).pk)
                 return redirect('accounts:area_utente')
             else:
-                messaggio1="Dati inseriti errati"
-                messaggio2="Mail o numero di telefono gia' in uso"
-                url="Cliccare qui per tornare al form di registrazione"
-                context = {'messaggio1':messaggio1, 'messaggio2':messaggio2, 'url':url}
+                messaggio1 = "Dati inseriti errati"
+                messaggio2 = "Mail o numero di telefono gia' in uso"
+                url = "Cliccare qui per tornare al form di registrazione"
+                context = {'messaggio1': messaggio1, 'messaggio2': messaggio2, 'url': url}
                 return render(request, 'account/err_reg.html', context)
-
-
 
 
 class RegCommercianteView(CreateView):
@@ -152,7 +151,6 @@ class InsertLogin(View):
                     current_user.save(
                         update_fields=['is_utente', 'via', 'civico', 'cap', 'telefono', 'latitude', 'longitude'])
                     u = Utente.objects.create(user=current_user)
-
 
                     if carta_di_credito is not "":
                         if intestatario is "":
@@ -325,17 +323,26 @@ class EditCommDataView(View):
                 # geocoding
                 latitude, longitude = geocode(str(via) + ',' + str(civico) + ',' + str(cap) + ',' + 'Italia')
 
+
+
+
                 if User.objects.filter(username=request.user.username).update(email=email, first_name=nome,
                                                                               last_name=cognome,
                                                                               via=via,
                                                                               civico=civico, cap=cap.cap,
                                                                               telefono=telefono, latitude=latitude,
                                                                               longitude=longitude):
-                    u = User.objects.get(username=request.user.username).set_password(conferma_password)
-                    u.save()
-                    Commerciante.objects.filter(pk=request.user.id).update(p_iva=p_iva)
-                    login(self.request, u, backend='django.contrib.auth.backends.ModelBackend')
-                    return render(request, 'account/avviso_successo.html', context)
+
+                    if nuova_password is not "":
+                        u = User.objects.get(username=request.user.username)
+                        u.set_password(nuova_password)
+                        u.save()
+                        Commerciante.objects.filter(pk=request.user.id).update(p_iva=p_iva)
+                        login(self.request, u, backend='django.contrib.auth.backends.ModelBackend')
+                        return render(request, 'account/avviso_successo.html', context)
+                    else:
+                        return render(request, 'account/avviso_successo.html', context)
+
                 else:
                     messaggio1 = 'Insuccesso'
                     messaggio2 = 'Riprovare'
@@ -349,6 +356,8 @@ class AreaUtente(View):
     template_name = 'account/dashboard.html'
 
     def get(self, request):
+        db_order_consistance()
+
         if request.user.is_anonymous:
             return redirect('/')
 
@@ -392,6 +401,7 @@ class AreaUtente(View):
             return render(request, self.template_name, args)
         return redirect('/')
 
+    # Elimina l'ordine in attesa selezionato
     def post(self, request):
         c = request.POST['num_order']
         RichiedeP.objects.filter(cod_ordine_id=c).delete()

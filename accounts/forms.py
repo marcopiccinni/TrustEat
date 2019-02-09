@@ -66,7 +66,8 @@ class RegComm(UserCreationForm):
         else:
             return p_iva
 
-
+    # transazione atomica, o tutto o niente, ovvero, il salvataggio sul db viene effettuato solamente se il form non
+    # produce errori
     @transaction.atomic
     def save(self, commit=True):
         user = super().save(commit=False)

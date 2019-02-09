@@ -20,6 +20,8 @@ a.section:link, a.section:visited {
 h1 {
     color: #a01b2a;
     font-family: Poppins-medium, sans-serif;
+    font-size: 300%;
+    text-align: center;
 }
 
 #content-related {
@@ -32,6 +34,7 @@ h1 {
     width: 100px;
     position: relative;
     margin-right: -600px;
+    display: none;
 }
 
 div.breadcrumbs {
@@ -72,3 +75,14 @@ div.__web-inspector-hide-shortcut__ {
     background: transparent;
     color: transparent;
 }
+
+.dashboard #content {
+    width: 80%;
+    margin-left: 5%;
+}
+
+
+td, th {
+    font-size: 125%;
+}
+

@@ -18,5 +18,4 @@ urlpatterns = [
     path('commerciante/registrazione_locale', CreateLocalView.as_view(), name='registrazione_locale'),
     path('', views.dashboard, name='dashboard'),
     path('area_utente', AreaUtente.as_view(), name='area_utente'),
-    path('registrazione/login_social', InsertLogin.as_view(), name='registrazione_login_social'),
 ]

@@ -2,7 +2,7 @@ from django.test import TestCase
 from .models import OrdineInAttesa
 import datetime
 
-
+# controlla che la data di creazione dell'ordine non sia nel passato o nel futuro
 class OrdersTests(TestCase):
 
     def test_order_valid(self):

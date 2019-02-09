@@ -20,8 +20,7 @@ class CartaDiCredito(models.Model):
     def is_valid(self):
         if self.scadenza.year >= datetime.datetime.now().year and self.scadenza.month >= datetime.datetime.now().month:
             return True
-        else:
-            return False
+        return False
 
 
 class Recensione(models.Model):
