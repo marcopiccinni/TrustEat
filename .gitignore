@@ -3,8 +3,12 @@
 
 migrations/
 migrations\
+
 __pycache__/
 __pycache__\
+
+/desktop.ini
+\desktop.ini
 
 .pyc
 .xml
